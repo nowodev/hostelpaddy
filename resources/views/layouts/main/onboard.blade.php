@@ -91,14 +91,36 @@
 
 
 <body>
-  @yield('content')
+  <!-- container -->
+  <div class="container-fluid mx-0">
+    <div class="row">
+
+      <!-- image visible only in large screens -->
+      <div class="col-lg-4 side-image">
+        <div class="heading-title">
+          <h1>Your No. 1 solution for hostel accommodation</h1>
+        </div>
+        <div class="desc-text mt-3">
+          <p>An innovating way to relieve you of the hassle of hostel-hunting</p>
+        </div>
+      </div>
+      <!-- /image visible only in large screens -->
+
+      <div class="col-12 col-md-12 col-lg-8">
+
+        @yield('content')
+
+
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
 
   <!-- Vendor scripts -->
   <script src="{{ asset('main/vendor/jquery/jquery-3.1.1.min.js') }}"></script>
-  {{-- <script src="{{ asset('comingsoon/vendor/bootstrap/js/bootstrap.bundle.js') }}" defer></script> --}}
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <script src="{{ asset('main/js/script.js') }}"></script>
 </body>
 
 </html>
