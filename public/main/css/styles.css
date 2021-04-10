@@ -1,0 +1,428 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+
+/* Custom Fonts */
+@import url(../fonts/TTCommons-Black.ttf);
+@import url(../fonts/TTCommons-BlackItalic.ttf);
+@import url(../fonts/TTCommons-Bold.ttf);
+@import url(../fonts/TTCommons-BoldItalic.ttf);
+@import url(../fonts/TTCommons-DemiBold.ttf);
+@import url(../fonts/TTCommons-DemiBoldItalic.ttf);
+@import url(../fonts/TTCommons-ExtraBold.ttf);
+@import url(../fonts/TTCommons-Medium.ttf);
+@import url(../fonts/TTCommons-Regular.ttf);
+
+@import url(../fonts/Asap-Bold.otf);
+@import url(../fonts/Asap-BoldItalic.otf);
+@import url(../fonts/Asap-Italic.otf);
+@import url(../fonts/Asap-Medium.otf);
+@import url(../fonts/Asap-MediumItalic.otf);
+@import url(../fonts/Asap-Regular.otf);
+@import url(../fonts/Asap-Symbols.otf);
+
+
+@font-face {
+  font-family: 'TTCommons-Black';
+  src: url(../fonts/TTCommons-Black.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-BlackItalic';
+  src: url(../fonts/TTCommons-BlackItalic.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-Bold';
+  src: url(../fonts/TTCommons-Bold.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-BoldItalic';
+  src: url(../fonts/TTCommons-BoldItalic.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-DemiBold';
+  src: url(../fonts/TTCommons-DemiBold.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-DemiBoldItalic';
+  src: url(../fonts/TTCommons-DemiBoldItalic.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-ExtraBold';
+  src: url(../fonts/TTCommons-ExtraBold.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-Medium';
+  src: url(../fonts/TTCommons-Medium.ttf)
+}
+
+@font-face {
+  font-family: 'TTCommons-Regular';
+  src: url(../fonts/TTCommons-Regular.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Bold';
+  src: url(../fonts/Asap-Bold.otf)
+}
+
+@font-face {
+  font-family: 'Asap-BoldItalic';
+  src: url(../fonts/Asap-BoldItalic.otf)
+}
+
+@font-face {
+  font-family: 'Asap-Italic';
+  src: url(../fonts/Asap-Italic.otf)
+}
+
+@font-face {
+  font-family: 'Asap-Medium';
+  src: url(../fonts/Asap-Medium.otf)
+}
+
+@font-face {
+  font-family: 'Asap-MediumItalic';
+  src: url(../fonts/Asap-MediumItalic.otf)
+}
+
+@font-face {
+  font-family: 'Asap-Regular';
+  src: url(../fonts/Asap-Regular.otf)
+}
+
+@font-face {
+  font-family: 'Asap-Symbol';
+  src: url(../fonts/Asap-Symbol.otf)
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'TTCommons-Bold', sans-serif !important;
+}
+
+/* Utilities */
+
+.bold {
+  font-weight: bold !important;
+}
+
+.body-image {
+  background-image: url(../assets/bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #212224 !important;
+  color: #fff !important;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem auto 0;
+  line-height: 45px;
+}
+
+.nav-container .logo {
+  justify-content: start;
+}
+
+.nav-container .blog-text {
+  justify-content: end;
+}
+
+.nav-container .logo img.logo {
+  max-height: 48px;
+  max-width: 48px;
+}
+
+.nav-container a:link {
+  text-decoration: none;
+}
+
+.nav-container a.blog {
+  color: #fff;
+  font-size: 1.425rem;
+}
+
+.countdown-container {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.count-down {
+  max-width: 140px;
+  margin: 1rem auto;
+}
+
+.count-down .heading-text {
+  font-family: 'TTCommons-Bold', sans-serif;
+  font-size: 2.525rem;
+}
+
+.count-down .desc-text {
+  font-family: 'TTCommons-Medium', sans-serif;
+  font-size: 1rem;
+}
+
+.coming-soon-content {
+  margin-top: 1rem;
+  max-height: 600px;
+}
+
+.coming-soon-content .website {
+  font-family: 'TTCommons-Bold', sans-serif;
+  font-size: 2.225rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.coming-soon-content .launching-soon {
+  font-family: 'TTCommons-Bold', sans-serif;
+  font-size: 2.825rem;
+  font-weight: 900;
+}
+
+.coming-soon-content .coming-soon-image {
+  display: none;
+}
+
+.newsletter-container {
+  margin: 2rem auto;
+}
+
+.input-field-area {
+  margin-top: 1rem;
+}
+
+.input-field-area .form-control {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  display: flex;
+}
+
+.input-field-area .form-control input,
+.input-field-area .form-control button {
+  margin: 0;
+  height: 50px;
+}
+
+.input-field-area .form-control input.input {
+  background-color: transparent;
+  border: 1px solid #fff;
+  outline: 0;
+  padding: 0.825rem;
+  font-family: 'TTCommons-Bold', sans-serif;
+  margin: 0;
+}
+
+.input-field-area .form-control button.submit {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid transparent;
+  outline: 0;
+  padding: 0.825rem;
+  font-family: 'TTCommons-Bold', sans-serif;
+  margin: 0;
+  margin-right: 1px;
+}
+
+.input-field-area .form-control button.submit .bell {
+  width: 12px;
+  height: 12px;
+}
+
+.social-icons {
+  display: inline-flex;
+  flex-direction: row;
+  margin-left: 2rem;
+}
+
+.social-icons .social-icon {
+  margin: auto 14px;
+}
+
+.copyright-area {
+  color: rgb(129, 129, 129);
+  margin: 2rem auto;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container {
+    margin: 2rem auto 0;
+  }
+
+  .count-down .heading-text {
+    font-size: 3.425rem;
+  }
+
+  .count-down .desc-text {
+    font-size: 1.325rem;
+  }
+
+  .coming-soon-content {
+    margin-top: 4rem;
+  }
+
+  .coming-soon-content .website {
+    font-size: 2.825rem;
+    margin-bottom: 1.225rem;
+  }
+
+  .coming-soon-content .launching-soon {
+    font-size: 3.825rem;
+    font-weight: 900;
+  }
+
+  .coming-soon-content .newsletter-description {
+    font-size: 1.625rem;
+  }
+
+  .input-field-area .form-control input,
+  .input-field-area .form-control button {
+    margin: 0;
+    height: 70px;
+  }
+
+  .input-field-area .form-control input.input {
+    padding: 1.425rem;
+    width: 300px;
+    color: #fff;
+  }
+
+  .input-field-area .form-control button.submit {
+    padding: 1.425rem;
+  }
+
+  .input-field-area .form-control button.submit .bell {
+    width: 14px;
+    height: 14px;
+  }
+
+  .newsletter-container {
+    margin: 5rem auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  .coming-soon-content .coming-soon-image {
+    display: block;
+  }
+}
+
+
+
+/**
+ *
+ * Auth pages start
+ *
+ */
+
+.side-image {
+  display: none;
+}
+
+a.login-button-text {
+  text-decoration: none
+}
+
+.login-button-text {
+  color: #000249;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 2px solid #000249;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+
+.login-button-text:hover {
+  background-color: #000249;
+  color: #fff;
+}
+
+.side-image {
+  background: url(../assets/side-image-auth-page.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
+}
+
+.heading-title,
+.desc-text {
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+}
+
+.heading-title {
+  font-size: 1.825rem;
+  margin-top: 10rem;
+  font-family: "Asap-Medium", sans-serif;
+  word-wrap: normal;
+}
+
+.desc-text {
+  font-size: 1.625rem;
+  font-family: "Asap-Regular", sans-serif;
+  font-weight: 400;
+}
+
+.onboard-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+a.onboard-student:link {
+  text-decoration: none;
+}
+
+.onboard {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  height: 200px;
+  padding: 18px 12px;
+}
+
+.onboard-text-title {
+  color: #000249;
+  font-size: 1.625rem;
+}
+
+/* Auth pages responsiveness */
+
+@media screen and (min-width: 1024px) {
+
+  .side-image {
+    display: block;
+  }
+}
+
+/**
+ *
+ * Auth pages End
+ *
+ */

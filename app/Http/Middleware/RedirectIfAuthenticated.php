@@ -24,6 +24,14 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
             }
+
+            if ($guard == 'student' && Auth::guard($guard)->check()) {
+                return redirect(RouteServiceProvider::STUDENTHOME);
+            }
+
+            if ($guard == 'agent' && Auth::guard($guard)->check()) {
+                return redirect(RouteServiceProvider::AGENTHOME);
+            }
         }
 
         return $next($request);
