@@ -13,33 +13,33 @@ use Illuminate\Support\Facades\Route;
 // Route::view('/privacy', 'coming-soon')->name('privacy');
 
 Route::get('/about', function () {
-    return view('about');
+    return view('webpages.about');
 })->name('about');
 
 Route::get('/hostels', function () {
-    return view('hostels');
+    return view('webpages.hostels');
 })->name('hostels');
 
 Route::get('/help', function () {
-    return view('help');
+    return view('webpages.help');
 })->name('help');
 
 Route::get('/onboarding', function () {
-    return view('onboarding');
+    return view('webpages.onboarding');
 })->name('onboarding');
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('webpages.contact');
 })->name('contact');
 
 Route::get('/faqs', function () {
-    return view('faqs');
+    return view('webpages.faqs');
 })->name('faqs');
 
 Route::get('/tos', function () {
-    return view('tos');
+    return view('webpages.tos');
 })->name('tos');
 
 Route::get('/privacy', function () {
-    return view('privacy');
+    return view('webpages.privacy');
 })->name('privacy');
