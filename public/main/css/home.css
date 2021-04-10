@@ -1,0 +1,355 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Asap", sans-serif;
+}
+
+.padding {
+  padding-bottom: 2rem;
+}
+
+/*Nav-bar styling*/
+.signup {
+  position: absolute;
+  right: 80px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.nav-item {
+  position: static;
+  display: flex;
+  margin-left: 1.625rem;
+}
+
+.navbar-brand {
+  /* margin-right: 20rem; */
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  display: block !important;
+  width: auto;
+  height: auto;
+}
+
+.navbar-toggler.toggler {
+  border: 0;
+  background-color: #5DA3D7;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.navbar-toggler.toggler:hover,
+.navbar-toggler.toggler:active {
+  color: #000249;
+  background-color: #5DA3D7;
+}
+
+.navbar-toggler.toggler .fa-bars {
+  color: #fff;
+}
+
+.navbar-nav ul li {
+  padding: 0 10px;
+}
+
+.navbar-nav ul a {
+  font-weight: bold;
+}
+
+a:hover {
+  color: #797a9d;
+}
+
+.nav-link {
+  font-size: 1.1em !important;
+  color: #000249;
+  font-weight: bold;
+}
+
+.navbar-brand img {
+  height: 50px;
+}
+
+.navbar-toggler {
+  border-color: #000249;
+}
+
+
+.navbar-toggler .fa-bars:hover {
+  color: #797a9d;
+}
+
+/*Button styling*/
+.btn-primary {
+  background-color: #000249;
+  border: 1px solid #000249;
+  border-radius: 8px;
+}
+
+.btn-lg {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #797a9d;
+  border: 1px solid #797a9d;
+  color: #fff;
+}
+
+
+/* Header */
+
+.header {
+  padding-top: 0.525rem;
+  padding-bottom: 0.525rem;
+}
+
+/*Intro styling*/
+.intro {
+  background-image: url("../home-img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem;
+}
+
+.intro-img {
+  position: absolute;
+  left: 32%;
+  top: -10%;
+  bottom: 82.77%;
+  overflow: hidden;
+  height: 155%;
+}
+
+.intro h1 {
+  font-weight: bold;
+  font-style: normal;
+  line-height: 120%;
+  color: #fff;
+  padding-bottom: 1rem;
+}
+
+.intro p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 145%;
+  color: #f9faf9;
+}
+
+.solution {
+  padding-top: 4rem;
+  width: 80%;
+}
+
+.info {
+  background-color: #f9faf9;
+  padding-top: 5rem;
+}
+
+.students {
+  padding: 0 4rem 0 4rem;
+  background-color: transparent;
+}
+
+.students h1 {
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  color: #242423;
+}
+
+.students p {
+  font-family: Asap;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #797a9d;
+}
+
+.house-owners {
+  background-color: transparent;
+}
+
+.house-owners h1 {
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  color: #242423;
+}
+
+.house-owners p {
+  font-family: Asap;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #797a9d;
+}
+
+.learn-more-btn {
+  background-color: transparent;
+  color: #000249;
+  border: 3px solid;
+}
+
+.learn-more-btn:hover {
+  background-color: #000249;
+  color: #fff;
+  border: 3px solid;
+}
+
+ul {
+  list-style-image: url("../home-img/check\ icon.png");
+  margin-left: 20px;
+}
+
+.features {
+  background-color: #fff;
+  width: 75%;
+}
+
+.features h2 {
+  color: #dd1717;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 145%;
+}
+
+.features h1 {
+  color: #5da3d7;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 128.1%;
+}
+
+.features p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 155.1%;
+  color: #797a9d;
+}
+
+.subscribe {
+  background-color: #fff;
+}
+
+.subscribe h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 128.1%;
+  color: #242423;
+}
+
+.subscribe h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130.6%;
+  color: #242423;
+}
+
+footer {
+  background-color: #f9faf9;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+footer a {
+  color: #242423;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 155.1%;
+}
+
+footer h5 {
+  color: #c4c4c4;
+  padding-bottom: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 155.1%;
+}
+
+footer .footer-icon {
+  color: #5da3d7;
+  font-size: 24px;
+}
+
+footer .footer-icon:hover {
+  color: #000249;
+}
+
+footer .social *+* {
+  margin-left: 16px;
+}
+
+footer a.social-link {
+  text-decoration: none;
+}
+
+.footer-txt {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 155.1%;
+  text-align: left;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .intro {
+    padding: 10rem 4rem 8rem;
+  }
+
+  .intro h1 {
+    font-size: 48px;
+  }
+
+  .solution h1 {
+    font-size: 48px;
+  }
+
+
+  .students h1 {
+    font-size: 48px;
+  }
+
+
+  .house-owners h1 {
+    font-size: 48px;
+  }
+
+
+  .subscribe {
+    padding: 4rem 12rem;
+  }
+
+  .btn-lg {
+    font-size: 20px;
+    padding: 15px 60px;
+  }
+
+  footer {
+    padding-top: 2rem;
+  }
+}
