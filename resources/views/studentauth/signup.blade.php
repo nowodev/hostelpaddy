@@ -35,7 +35,7 @@
 
           <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true" value="{{ old('email') }}">
 
-          <input id="num" type="tel" class="input" name="phone" placeholder="+234 Phone" required aria-required="true" value="{{ old('phone') }}">
+          <input id="num" type="tel" class="input" name="phone" placeholder="Phone Number" required aria-required="true" value="{{ old('phone') }}">
 
           <input id="pwd" type="password" class="input" name="password" placeholder="Password" required
             aria-required="true">
