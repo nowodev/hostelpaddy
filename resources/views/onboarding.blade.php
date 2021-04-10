@@ -2,7 +2,7 @@
 @section('title', 'HostelPaddy - Onboarding')
 
 @section('content')
-  <!-- Nav container -->
+  <!-- container -->
   <div class="container-fluid mx-0">
     <div class="row">
 
@@ -40,13 +40,12 @@
           </div>
 
           <!-- Student onboard -->
-          <a href="{{ route('student.register') }}" class="onboard-student">
+          <a href="{{ route('student.register') }}" class="onboard-link">
             <div class="onboard onboard-student">
               <div class="icon">
-                <!-- <i class="lnr lnr-graduation-hat"></i> -->
-                <i class="fa fa-graduation-cap"></i>
+                <i class="fa fa-2x fa-graduation-cap icon-icon"></i>
               </div>
-              <div class="onboard-text">
+              <div class="onboard-text text-left">
                 <div class="onboard-text-title">
                   Sign up as a Student
                 </div>
@@ -58,10 +57,28 @@
           </a>
           <!-- /Student onboard -->
 
+          <!-- House-owner onboard -->
+          <a href="{{ route('agent.register') }}" class="onboard-link">
+            <div class="onboard onboard-house-owner">
+              <div class="icon">
+                <i class="fa fa-2x fa-hotel icon-icon"></i>
+              </div>
+              <div class="onboard-text text-left">
+                <div class="onboard-text-title">
+                  Sign up as a house owner/agent
+                </div>
+                <div class="onboard-text-desc">
+                  List hostels and manage hostel listings
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- /House-owner onboard -->
+
         </div>
         <!-- /Onboarding content -->
       </div>
     </div>
   </div>
-  <!-- /Nav container -->
+  <!-- container -->
 @endsection
