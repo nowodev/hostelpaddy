@@ -65,6 +65,6 @@ class Kernel extends HttpKernel
 
         // Custom
         'agent' => \App\Http\Middleware\RedirectIfNotAgent::class,
-        'stuent' => \App\Http\Middleware\RedirectIfNotStudent::class,
+        'student' => \App\Http\Middleware\RedirectIfNotStudent::class,
     ];
 }
