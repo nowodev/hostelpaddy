@@ -19,4 +19,8 @@ class Student extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }
