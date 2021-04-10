@@ -106,5 +106,6 @@ $("#continueOnboarding").click(function () {
 
   //What to do to submit btn
   submitBtn.classList.remove("displayNone")
+  submitBtn.onClick = "location.href = '{{route('guest')}}'" ;
 
 })
