@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\MailingList;
+use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +16,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('home');
+
+Route::get('/coming-soon', function () {
+    return view('coming-soon');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+require __DIR__.'/main.php';
+
 require __DIR__.'/auth.php';
+
+require __DIR__.'/studentauth.php';
+
+require __DIR__.'/agentauth.php';
+
+// Search route
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+// This route is used to collect emails
+Route::get('/mail', [MailingList::class, 'form']);
+Route::post('/mail', [MailingList::class, 'submit']);
+
+// Students Route
+Route::get('/student', function () {
+    return view('students.index');
+})->middleware(['student'])->name('student.index');
+
+// Agents Route
+Route::get('/agent', function () {
+    return view('agents.index');
+})->middleware(['agent'])->name('agent.index');
