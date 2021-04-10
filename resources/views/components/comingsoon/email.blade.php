@@ -3,7 +3,7 @@
     @csrf
     <input class="input" type="email" name="email" placeholder="Enter your email address here">
     <button class="submit">
-      <img class="bell" src="{{ asset('comingsoon/assets/Bell.svg') }}" alt="bell icon"> notify me
+      <img class="bell" src="{{ asset('main/assets/Bell.svg') }}" alt="bell icon"> notify me
     </button>
   </form>
 </div>

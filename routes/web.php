@@ -20,7 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/coming-soon', function () {
-    return view('coming-soon');
+    return view('webpages.coming-soon');
 });
 
 Route::get('/dashboard', function () {

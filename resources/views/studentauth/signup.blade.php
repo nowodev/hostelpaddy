@@ -19,19 +19,30 @@
         </div>
       </div>
 
+      @if ($errors->any())
+        <ul>
+          @foreach ($errors->all() as $errors)
+            <li class="text-danger">{{ $errors }}</li>
+          @endforeach
+        </ul>
+      @endif
+
       <div class="form-control">
 
         <!-- first part of signing up -->
         <div class="firstPart animated" id="firstPart">
-          <input id="name" type="text" class="input" name="name" placeholder="Full name" required aria-required="true">
+          <input id="name" type="text" class="input" name="name" placeholder="Full name" required aria-required="true" value="{{ old('name') }}">
 
-          <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true">
+          <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true" value="{{ old('email') }}">
 
-          <input id="num" type="tel" class="input" name="number" placeholder="+234 Phone" required aria-required="true">
+          <input id="num" type="tel" class="input" name="phone" placeholder="Phone Number" required aria-required="true" value="{{ old('phone') }}">
 
-          <input id="pwd" type="password" class="input" name="password" id="pwd" placeholder="Password" required
+          <input id="pwd" type="password" class="input" name="password" placeholder="Password" required
             aria-required="true">
           <span class="hidePass" id="hidePass" onclick="togglePass()">Show</span>
+
+          <input id="pwd" type="password" class="input" name="password_confirmation" placeholder="Confirm Password" required aria-required="true">
+
         </div>
         <!-- /first part of signing up -->
 

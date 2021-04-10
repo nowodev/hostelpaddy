@@ -31,7 +31,7 @@
 
         <!-- Coming soon content image -->
         <div class="col-12 col-md-4 col-lg-4 coming-soon-image">
-          <img src="{{ asset('comingsoon/assets/side-image.svg') }}" alt="lodges">
+          <img src="{{ asset('main/assets/side-image.svg') }}" alt="lodges">
         </div>
         <!-- /Coming soon content image -->
       </div>
