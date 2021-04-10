@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
-            $table->string('location');
+            $table->string('state');
             $table->string('password');
             $table->timestamps();
         });

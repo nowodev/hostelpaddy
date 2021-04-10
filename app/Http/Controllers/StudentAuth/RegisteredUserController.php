@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('studentauth.register');
+        return view('studentauth.signup');
     }
 
     /**
@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|max:20',
-            'location' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
             'password' => 'required|string|confirmed|min:8',
         ]);
 
@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'location' => $request->location,
+            'state' => $request->state,
             'password' => Hash::make($request->password),
         ]));
 
