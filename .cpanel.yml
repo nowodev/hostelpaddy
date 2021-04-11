@@ -20,4 +20,4 @@ deployment:
     - /bin/cp tailwind.config.js $DEPLOYPATH/mainsite
     - /bin/cp webpack.min.js $DEPLOYPATH/mainsite
 
-    - /bin/cp -R public/main $DEPLOYPATH/public_html/
+    - /bin/cp -R public/main $DEPLOYPATH/public_html/ 
