@@ -1,0 +1,23 @@
+##### THIS ALLOWS US TO DEPLOY THE SITE FROM A GIT REPO ######
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hostelpa/
+    - /bin/cp -R app $DEPLOYPATH/mainsite
+    - /bin/cp -R bootstrap $DEPLOYPATH/mainsite
+    - /bin/cp -R config $DEPLOYPATH/mainsite
+    - /bin/cp -R database $DEPLOYPATH/mainsite
+    - /bin/cp -R resources $DEPLOYPATH/mainsite
+    - /bin/cp -R routes $DEPLOYPATH/mainsite
+    - /bin/cp -R storage $DEPLOYPATH/mainsite
+    - /bin/cp -R tests $DEPLOYPATH/mainsite
+
+    - /bin/cp composer.json $DEPLOYPATH/mainsite
+    - /bin/cp composer.lock $DEPLOYPATH/mainsite
+    - /bin/cp package-lock.json $DEPLOYPATH/mainsite
+    - /bin/cp package.json $DEPLOYPATH/mainsite
+    - /bin/cp phpunit.xml $DEPLOYPATH/mainsite
+    - /bin/cp tailwind.config.js $DEPLOYPATH/mainsite
+    - /bin/cp webpack.min.js $DEPLOYPATH/mainsite
+
+    - /bin/cp -R public/main $DEPLOYPATH/public_html/
