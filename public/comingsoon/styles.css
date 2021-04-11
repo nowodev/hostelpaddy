@@ -65,7 +65,7 @@
 body {
   min-height: 100vh;
   color: #fff !important;
-  background-image: url(assets/bg.svg);
+  background-image: url(../main/assets/bg.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #212224 !important;
