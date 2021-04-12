@@ -63,10 +63,10 @@
         <!-- /second part of signing up -->
       </div>
 
-      <div class="consent text-left">
+      <div class="consent text-left mt-3">
         By signing up, you have agreed to Hostel Paddy's <a href="{{ route('tos') }}" class="signup-link">Terms
           of
-          service</a> and <a href="{{ route('faqs') }}" class="signup-link">Privacy policy</a>
+          service</a> and <a href="{{ route('privacy') }}" class="signup-link">Privacy policy</a>
       </div>
 
 
