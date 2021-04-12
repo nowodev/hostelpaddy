@@ -69,13 +69,11 @@
 
   <!-- Vendor scripts -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-  {{-- <link rel="stylesheet" href="{{ asset('comingsoon/vendor/bootstrap/css/bootstrap.css') }}"> --}}
-
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <!-- Default Stylesheet -->
-  <link type="text/css" href="{{ asset('main/css/home.css') }}" rel="stylesheet" />
   <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/about.css') }}" rel="stylesheet" />
 </head>
 
 
@@ -89,10 +87,15 @@
 
   <!-- Vendor scripts -->
   <script src="{{ asset('main/vendor/jquery/jquery-3.1.1.min.js') }}"></script>
-  {{-- <script src="{{ asset('comingsoon/vendor/bootstrap/js/bootstrap.bundle.js') }}" defer></script> --}}
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+  <script>
+    let copyRight = document.getElementById("copyright"),
+      date = new Date(),
+      copyrightYear = date.getFullYear();
+    copyRight.innerText = copyrightYear;
+  </script>
 </body>
 
 </html>

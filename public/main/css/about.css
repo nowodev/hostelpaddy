@@ -1,0 +1,140 @@
+.padding {
+  padding-bottom: 2rem;
+}
+
+/*Nav-bar styling*/
+.signup {
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  right: 80px;
+}
+
+.about-us {
+  background: #5da3d7;
+  padding-top: 5rem;
+}
+
+.about-us h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  color: #fff;
+}
+
+.about-us p {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130.6%;
+  color: #fff;
+  width: 55%;
+  margin: 0 auto;
+}
+
+.our-story {
+  background: transparent;
+  padding: 2rem 4rem 2rem 4rem;
+}
+
+.our-story h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  color: #242423;
+}
+
+.story {
+  color: #dd1717;
+}
+
+.story-caption {
+  padding-top: 2.5rem;
+}
+
+.our-story p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 155.1%;
+  color: #4f4f4f;
+}
+
+.our-story img {
+  width: 531px;
+  /* height: 638px; */
+}
+
+.our-mission {
+  background: #f9faf9;
+  padding-top: 5rem;
+}
+
+.our-mission hr {
+  border-top: 4px solid #c4c4c4;
+  width: 12%;
+  height: 6px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.our-mission h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  color: #4f4f4f;
+}
+
+.mission {
+  color: #dd1717;
+}
+
+.our-mission p {
+  font-family: Asap;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 128.1%;
+  color: #4f4f4f;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.banner {
+  padding-top: 5rem;
+}
+
+.our-values {
+  background: transparent;
+  padding: 2rem 4rem 2rem 4rem;
+}
+
+.our-values h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  color: #242423;
+  padding-bottom: 3rem;
+}
+
+.values {
+  color: #dd1717;
+}
+
+.values-txt h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 39px;
+  line-height: 128%;
+}
+
+.our-values p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130.6%;
+  color: #4f4f4f;
+}
