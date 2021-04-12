@@ -71,7 +71,8 @@
 
 
       <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
-      <div class="continue-onboarding button-style enabled-state animated" id="continueOnboarding">Continue
+      <div class="continue-onboarding button-style enabled-state animated" id="continueOnboardingStudent">
+        Continue
       </div>
       <button type="submit" class="mt-3 button-primary displayNone button-style" id="submitBtn">Finish</button>
       <!-- /Onboarding content -->
