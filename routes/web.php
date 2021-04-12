@@ -29,11 +29,11 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/main.php';
 
-require __DIR__.'/auth.php';
+require __DIR__.'/auth/auth.php';
 
-require __DIR__.'/studentauth.php';
+require __DIR__.'/auth/studentauth.php';
 
-require __DIR__.'/agentauth.php';
+require __DIR__.'/auth/agentauth.php';
 
 // Search route
 Route::get('/search', [SearchController::class, 'search'])->name('search');
