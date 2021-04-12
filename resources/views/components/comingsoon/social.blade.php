@@ -3,7 +3,7 @@
   <div class="row">
     <div class="social-icons">
       <div class="social-icon">
-        <a href="https://facebook.com/Hostel-Paddy-111950534317618/?_rdc=1&_rdr">
+        <a href="https://facebook.com/hostelpaddy1">
           <img src="{{ asset('main/assets/Facebook.svg') }}" alt="Facebook">
         </a>
       </div>

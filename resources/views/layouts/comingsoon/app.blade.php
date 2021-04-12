@@ -18,7 +18,7 @@
   <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
 
   <!-- Default Stylesheet -->
-  <link rel="stylesheet" href="{{ asset('comingsoon/styles.css') }}">
+  <link rel="stylesheet" href="{{ asset('main/css/styles.css') }}">
 
   <!-- Vendor stylesheets -->
   <link rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
@@ -27,22 +27,22 @@
   <link rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
 
   <!-- Default Scripts -->
-  <script src="{{ asset('comingsoon/script.js') }}" defer></script>
+  <script src="{{ asset('main/js/script.js') }}" defer></script>
 
   <!-- Vendor Scripts -->
   <script src="{{ asset('main/vendor/jquery/jquery-3.1.1.min.js') }}" defer></script>
   <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased">
-  <div class="min-h-screen bg-gray-100">
-    @include('layouts.comingsoon.navigation')
+<body class="body-image">
+  @include('layouts.comingsoon.navigation')
 
-    <!-- Page Content -->
-    <main>
-      @yield('content')
-    </main>
-  </div>
+  <!-- Page Content -->
+  <main>
+    @yield('content')
+  </main>
+
+  @include('layouts.comingsoon.footer')
 </body>
 
 </html>

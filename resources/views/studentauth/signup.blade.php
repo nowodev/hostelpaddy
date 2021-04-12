@@ -27,21 +27,25 @@
         </ul>
       @endif
 
-      <div class="form-control">
+      <div class="form-control sign-up">
 
         <!-- first part of signing up -->
         <div class="firstPart animated" id="firstPart">
-          <input id="name" type="text" class="input" name="name" placeholder="Full name" required aria-required="true" value="{{ old('name') }}">
+          <input id="name" type="text" class="input" name="name" placeholder="Full name" required aria-required="true"
+            value="{{ old('name') }}">
 
-          <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true" value="{{ old('email') }}">
+          <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true"
+            value="{{ old('email') }}">
 
-          <input id="num" type="tel" class="input" name="phone" placeholder="Phone Number" required aria-required="true" value="{{ old('phone') }}">
+          <input id="num" type="tel" class="input" name="phone" placeholder="Phone Number" required aria-required="true"
+            value="{{ old('phone') }}">
 
           <input id="pwd" type="password" class="input" name="password" placeholder="Password" required
             aria-required="true">
           <span class="hidePass" id="hidePass" onclick="togglePass()">Show</span>
 
-          <input id="pwd" type="password" class="input" name="password_confirmation" placeholder="Confirm Password" required aria-required="true">
+          <input id="confirmPwd" type="password" class="input d-block remove-mt" name="password_confirmation"
+            placeholder="Confirm password" required aria-required="true">
 
         </div>
         <!-- /first part of signing up -->
@@ -59,10 +63,10 @@
         <!-- /second part of signing up -->
       </div>
 
-      <div class="consent text-left">
+      <div class="consent text-left mt-3">
         By signing up, you have agreed to Hostel Paddy's <a href="{{ route('tos') }}" class="signup-link">Terms
           of
-          service</a> and <a href="{{ route('faqs') }}" class="signup-link">Privacy policy</a>
+          service</a> and <a href="{{ route('privacy') }}" class="signup-link">Privacy policy</a>
       </div>
 
 
