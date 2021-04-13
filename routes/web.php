@@ -1,5 +1,4 @@
 <?php
-use App\Http\Controllers\MailingList;
 use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\Facades\Route;
@@ -25,10 +24,6 @@ Route::get('/coming-soon', function () {
 
 // Search route
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-
-// This route is used to collect emails
-Route::get('/mail', [MailingList::class, 'form']);
-Route::post('/mail', [MailingList::class, 'submit']);
 
 require __DIR__ . '/custom/dashboard.php';
 
