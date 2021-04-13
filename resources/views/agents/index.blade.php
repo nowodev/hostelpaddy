@@ -1,9 +1,13 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{ asset('files/vendor/animate/css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
+        <title>Agent</title>
     </head>
 
     <body>
+        {{-- @include('layouts.main.session') --}}
 
         <h1>Hello {{ Auth::guard('agent')->user()->name }}</h1>
         <a href="{{ route('search') }}">Search for your preferred hostel</a>

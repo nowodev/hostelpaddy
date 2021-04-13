@@ -1,9 +1,11 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{ asset('files/vendor/animate/css/animate.min.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}"> --}}
+        <title>Student</title>
     </head>
 
     <body>
+        {{-- @include('layouts.main.session') --}}
 
         <h1>Hello {{ Auth::guard('student')->user()->name }}</h1>
         <a href="{{ route('search') }}">Search for your preferred hostel</a>
