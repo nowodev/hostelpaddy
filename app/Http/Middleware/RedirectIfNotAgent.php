@@ -16,7 +16,7 @@ class RedirectIfNotAgent
     public function handle($request, Closure $next, $guard = "agent")
     {
         if (!auth()->guard($guard)->check()) {
-            return redirect(route('agent.login'));
+            return redirect(route('onboard.login'));
         }
         return $next($request);
     }
