@@ -1,11 +1,15 @@
 <!-- nav-container -->
 <div class="nav-container">
 
-  <div class="back-button">
-    <span onclick="back()" class="navbar-toggler-icon">
+  {{-- Button takes you to onboarding page --}}
+  <a class="back-button" href="{{ route('onboarding') }}">
+    {{-- <span onclick="back()" class="navbar-toggler-icon">
       <i class="fa fa-2x fa-times-circle-o"></i>
+    </span> --}}
+    <span class="navbar-toggler-icon">
+      <i class="fa fa-2x fa-times-circle-o text-decoration"></i>
     </span>
-  </div>
+  </a>
 
   <a href="{{ route('home') }}" class="logo-link">
     <div class="logo">
