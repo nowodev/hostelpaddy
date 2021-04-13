@@ -1,5 +1,5 @@
 @extends('layouts.main.onboard')
-@section('title', 'HostelPaddy - Student Sign Up')
+@section('title', 'HostelPaddy - Sign In')
 
 @section('content')
   @include('layouts.main.signinnav')
