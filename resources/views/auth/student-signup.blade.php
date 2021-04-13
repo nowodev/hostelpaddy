@@ -2,7 +2,7 @@
 @section('title', 'HostelPaddy - Student Sign Up')
 
 @section('content')
-  @include('layouts.main.studentnav')
+  @include('layouts.main.signupnav')
 
   <!-- Onboarding content -->
 

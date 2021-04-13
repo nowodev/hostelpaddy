@@ -6,8 +6,7 @@
     </div>
   </a>
   <div class="login-button">
-    {{-- <a href="{{ route('student.login') }}" class="login-button-text">Login</a> --}}
-    <a href="#" class="login-button-text">Login</a>
+    <a href="{{ route('onboard.login') }}" class="login-button-text">Login</a>
   </div>
 </div>
 <!-- /nav-container -->

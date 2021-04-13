@@ -1,5 +1,4 @@
 <?php
-use App\Http\Controllers\MailingList;
 use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\Facades\Route;
@@ -23,31 +22,11 @@ Route::get('/coming-soon', function () {
     return view('webpages.coming-soon');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/main.php';
-
-require __DIR__.'/auth/auth.php';
-
-require __DIR__.'/auth/studentauth.php';
-
-require __DIR__.'/auth/agentauth.php';
-
 // Search route
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-// This route is used to collect emails
-Route::get('/mail', [MailingList::class, 'form']);
-Route::post('/mail', [MailingList::class, 'submit']);
+require __DIR__ . '/custom/dashboard.php';
 
-// Students Route
-Route::get('/student', function () {
-    return view('students.index');
-})->middleware(['student'])->name('student.index');
+require __DIR__ . '/custom/main.php';
 
-// Agents Route
-Route::get('/agent', function () {
-    return view('agents.index');
-})->middleware(['agent'])->name('agent.index');
+require __DIR__ . '/custom/auth.php';

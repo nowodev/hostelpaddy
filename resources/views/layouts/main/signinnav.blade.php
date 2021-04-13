@@ -14,7 +14,7 @@
   </a>
 
   <div class="login-button">
-    <a href="{{ route('agent.login') }}" class="login-button-text">Login</a>
+    <a href="{{ route('onboarding') }}" class="login-button-text">Sign up</a>
   </div>
 </div>
 <!-- /nav-container -->
