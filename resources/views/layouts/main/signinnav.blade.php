@@ -7,7 +7,7 @@
       <i class="fa fa-2x fa-times-circle-o"></i>
     </span> --}}
     <span class="navbar-toggler-icon">
-      <i class="fa fa-2x fa-times-circle-o text-decoration"></i>
+      <i class="fa fa-2x fa-arrow-circle-left text-decoration"></i>
     </span>
   </a>
 
