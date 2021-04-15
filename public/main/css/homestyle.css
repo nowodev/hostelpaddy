@@ -1,0 +1,154 @@
+
+/* Custom Fonts */
+@import url(../fonts/Asap/Asap-Italic.ttf);
+@import url(../fonts/Asap/Asap-Bold.ttf);
+@import url(../fonts/Asap/Asap-BoldItalic.ttf);
+@import url(../fonts/Asap/Asap-SemiBold.ttf);
+@import url(../fonts/Asap/Asap-SemiBoldItalic.ttf);
+@import url(../fonts/Asap/Asap-Medium.ttf);
+@import url(../fonts/Asap/Asap-MediumItalic.ttf);
+@import url(../fonts/Asap/Asap-Regular.ttf);
+
+@font-face {
+  font-family: 'Asap-Bold';
+  src: url(../fonts/Asap/Asap-Bold.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Italic';
+  src: url(../fonts/Asap/Asap-Italic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-BoldItalic';
+  src: url(../fonts/Asap/Asap-BoldItalic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-SemiBold';
+  src: url(../fonts/Asap/Asap-SemiBold.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-SemiBoldItalic';
+  src: url(../fonts/Asap/Asap-SemiBoldItalic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Medium';
+  src: url(../fonts/Asap/Asap-Medium.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-MediumItalic';
+  src: url(../fonts/Asap/Asap-MediumItalic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Regular';
+  src: url(../fonts/Asap/Asap-Regular.ttf)
+}
+
+body, .utility{
+	font-family: Asap-Regular;
+}
+.navbar-toggler, .navbar-toggler:focus{
+	border: none;
+}
+.love{
+	left: 80%;
+	top: 5%;
+}
+.name, .verify{
+	opacity: 1;
+	font-family: Asap-Regular;
+	font-weight: 500;
+}
+button{
+	font-weight: 500;
+	font-family: Asap-Bold;
+}
+.h5{
+	font-family: Asap-Bold;
+	font-size: 22px;
+}
+li, .copyright-area{
+	font-family: Asap-SemiBold;
+}
+.rooms{
+	font-family: Asap-Regular;
+}
+.copyright-area{
+	color: grey;
+}
+p{
+	font-family: Asap-Regular;
+	line-height: 20px;
+	color: #4F4F4F;
+}
+#logo{
+	background-image: url('../img/logo2.png');
+	padding: 0;
+	background-repeat: no-repeat;
+	background-position: -15px;
+	width: 100%;
+	height: 50px;
+}
+.signup{
+	background-color: #000249;
+	color: white;
+	border-radius: 6px;
+}
+.identifier{
+	padding: 10px;
+	color: white;
+	background-color: grey;
+	opacity: 0.8;
+	border-radius: 5px;
+	right: 10px;
+	bottom: 10px;
+}
+.contact{
+	border: 2px solid #000249;
+	color: #000249;
+	background: transparent;
+}
+
+@media screen and (min-width: 376px){
+	.head{
+		font-size: 4vw;
+	}
+	.main{
+		height: 600px;
+	}
+	.share{
+		width: 50%;
+	}
+	.location{
+		font-size: 1vw;
+	}
+	.text-bold{
+		font-weight: 800;
+	}
+	.one{
+		width: 777px;
+		/*background-color: red;*/
+		/*padding-right: 50px;*/
+	}
+	.side{
+		margin-bottom: 13px;
+		/*margin-left: auto;*/
+	}
+	a{
+		color: black;
+		text-decoration: none;
+	}
+	.identifier2{
+	/*padding: 10px;*/
+	color: black;
+	opacity: 0.8;
+	border-radius: 5px;
+	right: 10px;
+	top: 0px;
+	}
+}
