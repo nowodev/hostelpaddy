@@ -32,11 +32,11 @@
 
         <!-- first part of signing up -->
         <div class="firstPart animated" id="firstPart">
-          <input id="name" type="text" class="input" name="name" placeholder="Full name" required aria-required="true">
+          <input id="name" type="text" class="input" name="name" placeholder="Full name" value="{{ old('name') }}" required aria-required="true">
 
-          <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true">
+          <input id="email" type="email" class="input" name="email" placeholder="Email" value="{{ old('email') }}" required aria-required="true">
 
-          <input id="num" type="tel" class="input" name="number" placeholder="Phone Number" required aria-required="true">
+          <input id="num" type="tel" class="input" name="number" placeholder="Phone Number" value="{{ old('number') }}" required aria-required="true">
 
           <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
           <div class="continue-onboarding button-style enabled-state animated" id="continueOnboardingHouseOwner">Continue
