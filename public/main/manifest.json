@@ -1,0 +1,60 @@
+{
+  "icons": [{
+      "src": "main/img/logo.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "92x92",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "main/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.php",
+  "display": "standalone",
+  "theme_color": "#0f4392",
+  "background_color": "#ffffff",
+  "short_name": "HostelPaddy",
+  "name": "HostelPaddy",
+  "orientation": "portrait"
+}
