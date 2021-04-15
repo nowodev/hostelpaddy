@@ -1,10 +1,9 @@
 <section id="header" class="header">
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container d-flex justify-content-between">
-      <button class="navbar-toggler toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon">
-          <i class="fa fa-bars"></i>
-        </span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="{{ asset('main/img/Hamburger menu.png') }}" class="img-fluid" alt="">
       </button>
 
       <div class="navbar-brand">
@@ -30,10 +29,11 @@
           <li class="nav-item">
             <a class="nav-link" target="_blank" href="https://blog.hostelpaddy.com">Blogs</a>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-primary signup" href="{{ route('onboarding') }}">Sign Up</a>
-          </li>
         </ul>
+      </div>
+
+      <div class="mobile-signup">
+        <a class="btn btn-primary signup" href="{{ route('onboarding') }}">Sign Up</a>
       </div>
 
     </div>
