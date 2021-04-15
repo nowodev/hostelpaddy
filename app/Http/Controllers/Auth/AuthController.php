@@ -19,7 +19,7 @@ class AuthController extends Controller
         // Validate Fields before Logging In
         $request->validate([
             'email' => 'required|email|max:255',
-            'password' => 'required|min:6',
+            'password' => 'required',
         ]);
 
         // Log in based on type of user
