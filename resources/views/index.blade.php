@@ -39,20 +39,21 @@
     <section class="info">
       <!--For Students-->
       <div class="container padding">
-        <div class="row  students padding">
+        <div class="row students padding mb-4">
           <div class="col-lg-6">
             <img src="{{ asset('main/home-img/Rectangle 32.png') }}" class="img-fluid" />
           </div>
           <div class="col-md-12 col-lg-6">
             <h1>For Students</h1><br>
-            <p>
+
+            <p class="text-desc">
               Students can view listed hostel accommodations according to their
               preference. Students security is of paramount interest to us, we
               ensure that all registered house owners/agents are vetted and
               verified agents.
               <br />
               We give you the flexibility to:
-              <ul>
+              <ul class="mt-3">
                 <li>To set your accommodation preference</li><br>
                 <li>Set your comfort and choose where you live</li><br>
                 <li>Share their financial burden by with a hostel mate</li><br>
@@ -64,16 +65,16 @@
       </div>
       <!--House Owners-->
       <div class="container padding">
-        <div class="row  house-owners padding">
+        <div class="row house-owners padding">
           <div class="col-md-12 col-lg-6">
             <h1>For House owners/agents</h1><br>
-            <p>
+
+            <p class="text-desc">
               House owners/agents can relax as we bring student clients to your
               doorstep on your terms, at almost no cost. You can also list as many
               available hostel accommodations as you wish.
-              <br />
               We provide you with the possibility to:
-              <ul>
+              <ul class="mt-3">
                 <li>List accommodation and set your price.</li><br>
                 <li>Set the terms for your listed hostel accommodation</li><br>
                 <li>Give visibility to your available hostel accommodation nationwide.</li><br>
@@ -92,18 +93,18 @@
     <!--Exclusive Features-->
     <div class="container features padding">
       <div class="row padding">
-        <div class="col-12 text-center">
-          <h2>Exclusive Features</h2><br><br>
+        <div class="col-12 text-center mb-3">
+          <h2>Exclusive Features</h2>
         </div>
-        <div class="col-md-12 col-lg-6">
-          <img src="{{ asset('main/home-img/Vector.png') }}" alt=""><br><br>
+        <div class="col-md-12 col-lg-6 mt-4">
+          <img src="{{ asset('main/home-img/Vector2.png') }}" alt="">
           <h1>Keep track of your dream hostel apartment</h1>
           <p>With your notification on, you will be the first to know when your desired
             hostel accommodation is listed.
           </p>
         </div>
-        <div class="col-md-12 col-lg-6">
-          <img src="{{ asset('main/home-img/Vector2.png') }}" alt=""><br><br>
+        <div class="col-md-12 col-lg-6 mt-4">
+          <img src="{{ asset('main/home-img/Vector.png') }}" alt="">
           <h1>Request for a hostel mate</h1>
           <p>As a student, you can request for a hostel mate to split your rent and relieve your financial burden.
           </p>
@@ -119,18 +120,18 @@
     <div class="container padding">
       <div class="row subscribe padding">
         <div class="col-md-12 col-lg-6 mb-3">
-          <h1>Stay updated and never miss out on the important news we have to share with you</h1>
+          <h1>Subscribe to our News Blog</h1>
         </div>
         <div class="col-md-12 col-lg-6">
-          <h2>Subscribe to our News Blog</h2>
+          <h3>Stay updated and never miss out on the important news we have to share with you</h3>
           <form
             action="https://hostelpaddy.us1.list-manage.com/subscribe/post?u=db75ffe66d373e71ededb3196&amp;id=7fb6ed9b1f"
-            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="sign-up validate"
+            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="sign-up validate my-3"
             target="_blank" novalidate>
             <div class="form-group">
-              <input type="email" name="EMAIL" class="form-control p-3 w-100" placeholder="Enter email" />
+              <input type="email" name="EMAIL" class="form-control p-3" placeholder="Enter email" />
             </div>
-            <div class="form group">
+            <div class="form group text-center">
               <button type="submit" class="btn btn-primary btn-lg">
                 Subscribe
               </button>
