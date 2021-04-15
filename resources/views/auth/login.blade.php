@@ -24,7 +24,7 @@
         </ul>
       @endif
 
-      <div class="form-control">
+      <div class="form-control login">
 
         <!-- first part of signing up -->
         <input id="email" type="email" class="input" name="email" placeholder="Email" required aria-required="true" value="{{ old('email') }}">
