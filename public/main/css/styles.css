@@ -292,8 +292,9 @@ body {
   margin: 2rem auto;
 }
 
-
-
+.navbar-toggler {
+  border: 0
+}
 
 /**
  *
@@ -440,7 +441,8 @@ a.onboard-link:link {
   margin: auto;
 }
 
-.form-control.sign-up {
+.form-control.sign-up,
+.form-control.login {
   margin-top: 2rem;
   border: 0 !important;
   padding: 0 !important;
@@ -643,16 +645,16 @@ a.link:hover {
   padding-bottom: 2rem;
 }
 
+
 /*Nav-bar styling*/
 .signup {
-  position: absolute;
-  right: 80px;
   padding: 8px 24px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
+  display: block;
 }
 
 .nav-item {
@@ -740,6 +742,10 @@ a:hover {
   color: #fff;
 }
 
+.navbar-collapse.collapse.show+div.mobile-signup {
+  margin-left: 2rem;
+  margin-top: 12px;
+}
 
 /* Header */
 
@@ -800,12 +806,10 @@ a:hover {
   color: #242423;
 }
 
-.students p {
-  font-family: Asap;
-  font-style: normal;
-  font-weight: normal;
+.text-desc {
   font-size: 18px;
-  color: #797a9d;
+  line-height: 24px;
+  color: #242424a4;
 }
 
 .house-owners {
@@ -817,14 +821,6 @@ a:hover {
   font-weight: 600;
   line-height: 120%;
   color: #242423;
-}
-
-.house-owners p {
-  font-family: Asap;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  color: #797a9d;
 }
 
 .learn-more-btn {

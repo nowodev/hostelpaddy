@@ -71,9 +71,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
+
   <!-- Default Stylesheet -->
   <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
   <link type="text/css" href="{{ asset('main/css/about.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet" />
 </head>
 
 
@@ -87,6 +93,7 @@
 
   <!-- Vendor scripts -->
   <script src="{{ asset('main/vendor/jquery/jquery-3.1.1.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
@@ -95,6 +102,7 @@
       date = new Date(),
       copyrightYear = date.getFullYear();
     copyRight.innerText = copyrightYear;
+
   </script>
 </body>
 

@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-// Route::view('/about', 'coming-soon')->name('about');
-// Route::view('/hostels', 'coming-soon')->name('hostels');
-// Route::view('/help', 'coming-soon')->name('help');
-// Route::view('/onboarding', 'coming-soon')->name('onboarding');
-// Route::view('/contact', 'coming-soon')->name('contact');
-// Route::view('/faqs', 'coming-soon')->name('faqs');
-// Route::view('/tos', 'coming-soon')->name('tos');
-// Route::view('/privacy', 'coming-soon')->name('privacy');
-
 Route::get('/about', function () {
     return view('webpages.about');
 })->name('about');
@@ -19,6 +9,10 @@ Route::get('/about', function () {
 Route::get('/hostels', function () {
     return view('webpages.hostels');
 })->name('hostels');
+
+Route::get('/hostels/info', function () {
+    return view('webpages.info');
+})->name('info');
 
 Route::get('/help', function () {
     return view('webpages.help');
