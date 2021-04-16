@@ -1,8 +1,8 @@
-@extends('layouts.main.onboard')
+@extends('layouts.onboarding.app')
 @section('title', 'HostelPaddy - Student Sign Up')
 
 @section('content')
-  @include('layouts.main.signupnav')
+  @include('layouts.onboarding.signup_nav')
 
   <!-- Onboarding content -->
 
@@ -79,5 +79,8 @@
 
     </div>
   </form>
+@endsection
 
+@section('script')
+  <script src="{{ asset('main/js/student/script.js') }}"></script>
 @endsection

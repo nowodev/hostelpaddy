@@ -1,8 +1,8 @@
-@extends('layouts.main.onboard')
+@extends('layouts.onboarding.app')
 @section('title', 'HostelPaddy - Sign In')
 
 @section('content')
-  @include('layouts.main.signinnav')
+  @include('layouts.onboarding.signin_nav')
 
   <!-- Onboarding content -->
 
