@@ -14,6 +14,10 @@ Route::get('/hostels/info', function () {
     return view('webpages.info');
 })->name('info');
 
+Route::get('/house', function () {
+    return view('webpages.house');
+})->name('house');
+
 Route::get('/help', function () {
     return view('webpages.help');
 })->name('help');
