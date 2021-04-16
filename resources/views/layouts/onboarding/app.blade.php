@@ -76,6 +76,7 @@
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/linearicons/css/linearicons.min.css') }}" />
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/fontawesome/css/fontawesome.min.css') }}" />
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}" />
 
 
   <!-- Vendor scripts -->
@@ -119,6 +120,7 @@
   <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="{{ asset('main/js/script.js') }}"></script>
+  @yield('script')
 </body>
 
 </html>
