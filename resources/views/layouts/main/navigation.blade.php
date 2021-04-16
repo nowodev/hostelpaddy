@@ -21,7 +21,7 @@
             <a class="nav-link" href="{{ route('hostels') }}">Listed hostels</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Home owners/agents</a>
+            <a class="nav-link" href="{{ route('house') }}">Home owners/agents</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('help') }}">Help</a>
