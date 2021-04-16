@@ -1,8 +1,8 @@
-@extends('layouts.main.onboard')
+@extends('layouts.onboarding.app')
 @section('title', 'HostelPaddy - Agent Sign Up')
 
 @section('content')
-  @include('layouts.main.signupnav')
+  @include('layouts.onboarding.signup_nav')
 
   <!-- Onboarding content -->
 
@@ -32,11 +32,14 @@
 
         <!-- first part of signing up -->
         <div class="firstPart animated" id="firstPart">
-          <input id="name" type="text" class="input" name="name" placeholder="Full name" value="{{ old('name') }}" required aria-required="true">
+          <input id="name" type="text" class="input" name="name" placeholder="Full name" value="{{ old('name') }}"
+            required aria-required="true">
 
-          <input id="email" type="email" class="input" name="email" placeholder="Email" value="{{ old('email') }}" required aria-required="true">
+          <input id="email" type="email" class="input" name="email" placeholder="Email" value="{{ old('email') }}"
+            required aria-required="true">
 
-          <input id="num" type="tel" class="input" name="number" placeholder="Phone Number" value="{{ old('number') }}" required aria-required="true">
+          <input id="num" type="tel" class="input" name="number" placeholder="Phone Number" value="{{ old('number') }}"
+            required aria-required="true">
 
           <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
           <div class="continue-onboarding button-style enabled-state animated" id="continueOnboardingHouseOwner">Continue
@@ -80,7 +83,7 @@
           </div>
 
           <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
-          <div class="continue-onboarding button-style enabled-state animated" id="continueOnboardingOne">
+          <div class="continue-onboarding button-style enabled-state animated" id="continueAfterNumber">
             Continue
           </div>
         </div>
@@ -89,33 +92,41 @@
 
         <!-- third part of signing up -->
         <div class="thirdPart animated displayNone" id="thirdPart">
-          <select id="userState" name="state" class="select input" type="select" value="Abia" required>
-            <option value="Abia">Abia</option>
-            <option value="Adamawa">Adamawa</option>
-            <option value="Anambra">Anambra</option>
-            <option value="Enugu">Enugu</option>
-            <option value="Imo">Imo</option>
-          </select>
+          <input id="pwd" type="password" class="input" name="password" placeholder="Password" required
+            aria-required="true">
+          <span class="hidePass" id="hidePass" onclick="togglePass()">Show</span>
 
           <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
-          <div class="continue-onboarding button-style enabled-state animated" id="continueOnboarding">Continue
+          <div class="continue-onboarding button-style enabled-state animated" id="continueOnboardingAfterPass">
+            Continue
           </div>
         </div>
         <!-- /third part of signing up -->
 
         <!-- fourth part of signing up -->
         <div class="fourthPart animated displayNone" id="fourthPart">
-          <select id="userState" name="state" class="select input" type="select" value="Abia" required>
-            <option value="Abia">Abia</option>
-            <option value="Adamawa">Adamawa</option>
-            <option value="Anambra">Anambra</option>
-            <option value="Enugu">Enugu</option>
-            <option value="Imo">Imo</option>
-          </select>
 
-          <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
-          <div class="continue-onboarding button-style enabled-state animated" id="continueOnboarding">Continue
+          <div class="container">
+            <div class="row">
+              <div class="col-12 dropzone" action="" id="myDropzone">
+                <input id="photo" type="file" class="" name="photo" required aria-required="true">
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="link-text text-left mt-4 text-center" id="linktextContainer"> <a href=""
+                      id="skipPhotoUpload" class="link">Skip and
+                      do this later</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-block mt-5">
+                <button type="submit" class="mt-3 button-primary displayNone button-style"
+                  id="submitBtnHouseOwner">Finish</button>
+              </div>
+            </div>
           </div>
+
         </div>
         <!-- /fourth part of signing up -->
       </div>
@@ -125,11 +136,11 @@
           of
           service</a> and <a href="{{ route('privacy') }}" class="signup-link">Privacy policy</a>
       </div>
-
-      <button type="submit" class="mt-3 button-primary displayNone button-style" id="submitBtnHouseOwner">Finish</button>
-      <!-- /Onboarding content -->
-
     </div>
   </form>
 
+@endsection
+
+@section('script')
+  <script src="{{ asset('main/js/agent/script.js') }}"></script>
 @endsection
