@@ -16,6 +16,6 @@ deployment:
     - /bin/cp package-lock.json $DEPLOYPATH/mainsite
     - /bin/cp package.json $DEPLOYPATH/mainsite
     - /bin/cp phpunit.xml $DEPLOYPATH/mainsite
-    - /bin/cp webpack.min.js $DEPLOYPATH/mainsite
+    - /bin/cp webpack.mix.js $DEPLOYPATH/mainsite
 
-    - /bin/cp -R public/main $DEPLOYPATH/public_html/
+    - /bin/cp -R /public/main $DEPLOYPATH/public_html/
