@@ -80,6 +80,8 @@
   <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
   <link type="text/css" href="{{ asset('main/css/about.css') }}" rel="stylesheet" />
   <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/house.css') }}" rel="stylesheet" />
+  {{-- @yield('styles') --}}
 </head>
 
 
