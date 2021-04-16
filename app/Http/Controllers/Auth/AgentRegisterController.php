@@ -14,7 +14,7 @@ class AgentRegisterController extends Controller
 {
     public function create()
     {
-        return view('auth.agent-signup');
+        return view('auth.agent_signup');
     }
 
     public function store(Request $request)
