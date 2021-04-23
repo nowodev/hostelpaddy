@@ -1,4 +1,12 @@
-<html>
+@extends('layouts.agents.app')
+@section('title', 'Agent - Home')
+
+
+@section('content')
+
+@endsection
+
+{{-- <html>
     <head>
         <link rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
         <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -6,9 +14,9 @@
         <title>Agent</title>
     </head>
 
-    <body>
+    <body> --}}
         {{-- @include('layouts.main.session') --}}
-
+{{--
         <h1>Hello {{ Auth::guard('agent')->user()->name }}</h1>
         <a href="{{ route('search') }}">Search for your preferred hostel</a>
         <form method="POST" action="{{ route('agent.logout') }}">
@@ -20,5 +28,5 @@
             </a>
         </form>
     </body>
-</html>
+</html> --}}
 
