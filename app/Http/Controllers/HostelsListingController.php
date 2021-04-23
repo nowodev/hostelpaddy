@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Auth;
 
 class HostelsListingController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->authorizeResource(Hostel::class, 'hostel');
-    // }
+    public function __construct()
+    {
+        // $this->authorizeResource(Hostel::class, 'hostel');
+    }
 
     public function index()
     {
