@@ -82,7 +82,10 @@
             Amenities
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ $hostel->period }}
+            @foreach ($hostel->amenities as $amenity)
+              @php($names1[] = $amenity->name)
+              @endforeach
+              {{ implode(', ', $names1 ?? []) }}
           </dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -90,7 +93,10 @@
             Utilities
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ $hostel->period }}
+            @foreach ($hostel->utilities as $utility)
+              @php($names2[] = $utility->name)
+              @endforeach
+              {{ implode(', ', $names2 ?? []) }}
           </dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -98,28 +104,31 @@
             Rules
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ $hostel->period }}
-          </dd>
-        </div>
+            NO: @foreach ($hostel->rules as $rule)
+              @php($names3[] = $rule->name)
+              @endforeach
+              {{ implode(', ', $names3 ?? []) }}
+            </dd>
+          </div>
 
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Tenant Type
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ $hostel->tenantType }}
-          </dd>
-        </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Images
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ $hostel->image_name }}
-          </dd>
-        </div>
-      </dl>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Tenant Type
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{ $hostel->tenantType }}
+            </dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Images
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{ $hostel->image_name }}
+            </dd>
+          </div>
+        </dl>
+      </div>
     </div>
-  </div>
-  </div>
-@endsection
+    </div>
+  @endsection
