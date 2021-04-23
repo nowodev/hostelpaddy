@@ -15,21 +15,22 @@ class HostelsListingController extends Controller
 {
     public function __construct()
     {
+        //  ! page unauthorised probably because the Hostel Model is returning null
         // $this->authorizeResource(Hostel::class, 'hostel');
     }
 
     public function index()
     {
-        // fetch hostels from table
+        // ? fetch hostels from table
         $hostels = Hostel::where('agent_id', Auth::guard('agent')->user()->id)
             ->orderBy('id', 'ASC')
             ->Paginate(10);
-        // dd($hostels);
         return view('agents.hostels.index', compact('hostels'));
     }
 
     public function create()
     {
+        // ? get Models, to insert them as arrays
         $hostel = new Hostel();
         $amenities = Amenity::get();
         $utilities = Utility::get();
@@ -44,6 +45,7 @@ class HostelsListingController extends Controller
 
     public function store(HostelListingRequest $request)
     {
+        // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rula) with data
         if (Auth::guard('agent')->check()) {
             $hostel = Auth::guard('agent')->user()->hostels()->create($request->validated());
             $hostel->amenities()->sync($request->amenities);
@@ -57,12 +59,16 @@ class HostelsListingController extends Controller
         }
     }
 
+    //  ! error. code below not working and it's the right way
+    //  ! public function show(Hostel $hostel)
     public function show($id)
     {
         $hostel = Hostel::FindOrFail($id);
         return view('agents.hostels.show', compact('hostel'));
     }
 
+    //  ! error. code below not working and it's the right way
+    //  ! public function edit(Hostel $hostel)
     public function edit($id)
     {
         $hostel = Hostel::FindOrFail($id);
@@ -79,6 +85,7 @@ class HostelsListingController extends Controller
 
     public function update(HostelListingRequest $request, Hostel $hostel)
     {
+        // ! form not updating, especially when editing arrays
         $hostel->update($request->validated());
         $hostel->amenities()->sync($request->amenities);
         $hostel->utilities()->sync($request->amenities);
