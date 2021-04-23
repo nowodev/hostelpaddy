@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\HostelsListingController;
 use Illuminate\Support\Facades\Route;
 
 
-// Admin Route 
+// Admin Route
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -14,6 +15,10 @@ Route::get('/student', function () {
 })->middleware(['student'])->name('student.index');
 
 // Agents Route
-Route::get('/agent', function () {
-    return view('agents.index');
-})->middleware(['agent'])->name('agent.index');
+
+Route::middleware(['auth:agent'])->group(function () {
+    Route::get('/agent', function () {
+        return view('agents.index');
+    })->name('agent.index');
+    Route::resource('listings', HostelsListingController::class);
+});
