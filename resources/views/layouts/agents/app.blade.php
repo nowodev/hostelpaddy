@@ -24,10 +24,7 @@
 
     {{-- Print out error message from controller --}}
     @if (session('success'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        {{ session('success') }}
-      </div>
+      @include('layouts.agents.alert')
     @elseif (session('error'))
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert">X</button>
@@ -36,16 +33,8 @@
     @endif
     {{-- Print out error message from controller --}}
 
-    <!-- Page Heading -->
-    {{-- <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header> --}}
-
     <!-- Page Content -->
     <main>
-      {{-- {{ $slot }} --}}
       @yield('content')
     </main>
   </div>
