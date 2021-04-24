@@ -10,7 +10,7 @@
           Hostel Information
         </h2>
       </div>
-      <div class="mt-5 flex lg:mt-0 lg:ml-4">
+      <div class="mt-5 flex lg:mt-0 md:mt-0 sm:mt-0 lg:ml-4">
         <a href="{{ route('listings.index') }}" type="button"
           class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Back
@@ -33,7 +33,7 @@
             Location
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ $hostel->state }}, {{ $hostel->town }}
+            {{ $hostel->state }}, {{ $hostel->city }}
           </dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -124,7 +124,9 @@
               Images
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ $hostel->image_name }}
+              <div class="flex-shrink-0 h-96 w-96">
+                <img src="{{ $hostel->thumbnail }}" alt="Hostel Image" class="h-96 w-96 rounded-full">
+            </div>
             </dd>
           </div>
         </dl>
