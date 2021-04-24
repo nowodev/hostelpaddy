@@ -16,14 +16,12 @@ class CreateAmenitiesTable extends Migration
         Schema::create('amenities', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->timestamps();
         });
 
         Schema::create('amenity_hostel', function (Blueprint $table) {
             $table->id();
-            $table->integer('hostel_id');
-            $table->integer('amenity_id');
-            $table->timestamps();
+            $table->foreignId('hostel_id')->constrained();
+            $table->foreignId('amenity_id')->constrained();
         });
     }
 

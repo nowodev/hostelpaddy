@@ -16,14 +16,12 @@ class CreateRulesTable extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->timestamps();
         });
 
         Schema::create('hostel_rule', function (Blueprint $table) {
             $table->id();
-            $table->integer('hostel_id');
-            $table->integer('rule_id');
-            $table->timestamps();
+            $table->foreignId('hostel_id')->constrained();
+            $table->foreignId('rule_id')->constrained();
         });
 
     }

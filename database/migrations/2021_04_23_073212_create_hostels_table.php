@@ -25,7 +25,7 @@ class CreateHostelsTable extends Migration
             $table->integer('amount');
             $table->string('period');
             $table->text('tenantType');
-            $table->string('image_name');
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->foreign('agent_id')

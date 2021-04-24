@@ -16,14 +16,12 @@ class CreateUtilitiesTable extends Migration
         Schema::create('utilities', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->timestamps();
         });
 
         Schema::create('hostel_utility', function (Blueprint $table) {
             $table->id();
-            $table->integer('hostel_id');
-            $table->integer('utility_id');
-            $table->timestamps();
+            $table->foreignId('hostel_id')->constrained();
+            $table->foreignId('utility_id')->constrained();
         });
     }
 

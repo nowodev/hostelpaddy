@@ -16,7 +16,6 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->timestamps();
         });
     }
 

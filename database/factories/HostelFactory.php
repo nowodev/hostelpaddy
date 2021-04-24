@@ -22,10 +22,10 @@ class HostelFactory extends Factory
     public function definition()
     {
         return [
-            'agent_id' => $this->faker->numberBetween(1,2),
+            'agent_id' => $this->faker->numberBetween(1),
             'hostel_name' => $this->faker->word,
             'state' => $this->faker->state,
-            'town' => $this->faker->city,
+            'city' => $this->faker->city,
             'address' => $this->faker->address,
             'property' => $this->faker->randomElement(['Flats', 'Detached', 'Duplex', 'Bungalow']),
             'roomNum' => $this->faker->randomDigit,
