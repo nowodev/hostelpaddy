@@ -20,9 +20,19 @@ class Hostel extends Model
         return $this->belongsTo(Agent::class);
     }
 
+    // display image
+    public function getThumbnailAttribute() {
+        if ($this->image) {
+            return asset('storage/' . $this->image);
+        }
+        return asset('storage/thumbnail.jpg');
+    }
+
     public function amenities()
     {
         return $this->belongsToMany(Amenity::class);
+            // ->withPivot(['amenity_id', 'hostel_id']);
+            // ->withPivot(['amenities']);
     }
 
     public function utilities()
