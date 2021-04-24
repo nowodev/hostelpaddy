@@ -32,11 +32,11 @@ class HostelListingRequest extends FormRequest
             'roomNum' => 'required',
             'amount' => 'required',
             'period' => 'required',
-            'amenities' => 'required',
-            'utilities' => 'required',
-            'rules' => 'required',
+            // 'amenities' => 'required',
+            // 'utilities' => 'required',
+            // 'rules' => 'required',
             'tenantType' => 'required',
-            'image_name' => 'sometimes|mimes:png,jpg,jpeg',
+            'image' => 'sometimes|mimes:png,jpg,jpeg',
         ];
     }
 }
