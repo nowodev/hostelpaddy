@@ -10,6 +10,7 @@ use App\Models\Property;
 use App\Models\Rule;
 use App\Models\Utility;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class HostelsListingController extends Controller
 {
@@ -48,6 +49,10 @@ class HostelsListingController extends Controller
         // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rula) with data
         if (Auth::guard('agent')->check()) {
             $hostel = Auth::guard('agent')->user()->hostels()->create($request->validated());
+            if ($request->hasFile('image')) {
+                $this->_uploadImage($request, $hostel);
+            }
+
             $hostel->amenities()->sync($request->amenities);
             $hostel->utilities()->sync($request->amenities);
             $hostel->rules()->sync($request->amenities);
@@ -59,15 +64,16 @@ class HostelsListingController extends Controller
         }
     }
 
-    //  ! error. code below not working and it's the right way
+    //  ! error. code below not working and i'm guessing it should'
     //  ! public function show(Hostel $hostel)
     public function show($id)
     {
-        $hostel = Hostel::FindOrFail($id);
+        $hostel = Hostel::with(['amenities', 'utilities', 'rules'])
+            ->where('id', $id)->first();
         return view('agents.hostels.show', compact('hostel'));
     }
 
-    //  ! error. code below not working and it's the right way
+    //  ! error. code below not working and i'm guessing it should'
     //  ! public function edit(Hostel $hostel)
     public function edit($id)
     {
@@ -86,10 +92,11 @@ class HostelsListingController extends Controller
     public function update(HostelListingRequest $request, Hostel $hostel)
     {
         // ! form not updating, especially when editing arrays
+        dd($hostel);
         $hostel->update($request->validated());
         $hostel->amenities()->sync($request->amenities);
-        $hostel->utilities()->sync($request->amenities);
-        $hostel->rules()->sync($request->amenities);
+        $hostel->utilities()->sync($request->utilities);
+        $hostel->rules()->sync($request->rules);
 
         return redirect()->route('listings.index')
             ->with('success', 'Hostel Updated Successfully');
@@ -98,5 +105,15 @@ class HostelsListingController extends Controller
     public function destroy(Hostel $hostel)
     {
         //
+    }
+
+    private function _uploadImage($request, $hostel)
+    {
+        $image = $request->file('image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(225, 100)
+            ->save(public_path('storage/' . $filename));
+        $hostel->image = $filename;
+        $hostel->save();
     }
 }
