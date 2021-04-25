@@ -1,8 +1,8 @@
 <!--
-  This example requires Tailwind CSS v2.0+ 
-  
+  This example requires Tailwind CSS v2.0+
+
   This example requires some changes to your config:
-  
+
   ```
   // tailwind.config.js
   module.exports = {
@@ -79,8 +79,8 @@
                 @foreach ($properties as $property)
                   <div class="mb-3 flex items-center justify-between">
                     <div class="flex items-center">
-                      <input id="property" name="property" type="radio" value="{{ $property->id }}"
-                        {{ $property->id == old('property', $hostel->property) ? 'checked' : '' }}
+                      <input id="property" name="property" type="radio" value="{{ $property->name }}"
+                        {{ $property->name == old('property', $hostel->property) ? 'checked' : '' }}
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                       <label for="property" class="ml-3 block text-sm font-medium text-gray-700">
                         {{ $property->name }}
