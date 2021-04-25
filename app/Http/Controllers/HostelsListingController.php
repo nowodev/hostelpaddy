@@ -6,10 +6,10 @@ use App\Http\Requests\HostelListingRequest;
 use App\Models\Agent;
 use App\Models\Amenity;
 use App\Models\Hostel;
-use App\Models\Property;
 use App\Models\Rule;
 use App\Models\Utility;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class HostelsListingController extends Controller
@@ -36,7 +36,7 @@ class HostelsListingController extends Controller
         $amenities = Amenity::get();
         $utilities = Utility::get();
         $rules = Rule::get();
-        $properties = Property::get();
+        $properties = DB::select('SELECT * FROM properties');
 
         return view(
             'agents.hostels.create',
@@ -46,7 +46,7 @@ class HostelsListingController extends Controller
 
     public function store(HostelListingRequest $request)
     {
-        // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rula) with data
+        // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rule) with data
         if (Auth::guard('agent')->check()) {
             $hostel = Auth::guard('agent')->user()->hostels()->create($request->validated());
             if ($request->hasFile('image')) {
@@ -54,8 +54,8 @@ class HostelsListingController extends Controller
             }
 
             $hostel->amenities()->sync($request->amenities);
-            $hostel->utilities()->sync($request->amenities);
-            $hostel->rules()->sync($request->amenities);
+            $hostel->utilities()->sync($request->utilities);
+            $hostel->rules()->sync($request->rules);
             return redirect()->route('listings.index')
                 ->with('success', 'Hostel Added Successfully');
         } else {
@@ -65,11 +65,11 @@ class HostelsListingController extends Controller
     }
 
     //  ! error. code below not working and i'm guessing it should'
-    //  ! public function show(Hostel $hostel)
+    // ! public function show(Hostel $hostel)
     public function show($id)
     {
         $hostel = Hostel::with(['amenities', 'utilities', 'rules'])
-            ->where('id', $id)->first();
+        ->where('id', $id)->first();
         return view('agents.hostels.show', compact('hostel'));
     }
 
@@ -81,7 +81,7 @@ class HostelsListingController extends Controller
         $amenities = Amenity::get();
         $utilities = Utility::get();
         $rules = Rule::get();
-        $properties = Property::get();
+        $properties = DB::select('SELECT * FROM properties');
 
         return view(
             'agents.hostels.edit',
@@ -89,10 +89,9 @@ class HostelsListingController extends Controller
         );
     }
 
-    public function update(HostelListingRequest $request, Hostel $hostel)
+    public function update(HostelListingRequest $request, $id)
     {
-        // ! form not updating, especially when editing arrays
-        dd($hostel);
+        $hostel = Hostel::findOrFail($id);
         $hostel->update($request->validated());
         $hostel->amenities()->sync($request->amenities);
         $hostel->utilities()->sync($request->utilities);
@@ -102,9 +101,19 @@ class HostelsListingController extends Controller
             ->with('success', 'Hostel Updated Successfully');
     }
 
-    public function destroy(Hostel $hostel)
+    public function destroy(HostelListingRequest $request, $id)
     {
-        //
+        $hostel = Hostel::findOrFail($id);
+        $amenities = Amenity::find(1);
+        $utilities = Utility::find(1);
+        $rules = Rule::find(1);
+
+        $amenities->hostels()->detach($hostel);
+        $utilities->hostels()->detach($hostel);
+        $rules->hostels()->detach($hostel);
+        $hostel->delete();
+        return redirect()->route('listings.index')
+            ->with('success', 'Hostel Deleted Successfully');
     }
 
     private function _uploadImage($request, $hostel)
