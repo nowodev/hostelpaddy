@@ -56,7 +56,7 @@
                           {{ $hostel->hostel_name }}
                         </div>
                         <div class="text-sm text-gray-500">
-                          {{ $hostel->state }}, {{ $hostel->town }}
+                          {{ $hostel->state }}, {{ $hostel->city }}
                         </div>
                       </div>
                     </div>
@@ -68,7 +68,7 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">{{ $hostel->property }} with {{ $hostel->roomNum }} rooms
+                    <div class="text-sm text-gray-900">{{ $hostel->property }} with {{ $hostel->roomNum }} {{ $hostel->roomNum < 2 ? 'room' : 'rooms' }}
                     </div>
                     <div class="text-sm text-gray-500">...</div>
                   </td>
@@ -80,7 +80,13 @@
                       class="text-indigo-600 hover:text-indigo-900 mr-5">Show</a>
                     <a href="{{ route('listings.edit', [$hostel]) }}"
                       class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
-                    <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                    <form action="{{ route('listings.destroy', [$hostel]) }}" method="POST" class="inline-flex">
+                        @csrf
+                        @method('DELETE')
+
+                        {{-- <a href="{{ route('listings.destroy', [$hostel]) }}" class="text-red-600 hover:text-red-900">Delete</a> --}}
+                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                    </form>
                   </td>
                 </tr>
               @endforeach
