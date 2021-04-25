@@ -12,16 +12,18 @@ class Hostel extends Model
     protected $fillable = [
         'hostel_name', 'state', 'city',
         'address', 'property', 'roomNum',
-        'amount', 'period','tenantType','image_name',
+        'amount', 'period', 'tenantType', 'image_name',
         'amenities', 'utilities', 'rules',
     ];
 
-    public function agents() {
+    public function agents()
+    {
         return $this->belongsTo(Agent::class);
     }
 
     // display image
-    public function getThumbnailAttribute() {
+    public function getThumbnailAttribute()
+    {
         if ($this->image) {
             return asset('storage/' . $this->image);
         }
@@ -30,24 +32,19 @@ class Hostel extends Model
 
     public function amenities()
     {
-        return $this->belongsToMany(Amenity::class);
-            // ->withPivot(['amenity_id', 'hostel_id']);
-            // ->withPivot(['amenities']);
+        return $this->belongsToMany(Amenity::class)
+            ->withPivot(['amenity_id', 'hostel_id']);
     }
 
     public function utilities()
     {
-        return $this->belongsToMany(Utility::class);
+        return $this->belongsToMany(Utility::class)
+            ->withPivot(['hostel_id', 'utility_id']);
     }
 
     public function rules()
     {
-        return $this->belongsToMany(Rule::class);
+        return $this->belongsToMany(Rule::class)
+            ->withPivot(['rule_id', 'rule_id']);
     }
-
-    public function properties()
-    {
-        return $this->belongsToMany(Property::class);
-    }
-
 }

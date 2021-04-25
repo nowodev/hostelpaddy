@@ -9,7 +9,7 @@ class Rule extends Model
 {
     use HasFactory;
 
-    public function hostelRules()
+    public function hostels()
     {
         return $this->belongsToMany(Hostel::class);
     }

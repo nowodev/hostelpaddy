@@ -9,7 +9,7 @@ class Amenity extends Model
 {
     use HasFactory;
 
-    public function hostelAmenities()
+    public function hostels()
     {
         return $this->belongsToMany(Hostel::class);
     }
