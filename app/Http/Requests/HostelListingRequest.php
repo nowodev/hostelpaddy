@@ -51,11 +51,11 @@ class HostelListingRequest extends FormRequest
             'hostel_name.required' => 'The Hostel name is required.',
             'hostel_name.unique'   => 'The Hostel name exists, choose a new name.',
 
-            'address.required' => 'The Hostel Address is required.',
+            'address.required' => 'The Hostel address is required.',
             'state.required' => 'The State is required.',
             'city.required' => 'The City is required.',
             'property.required' => 'The Type of Hostel is required.',
-            'roomNum.required' => 'The Number of Rooms is required.',
+            'roomNum.required' => 'The Number of Room(s) is/are required.',
             'amount.required' => 'The Amount is required.',
             'period.required' => 'The Rent Period is required.',
             'tenantType.required' => 'The Tenant Type is required.',
