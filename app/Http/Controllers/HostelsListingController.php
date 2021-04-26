@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\HostelListingRequest;
-use App\Models\Agent;
 use App\Models\Amenity;
 use App\Models\Hostel;
 use App\Models\Rule;
@@ -23,7 +22,7 @@ class HostelsListingController extends Controller
     public function index()
     {
         // ? fetch hostels from table
-        $hostels = Hostel::where('agent_id', Auth::guard('agent')->user()->id)
+        $hostels = Hostel::where('agent_id', Auth::guard('agent')->id())
             ->orderBy('id', 'ASC')
             ->Paginate(10);
         return view('agents.hostels.index', compact('hostels'));
