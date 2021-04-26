@@ -24,12 +24,9 @@
 
     {{-- Print out error message from controller --}}
     @if (session('success'))
-      @include('layouts.agents.alert')
+      @include('layouts.agents.alert_success')
     @elseif (session('error'))
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert">X</button>
-        {{ session('error') }}
-      </div>
+    @include('layouts.agents.alert_error')
     @endif
     {{-- Print out error message from controller --}}
 
@@ -38,6 +35,21 @@
       @yield('content')
     </main>
   </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+	integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+	</script>
+  <script>
+    $(".closealertbutton").click(function(e) {
+      // $('.alertbox')[0].hide()
+      // e.preventDefault();
+      pid = $(this).parent().parent().hide(500)
+      console.log(pid)
+      // $(".alertbox", this).hide()
+    })
+
+  </script>
 </body>
 
 </html>
