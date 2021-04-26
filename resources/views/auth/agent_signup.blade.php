@@ -6,7 +6,7 @@
 
   <!-- Onboarding content -->
 
-  <form action="{{ route('agent.register') }}" class="form" method="POST">
+  <form action="{{ route('agent.register') }}" class="form" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="onboard-container">
       <div class="sign-up-onboard-text">
@@ -38,7 +38,7 @@
           <input id="email" type="email" class="input" name="email" placeholder="Email" value="{{ old('email') }}"
             required aria-required="true">
 
-          <input id="num" type="tel" class="input" name="number" placeholder="Phone Number" value="{{ old('number') }}"
+          <input id="phone" type="tel" class="input" name="phone" placeholder="Phone Number" value="{{ old('phone') }}"
             required aria-required="true">
 
           <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
@@ -49,7 +49,7 @@
         <!-- /first part of signing up -->
 
         <!-- second part of signing up -->
-        <div class="secondPart animated displayNone" id="secondPart">
+        {{-- <div class="secondPart animated displayNone" id="secondPart">
           <div class="container">
             <div class="row">
               <div class="col-3">
@@ -86,7 +86,7 @@
           <div class="continue-onboarding button-style enabled-state animated" id="continueAfterNumber">
             Continue
           </div>
-        </div>
+        </div> --}}
 
         <!-- /second part of signing up -->
 
@@ -95,6 +95,9 @@
           <input id="pwd" type="password" class="input" name="password" placeholder="Password" required
             aria-required="true">
           <span class="hidePass" id="hidePass" onclick="togglePass()">Show</span>
+
+          <input id="confirmPwd" type="password" class="input d-block remove-mt" name="password_confirmation"
+            placeholder="Confirm password" required aria-required="true">
 
           <!-- Please add ".disabled-state" after you must have sorted the script.js file out -->
           <div class="continue-onboarding button-style enabled-state animated" id="continueOnboardingAfterPass">
@@ -109,7 +112,7 @@
           <div class="container">
             <div class="row">
               <div class="col-12 dropzone" action="" id="myDropzone">
-                <input id="photo" type="file" class="" name="photo" required aria-required="true">
+                <input id="image" type="file" class="" name="image" required aria-required="true">
               </div>
               <div class="row">
                 <div class="col-12">
