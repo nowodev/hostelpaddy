@@ -40,7 +40,7 @@ function inputVer() {
     pwdInput = document.getElementById("pwd").value.trim(),
     userStateInput = document.getElementById("userState").value.trim(),
     onboardingBtn = document.getElementById("continueOnboarding"),
-    secondPart = document.getElementById("secondPart"),
+    // secondPart = document.getElementById("secondPart"),
     firstPart = document.getElementById("firstPart");
 
 
@@ -76,63 +76,87 @@ function togglePass() {
   }
 }
 
+// ? Remove OTP Verification
+
+// function continueOnboardingHouseOwner() {
+//   $("#continueOnboardingHouseOwner").click(function () {
+//     // What to happen to first part
+//     firstPart.classList.add("displayNone");
+
+//     // What to happen to second part
+//     secondPart.classList.remove("displayNone");
+//     secondPart.classList.add("slideInUp");
+
+//     // What to do to onboarding btn
+//     // onboardingBtn.classList.add("fadeOutUp");
+
+
+//     // What to happen when onboarding button is clicked
+//     // Change onboardTitle text
+//     onboardTitle.innerText = "Confirm your number";
+
+//     // Change subTitle text
+//     // subTitle.innerText = `Enter 4 digit code sent to ${numInput}`;
+
+//     // What to do to submit btn
+//     // submitBtn.classList.remove("displayNone");
+
+//     //What to do to consent container
+//     consentContainer.classList.add("displayNone"); //hide sign up consent container
+
+//     //What to do to icon container
+//     iconContainer.classList.add("displayNone"); //hide icon container
+
+//     continueAfterNumber();
+
+//   });
+
+// }
 
 function continueOnboardingHouseOwner() {
-  $("#continueOnboardingHouseOwner").click(function () {
-    // What to happen to first part
-    firstPart.classList.add("displayNone");
+    $("#continueOnboardingHouseOwner").click(function () {
+      // What to happen to second part
+      firstPart.classList.add("displayNone");
+  
+      // What to happen to third part
+      thirdPart.classList.remove("displayNone");
+      thirdPart.classList.add("slideInUp");
+  
+  
+      // What to happen when onboarding button is clicked
+      // Change onboardTitle text
+      onboardTitle.innerText = "Set up your password to continue";
+  
+  
+      // Change subTitle text
+      subTitle.innerText = ``;
+  
+      continueOnboardingAfterPass();
+    });
+  }
 
-    // What to happen to second part
-    secondPart.classList.remove("displayNone");
-    secondPart.classList.add("slideInUp");
+// ? Remove OTP Verification
+// function continueAfterNumber() {
+//   $("#continueAfterNumber").click(function () {
+//     // What to happen to second part
+//     secondPart.classList.add("displayNone");
 
-    // What to do to onboarding btn
-    // onboardingBtn.classList.add("fadeOutUp");
-
-
-    // What to happen when onboarding button is clicked
-    // Change onboardTitle text
-    onboardTitle.innerText = "Confirm your number";
-
-    // Change subTitle text
-    // subTitle.innerText = `Enter 4 digit code sent to ${numInput}`;
-
-    // What to do to submit btn
-    // submitBtn.classList.remove("displayNone");
-
-    //What to do to consent container
-    consentContainer.classList.add("displayNone"); //hide sign up consent container
-
-    //What to do to icon container
-    iconContainer.classList.add("displayNone"); //hide icon container
-
-    continueAfterNumber();
-
-  });
-
-}
-
-function continueAfterNumber() {
-  $("#continueAfterNumber").click(function () {
-    // What to happen to second part
-    secondPart.classList.add("displayNone");
-
-    // What to happen to third part
-    thirdPart.classList.remove("displayNone");
-    thirdPart.classList.add("slideInUp");
+//     // What to happen to third part
+//     thirdPart.classList.remove("displayNone");
+//     thirdPart.classList.add("slideInUp");
 
 
-    // What to happen when onboarding button is clicked
-    // Change onboardTitle text
-    onboardTitle.innerText = "Set up your password to continue";
+//     // What to happen when onboarding button is clicked
+//     // Change onboardTitle text
+//     onboardTitle.innerText = "Set up your password to continue";
 
 
-    // Change subTitle text
-    subTitle.innerText = ``;
+//     // Change subTitle text
+//     subTitle.innerText = ``;
 
-    continueOnboardingAfterPass();
-  });
-}
+//     continueOnboardingAfterPass();
+//   });
+// }
 
 
 function continueOnboardingAfterPass() {
