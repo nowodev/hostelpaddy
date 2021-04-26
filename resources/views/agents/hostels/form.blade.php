@@ -55,6 +55,7 @@
               <label for="state" class="block text-sm font-medium text-gray-700">State</label>
               <select id="state" name="state" autocomplete="state"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <option value="">Select One</option>
                 <option value="lagos" {{ 'lagos' == old('state', $hostel->state) ? 'selected' : '' }}>Lagos</option>
                 <option value="osun" {{ 'osun' == old('state', $hostel->state) ? 'selected' : '' }}>Osun</option>
                 <option value="ogun" {{ 'ogun' == old('state', $hostel->state) ? 'selected' : '' }}>Ogun</option>
@@ -65,6 +66,7 @@
               <label for="city" class="block text-sm font-medium text-gray-700">City</label>
               <select id="city" name="city" autocomplete="city"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <option value="">Select One</option>
                 <option value="akoka" {{ 'akoka' == old('city', $hostel->city) ? 'selected' : '' }}>Akoka</option>
                 <option value="yaba" {{ 'yaba' == old('city', $hostel->city) ? 'selected' : '' }}>Yaba</option>
                 <option value="gbagada" {{ 'gbagada' == old('city', $hostel->city) ? 'selected' : '' }}>Gbagada
@@ -95,6 +97,7 @@
               <label for="roomNum" class="block text-sm font-medium text-gray-700">Number of Rooms</label>
               <select id="roomNum" name="roomNum" autocomplete="roomNum"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <option value="">Select One</option>
                 <option value="1" {{ '1' == old('roomNum', $hostel->roomNum) ? 'selected' : '' }}>1</option>
                 <option value="2" {{ '2' == old('roomNum', $hostel->roomNum) ? 'selected' : '' }}>2</option>
                 <option value="3" {{ '3' == old('roomNum', $hostel->roomNum) ? 'selected' : '' }}>3</option>
@@ -111,6 +114,7 @@
               <label for="period" class="block text-sm font-medium text-gray-700">Rent Period</label>
               <select id="period" name="period" autocomplete="period"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <option value="">Select One</option>
                 <option value="yearly" {{ 'yearly' == old('period', $hostel->period) ? 'selected' : '' }}>Yearly</option>
                 <option value="quaterly" {{ 'quaterly' == old('period', $hostel->period) ? 'selected' : '' }}>Quaterly</option>
                 <option value="monthly" {{ 'monthly' == old('period', $hostel->period) ? 'selected' : '' }}>Monthly</option>
