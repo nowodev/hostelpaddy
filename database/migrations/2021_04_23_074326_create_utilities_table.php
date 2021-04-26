@@ -15,7 +15,7 @@ class CreateUtilitiesTable extends Migration
     {
         Schema::create('utilities', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
+            $table->string('name');
         });
 
         Schema::create('hostel_utility', function (Blueprint $table) {
@@ -33,5 +33,6 @@ class CreateUtilitiesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('utilities');
+        Schema::dropIfExists('hostel_utility');
     }
 }
