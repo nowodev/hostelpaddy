@@ -65,16 +65,16 @@ class HostelsListingController extends Controller
     }
 
     //  ! error. code below not working and i'm guessing it should'
-    // ! public function show(Hostel $hostel)
+    // public function show(Hostel $hostel)
     public function show($id)
     {
         $hostel = Hostel::with(['amenities', 'utilities', 'rules'])
-        ->where('id', $id)->first();
+            ->where('id', $id)->first();
         return view('agents.hostels.show', compact('hostel'));
     }
 
     //  ! error. code below not working and i'm guessing it should'
-    //  ! public function edit(Hostel $hostel)
+    //  public function edit(Hostel $hostel)
     public function edit($id)
     {
         $hostel = Hostel::FindOrFail($id);
@@ -96,7 +96,7 @@ class HostelsListingController extends Controller
         if ($request->hasFile('image')) {
             $this->_uploadImage($request, $hostel);
         }
-        
+
         $hostel->amenities()->sync($request->amenities);
         $hostel->utilities()->sync($request->utilities);
         $hostel->rules()->sync($request->rules);
@@ -121,7 +121,7 @@ class HostelsListingController extends Controller
         $image = $request->file('image');
         $filename = 'HP_H_' . time() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(225, 100)
-            ->save(public_path('storage/hostels/' . $filename));
+            ->save(storage_path('app/public/hostels/' . $filename));
         $hostel->image = $filename;
         $hostel->save();
     }
