@@ -25,7 +25,7 @@ class Hostel extends Model
     public function getThumbnailAttribute()
     {
         if ($this->image) {
-            return asset('storage/' . $this->image);
+            return asset('storage/hostels/' . $this->image);
         }
         return asset('storage/thumbnail.jpg');
     }
