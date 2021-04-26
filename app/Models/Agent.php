@@ -24,6 +24,15 @@ class Agent extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // display image
+    public function getThumbnailAttribute()
+    {
+        if ($this->image) {
+            return asset('storage/agents/' . $this->image);
+        }
+        return asset('storage/thumbnail.jpg');
+    }
+
     public function hostels() {
         return $this->hasMany(Hostel::class);
     }
