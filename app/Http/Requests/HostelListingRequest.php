@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class HostelListingRequest extends FormRequest
 {
@@ -23,8 +24,12 @@ class HostelListingRequest extends FormRequest
      */
     public function rules()
     {
+        $hostelID = $this->route('hostel.id');
         return [
-            'hostel_name' => 'required',
+            'hostel_name' => [
+                'required', 
+                // Rule::unique('hostels')->ignore($hostelID)
+            ],
             'address' => 'required',
             'state' => 'required',
             'city' => 'required',
@@ -37,6 +42,23 @@ class HostelListingRequest extends FormRequest
             // 'rules' => 'required',
             'tenantType' => 'required',
             'image' => 'sometimes|mimes:png,jpg,jpeg',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'hostel_name.required' => 'The Hostel name is required.',
+            'hostel_name.unique'   => 'The Hostel name exists, choose a new name.',
+
+            'address.required' => 'The Hostel Address is required.',
+            'state.required' => 'The State is required.',
+            'city.required' => 'The City is required.',
+            'property.required' => 'The Type of Hostel is required.',
+            'roomNum.required' => 'The Number of Rooms is required.',
+            'amount.required' => 'The Amount is required.',
+            'period.required' => 'The Rent Period is required.',
+            'tenantType.required' => 'The Tenant Type is required.',
         ];
     }
 }
