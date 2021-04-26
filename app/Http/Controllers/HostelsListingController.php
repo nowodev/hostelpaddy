@@ -93,6 +93,10 @@ class HostelsListingController extends Controller
     {
         $hostel = Hostel::findOrFail($id);
         $hostel->update($request->validated());
+        if ($request->hasFile('image')) {
+            $this->_uploadImage($request, $hostel);
+        }
+        
         $hostel->amenities()->sync($request->amenities);
         $hostel->utilities()->sync($request->utilities);
         $hostel->rules()->sync($request->rules);
@@ -101,16 +105,12 @@ class HostelsListingController extends Controller
             ->with('success', 'Hostel Updated Successfully');
     }
 
-    public function destroy(HostelListingRequest $request, $id)
+    public function destroy($id)
     {
         $hostel = Hostel::findOrFail($id);
-        $amenities = Amenity::find(1);
-        $utilities = Utility::find(1);
-        $rules = Rule::find(1);
-
-        $amenities->hostels()->detach($hostel);
-        $utilities->hostels()->detach($hostel);
-        $rules->hostels()->detach($hostel);
+        $hostel->amenities()->detach($hostel->amenities);
+        $hostel->utilities()->detach($hostel->utilities);
+        $hostel->rules()->detach($hostel->rules);
         $hostel->delete();
         return redirect()->route('listings.index')
             ->with('success', 'Hostel Deleted Successfully');
@@ -119,9 +119,9 @@ class HostelsListingController extends Controller
     private function _uploadImage($request, $hostel)
     {
         $image = $request->file('image');
-        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $filename = 'HP_H_' . time() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(225, 100)
-            ->save(public_path('storage/' . $filename));
+            ->save(public_path('storage/hostels/' . $filename));
         $hostel->image = $filename;
         $hostel->save();
     }
