@@ -33,7 +33,8 @@ class AgentRegisterController extends Controller
         $image = $request->file('image');
         $filename = 'HP_A_' . time() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(225, 100)
-            ->save(public_path('storage/agents/' . $filename));
+            ->save(storage_path('app/public/agents/' . $filename));
+            // ->save(public_path('storage/agents/' . $filename));
 
         Auth::guard('agent')->login($agent = Agent::create([
             'name' => $request->name,
@@ -42,11 +43,6 @@ class AgentRegisterController extends Controller
             'password' => Hash::make($request->password),
             'image' => $filename,
         ]));   
-
-        // if ($request->hasFile('image')) {
-        //     $this->_uploadImage($request, $well);
-        // }
-        // Auth::guard('agent')->login($agent = Agent::create($request->validated()));
 
         event(new Registered($agent));
 
