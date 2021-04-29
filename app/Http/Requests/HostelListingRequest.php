@@ -27,7 +27,7 @@ class HostelListingRequest extends FormRequest
         $hostelID = $this->route('hostel.id');
         return [
             'hostel_name' => [
-                'required', 
+                'required',
                 // Rule::unique('hostels')->ignore($hostelID)
             ],
             'address' => 'required',
@@ -37,9 +37,9 @@ class HostelListingRequest extends FormRequest
             'roomNum' => 'required',
             'amount' => 'required',
             'period' => 'required',
-            // 'amenities' => 'required',
-            // 'utilities' => 'required',
-            // 'rules' => 'required',
+//            'amenities' => 'required',
+//            'utilities' => 'required',
+//            'rules' => 'required',
             'tenantType' => 'required',
             'image' => 'sometimes|mimes:png,jpg,jpeg',
         ];
