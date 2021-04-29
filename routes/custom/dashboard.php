@@ -19,25 +19,10 @@ Route::get('/student', function () {
 
 // Agents Route
 
-Route::middleware(['auth:agent'])->group(function () {
-    Route::get('/agent', function () {
+Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
+    Route::get('/', function () {
         return view('agents.index');
     })->name('agent.index');
 
     Route::resource('listings', HostelsListingController::class);
-});
-
-Route::get('/test', function () {
-    // return Hostel::with(['amenities', 'utilities', 'rules'])
-    //         ->orderBy('id')->get();
-
-    return Hostel::with(['amenities', 'utilities', 'rules'])
-        ->where('id', 50)->first();
-});
-
-Route::get('/img', function()
-{
-    $imagePath = public_path('storage/10000680.jpg');
-    $img = Image::make($imagePath)->resize(300, 200);
-    return $img->response('jpg');
 });
