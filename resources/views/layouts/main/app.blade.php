@@ -12,6 +12,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  {{-- <title>HostelPaddy - Home</title> --}}
   <title>@yield('title', 'Hostel Paddy')</title>
 
   <meta charset="UTF-8">
