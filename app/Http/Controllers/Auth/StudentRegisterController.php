@@ -22,10 +22,10 @@ class StudentRegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             // ? check each table, email column, to avoid duplicate
-            'email' => 'required|string|email|max:255|unique:students,email|unique:agents,email|unique:users,email',
+            'email' => 'required|email|max:255|unique:students,email|unique:agents,email|unique:users,email',
             'phone' => 'required|max:20',
             'state' => 'required|string|max:255',
-            'password' => 'required|string|confirmed|min:8',
+            'password' => 'required|confirmed|min:8',
         ]);
 
         Auth::guard('student')->login($student = Student::create([

@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\SearchController;
-
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +21,23 @@ Route::get('/', function () {
 Route::get('/coming-soon', function () {
     return view('webpages.coming_soon');
 });
+
+// Artisan routes
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
+
+Route::get('/optimize', function () {
+    Artisan::call('config:cache');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    exec('rm -f'.storage_path('logs/*log'));
+    exec('rm -f'.base_path('log'));
+
+    return "Cache is cleared";
+})->name('clear.cache');
 
 // Search route
 Route::get('/search', [SearchController::class, 'search'])->name('search');
