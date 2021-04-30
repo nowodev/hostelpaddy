@@ -35,7 +35,7 @@
             </x-slot>
 
             <x-slot name="content">
-              <x-dropdown-link :href="route('listings.index')">
+              <x-dropdown-link :href="route('hostels.index')">
                 {{ __('Manage Listing') }}
               </x-dropdown-link>
 
@@ -103,7 +103,7 @@
         {{ __('Hostel') }}
       </x-responsive-nav-link>
 
-      <x-responsive-nav-link :href="route('listings.index')" :active="request()->routeIs('listings.index')">
+      <x-responsive-nav-link :href="route('hostels.index')" :active="request()->routeIs('hostels.index')">
         {{ __('Manage Listing') }}
       </x-responsive-nav-link>
 
