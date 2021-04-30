@@ -30,12 +30,12 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::ADMINHOME)
                 ->with('success', 'You\'re now logged in.');
-        } else if (Auth::guard('student')->attempt($credentials)) {
+        } else if (auth('student')->attempt($credentials)) {
             // if student
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::STUDENTHOME)
                 ->with('success', 'You\'re now logged in.' );
-        } else if (Auth::guard('agent')->attempt($credentials)) {
+        } else if (auth('agent')->attempt($credentials)) {
             // if agent
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::AGENTHOME)
@@ -53,10 +53,10 @@ class AuthController extends Controller
         if (Auth::logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-        } else if (Auth::guard('student')->logout()) {
+        } else if (auth('student')->logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-        } else if (Auth::guard('agent')->logout()) {
+        } else if (auth('agent')->logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
         }

@@ -28,7 +28,7 @@ class StudentRegisterController extends Controller
             'password' => 'required|confirmed|min:8',
         ]);
 
-        Auth::guard('student')->login($student = Student::create([
+        auth('student')->login($student = Student::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,

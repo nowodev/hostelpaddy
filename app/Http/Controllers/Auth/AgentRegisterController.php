@@ -28,21 +28,21 @@ class AgentRegisterController extends Controller
             'password' => 'required|confirmed|min:8',
             'image' => 'sometimes|mimes:png,jpg,jpeg',
         ]);
-        
 
+        
         $image = $request->file('image');
         $filename = 'HP_A_' . time() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(225, 100)
             ->save(storage_path('app/public/agents/' . $filename));
             // ->save(public_path('storage/agents/' . $filename));
 
-        Auth::guard('agent')->login($agent = Agent::create([
+        auth('agent')->login($agent = Agent::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'image' => $filename,
-        ]));   
+        ]));
 
         event(new Registered($agent));
 
