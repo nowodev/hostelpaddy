@@ -38,6 +38,8 @@ class StudentRegisterController extends Controller
 
         event(new Registered($student));
 
-        return redirect(RouteServiceProvider::STUDENTHOME);
+        return redirect(RouteServiceProvider::STUDENTHOME)
+            ->with('success', 'Account Created Successfully');
+
     }
 }

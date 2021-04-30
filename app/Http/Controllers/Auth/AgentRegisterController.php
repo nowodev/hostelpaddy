@@ -46,6 +46,7 @@ class AgentRegisterController extends Controller
 
         event(new Registered($agent));
 
-        return redirect(RouteServiceProvider::AGENTHOME);
+        return redirect(RouteServiceProvider::AGENTHOME)
+            ->with('success', 'Account Created Successfully');
     }
 }

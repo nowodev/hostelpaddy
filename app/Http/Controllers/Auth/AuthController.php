@@ -28,17 +28,18 @@ class AuthController extends Controller
         // if admin
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::ADMINHOME);
+            return redirect()->intended(RouteServiceProvider::ADMINHOME)
+                ->with('success', 'You\'re now logged in.');
         } else if (Auth::guard('student')->attempt($credentials)) {
             // if student
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::STUDENTHOME)
-                ->with('status', 'You\'re now logged in.' );
+                ->with('success', 'You\'re now logged in.' );
         } else if (Auth::guard('agent')->attempt($credentials)) {
             // if agent
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::AGENTHOME)
-                ->with('status', 'You\'re now logged in.' );
+                ->with('success', 'You\'re now logged in.' );
         } else {
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records.',
