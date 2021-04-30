@@ -36,16 +36,4 @@ class Agent extends Authenticatable
     public function hostels() {
         return $this->hasMany(Hostel::class);
     }
-
-    // public function utils()
-    // {
-    //     return $this->hasOne(
-    //         Hostel::class,
-    //         Utility::class,
-    //         'id',
-    //         'hostel_id',
-    //         'user_id',
-    //         'utility_id',
-    //     );
-    // }
 }

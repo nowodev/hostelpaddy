@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Agent;
 use App\Models\Hostel;
+use App\Models\Agent;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class HostelPolicy
@@ -12,7 +12,7 @@ class HostelPolicy
 
     public function viewAny(Agent $agent)
     {
-        true;
+        return true;
     }
 
     public function view(Agent $agent, Hostel $hostel)
@@ -22,7 +22,7 @@ class HostelPolicy
 
     public function create(Agent $agent)
     {
-        true;
+        return true;
     }
 
     public function update(Agent $agent, Hostel $hostel)
