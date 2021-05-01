@@ -41,23 +41,15 @@
         </div>
       </div>
     </form>
+</div>
 
     <div class="my-5">
       @if ($hostels->isNotEmpty())
-        <h1 class="display-4">All hostels</h1>
-        <div class="row">
-        @foreach ($hostels as $hostel)
-            <div class="col">
-                <h6>{{ $hostel->hostel_name }}</h6>
-                <img src="{{ $hostel->thumbnail }}" style="width: 300px;" alt="Hostel Image">
-            </div>
-            @endforeach
-        </div>
+        @include('components.main.all-hostels')
       @else
         <div>
           <h2> No hostel found for this field</h2>
         </div>
       @endif
     </div>
-  </div>
 @endsection
