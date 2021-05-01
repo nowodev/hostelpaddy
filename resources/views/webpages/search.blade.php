@@ -1,3 +1,5 @@
+{{-- Search functionality will be integrated into pages directly and not be a seperate page entirely. For example, in the listed hostels section from the navbar, one can filter through the hostels and so on...   --}}
+
 @extends('layouts.main.app')
 
 @section('content')
