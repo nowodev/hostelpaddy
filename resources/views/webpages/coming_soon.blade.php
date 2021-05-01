@@ -3,8 +3,9 @@
 
 @section('content')
 
-  @include('components.comingsoon.countdown')
-
+  {{-- @include('components.comingsoon.countdown') --}}
+  <x-comingsoon.countdown />
+  
   <!-- Coming soon content -->
   <div class="coming-soon-content">
     <div class="container">
@@ -23,7 +24,8 @@
               Get an apartment early by signing up to our mailing list
             </div>
 
-            @include('components.comingsoon.email')
+            {{-- @include('components.comingsoon.email') --}}
+            <x-comingsoon.email />
 
           </div>
         </div>
@@ -39,7 +41,9 @@
   </div>
   <!-- /Coming soon content -->
 
-  @include('components.comingsoon.social')
+  {{-- @include('components.comingsoon.social') --}}
+  <x-comingsoon.social />
 
-  @include('components.comingsoon.copyright')
+  <x-comingsoon.copyright />
+  {{-- @include('components.comingsoon.copyright') --}}
 @endsection
