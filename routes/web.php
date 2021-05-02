@@ -48,3 +48,8 @@ require __DIR__ . '/custom/dashboard.php';
 require __DIR__ . '/custom/main.php';
 
 require __DIR__ . '/custom/auth.php';
+
+Route::fallback(function() {
+    return 'Wahala';
+    //* return a view (custom error page)
+});
