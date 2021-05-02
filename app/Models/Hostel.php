@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Hostel extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'hostel_name', 'state', 'city',
@@ -21,6 +22,21 @@ class Hostel extends Model
         return $this->belongsTo(Agent::class);
     }
 
+    public function amenities()
+    {
+        return $this->belongsToMany(Amenity::class);
+    }
+
+    public function utilities()
+    {
+        return $this->belongsToMany(Utility::class);
+    }
+
+    public function rules()
+    {
+        return $this->belongsToMany(Rule::class);
+    }
+
     // display image
     public function getThumbnailAttribute()
     {
@@ -30,21 +46,22 @@ class Hostel extends Model
         return asset('storage/thumbnail.jpg');
     }
 
-    public function amenities()
-    {
-        return $this->belongsToMany(Amenity::class)
-            ->withPivot(['amenity_id', 'hostel_id']);
+    public function scopeSearch($query, $q) {
+        if ($q == null) return $query;
+
+        return $query->where('hostel_name', 'LIKE', "%{$q}%")
+            ->orWhere('state', 'LIKE', "%{$q}%")
+            ->orWhere('city', 'LIKE', "%{$q}%")
+            ->orWhere('property', 'LIKE', "%{$q}%")
+            ->orWhere('amount', 'LIKE', "%{$q}%")
+            ->orWhere('roomNum', 'LIKE', "%{$q}%");
     }
 
-    public function utilities()
-    {
-        return $this->belongsToMany(Utility::class)
-            ->withPivot(['hostel_id', 'utility_id']);
-    }
+    //hostel description algorithm
+    public function getDescriptionAttribute() {
+        $room = ($this->roomNum == 1) ? 'room' : 'rooms';
+        $value = $this->roomNum . ' ' . $room . ' ' . $this->property;
 
-    public function rules()
-    {
-        return $this->belongsToMany(Rule::class)
-            ->withPivot(['rule_id', 'rule_id']);
+        return $value;
     }
 }

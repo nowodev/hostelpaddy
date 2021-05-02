@@ -1,28 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Agent;
 
-use App\Http\Requests\HostelListingRequest;
-use App\Models\Amenity;
 use App\Models\Hostel;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\HostelRequest;
+use App\Models\Amenity;
+use App\Models\City;
+use App\Models\Property;
 use App\Models\Rule;
+use App\Models\State;
 use App\Models\Utility;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class HostelsListingController extends Controller
+class HostelController extends Controller
 {
     public function __construct()
     {
-        //  ! page unauthorised probably because the Hostel Model is returning null
-        // $this->authorizeResource(Hostel::class, 'hostel');
+        $this->authorizeResource(Hostel::class, 'hostel');
     }
 
     public function index()
     {
         // ? fetch hostels from table
-        $hostels = Hostel::where('agent_id', Auth::guard('agent')->id())
+        $hostels = Hostel::where('agent_id', auth('agent')->id())
             ->orderBy('id', 'ASC')
             ->Paginate(10);
         return view('agents.hostels.index', compact('hostels'));
@@ -35,19 +36,20 @@ class HostelsListingController extends Controller
         $amenities = Amenity::get();
         $utilities = Utility::get();
         $rules = Rule::get();
-        $properties = DB::select('SELECT * FROM properties');
+        $properties = Property::get();
+        $states = State::get();
+        $cities = City::get();
 
-        return view(
-            'agents.hostels.create',
-            compact('hostel', 'amenities', 'utilities', 'rules', 'properties')
+        return view('agents.hostels.create',
+            compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities')
         );
     }
 
-    public function store(HostelListingRequest $request)
+    public function store(HostelRequest $request)
     {
         // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rule) with data
-        if (Auth::guard('agent')->check()) {
-            $hostel = Auth::guard('agent')->user()->hostels()->create($request->validated());
+        if (auth('agent')->check()) {
+            $hostel = auth('agent')->user()->hostels()->create($request->validated());
             if ($request->hasFile('image')) {
                 $this->_uploadImage($request, $hostel);
             }
@@ -55,7 +57,7 @@ class HostelsListingController extends Controller
             $hostel->amenities()->sync($request->amenities);
             $hostel->utilities()->sync($request->utilities);
             $hostel->rules()->sync($request->rules);
-            return redirect()->route('listings.index')
+            return redirect()->route('hostels.index')
                 ->with('success', 'Hostel Added Successfully');
         } else {
             return redirect()->back()
@@ -63,34 +65,27 @@ class HostelsListingController extends Controller
         }
     }
 
-    //  ! error. code below not working and i'm guessing it should'
-    // public function show(Hostel $hostel)
-    public function show($id)
+    public function show(Hostel $hostel)
     {
-        $hostel = Hostel::with(['amenities', 'utilities', 'rules'])
-            ->where('id', $id)->first();
         return view('agents.hostels.show', compact('hostel'));
     }
 
-    //  ! error. code below not working and i'm guessing it should'
-    //  public function edit(Hostel $hostel)
-    public function edit($id)
+    public function edit(Hostel $hostel)
     {
-        $hostel = Hostel::FindOrFail($id);
         $amenities = Amenity::get();
         $utilities = Utility::get();
         $rules = Rule::get();
-        $properties = DB::select('SELECT * FROM properties');
+        $properties = Property::get();
+        $states = State::get();
+        $cities = City::get();
 
-        return view(
-            'agents.hostels.edit',
-            compact('hostel', 'amenities', 'utilities', 'rules', 'properties')
+        return view('agents.hostels.edit',
+            compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities')
         );
     }
 
-    public function update(HostelListingRequest $request, $id)
+    public function update(HostelRequest $request, Hostel $hostel)
     {
-        $hostel = Hostel::findOrFail($id);
         $hostel->update($request->validated());
         if ($request->hasFile('image')) {
             $this->_uploadImage($request, $hostel);
@@ -100,18 +95,17 @@ class HostelsListingController extends Controller
         $hostel->utilities()->sync($request->utilities);
         $hostel->rules()->sync($request->rules);
 
-        return redirect()->route('listings.index')
+        return redirect()->route('hostels.index')
             ->with('success', 'Hostel Updated Successfully');
     }
 
-    public function destroy($id)
+    public function destroy(Hostel $hostel)
     {
-        $hostel = Hostel::findOrFail($id);
         $hostel->amenities()->detach($hostel->amenities);
         $hostel->utilities()->detach($hostel->utilities);
         $hostel->rules()->detach($hostel->rules);
         $hostel->delete();
-        return redirect()->route('listings.index')
+        return redirect()->route('hostels.index')
             ->with('success', 'Hostel Deleted Successfully');
     }
 

@@ -65,8 +65,8 @@
                             <div class="rounded p-3 bg-blue-600"><i class="fas fa-server fa-2x fa-fw fa-inverse"></i></div>
                         </div>
                         <div class="flex-1 text-right md:text-center">
-                            <h5 class="font-bold uppercase text-gray-500">Server Uptime</h5>
-                            <h3 class="font-bold text-3xl">152 days</h3>
+                            <h5 class="font-bold uppercase text-gray-500">Total Hostels</h5>
+                            <h3 class="font-bold text-3xl">{{ $hostels->count() }}</h3>
                         </div>
                     </div>
                 </div>
@@ -317,7 +317,7 @@ function checkParent(t, elm) {
     </head>
 
     <body>
-        <h1>Hello {{ Auth::guard('agent')->user()->name }}</h1>
+        <h1>Hello {{ auth('agent')->user()->name }}</h1>
         <a href="{{ route('search') }}">Search for your preferred hostel</a>
         <form method="POST" action="{{ route('agent.logout') }}">
             @csrf

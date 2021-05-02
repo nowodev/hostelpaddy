@@ -1,18 +1,17 @@
 <?php
 
+use App\Http\Controllers\Homepage\ListedHostelsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/about', function () {
     return view('webpages.about');
 })->name('about');
 
-Route::get('/hostels', function () {
-    return view('webpages.hostels');
-})->name('hostels');
+Route::get('/hostels', [ListedHostelsController::class, 'index'])
+    ->name('hostels');
 
-Route::get('/hostels/info', function () {
-    return view('webpages.info');
-})->name('info');
+Route::get('/hostels/{hostel}', [ListedHostelsController::class, 'show'])
+    ->name('info');
 
 Route::get('/house', function () {
     return view('webpages.house');

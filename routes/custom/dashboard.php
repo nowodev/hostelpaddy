@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\HostelsListingController;
-use App\Models\Agent;
-use App\Models\Hostel;
-use App\Models\Utility;
+use App\Http\Controllers\Agent\AgentController;
+use App\Http\Controllers\Agent\HostelController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,11 +16,8 @@ Route::get('/student', function () {
 })->middleware(['student'])->name('student.index');
 
 // Agents Route
-
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
-    Route::get('/', function () {
-        return view('agents.index');
-    })->name('agent.index');
+    Route::get('/', [AgentController::class, 'index'])->name('agent.index');
 
-    Route::resource('listings', HostelsListingController::class);
+    Route::resource('hostels', HostelController::class);
 });

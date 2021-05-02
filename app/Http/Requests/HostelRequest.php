@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class HostelListingRequest extends FormRequest
+class HostelRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class HostelListingRequest extends FormRequest
         return [
             'hostel_name' => [
                 'required',
-                // Rule::unique('hostels')->ignore($hostelID)
+                Rule::unique('hostels')->ignore($hostelID),
             ],
             'address' => 'required',
             'state' => 'required',

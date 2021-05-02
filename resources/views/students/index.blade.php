@@ -7,7 +7,7 @@
     <body>
         {{-- @include('layouts.main.session') --}}
 
-        <h1>Hello {{ Auth::guard('student')->user()->name }}</h1>
+        <h1>Hello {{ auth('student')->user()->name }}</h1>
         <a href="{{ route('search') }}">Search for your preferred hostel</a>
         <form method="POST" action="{{ route('student.logout') }}">
             @csrf
