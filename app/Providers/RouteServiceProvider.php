@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Hostel;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -37,6 +38,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('api')
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
+        });
+
+        Route::bind('availableHostel', function($slug) {
+            return Hostel::where('slug', $slug)
+                ->where('available', 1)
+                ->firstOrFail();
         });
     }
 

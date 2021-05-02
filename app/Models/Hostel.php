@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Hostel extends Model
 {
@@ -63,5 +64,16 @@ class Hostel extends Model
         $value = $this->roomNum . ' ' . $room . ' ' . $this->property;
 
         return $value;
+    }
+
+    // display hostel name in url when viewing hostels insted of id
+    public function setHostelNameAttribute($value)
+    {
+        $this->attributes['hostel_name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function scopeAvailable($query) {
+        return $query->where('available', 1);
     }
 }

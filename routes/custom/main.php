@@ -10,7 +10,7 @@ Route::get('/about', function () {
 Route::get('/hostels', [ListedHostelsController::class, 'index'])
     ->name('hostels');
 
-Route::get('/hostels/{hostel}', [ListedHostelsController::class, 'show'])
+Route::get('/hostels/{availableHostel:slug}', [ListedHostelsController::class, 'show'])
     ->name('info');
 
 Route::get('/house', function () {
