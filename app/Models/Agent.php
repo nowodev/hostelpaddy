@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -31,6 +32,16 @@ class Agent extends Authenticatable
             return asset('storage/agents/' . $this->image);
         }
         return asset('storage/thumbnail.jpg');
+    }
+
+    // display date agent joined
+    public function getJoindateAttribute()
+    {
+        if ($this->created_at) {
+            $dt = new Carbon($this->created_at);
+            return $dt->toFormattedDateString();
+        }
+        return '- - - - - - - - -';
     }
 
     public function hostels() {
