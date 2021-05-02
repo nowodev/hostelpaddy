@@ -11,6 +11,7 @@ class ListedHostelsController extends Controller
 {
     public function index() {
         $hostels = Hostel::orderBy('id', 'DESC')
+            ->available()
             ->get();
 
         return view('webpages.hostels', compact('hostels'));
@@ -19,7 +20,7 @@ class ListedHostelsController extends Controller
     public function show(Hostel $hostel) {
         $agent = Agent::find($hostel->agent_id);
         $otherHostels = Hostel::where('id', '!=', $hostel->agent_id)->get();
-        
+
         return view('webpages.info', compact('hostel', 'agent', 'otherHostels'));
     }
 }
