@@ -45,4 +45,23 @@ class Hostel extends Model
         }
         return asset('storage/thumbnail.jpg');
     }
+
+    public function scopeSearch($query, $q) {
+        if ($q == null) return $query;
+
+        return $query->where('hostel_name', 'LIKE', "%{$q}%")
+            ->orWhere('state', 'LIKE', "%{$q}%")
+            ->orWhere('city', 'LIKE', "%{$q}%")
+            ->orWhere('property', 'LIKE', "%{$q}%")
+            ->orWhere('amount', 'LIKE', "%{$q}%")
+            ->orWhere('roomNum', 'LIKE', "%{$q}%");
+    }
+
+    //hostel description algorithm
+    public function getDescriptionAttribute() {
+        $room = ($this->roomNum == 1) ? 'room' : 'rooms';
+        $value = $this->roomNum . ' ' . $room . ' ' . $this->property;
+
+        return $value;
+    }
 }

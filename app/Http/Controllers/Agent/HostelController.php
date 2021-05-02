@@ -6,8 +6,10 @@ use App\Models\Hostel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\HostelRequest;
 use App\Models\Amenity;
+use App\Models\City;
 use App\Models\Property;
 use App\Models\Rule;
+use App\Models\State;
 use App\Models\Utility;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -35,9 +37,11 @@ class HostelController extends Controller
         $utilities = Utility::get();
         $rules = Rule::get();
         $properties = Property::get();
+        $states = State::get();
+        $cities = City::get();
 
         return view('agents.hostels.create',
-            compact('hostel', 'amenities', 'utilities', 'rules', 'properties')
+            compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities')
         );
     }
 
@@ -72,9 +76,11 @@ class HostelController extends Controller
         $utilities = Utility::get();
         $rules = Rule::get();
         $properties = Property::get();
+        $states = State::get();
+        $cities = City::get();
 
         return view('agents.hostels.edit',
-            compact('hostel', 'amenities', 'utilities', 'rules', 'properties')
+            compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities')
         );
     }
 

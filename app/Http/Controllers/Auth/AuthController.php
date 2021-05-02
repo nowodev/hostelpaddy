@@ -28,17 +28,18 @@ class AuthController extends Controller
         // if admin
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::ADMINHOME);
-        } else if (Auth::guard('student')->attempt($credentials)) {
+            return redirect()->intended(RouteServiceProvider::ADMINHOME)
+                ->with('success', 'You\'re now logged in.');
+        } else if (auth('student')->attempt($credentials)) {
             // if student
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::STUDENTHOME)
-                ->with('status', 'You\'re now logged in.' );
-        } else if (Auth::guard('agent')->attempt($credentials)) {
+                ->with('success', 'You\'re now logged in.' );
+        } else if (auth('agent')->attempt($credentials)) {
             // if agent
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::AGENTHOME)
-                ->with('status', 'You\'re now logged in.' );
+                ->with('success', 'You\'re now logged in.' );
         } else {
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records.',
@@ -52,10 +53,10 @@ class AuthController extends Controller
         if (Auth::logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-        } else if (Auth::guard('student')->logout()) {
+        } else if (auth('student')->logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-        } else if (Auth::guard('agent')->logout()) {
+        } else if (auth('agent')->logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
         }
