@@ -1,20 +1,3 @@
-<!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
-
 @if ($errors->any())
   <ul>
     @foreach ($errors->all() as $errors)
@@ -56,9 +39,9 @@
               <select id="state" name="state" autocomplete="state"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="">Select One</option>
-                <option value="lagos" {{ 'lagos' == old('state', $hostel->state) ? 'selected' : '' }}>Lagos</option>
-                <option value="osun" {{ 'osun' == old('state', $hostel->state) ? 'selected' : '' }}>Osun</option>
-                <option value="ogun" {{ 'ogun' == old('state', $hostel->state) ? 'selected' : '' }}>Ogun</option>
+                @foreach ($states as $state)
+                    <option value="{{ $state->name }}" {{ $state->name == old('state', $hostel->state) ? 'selected' : '' }}>{{ $state->name }}</option>
+                @endforeach
               </select>
             </div>
 
@@ -67,10 +50,9 @@
               <select id="city" name="city" autocomplete="city"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="">Select One</option>
-                <option value="akoka" {{ 'akoka' == old('city', $hostel->city) ? 'selected' : '' }}>Akoka</option>
-                <option value="yaba" {{ 'yaba' == old('city', $hostel->city) ? 'selected' : '' }}>Yaba</option>
-                <option value="gbagada" {{ 'gbagada' == old('city', $hostel->city) ? 'selected' : '' }}>Gbagada
-                </option>
+                @foreach ($cities as $city)
+                    <option value="{{ $city->name }}" {{ $city->name == old('city', $hostel->city) ? 'selected' : '' }}>{{ $city->name }}</option>
+                @endforeach
               </select>
             </div>
             <fieldset class="col-span-3 pb-5">
