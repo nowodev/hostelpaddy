@@ -5,7 +5,7 @@
       <div class="col">
         <a href="{{ route('info', [$hostel]) }}">
           <h6>{{ $hostel->hostel_name }}</h6>
-          <img src="{{ $hostel->thumbnail }}" style="width: 300px;" alt="Hostel Image">
+          <img src="{{ $hostel->thumbnail }}" class="rounded" style="width: 300px;" alt="Hostel Image">
         </a>
       </div>
     @endforeach
