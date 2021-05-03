@@ -11,9 +11,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 // Students Route
-Route::get('/student', function () {
-    return view('students.index');
-})->middleware(['student'])->name('student.index');
+Route::middleware(['auth:student'])->prefix('student')->group(function () {
+    Route::get('/', function () {
+        return view('students.index');
+    })->name('student.index');
+});
 
 // Agents Route
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
