@@ -17,7 +17,12 @@ Route::get('/student', function () {
 
 // Agents Route
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
-    Route::get('/', [AgentController::class, 'index'])->name('agent.index');
+    Route::get('/', [AgentController::class, 'index'])
+        ->name('agent.index');
+    Route::get('/edit-profile', [AgentController::class, 'edit'])
+        ->name('agent.edit');
+    Route::put('/edit-profile/{agent}', [AgentController::class, 'update'])
+        ->name('agent.update');
 
     Route::resource('hostels', HostelController::class);
 });

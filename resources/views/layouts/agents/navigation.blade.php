@@ -45,6 +45,12 @@
             </x-slot>
           </x-dropdown>
         </div>
+
+        <div class="hidden sm:-my-px sm:ml-6 sm:flex">
+            <x-nav-link :href="route('agent.edit')">
+              {{ __('Edit Profile') }}
+            </x-nav-link>
+          </div>
       </div>
 
       <!-- Settings Dropdown -->
@@ -109,6 +115,10 @@
 
       <x-responsive-nav-link>
         {{ __('Help') }}
+      </x-responsive-nav-link>
+
+      <x-responsive-nav-link :href="route('agent.edit')" :active="request()->routeIs('agent.edit')">
+        {{ __('Edit Profile') }}
       </x-responsive-nav-link>
     </div>
 
