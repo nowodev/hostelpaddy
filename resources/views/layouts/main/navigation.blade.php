@@ -32,9 +32,20 @@
         </ul>
       </div>
 
-      <div class="mobile-signup">
-        <a class="btn btn-primary signup" href="{{ route('onboarding') }}">Sign Up</a>
-      </div>
+      @if (Route::has('agent.register') || Route::has('student.register'))
+        <div class="mobile-signup">
+          @auth('agent')
+            <a class="btn btn-primary signup" href="{{ route('agent.index') }}">{{ auth('agent')->user()->name }}</a>
+          @else
+            @auth('student')
+              <a class="btn btn-primary signup"
+                href="{{ route('student.index') }}">{{ auth('student')->user()->name }}</a>
+            @else
+              <a class="btn btn-primary signup" href="{{ route('onboarding') }}">Sign Up</a>
+            @endauth
+          @endauth
+        </div>
+      @endif
 
     </div>
   </nav>

@@ -186,6 +186,19 @@
               <label for="tenantType" class="block text-sm font-medium text-gray-700">Preferred Tenants</label>
               <input type="text" name="tenantType" id="tenantType" autocomplete="tenantType" value="{{ old('tenantType', $hostel->tenantType) }}"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+
+              @if ($available ?? '')
+              <div class="mt-3">
+                <label for="available" class="block text-sm font-medium text-gray-700">Availabilty</label>
+
+                <select id="available" name="available" autocomplete="available"
+                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="">Select One</option>
+                  <option value="1" {{ 1 == old('available', $hostel->available) ? 'selected' : '' }}>Available</option>
+                  <option value="0" {{ 0 == old('available', $hostel->available) ? 'selected' : '' }}>Unavailable</option>
+                </select>
+              </div>
+              @endif
             </div>
           </div>
         </div>

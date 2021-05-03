@@ -15,7 +15,7 @@ class Hostel extends Model
         'hostel_name', 'state', 'city',
         'address', 'property', 'roomNum',
         'amount', 'period', 'tenantType', 'image_name',
-        'amenities', 'utilities', 'rules',
+        'amenities', 'utilities', 'rules', 'available',
     ];
 
     public function agents()
@@ -61,7 +61,13 @@ class Hostel extends Model
     //hostel description algorithm
     public function getDescriptionAttribute() {
         $room = ($this->roomNum == 1) ? 'room' : 'rooms';
-        $value = $this->roomNum . ' ' . $room . ' ' . $this->property;
+        $value = $this->roomNum . ' ' . $room . ', ' . $this->property;
+
+        return $value;
+    }
+
+    public function getAvailabilityAttribute() {
+        $value = $this->available == 1 ? 'Currently Available' : 'Not Available';
 
         return $value;
     }

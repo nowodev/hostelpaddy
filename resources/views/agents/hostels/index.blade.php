@@ -77,6 +77,9 @@
                     <div class="text-sm text-gray-900">{{ $hostel->property }} with {{ $hostel->roomNum }}
                       {{ $hostel->roomNum < 2 ? 'room' : 'rooms' }}
                     </div>
+                    <div class="text-sm text-gray-500">
+                      {{ $hostel->availability }}
+                    </div>
                   </td>
                   <td class="py-4 whitespace-nowrap text-sm text-gray-700">
                     N{{ $hostel->amount }} {{ $hostel->period }}
