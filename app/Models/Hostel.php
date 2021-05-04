@@ -79,6 +79,11 @@ class Hostel extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function scopeAgent($query)
+    {
+        return $query->where('agent_id', auth('agent')->id());
+    }
+
     public function scopeAvailable($query) {
         return $query->where('available', 1);
     }
