@@ -19,12 +19,25 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
 // Agents Route
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
-    Route::get('/', [AgentController::class, 'index'])
-        ->name('agent.index');
-    Route::get('/edit-profile', [AgentController::class, 'edit'])
-        ->name('agent.edit');
-    Route::put('/edit-profile/{agent}', [AgentController::class, 'update'])
-        ->name('agent.update');
+    Route::name('agent.')->group(function () {
+
+        Route::get('/', [AgentController::class, 'index'])
+            ->name('index');
+
+        Route::get('/edit-profile', [AgentController::class, 'edit'])
+            ->name('edit');
+        Route::put('/edit-profile/{agent}', [AgentController::class, 'update'])
+            ->name('update');
+
+        Route::get('/archive', [AgentController::class, 'archive'])
+            ->name('archive');
+
+        Route::put('/archive/restore/{id}', [AgentController::class, 'restore'])
+            ->name('hostel.restore');
+
+        Route::delete('/archive/delete/{id}', [AgentController::class, 'delete'])
+            ->name('hostel.delete');
+    });
 
     Route::resource('hostels', HostelController::class);
 });
