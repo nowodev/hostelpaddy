@@ -50,6 +50,6 @@ require __DIR__ . '/custom/main.php';
 require __DIR__ . '/custom/auth.php';
 
 Route::fallback(function() {
-    return 'Wahala';
+    return 'Wahala, this page doesn\'t exist.';
     //* return a view (custom error page)
 });
