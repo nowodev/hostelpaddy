@@ -23,7 +23,7 @@ class HostelController extends Controller
     public function index()
     {
         // ? fetch hostels from table
-        $hostels = Hostel::where('agent_id', auth('agent')->id())
+        $hostels = Hostel::agent()
             ->orderBy('id', 'ASC')
             ->Paginate(10);
         return view('agents.hostels.index', compact('hostels'));
@@ -101,9 +101,6 @@ class HostelController extends Controller
 
     public function destroy(Hostel $hostel)
     {
-        $hostel->amenities()->detach($hostel->amenities);
-        $hostel->utilities()->detach($hostel->utilities);
-        $hostel->rules()->detach($hostel->rules);
         $hostel->delete();
         return redirect()->route('hostels.index')
             ->with('success', 'Hostel Deleted Successfully');
