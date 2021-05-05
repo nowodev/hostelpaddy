@@ -14,7 +14,7 @@ class AddAvailableToHostels extends Migration
     public function up()
     {
         Schema::table('hostels', function (Blueprint $table) {
-            $table->integer('available')->default('1');
+            $table->integer('available')->default('0');
         });
     }
 
