@@ -40,7 +40,8 @@
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="">Select One</option>
                 @foreach ($states as $state)
-                    <option value="{{ $state->name }}" {{ $state->name == old('state', $hostel->state) ? 'selected' : '' }}>{{ $state->name }}</option>
+                  <option value="{{ $state->name }}"
+                    {{ $state->name == old('state', $hostel->state) ? 'selected' : '' }}>{{ $state->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -51,7 +52,8 @@
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="">Select One</option>
                 @foreach ($cities as $city)
-                    <option value="{{ $city->name }}" {{ $city->name == old('city', $hostel->city) ? 'selected' : '' }}>{{ $city->name }}</option>
+                  <option value="{{ $city->name }}"
+                    {{ $city->name == old('city', $hostel->city) ? 'selected' : '' }}>{{ $city->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -88,7 +90,8 @@
 
             <div class="col-span-4 sm:col-span-3 lg:col-span-3">
               <label for="amount" class="block text-sm font-medium text-gray-700">Hostel Fee</label>
-              <input type="number" name="amount" id="amount" autocomplete="amount" value="{{ old('amount', $hostel->amount) }}"
+              <input type="number" name="amount" id="amount" autocomplete="amount"
+                value="{{ old('amount', $hostel->amount) }}"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
             </div>
 
@@ -97,9 +100,12 @@
               <select id="period" name="period" autocomplete="period"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 <option value="">Select One</option>
-                <option value="yearly" {{ 'yearly' == old('period', $hostel->period) ? 'selected' : '' }}>Yearly</option>
-                <option value="quaterly" {{ 'quaterly' == old('period', $hostel->period) ? 'selected' : '' }}>Quaterly</option>
-                <option value="monthly" {{ 'monthly' == old('period', $hostel->period) ? 'selected' : '' }}>Monthly</option>
+                <option value="yearly" {{ 'yearly' == old('period', $hostel->period) ? 'selected' : '' }}>Yearly
+                </option>
+                <option value="quaterly" {{ 'quaterly' == old('period', $hostel->period) ? 'selected' : '' }}>
+                  Quaterly</option>
+                <option value="monthly" {{ 'monthly' == old('period', $hostel->period) ? 'selected' : '' }}>Monthly
+                </option>
               </select>
             </div>
           </div>
@@ -138,7 +144,9 @@
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
                       <input id="amenities[]" name="amenities[]" type="checkbox"
-                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenities', $hostel->amenities->pluck('id')->toArray())) ? 'checked' : '' }}>
+                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                        value="{{ $amenity->id }}"
+                        {{ in_array($amenity->id, old('amenities', $hostel->amenities->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
                       <label for="amenities[]" class="font-medium text-gray-700">{{ $amenity->name }}</label>
@@ -155,7 +163,9 @@
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
                       <input id="utilities[]" name="utilities[]" type="checkbox"
-                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" value="{{ $utility->id }}" {{ in_array($utility->id, old('utilities', $hostel->utilities->pluck('id')->toArray())) ? 'checked' : '' }}>
+                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                        value="{{ $utility->id }}"
+                        {{ in_array($utility->id, old('utilities', $hostel->utilities->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
                       <label for="utilities[]" class="font-medium text-gray-700">{{ $utility->name }}</label>
@@ -172,7 +182,9 @@
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
                       <input id="rules[]" name="rules[]" type="checkbox"
-                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" value="{{ $rule->id }}" {{ in_array($rule->id, old('rules', $hostel->rules->pluck('id')->toArray())) ? 'checked' : '' }}>
+                        class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                        value="{{ $rule->id }}"
+                        {{ in_array($rule->id, old('rules', $hostel->rules->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
                       <label for="rules[]" class="font-medium text-gray-700">{{ $rule->name }}</label>
@@ -184,20 +196,23 @@
 
             <div class="col-span-4 sm:col-span-3 lg:col-span-3">
               <label for="tenantType" class="block text-sm font-medium text-gray-700">Preferred Tenants</label>
-              <input type="text" name="tenantType" id="tenantType" autocomplete="tenantType" value="{{ old('tenantType', $hostel->tenantType) }}"
+              <input type="text" name="tenantType" id="tenantType" autocomplete="tenantType"
+                value="{{ old('tenantType', $hostel->tenantType) }}"
                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 
               @if ($available ?? '')
-              <div class="mt-3">
-                <label for="available" class="block text-sm font-medium text-gray-700">Availabilty</label>
+                <div class="mt-3">
+                  <label for="available" class="block text-sm font-medium text-gray-700">Availabilty</label>
 
-                <select id="available" name="available" autocomplete="available"
-                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option value="">Select One</option>
-                  <option value="1" {{ 1 == old('available', $hostel->available) ? 'selected' : '' }}>Available</option>
-                  <option value="0" {{ 0 == old('available', $hostel->available) ? 'selected' : '' }}>Unavailable</option>
-                </select>
-              </div>
+                  <select id="available" name="available" autocomplete="available"
+                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Select One</option>
+                    <option value="1" {{ 1 == old('available', $hostel->available) ? 'selected' : '' }}>Available
+                    </option>
+                    <option value="0" {{ 0 == old('available', $hostel->available) ? 'selected' : '' }}>Unavailable
+                    </option>
+                  </select>
+                </div>
               @endif
             </div>
           </div>
@@ -213,46 +228,44 @@
   </div>
 </div>
 
-
-<div class="md:grid md:grid-cols-3 md:gap-6">
-  <div class="md:col-span-1">
-    <div class="px-4 sm:px-0">
-      <h3 class="text-lg font-medium leading-6 text-gray-900">Finish</h3>
-      <p class="mt-1 text-sm text-gray-600">
-        Upload Images of the hostel for proper display.
-      </p>
+<div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Finish</h3>
+        <p class="mt-1 text-sm text-gray-600">
+          Upload Images of the hostel for proper display.
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="mt-5 md:mt-0 md:col-span-2">
-    <div class="shadow sm:rounded-md sm:overflow-hidden">
-      <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">
-            Cover photo
-          </label>
-          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-            <div class="space-y-1 text-center">
-              <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
-                aria-hidden="true">
-                <path
-                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <div class="flex text-sm text-gray-600">
-                <label for="image"
-                  class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                  <span>Upload a file</span>
-                  <input id="image" name="image" type="file" class="sr-only">
-                </label>
-                <p class="pl-1">or drag and drop</p>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <div class="shadow sm:rounded-md sm:overflow-hidden">
+        <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <label class="block text-sm font-medium text-gray-700">
+              Cover photo
+            </label>
+            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md dropzone" action="" id="myDropzone">
+                <div class="space-y-1 text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+                    aria-hidden="true">
+                    <path
+                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="flex text-sm text-gray-600">
+                  <label for="image"
+                    class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                    <span>Upload a file</span>
+                    <input id="image" type="file" name="image[]" multiple />
+                  </label>
+                </div>
+                <p class="text-sm text-gray-500">or drag and drop</p>
+                <p class="text-xs text-gray-500">
+                  PNG, JPG, GIF up to 10MB
+                </p>
               </div>
-              <p class="text-xs text-gray-500">
-                PNG, JPG, GIF up to 10MB
-              </p>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

@@ -132,8 +132,12 @@
                   Images
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  <div class="flex-shrink-0 h-96 w-96">
-                    <img src="{{ $hostel->thumbnail }}" alt="Hostel Image" class="h-96 w-96 rounded-full">
+                  <div class="grid grid-cols-6 gap-6">
+                    @foreach ($hostel->images as $well)
+                      <div class="col-span-4 sm:col-span-3 lg:col-span-3">
+                        <img src="{{ $well->thumbnail }}" alt="Hostel Image" class="h-96 w-96 rounded-full">
+                      </div>
+                    @endforeach
                   </div>
                 </dd>
               </div>

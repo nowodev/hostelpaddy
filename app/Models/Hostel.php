@@ -38,6 +38,11 @@ class Hostel extends Model
         return $this->belongsToMany(Rule::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
     // display image
     public function getThumbnailAttribute()
     {

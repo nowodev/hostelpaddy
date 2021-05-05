@@ -12,6 +12,7 @@ use App\Models\Rule;
 use App\Models\State;
 use App\Models\Utility;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Str;
 
 class HostelController extends Controller
 {
@@ -40,7 +41,8 @@ class HostelController extends Controller
         $states = State::get();
         $cities = City::get();
 
-        return view('agents.hostels.create',
+        return view(
+            'agents.hostels.create',
             compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities')
         );
     }
@@ -79,7 +81,8 @@ class HostelController extends Controller
         $states = State::get();
         $cities = City::get();
 
-        return view('agents.hostels.edit',
+        return view(
+            'agents.hostels.edit',
             compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities')
         );
     }
@@ -108,11 +111,14 @@ class HostelController extends Controller
 
     private function _uploadImage($request, $hostel)
     {
-        $image = $request->file('image');
-        $filename = 'HP_H_' . time() . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(225, 100)
+        $images = $request->file('image');
+        foreach($images as $image) {
+            $filename = 'HP_H_' . Str::random(10) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(225, 100)
             ->save(storage_path('app/public/hostels/' . $filename));
-        $hostel->image = $filename;
-        $hostel->save();
+            $hostel->image = $filename;
+            $hostel->images()->create(['image' => $filename]);
+            $hostel->save();
+        }
     }
 }
