@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="https://unpkg.com/tailwindcss@next/dist/tailwind.min.css" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}" />
+
   <!--Replace with your tailwind.css once created-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"
     integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
@@ -43,9 +46,12 @@
   </div>
 
 
+  <script src="{{ asset('main/js/agent/dropzone.min.js') }}"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
   </script>
+
   <script>
     $(".closealertbutton").click(function(e) {
       // $('.alertbox')[0].hide()
