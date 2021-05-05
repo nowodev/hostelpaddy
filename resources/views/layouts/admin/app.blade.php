@@ -13,6 +13,11 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <link rel="stylesheet" href="{{ asset('main/tailwind-assets/css/tailwind.output.css') }}">
+
+        <script src="{{ asset('main/tailwind-assets/js/init-alpine.js') }}"></script>
+        <script src="{{ asset('main/tailwind-assets/js/alpine.min.js') }}"></script>
+
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
