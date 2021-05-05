@@ -33,9 +33,9 @@
 
     {{-- Print out error message from controller --}}
     @if (session('success'))
-      @include('layouts.agents.alert_success')
+      <x-main.alert-success />
     @elseif (session('error'))
-      @include('layouts.agents.alert_error')
+      <x-main.alert-error />
     @endif
     {{-- Print out error message from controller --}}
 
