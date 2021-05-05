@@ -1,14 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use Illuminate\Support\Facades\Route;
 
 
 // Admin Route
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])
+        ->name('dashboard');
+});
 
 // Students Route
 Route::middleware(['auth:student'])->prefix('student')->group(function () {
