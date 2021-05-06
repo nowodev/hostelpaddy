@@ -77,9 +77,6 @@
         @endforeach
       </tbody>
     </table>
-    {{-- <div
-      class="d-flex justify-content-end relative items-center px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:text-gray-500"> --}}
-      {{ $hostels->links() }}
-    {{-- </div> --}}
+    {{ $hostels->withQueryString()->links() }}
 
   </div>

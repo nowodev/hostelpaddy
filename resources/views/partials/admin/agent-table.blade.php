@@ -78,9 +78,6 @@
         @endforeach
       </tbody>
     </table>
-    <div
-      class="d-flex justify-content-end relative items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
-      {{ $agents->links() }}
-    </div>
+    {{ $agents->withQueryString()->links() }}
 
   </div>
