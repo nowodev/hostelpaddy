@@ -55,10 +55,11 @@
           <div class="mt-8">
             @include('partials.admin.hostel-table')
           </div>
+
+          <div class="mt-8">
+            {!! $chart->container() !!}
+          </div>
         </div>
-
-        {!! $chart->container() !!}
-
       </div>
 
 
