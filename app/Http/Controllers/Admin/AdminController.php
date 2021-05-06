@@ -70,7 +70,10 @@ class AdminController extends Controller
             ->addData('Students', [$studentArr[1], $studentArr[2], $studentArr[3], $studentArr[4], $studentArr[5], $studentArr[6], $studentArr[7], $studentArr[8], $studentArr[9], $studentArr[10], $studentArr[11], $studentArr[12]])
 
             ->addData('Hostels', [$hostelArr[1], $hostelArr[2], $hostelArr[3], $hostelArr[4], $hostelArr[5], $hostelArr[6], $hostelArr[7], $hostelArr[8], $hostelArr[9], $hostelArr[10], $hostelArr[11], $hostelArr[12]])
-            ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']);
+            ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'])
+            ->setGrid(false, '#3F51B5', 0.1)
+            // ->setDataLabels()
+            ->setMarkers(['#E040FB'],7);
 
         return view(
             'admin.dashboard',
