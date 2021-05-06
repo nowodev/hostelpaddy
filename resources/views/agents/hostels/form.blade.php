@@ -65,10 +65,10 @@
                 @foreach ($properties as $property)
                   <div class="mb-3 flex items-center justify-between">
                     <div class="flex items-center">
-                      <input id="property" name="property" type="radio" value="{{ $property->name }}"
+                      <input id="property_{{ $property->id }}" name="property" type="radio" value="{{ $property->name }}"
                         {{ $property->name == old('property', $hostel->property) ? 'checked' : '' }}
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                      <label for="property" class="ml-3 block text-sm font-medium text-gray-700">
+                      <label for="property_{{ $property->id }}" class="ml-3 block text-sm font-medium text-gray-700">
                         {{ $property->name }}
                       </label>
                     </div>
@@ -143,13 +143,13 @@
                 @foreach ($amenities as $amenity)
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
-                      <input id="amenities[]" name="amenities[]" type="checkbox"
+                      <input id="amenities_{{ $amenity->id }}" name="amenities[]" type="checkbox"
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                         value="{{ $amenity->id }}"
                         {{ in_array($amenity->id, old('amenities', $hostel->amenities->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="amenities[]" class="font-medium text-gray-700">{{ $amenity->name }}</label>
+                      <label for="amenities_{{ $amenity->id }}" class="font-medium text-gray-700">{{ $amenity->name }}</label>
                     </div>
                   </div>
                 @endforeach
@@ -162,13 +162,13 @@
                 @foreach ($utilities as $utility)
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
-                      <input id="utilities[]" name="utilities[]" type="checkbox"
+                      <input id="utilities_{{ $utility->id }}" name="utilities[]" type="checkbox"
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                         value="{{ $utility->id }}"
                         {{ in_array($utility->id, old('utilities', $hostel->utilities->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="utilities[]" class="font-medium text-gray-700">{{ $utility->name }}</label>
+                      <label for="utilities_{{ $utility->id }}" class="font-medium text-gray-700">{{ $utility->name }}</label>
                     </div>
                   </div>
                 @endforeach
@@ -181,13 +181,13 @@
                 @foreach ($rules as $rule)
                   <div class="flex items-start">
                     <div class="flex items-center h-5">
-                      <input id="rules[]" name="rules[]" type="checkbox"
+                      <input id="rules_{{ $rule->id }}" name="rules[]" type="checkbox"
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                         value="{{ $rule->id }}"
                         {{ in_array($rule->id, old('rules', $hostel->rules->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="rules[]" class="font-medium text-gray-700">{{ $rule->name }}</label>
+                      <label for="rules_{{ $rule->id }}" class="font-medium text-gray-700">{{ $rule->name }}</label>
                     </div>
                   </div>
                 @endforeach
