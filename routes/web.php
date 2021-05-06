@@ -54,6 +54,5 @@ Route::get('/test', function () {
 });
 
 Route::fallback(function() {
-    return 'Wahala, this page doesn\'t exist.';
-    //* return a view (custom error page)
+    return view('partials.404');
 });

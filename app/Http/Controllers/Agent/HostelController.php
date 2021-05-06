@@ -114,8 +114,9 @@ class HostelController extends Controller
         $images = $request->file('image');
         foreach($images as $image) {
             $filename = 'HP_H_' . Str::random(10) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(225, 100)
-            ->save(storage_path('app/public/hostels/' . $filename));
+            // Image::make($image)->resize(225, 100)
+            // Do not resize the image
+            Image::make($image)->save(storage_path('app/public/hostels/' . $filename));
             $hostel->image = $filename;
             $hostel->images()->create(['image' => $filename]);
             $hostel->save();

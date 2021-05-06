@@ -5,5 +5,5 @@
 @section('title', 'HostelPaddy - Hostels')
 
 @section('content')
-    @include('components.main.all-hostels')
+    @include('partials.main.all-hostels')
 @endsection

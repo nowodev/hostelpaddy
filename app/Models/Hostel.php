@@ -92,4 +92,8 @@ class Hostel extends Model
     public function scopeAvailable($query) {
         return $query->where('available', 1);
     }
+
+    public function scopeUnavailable($query) {
+        return $query->where('available', 0);
+    }
 }
