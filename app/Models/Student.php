@@ -23,4 +23,13 @@ class Student extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // display image
+    public function getThumbnailAttribute()
+    {
+        if ($this->image) {
+            return asset('storage/students/' . $this->image);
+        }
+        return asset('storage/thumbnail.jpg');
+    }
 }
