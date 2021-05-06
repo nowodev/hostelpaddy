@@ -45,7 +45,7 @@
 
     <div class="my-5">
       @if ($hostels->isNotEmpty())
-        @include('components.main.all-hostels')
+        @include('partials.main.all-hostels')
       @else
         <div>
           <h2> No hostel found for this field</h2>
