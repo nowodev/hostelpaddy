@@ -22,16 +22,59 @@ class AdminController extends Controller
         $total = $agents->count() + $students->count();
 
 
-        // charts
-        $chart = (new LarapexChart)->barChart()
-            ->setTitle('Users')
-            ->setSubtitle('Total Users')
-            ->addData('Agent', [$agents->count()])
-            ->addData('Student', [$students->count()])
-            ->addData('Hostel', [$hostels->count()])
-            ->setXAxis(['Something']);
+        $agentTime = Agent::get()
+            ->groupBy(function ($date) {
+                //return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+                return Carbon::parse($date->created_at)->format('m'); // grouping by months
+            });
+        $studentTime = Student::get()
+            ->groupBy(function ($date) {
+                return Carbon::parse($date->created_at)->format('m');
+            });
+        $hostelTime = Hostel::get()
+            ->groupBy(function ($date) {
+                return Carbon::parse($date->created_at)->format('m');
+            });
 
-        return view('admin.dashboard',
-            compact('agents', 'students', 'hostels', 'total', 'available', 'unavailable', 'chart'));
+        $agentmcount = [];
+        $agentArr = [];
+        $studentmcount = [];
+        $studentArr = [];
+        $hostelmcount = [];
+        $hostelArr = [];
+
+        foreach ($agentTime as $key => $value) {
+            $agentmcount[(int)$key] = count($value);
+        }
+        foreach ($studentTime as $key => $value) {
+            $studentmcount[(int)$key] = count($value);
+        }
+        foreach ($hostelTime as $key => $value) {
+            $hostelmcount[(int)$key] = count($value);
+        }
+
+        for ($i = 1; $i <= 12; $i++) {
+            !empty($agentmcount[$i]) ? $agentArr[$i] = $agentmcount[$i] : $agentArr[$i] = 0;
+
+            !empty($studentmcount[$i]) ? $studentArr[$i] = $studentmcount[$i] : $studentArr[$i] = 0;
+
+            !empty($hostelmcount[$i]) ? $hostelArr[$i] = $hostelmcount[$i] : $hostelArr[$i] = 0;
+        }
+
+        // charts
+        $chart = (new LarapexChart)->lineChart()
+            ->setTitle('STATS')
+            ->setSubtitle('Stats of date when people joined or hostels were added')
+            ->addData('Agents', [$agentArr[1], $agentArr[2], $agentArr[3], $agentArr[4], $agentArr[5], $agentArr[6], $agentArr[7], $agentArr[8], $agentArr[9], $agentArr[10], $agentArr[11], $agentArr[12]])
+
+            ->addData('Students', [$studentArr[1], $studentArr[2], $studentArr[3], $studentArr[4], $studentArr[5], $studentArr[6], $studentArr[7], $studentArr[8], $studentArr[9], $studentArr[10], $studentArr[11], $studentArr[12]])
+
+            ->addData('Hostels', [$hostelArr[1], $hostelArr[2], $hostelArr[3], $hostelArr[4], $hostelArr[5], $hostelArr[6], $hostelArr[7], $hostelArr[8], $hostelArr[9], $hostelArr[10], $hostelArr[11], $hostelArr[12]])
+            ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']);
+
+        return view(
+            'admin.dashboard',
+            compact('agents', 'students', 'hostels', 'total', 'available', 'unavailable', 'chart')
+        );
     }
 }
