@@ -57,8 +57,14 @@
           </div>
         </div>
 
+        {!! $chart->container() !!}
 
       </div>
+
+
+    {{-- <script src="{{ $chart->cdn() }}"></script> --}}
+    <script src="{{ asset('js/apexcharts.js') }}"></script>
+    {!! $chart->script() !!}
 
 
     </div>
