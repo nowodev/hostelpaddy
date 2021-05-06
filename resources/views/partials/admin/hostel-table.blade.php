@@ -17,10 +17,10 @@
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @foreach ($hostels as $hostel)
+        @foreach ($hostels as $key => $hostel)
           <tr class="text-gray-700 dark:text-gray-400">
             <td class="px-4 py-3 text-xs">
-                {{ $loop->iteration }}
+                {{ $hostels->firstItem() + $key }}
             </td>
             <td class=" py-3">
               <div class="flex items-center text-sm">
