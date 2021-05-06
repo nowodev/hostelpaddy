@@ -22,11 +22,11 @@
             Cards with title
           </h4>
           <div class="grid gap-6 mb-8 md:grid-cols-2">
-            <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-              <h4 class="mb-4 font-semibold text-gray-600 dark:text-gray-300">
+            <div class="min-w-0 p-4 bg-blue-900 text-white rounded-lg shadow-xs dark:bg-gray-800">
+              <h4 class="mb-4 font-semibold">
                 Revenue
               </h4>
-              <p class="text-gray-600 dark:text-gray-400">
+              <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Fuga, cum commodi a omnis numquam quod? Totam exercitationem
                 quos hic ipsam at qui cum numquam, sed amet ratione! Ratione,
@@ -45,10 +45,22 @@
               </p>
             </div>
           </div>
+
+          <div>
+            @include('components.admin.agent-table')
+          </div>
+          <div class="mt-8">
+            @include('components.admin.student-table')
+          </div>
+          <div class="mt-8">
+            @include('components.admin.hostel-table')
+          </div>
         </div>
 
 
       </div>
+
+
     </div>
   </div>
 
