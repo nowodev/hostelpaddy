@@ -10,7 +10,7 @@
           class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
           <th class="px-4 py-3">S/N</th>
           <th class="px-4 py-3">Name</th>
-          <th class="px-4 py-3">Phone Number</th>
+          <th class="px-4 py-3">Address</th>
           <th class="px-4 py-3">Status</th>
           <th class="px-4 py-3">Date Added</th>
           <th class="px-4 py-3">Actions</th>
@@ -77,9 +77,9 @@
         @endforeach
       </tbody>
     </table>
-    <div
-      class="d-flex justify-content-end relative items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
+    {{-- <div
+      class="d-flex justify-content-end relative items-center px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:text-gray-500"> --}}
       {{ $hostels->links() }}
-    </div>
+    {{-- </div> --}}
 
   </div>
