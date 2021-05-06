@@ -12,9 +12,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $agents = Agent::get();
-        $students = Student::get();
-        $hostels = Hostel::get();
+        $agents = Agent::Paginate(5);
+        $students = Student::Paginate(5);
+        $hostels = Hostel::Paginate(5);
 
         $available = Hostel::available()->get();
         $unavailable = Hostel::unavailable()->get();

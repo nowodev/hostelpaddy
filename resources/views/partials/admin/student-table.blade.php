@@ -8,6 +8,7 @@
       <thead>
         <tr
           class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+          <th class="px-4 py-3">S/N</th>
           <th class="px-4 py-3">Name</th>
           <th class="px-4 py-3">Phone Number</th>
           <th class="px-4 py-3">Status</th>
@@ -18,6 +19,9 @@
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
         @foreach ($students as $student)
           <tr class="text-gray-700 dark:text-gray-400">
+            <td class="px-4 py-3 text-xs">
+                {{ $loop->iteration }}
+            </td>
             <td class="px-4 py-3">
               <div class="flex items-center text-sm">
                 <!-- Avatar with inset shadow -->
@@ -74,4 +78,9 @@
         @endforeach
       </tbody>
     </table>
+    <div
+      class="d-flex justify-content-end relative items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
+      {{ $students->links() }}
+    </div>
+
   </div>

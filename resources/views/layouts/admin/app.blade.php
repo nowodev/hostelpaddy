@@ -11,9 +11,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <link rel="stylesheet" href="{{ asset('main/tailwind-assets/css/tailwind.output.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <script src="{{ asset('main/tailwind-assets/js/init-alpine.js') }}"></script>
         <script src="{{ asset('main/tailwind-assets/js/alpine.min.js') }}"></script>
