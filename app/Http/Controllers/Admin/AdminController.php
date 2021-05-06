@@ -18,10 +18,9 @@ class AdminController extends Controller
 
         $available = Hostel::available()->get();
         $unavailable = Hostel::unavailable()->get();
+        $total = $agents->count() + $students->count();
 
-        $total = $agents->count() + $students->count(); 
-
-        return view('admin.dashboard', 
+        return view('admin.dashboard',
             compact('agents', 'students', 'hostels', 'total', 'available', 'unavailable'));
     }
 }
