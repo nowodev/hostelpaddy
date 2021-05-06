@@ -15,7 +15,7 @@
             Responsive cards
           </h4>
 
-          @include('components.admin.stats')
+          @include('partials.admin.stats')
 
           <!-- Cards with title -->
           <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
@@ -47,13 +47,13 @@
           </div>
 
           <div>
-            @include('components.admin.agent-table')
+            @include('partials.admin.agent-table')
           </div>
           <div class="mt-8">
-            @include('components.admin.student-table')
+            @include('partials.admin.student-table')
           </div>
           <div class="mt-8">
-            @include('components.admin.hostel-table')
+            @include('partials.admin.hostel-table')
           </div>
         </div>
 

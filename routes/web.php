@@ -54,5 +54,5 @@ Route::get('/test', function () {
 });
 
 Route::fallback(function() {
-    return view('pages.404');
+    return view('partials.404');
 });
