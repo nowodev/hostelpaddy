@@ -43,7 +43,7 @@ class HostelRequest extends FormRequest
             'tenantType' => 'required',
             'available' => 'sometimes',
             'image' => 'sometimes',
-            'image.*' => 'image|mimes:jpeg,png,jpg|max:2048',
+            // 'image' => 'sometimes|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
