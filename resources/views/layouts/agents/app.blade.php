@@ -91,6 +91,10 @@
     const pond = FilePond.create(inputElement, {
       allowMultiple: true,
       allowReorder: true,
+      checkValidity: true,
+      itemInsertLocation: 'after',
+      dropOnPage: true,
+      dropValidations: true,
     });
 
     // Easy console access for testing purposes
