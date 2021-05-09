@@ -19,7 +19,7 @@ class AdminController extends Controller
 
         $available = Hostel::available()->get();
         $unavailable = Hostel::unavailable()->get();
-        $total = $agents->count() + $students->count();
+        $total = $agents->total() + $students->total();
 
 
         $agentTime = Agent::get()

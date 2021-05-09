@@ -49,7 +49,7 @@
         Total Agents
       </p>
       <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-        {{ $agents->count() }}
+        {{ $agents->total() }}
       </p>
     </div>
   </div>
@@ -67,7 +67,7 @@
         Total Students
       </p>
       <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-        {{ $students->count() }}
+        {{ $students->total() }}
       </p>
     </div>
   </div>
@@ -87,7 +87,7 @@
         Total Hostels
       </p>
       <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-        {{ $hostels->count() }}
+        {{ $hostels->total() }}
       </p>
     </div>
   </div>
