@@ -13,11 +13,14 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="https://unpkg.com/tailwindcss@next/dist/tailwind.min.css" rel="stylesheet">
-
-  <link type="text/css" rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}" />
 
   <!--Replace with your tailwind.css once created-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"
@@ -45,8 +48,17 @@
     </main>
   </div>
 
-
-  <script src="{{ asset('main/js/agent/dropzone.min.js') }}"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
+  </script>
+  <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js">
+  </script>
+  <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js">
+  </script>
+  <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
+  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
@@ -60,6 +72,33 @@
       console.log(pid)
       // $(".alertbox", this).hide()
     })
+
+  </script>
+  <script>
+    FilePond.registerPlugin(
+      FilePondPluginImagePreview,
+      FilePondPluginImageExifOrientation,
+      FilePondPluginFileValidateSize,
+      FilePondPluginFileValidateType,
+      FilePondPluginImageCrop,
+      FilePondPluginImageEdit,
+      FilePondPluginImageResize
+    );
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // Create the FilePond instance
+    const pond = FilePond.create(inputElement, {
+      allowMultiple: true,
+      allowReorder: true,
+      checkValidity: true,
+      itemInsertLocation: 'after',
+      dropOnPage: true,
+      dropValidations: true,
+    });
+
+    // Easy console access for testing purposes
+    window.pond = pond;
 
   </script>
 </body>

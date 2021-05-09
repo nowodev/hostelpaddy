@@ -65,7 +65,8 @@
                 @foreach ($properties as $property)
                   <div class="mb-3 flex items-center justify-between">
                     <div class="flex items-center">
-                      <input id="property_{{ $property->id }}" name="property" type="radio" value="{{ $property->name }}"
+                      <input id="property_{{ $property->id }}" name="property" type="radio"
+                        value="{{ $property->name }}"
                         {{ $property->name == old('property', $hostel->property) ? 'checked' : '' }}
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                       <label for="property_{{ $property->id }}" class="ml-3 block text-sm font-medium text-gray-700">
@@ -149,7 +150,8 @@
                         {{ in_array($amenity->id, old('amenities', $hostel->amenities->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="amenities_{{ $amenity->id }}" class="font-medium text-gray-700">{{ $amenity->name }}</label>
+                      <label for="amenities_{{ $amenity->id }}"
+                        class="font-medium text-gray-700">{{ $amenity->name }}</label>
                     </div>
                   </div>
                 @endforeach
@@ -168,7 +170,8 @@
                         {{ in_array($utility->id, old('utilities', $hostel->utilities->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="utilities_{{ $utility->id }}" class="font-medium text-gray-700">{{ $utility->name }}</label>
+                      <label for="utilities_{{ $utility->id }}"
+                        class="font-medium text-gray-700">{{ $utility->name }}</label>
                     </div>
                   </div>
                 @endforeach
@@ -187,7 +190,8 @@
                         {{ in_array($rule->id, old('rules', $hostel->rules->pluck('id')->toArray())) ? 'checked' : '' }}>
                     </div>
                     <div class="ml-3 text-sm">
-                      <label for="rules_{{ $rule->id }}" class="font-medium text-gray-700">{{ $rule->name }}</label>
+                      <label for="rules_{{ $rule->id }}"
+                        class="font-medium text-gray-700">{{ $rule->name }}</label>
                     </div>
                   </div>
                 @endforeach
@@ -241,30 +245,30 @@
     <div class="mt-5 md:mt-0 md:col-span-2">
       <div class="shadow sm:rounded-md sm:overflow-hidden">
         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-            <label class="block text-sm font-medium text-gray-700">
-              Cover photo
-            </label>
-            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md dropzone" action="" id="myDropzone">
-                <div class="space-y-1 text-center">
-                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
-                    aria-hidden="true">
-                    <path
-                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <div class="flex text-sm text-gray-600">
-                  <label for="image"
-                    class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                    <span>Upload a file</span>
-                    <input id="image" type="file" name="image[]" multiple />
-                  </label>
-                </div>
-                <p class="text-sm text-gray-500">or drag and drop</p>
-                <p class="text-xs text-gray-500">
-                  PNG, JPG, GIF up to 10MB
-                </p>
+          <label class="block text-sm font-medium text-gray-700">
+            Cover photo
+          </label>
+          <div
+            class="mt-1 justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+            <div class="space-y-1 text-center">
+              <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+                aria-hidden="true">
+                <path
+                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class=" text-sm text-gray-600">
+                <label for="image"
+                  class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                  <input type="file" class="filepond" name="image[]" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
+                </label>
               </div>
+              {{-- <p class="text-sm text-gray-500">or drag and drop</p> --}}
+              <p class="text-xs text-gray-500">
+                PNG, JPG, JPEG up to 10MB
+              </p>
             </div>
+          </div>
         </div>
       </div>
     </div>
