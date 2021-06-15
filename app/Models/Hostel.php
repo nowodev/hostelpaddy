@@ -52,6 +52,7 @@ class Hostel extends Model
         return asset('storage/thumbnail.jpg');
     }
 
+    // filter function for hostel search 
     public function scopeSearch($query, $q) {
         if ($q == null) return $query;
 
@@ -63,7 +64,7 @@ class Hostel extends Model
             ->orWhere('roomNum', 'LIKE', "%{$q}%");
     }
 
-    //hostel description algorithm
+    // hostel description algorithm
     public function getDescriptionAttribute() {
         $room = ($this->roomNum == 1) ? 'room' : 'rooms';
         $value = $this->roomNum . ' ' . $room . ', ' . $this->property;
@@ -71,6 +72,7 @@ class Hostel extends Model
         return $value;
     }
 
+    // hostel availability
     public function getAvailabilityAttribute() {
         $value = $this->available == 1 ? 'Currently Available' : 'Not Available';
 
