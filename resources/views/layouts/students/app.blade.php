@@ -93,7 +93,8 @@
   <script src="{{ asset('main/vendor/jquery/jquery-3.1.1.min.js') }}"></script>
   <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  {{-- <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> --}}
+  <script src="https://kit.fontawesome.com/d7644e187f.js" crossorigin="anonymous"></script>
 
   <script>
     let copyRight = document.getElementById("copyright"),
