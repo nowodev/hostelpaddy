@@ -5,7 +5,7 @@
 
   {{-- @include('components.comingsoon.countdown') --}}
   <x-comingsoon.countdown />
-  
+
   <!-- Coming soon content -->
   <div class="coming-soon-content">
     <div class="container">

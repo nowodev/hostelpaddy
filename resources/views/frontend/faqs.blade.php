@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--Questions-->
     <div class="container-fluid">
       <div class="row questions text-center">
