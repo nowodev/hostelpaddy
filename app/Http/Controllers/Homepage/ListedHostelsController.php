@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class ListedHostelsController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
             ->get();
@@ -17,7 +18,8 @@ class ListedHostelsController extends Controller
         return view('frontend.hostels', compact('hostels'));
     }
 
-    public function show(Hostel $hostel) {
+    public function show(Hostel $hostel)
+    {
         $agent = Agent::find($hostel->agent_id);
         $otherHostels = Hostel::where('id', '!=', $hostel->agent_id)->get();
 
