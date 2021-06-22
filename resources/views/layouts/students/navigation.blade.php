@@ -1,6 +1,6 @@
 <section id="header" class="header">
   <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container d-flex justify-content-between">
+    <div class="container-fluid d-flex justify-content-between">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <img src="{{ asset('main/img/Hamburger menu.png') }}" class="img-fluid" alt="">
@@ -15,24 +15,55 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav justify-content-center">
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('about') }}">Hostels</a>
+            <a class="nav-link" href="{{ route('about') }}">
+              <i class="fa fa-tags"></i>
+              Hostels
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('hostels') }}">Hostel mate</a>
+            <a class="nav-link" href="{{ route('hostels') }}">
+              <i class="fas fa-user-friends"></i>
+              Hostel mate
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('house') }}">Saved hostels</a>
+            <a class="nav-link" href="{{ route('house') }}">
+              <i class="fa fa-heart"></i>
+              Saved hostels
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('help') }}">Settings</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://blog.hostelpaddy.com">Blogs</a>
+            <a class="nav-link" href="{{ route('help') }}">
+              <i class="fas fa-user-cog"></i>
+              Settings
+            </a>
           </li>
         </ul>
       </div>
 
-      @if (Route::has('agent.register') || Route::has('student.register'))
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('about') }}">
+              <i class="fa fa-comment-dots"></i>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('hostels') }}">
+              <i class="fa fa-question-circle"></i>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('house') }}">
+              <i class="fa fa-bell"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {{-- @if (Route::has('agent.register') || Route::has('student.register'))
         <div class="mobile-signup">
           @auth('agent')
             <a class="btn btn-primary signup" href="{{ route('agent.index') }}">{{ auth('agent')->user()->name }}</a>
@@ -45,7 +76,10 @@
             @endauth
           @endauth
         </div>
-      @endif
+      @endif --}}
+      <div class="mobile-signup">
+        <a class="btn btn-outline-primary signup" href="{{ route('onboarding') }}">Logout</a>
+      </div>
 
     </div>
   </nav>
