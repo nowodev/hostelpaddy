@@ -19,7 +19,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/coming-soon', function () {
-    return view('webpages.coming_soon');
+    return view('frontend.coming_soon');
 });
 
 // Artisan routes

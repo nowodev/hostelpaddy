@@ -23,7 +23,7 @@ class SearchController extends Controller
             ->orderBy($sortBy, $orderBy)
             ->paginate($perPage);
 
-        return view('webpages.search',
+        return view('frontend.search',
             compact('hostels', 'orderBy', 'sortBy', 'q', 'perPage'));
     }
 }

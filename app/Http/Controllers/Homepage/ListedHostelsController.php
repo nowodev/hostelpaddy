@@ -14,13 +14,13 @@ class ListedHostelsController extends Controller
             ->available()
             ->get();
 
-        return view('webpages.hostels', compact('hostels'));
+        return view('frontend.hostels', compact('hostels'));
     }
 
     public function show(Hostel $hostel) {
         $agent = Agent::find($hostel->agent_id);
         $otherHostels = Hostel::where('id', '!=', $hostel->agent_id)->get();
 
-        return view('webpages.info', compact('hostel', 'agent', 'otherHostels'));
+        return view('frontend.info', compact('hostel', 'agent', 'otherHostels'));
     }
 }

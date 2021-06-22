@@ -1,8 +1,9 @@
 @extends('layouts.main.app')
-{{-- @section('styles')
-  <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
+
+@section('styles')
   <link type="text/css" href="{{ asset('main/css/house.css') }}" rel="stylesheet" />
-@endsection --}}
+@endsection
+
 @section('title', 'HostelPaddy - House')
 
 @section('content')
@@ -45,7 +46,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container-fluid padding">
         <div class="row works text-center padding">
           <div class="col-12">
@@ -80,7 +81,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container-fluid padding">
         <div class="row benefits text-center padding">
           <div class="col-12">
@@ -93,7 +94,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container-fluid padding">
         <div class="row audience jumbotron padding">
           <div class="col-lg-6 col-md-6">
@@ -118,7 +119,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container-fluid padding">
         <div class="row rent jumbotron padding">
           <div class="col-md-6 col-lg-6">
@@ -143,7 +144,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="container-fluid padding">
         <div class="row payment jumbotron padding">
           <div class="col-md-6 col-lg-6">
@@ -166,7 +167,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="carousel-container">
         <div class="row customers">
           <div class="col-12 text-center padding">
@@ -234,7 +235,7 @@
                     </div>
                   </div>
                 </div>
-  
+
                 <div class="carousel-item">
                   <div class="row">
                     <div class="col-md-4">

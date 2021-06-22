@@ -1,8 +1,9 @@
 @extends('layouts.main.app')
-{{-- @section('styles')
-  <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
+
+@section('styles')
   <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet" />
-@endsection --}}
+@endsection
+
 @section('title', 'HostelPaddy - Hostel Info')
 
 @section('content')
