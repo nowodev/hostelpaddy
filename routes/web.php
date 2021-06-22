@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,6 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::fallback(function() {
+Route::fallback(function () {
     return view('partials.404');
 });
