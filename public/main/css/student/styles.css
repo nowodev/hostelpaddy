@@ -733,7 +733,7 @@ a:hover {
   background-color: #fff;
   color: #000249;
   border: 1px solid #000249;
-  border-radius: 8px;
+  border-radius: 32px;
 }
 
 .btn-lg {
@@ -760,146 +760,9 @@ a:hover {
   margin-top: 12px;
 }
 
-/* Header */
-
-.header {}
-
-/*Intro styling*/
-.intro {
-  background-image: url("../home-img/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 2rem;
-}
-
-.intro-img {
-  position: absolute;
-  left: 32%;
-  top: -10%;
-  bottom: 82.77%;
-  overflow: hidden;
-  height: 155%;
-}
-
-.intro h1 {
-  font-weight: bold;
-  font-style: normal;
-  line-height: 120%;
-  color: #fff;
-  padding-bottom: 1rem;
-}
-
-.intro p {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 145%;
-  color: #f9faf9;
-}
-
-.solution {
-  padding-top: 4rem;
-  width: 80%;
-}
-
-.info {
-  background-color: #f9faf9;
-  padding-top: 5rem;
-}
-
-.students {
-  padding: 0 4rem 0 4rem;
-  background-color: transparent;
-}
-
-.students h1 {
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  color: #242423;
-}
-
-.text-desc {
-  font-size: 18px;
-  line-height: 24px;
-  color: #242424a4;
-}
-
-.house-owners {
-  background-color: transparent;
-}
-
-.house-owners h1 {
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
-  color: #242423;
-}
-
-.learn-more-btn {
-  background-color: transparent;
-  color: #000249;
-  border: 3px solid;
-}
-
-.learn-more-btn:hover {
-  background-color: #000249;
-  color: #fff;
-  border: 3px solid;
-}
-
 ul {
   list-style-image: url("../home-img/check\ icon.png");
   margin-left: 20px;
-}
-
-.features {
-  background-color: #fff;
-  width: 75%;
-}
-
-.features h2 {
-  color: #dd1717;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 145%;
-}
-
-.features h1 {
-  color: #5da3d7;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 31px;
-  line-height: 128.1%;
-}
-
-.features p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 155.1%;
-  color: #797a9d;
-}
-
-.subscribe {
-  background-color: #fff;
-}
-
-.subscribe h1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 31px;
-  line-height: 128.1%;
-  color: #242423;
-}
-
-.subscribe h2 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 130.6%;
-  color: #242423;
 }
 
 footer {
@@ -989,4 +852,15 @@ footer a.social-link {
   footer {
     padding-top: 2rem;
   }
+}
+
+
+/* Pill Tabs */
+.pill-color {
+    background-color: #f2f2f2;
+}
+
+.card img {
+  width: 50%;
+  /* height: 50%; */
 }
