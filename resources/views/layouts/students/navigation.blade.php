@@ -15,13 +15,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav justify-content-center">
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('about') }}">
+            <a class="nav-link" href="{{ route('student.index') }}">
               <i class="fa fa-tags"></i>
               Hostels
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('hostels') }}">
+            <a class="nav-link" href="{{ route('student.hostel-mate') }}">
               <i class="fas fa-user-friends"></i>
               Hostel mate
             </a>
@@ -33,7 +33,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('help') }}">
+            <a class="nav-link" href="{{ route('student.settings') }}">
               <i class="fas fa-user-cog"></i>
               Settings
             </a>
@@ -44,19 +44,17 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav justify-content-center">
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('about') }}">
+            <a class="nav-link" href="{{ route('student.chat') }}">
               <i class="fa fa-comment-dots"></i>
-
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('hostels') }}">
               <i class="fa fa-question-circle"></i>
-
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('house') }}">
+            <a class="nav-link" href="{{ route('student.notification') }}">
               <i class="fa fa-bell"></i>
             </a>
           </li>
