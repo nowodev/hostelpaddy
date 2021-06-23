@@ -21,7 +21,10 @@
   {{-- <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" /> --}}
 @endsection
 
-@section('title', 'Student - Home')
+{{-- @section('title', 'Student - Home') --}}
+@section('title')
+{{ auth('student')->user()->name }} -  Student
+@endsection
 
 @section('content')
   <div class="container mt-5">
