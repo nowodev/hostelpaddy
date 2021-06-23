@@ -23,7 +23,7 @@
         <h5>Products</h5>
         <p><a href="{{ route('about') }}">About Us</a></p>
         <p><a href="{{ route('onboarding') }}">Sign up</a></p>
-        <p><a href="{{ route('onboarding') }}">Login</a></p>
+        <p><a href="{{ route('onboard.login') }}">Login</a></p>
         <p><a href="https://blog.hostelpaddy.com" target="_blank">Blog</a></p>
         <p><a href="{{ route('hostels') }}">Listed hostels</a></p>
         <p><a href="#">House owners/agents</a></p>
