@@ -5,7 +5,6 @@ use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use Illuminate\Support\Facades\Route;
 
-
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/hostels', [AdminController::class, 'index'])
@@ -40,7 +39,6 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 // Agents Route
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
-
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
 
