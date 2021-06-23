@@ -9,12 +9,16 @@
         </form>
       </div>
       <div class="col-sm-2 col-md-1">
-        <span class="btn btn-outline-primary">Filter</span>
+        <span class="btn btn-outline-primary">
+          <i class="fa fa-filter"></i>
+          Filter
+        </span>
       </div>
       <div class="col-sm-2 col-md-1">
         <span class="dropdown">
-          <button class="btn btn-outline-primary dropdown-toggle position-relative" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-outline-primary dropdown-toggle position-relative" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-sort-amount-down"></i>
             Sort
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
