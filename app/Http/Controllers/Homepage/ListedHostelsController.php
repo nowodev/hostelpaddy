@@ -13,7 +13,7 @@ class ListedHostelsController extends Controller
     {
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
-            ->get();
+            ->Paginate(4);
 
         return view('frontend.hostels', compact('hostels'));
     }
