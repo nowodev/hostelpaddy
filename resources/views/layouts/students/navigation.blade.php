@@ -78,7 +78,7 @@
         </div>
       @endif --}}
       <div class="mobile-signup">
-        <a class="btn btn-outline-primary signup" href="{{ route('onboarding') }}">Logout</a>
+        <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a>
       </div>
 
     </div>

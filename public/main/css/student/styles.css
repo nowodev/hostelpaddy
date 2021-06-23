@@ -733,6 +733,10 @@ a:hover {
   background-color: #fff;
   color: #000249;
   border: 1px solid #000249;
+  border-radius: 8px;
+}
+
+.logout {
   border-radius: 32px;
 }
 
