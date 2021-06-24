@@ -3,6 +3,9 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
+use App\Http\Controllers\Student\FavoriteHostelController;
+use App\Http\Controllers\Student\ShareHostelController;
+use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,26 +18,29 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 // Students Route
 Route::middleware(['auth:student'])->prefix('student')->group(function () {
     Route::name('student.')->group(function () {
-        Route::get('/', function () {
-            return view('students.index');
-        })->name('index');
+        Route::get('/', [StudentController::class, 'index'])
+            ->name('index');
 
-        Route::get('/settings', function () {
-            return view('students.settings');
-        })->name('settings');
+        Route::get('/settings', [StudentController::class, 'settings'])
+            ->name('settings');
 
-        Route::get('/hostel-mate', function () {
-            return view('students.hostel_mate');
-        })->name('hostel-mate');
+        Route::get('/hostel-mate', [StudentController::class, 'hostel_mate'])
+            ->name('hostel-mate');
 
-        Route::get('/chat', function () {
-            return view('students.chat');
-        })->name('chat');
+        Route::get('/chat', [StudentController::class, 'chat'])
+        ->name('chat');
 
-        Route::get('/notifications', function () {
-            return view('students.notification');
-        })->name('notification');
+        Route::get('/notifications', [StudentController::class, 'notification'])
+            ->name('notification');
+
+        Route::get('/', [StudentController::class, 'index'])
+            ->name('index');
+
+        Route::put('/fave-hostel/{id}', [FavoriteHostelController::class, 'store'])
+            ->name('fave');
     });
+
+    Route::resource('hostels', ShareHostelController::class);
 });
 
 // Agents Route
