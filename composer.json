@@ -16,7 +16,8 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^8.0",
         "laravel/telescope": "^4.4",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "overtrue/laravel-favorite": "^4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

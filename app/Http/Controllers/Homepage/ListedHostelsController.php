@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Homepage;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agent;
+use App\Models\Favorite;
 use App\Models\Hostel;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class ListedHostelsController extends Controller
             ->available()
             ->Paginate(4);
 
-        return view('frontend.hostels', compact('hostels'));
+        $favorites = Favorite::student()
+            ->get('favoriteable_id');
+
+        return view('frontend.hostels', compact('hostels', 'favorites'));
     }
 
     public function show(Hostel $hostel)
