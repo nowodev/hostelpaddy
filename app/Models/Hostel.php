@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Overtrue\LaravelFavorite\Traits\Favoriteable;
 
 class Hostel extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Favoriteable;
 
     protected $fillable = [
         'hostel_name', 'state', 'city',
@@ -52,7 +53,7 @@ class Hostel extends Model
         return asset('storage/thumbnail.jpg');
     }
 
-    // filter function for hostel search 
+    // filter function for hostel search
     public function scopeSearch($query, $q) {
         if ($q == null) return $query;
 
