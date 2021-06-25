@@ -30,7 +30,7 @@ class StudentController extends Controller
 
     public function saved_hostel()
     {
-        $user = Student::find(auth('student')->id());
+        $user = Student::studentId();
         $favoriteHostels = $user->getFavoriteItems(Hostel::class)->get();
 
         return view('students.saved_hostel', compact('favoriteHostels'));
@@ -48,7 +48,7 @@ class StudentController extends Controller
 
     public function toggleFavorite($id)
     {
-        $user = Student::find(auth('student')->id());
+        $user = Student::studentId();
         $hostel = Hostel::findOrFail($id);
 
         $user->toggleFavorite($hostel);
@@ -58,7 +58,7 @@ class StudentController extends Controller
 
     public function removeFavorite($id)
     {
-        $user = Student::find(auth('student')->id());
+        $user = Student::studentId();
         $hostel = Hostel::findOrFail($id);
 
         $user->unfavorite($hostel);

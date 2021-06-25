@@ -33,4 +33,10 @@ class Student extends Authenticatable
         }
         return asset('storage/thumbnail.jpg');
     }
+
+    // fetch authenticated student id 
+    public function scopeStudentId($query)
+    {
+        return $query->find(auth('student')->id());
+    }
 }
