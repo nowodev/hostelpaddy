@@ -27,6 +27,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
         Route::get('/hostel-mate', [StudentController::class, 'hostel_mate'])
             ->name('hostel-mate');
 
+        Route::get('/saved-hostel', [StudentController::class, 'saved_hostel'])
+            ->name('saved-hostels');
+
         Route::get('/chat', [StudentController::class, 'chat'])
         ->name('chat');
 
@@ -36,8 +39,11 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
         Route::get('/', [StudentController::class, 'index'])
             ->name('index');
 
-        Route::put('/fave-hostel/{id}', [FavoriteHostelController::class, 'store'])
+        Route::put('/add-to-favorite/{id}', [StudentController::class, 'toggleFavorite'])
             ->name('fave');
+
+        Route::delete('/remove-from-favorite/{id}', [StudentController::class, 'removeFavorite'])
+            ->name('unfave');
     });
 
     Route::resource('hostels', ShareHostelController::class);
