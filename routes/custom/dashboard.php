@@ -21,8 +21,11 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
         Route::get('/', [StudentController::class, 'index'])
             ->name('index');
 
-        Route::get('/settings', [StudentController::class, 'settings'])
-            ->name('settings');
+        Route::get('/account', [StudentController::class, 'settings_account'])
+            ->name('settings.account');
+
+            Route::get('/profile', [StudentController::class, 'settings_profile'])
+            ->name('settings.profile');
 
         Route::get('/hostel-mate', [StudentController::class, 'hostel_mate'])
             ->name('hostel-mate');
