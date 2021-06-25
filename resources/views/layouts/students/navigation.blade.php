@@ -27,7 +27,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('house') }}">
+            <a class="nav-link" href="{{ route('student.saved-hostels') }}">
               <i class="fa fa-heart"></i>
               Saved hostels
             </a>

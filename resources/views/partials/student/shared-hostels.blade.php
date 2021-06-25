@@ -6,7 +6,7 @@
     <div class="col">
       <div class="card">
         <div class="row no-gutters">
-          <img class="card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
+          <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
           <div class="card-img-overlay">
             <i class="fa-2x fab fa-gratipay mt-n2 text-white"></i>
           </div>

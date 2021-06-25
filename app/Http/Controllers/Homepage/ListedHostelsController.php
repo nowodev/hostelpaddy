@@ -16,10 +16,7 @@ class ListedHostelsController extends Controller
             ->available()
             ->Paginate(4);
 
-        $favorites = Favorite::student()
-            ->get('favoriteable_id');
-
-        return view('frontend.hostels', compact('hostels', 'favorites'));
+        return view('frontend.hostels', compact('hostels'));
     }
 
     public function show(Hostel $hostel)
