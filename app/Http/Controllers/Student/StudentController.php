@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Favorite;
+use App\Models\Hostel;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -23,16 +25,44 @@ class StudentController extends Controller
 
     public function hostel_mate()
     {
-        return view('students.hostel-mate');
+        return view('students.hostel_mate');
+    }
+
+    public function saved_hostel()
+    {
+        $user = Student::find(auth('student')->id());
+        $favoriteHostels = $user->getFavoriteItems(Hostel::class)->get();
+
+        return view('students.saved_hostel', compact('favoriteHostels'));
     }
 
     public function chat()
     {
-        return view('students.char');
+        return view('students.chat');
     }
 
     public function notification()
     {
         return view('students.notification');
+    }
+
+    public function toggleFavorite($id)
+    {
+        $user = Student::find(auth('student')->id());
+        $hostel = Hostel::findOrFail($id);
+
+        $user->toggleFavorite($hostel);
+
+        return back()->with('success', 'Hostel added to favorites');
+    }
+
+    public function removeFavorite($id)
+    {
+        $user = Student::find(auth('student')->id());
+        $hostel = Hostel::findOrFail($id);
+
+        $user->unfavorite($hostel);
+
+        return back()->with('success', 'Hostel removed from favorites');
     }
 }
