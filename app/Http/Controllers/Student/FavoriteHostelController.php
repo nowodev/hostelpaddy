@@ -15,13 +15,13 @@ class FavoriteHostelController extends Controller
         $hostel = Hostel::findOrFail($id);
 
 
-        $user->favorite($hostel);
-        $user->unfavorite($hostel);
+        // $user->favorite($hostel);
+        // $user->unfavorite($hostel);
         $user->toggleFavorite($hostel);
-        $user->getFavoriteItems(Hostel::class);
+        // $user->getFavoriteItems(Hostel::class);
 
-        $user->hasFavorited($hostel);
-        $hostel->hasBeenFavoritedBy($user);
+        // $user->hasFavorited($hostel);
+        // $hostel->hasBeenFavoritedBy($user);
 
         return back()->with('success', 'Hostel added to favorites');
     }
