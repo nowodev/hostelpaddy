@@ -858,13 +858,12 @@ footer a.social-link {
   }
 }
 
-
 /* Pill Tabs */
 .pill-color {
     background-color: #f2f2f2;
 }
 
-.card img {
+.card-pill-img {
   width: 50%;
   /* height: 50%; */
 }
