@@ -75,8 +75,15 @@
           @endauth
         </div>
       @endif --}}
-      <div class="mobile-signup">
-        <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a>
+      <div class="btn btn-outline-primary logout signup">
+        {{-- <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a> --}}
+        <form method="POST" action="{{ route('student.logout') }}">
+          @csrf
+
+          <x-dropdown-link :href="route('student.logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+            {{ __('Logout') }}
+          </x-dropdown-link>
+        </form>
       </div>
 
     </div>

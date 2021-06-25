@@ -15,7 +15,17 @@
               @csrf
               @method('PUT')
               <button>
-                <i class="fa-2x fas fa-heart {{ auth('student')->user()->hasFavorited($hostel) ? 'text-danger' : 'text-white' }}"></i>
+                @auth('student')
+                  <i
+                    class="fa-2x fas fa-heart {{ auth('student')->user()->hasFavorited($hostel)
+    ? 'text-danger'
+    : 'text-white' }}"></i>
+                  @else
+                    <i class="fa-2x fas fa-heart text-white"></i>
+                  @endauth
+                  {{-- <i class="fa-2x fas fa-heart {{ auth('student')->user()->hasFavorited($hostel)
+    ? 'text-danger'
+    : 'text-white' }}"></i> --}}
               </button>
             </form>
           </div>
@@ -28,7 +38,7 @@
             <span class="card-text">{{ $hostel->description }}</span>
             <br>
             <span class="card-text font-weight-bold">N{{ $hostel->amount }}
-            <sub>{{ $hostel->period }}</sub></span>
+              <sub>{{ $hostel->period }}</sub></span>
             <a href="{{ route('info', [$hostel]) }}" class="stretched-link"></a>
           </div>
         </div>
