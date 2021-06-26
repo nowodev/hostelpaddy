@@ -1,52 +1,52 @@
 
 /* Custom Fonts */
-@import url(../fonts/Asap/Asap-Italic.ttf);
-@import url(../fonts/Asap/Asap-Bold.ttf);
-@import url(../fonts/Asap/Asap-BoldItalic.ttf);
-@import url(../fonts/Asap/Asap-SemiBold.ttf);
-@import url(../fonts/Asap/Asap-SemiBoldItalic.ttf);
-@import url(../fonts/Asap/Asap-Medium.ttf);
-@import url(../fonts/Asap/Asap-MediumItalic.ttf);
-@import url(../fonts/Asap/Asap-Regular.ttf);
+@import url(../../fonts/Asap/Asap-Italic.ttf);
+@import url(../../fonts/Asap/Asap-Bold.ttf);
+@import url(../../fonts/Asap/Asap-BoldItalic.ttf);
+@import url(../../fonts/Asap/Asap-SemiBold.ttf);
+@import url(../../fonts/Asap/Asap-SemiBoldItalic.ttf);
+@import url(../../fonts/Asap/Asap-Medium.ttf);
+@import url(../../fonts/Asap/Asap-MediumItalic.ttf);
+@import url(../../fonts/Asap/Asap-Regular.ttf);
 
 @font-face {
   font-family: 'Asap-Bold';
-  src: url(../fonts/Asap/Asap-Bold.ttf)
+  src: url(../../fonts/Asap/Asap-Bold.ttf)
 }
 
 @font-face {
   font-family: 'Asap-Italic';
-  src: url(../fonts/Asap/Asap-Italic.ttf)
+  src: url(../../fonts/Asap/Asap-Italic.ttf)
 }
 
 @font-face {
   font-family: 'Asap-BoldItalic';
-  src: url(../fonts/Asap/Asap-BoldItalic.ttf)
+  src: url(../../fonts/Asap/Asap-BoldItalic.ttf)
 }
 
 @font-face {
   font-family: 'Asap-SemiBold';
-  src: url(../fonts/Asap/Asap-SemiBold.ttf)
+  src: url(../../fonts/Asap/Asap-SemiBold.ttf)
 }
 
 @font-face {
   font-family: 'Asap-SemiBoldItalic';
-  src: url(../fonts/Asap/Asap-SemiBoldItalic.ttf)
+  src: url(../../fonts/Asap/Asap-SemiBoldItalic.ttf)
 }
 
 @font-face {
   font-family: 'Asap-Medium';
-  src: url(../fonts/Asap/Asap-Medium.ttf)
+  src: url(../../fonts/Asap/Asap-Medium.ttf)
 }
 
 @font-face {
   font-family: 'Asap-MediumItalic';
-  src: url(../fonts/Asap/Asap-MediumItalic.ttf)
+  src: url(../../fonts/Asap/Asap-MediumItalic.ttf)
 }
 
 @font-face {
   font-family: 'Asap-Regular';
-  src: url(../fonts/Asap/Asap-Regular.ttf)
+  src: url(../../fonts/Asap/Asap-Regular.ttf)
 }
 
 body, .utility{
@@ -55,12 +55,12 @@ body, .utility{
 h1{
 	font-family: Asap-Bold;
 }
-.navbar-toggler, .navbar-toggler:focus{
+/* .navbar-toggler, .navbar-toggler:focus{
 	border: none;
 }
 .nav-item a{
 	display: inline-flex;
-}
+} */
 #search{
   padding: 17px;
   padding-left: 55px;
@@ -76,7 +76,7 @@ h1{
 h6{
 	font-weight: bolder;
 }
-.footer{
+/* .footer{
 	width: 100%;
 	margin: 0 auto;
 }
@@ -89,7 +89,7 @@ h6{
 }
 .social{
 	margin: 0 auto;
-}
+} */
 .notify{
 	width: 80%;
 }
