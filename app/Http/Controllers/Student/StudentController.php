@@ -18,9 +18,14 @@ class StudentController extends Controller
         return view('students.index', compact('saved_hostels'));
     }
 
-    public function settings()
+    public function settings_account()
     {
-        return view('students.settings');
+        return view('students.settings.account');
+    }
+
+    public function settings_profile()
+    {
+        return view('students.settings.profile');
     }
 
     public function hostel_mate()

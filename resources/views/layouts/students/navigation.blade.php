@@ -33,10 +33,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('student.settings') }}">
-              <i class="fas fa-user-cog"></i>
-              Settings
-            </a>
+            <div class="dropdown">
+              <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <i class="fas fa-user-cog"></i>
+                Settings
+              </a>
+              <div class="dropdown-menu p-3">
+                <a class="nav-link dropdown-item" href="{{ route('student.settings.profile') }}">Profile</a>
+                <a class="nav-link dropdown-item" href="{{ route('student.settings.account') }}">Account</a>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -80,7 +86,8 @@
         <form method="POST" action="{{ route('student.logout') }}">
           @csrf
 
-          <x-dropdown-link :href="route('student.logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+          <x-dropdown-link :href="route('student.logout')"
+            onclick="event.preventDefault(); this.closest('form').submit();">
             {{ __('Logout') }}
           </x-dropdown-link>
         </form>

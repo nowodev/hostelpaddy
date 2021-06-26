@@ -1,0 +1,140 @@
+
+/* Custom Fonts */
+@import url(../../fonts/Asap/Asap-Italic.ttf);
+@import url(../../fonts/Asap/Asap-Bold.ttf);
+@import url(../../fonts/Asap/Asap-BoldItalic.ttf);
+@import url(../../fonts/Asap/Asap-SemiBold.ttf);
+@import url(../../fonts/Asap/Asap-SemiBoldItalic.ttf);
+@import url(../../fonts/Asap/Asap-Medium.ttf);
+@import url(../../fonts/Asap/Asap-MediumItalic.ttf);
+@import url(../../fonts/Asap/Asap-Regular.ttf);
+
+@font-face {
+  font-family: 'Asap-Bold';
+  src: url(../../fonts/Asap/Asap-Bold.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Italic';
+  src: url(../../fonts/Asap/Asap-Italic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-BoldItalic';
+  src: url(../../fonts/Asap/Asap-BoldItalic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-SemiBold';
+  src: url(../../fonts/Asap/Asap-SemiBold.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-SemiBoldItalic';
+  src: url(../../fonts/Asap/Asap-SemiBoldItalic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Medium';
+  src: url(../../fonts/Asap/Asap-Medium.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-MediumItalic';
+  src: url(../../fonts/Asap/Asap-MediumItalic.ttf)
+}
+
+@font-face {
+  font-family: 'Asap-Regular';
+  src: url(../../fonts/Asap/Asap-Regular.ttf)
+}
+
+body, .utility{
+	font-family: Asap-Regular;
+}
+h1{
+	font-family: Asap-Bold;
+}
+/* .navbar-toggler, .navbar-toggler:focus{
+	border: none;
+}
+.nav-item a{
+	display: inline-flex;
+} */
+/* .footer{
+	width: 100%;
+	margin: 0 auto;
+}
+.footer ul{
+	display: inline-flex;
+	width: 100%;
+}
+.footer>ul li{
+	margin: 0 auto;
+} */
+/* .social{
+	margin: 0 auto;
+} */
+.notify{
+	width: 80%;
+}
+.notification:hover{
+	background-color: black;
+	width: 103%;
+	border-radius: 5px;
+	box-shadow: 0px 1px 15px -10px black;
+	cursor: pointer;
+}
+.description{
+	font-size: 20px;
+}
+.note{
+	font-size: 14px;
+}
+time{
+	font-size: 8px;
+}
+
+
+
+
+button{
+	font-weight: 500;
+	font-family: Asap-Bold;
+}
+.h5{
+	font-family: Asap-Bold;
+	font-size: 22px;
+}
+li, .copyright-area{
+	font-family: Asap-SemiBold;
+}
+.copyright-area{
+	color: grey;
+}
+p{
+	font-family: Asap-Regular;
+	line-height: 20px;
+	color: #4F4F4F;
+}
+
+
+
+
+
+@media screen and (min-width: 376px){
+	.display1{
+		font-size: 3.5vw;
+	}
+	.description{
+		font-size: 2.5vw;
+	}
+	.note{
+		font-size: 2vw;
+	}
+	time{
+		font-size: 1.2vw;
+		font-weight: bold;
+	}
+
+}
