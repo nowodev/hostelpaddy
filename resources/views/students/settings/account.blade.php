@@ -9,9 +9,7 @@
 
 @section('content')
   <div class="second-nav d-none d-md-flex container pl-md-5">
-    <p>Settings</p>&nbsp;&nbsp;
-    <p><span class="oi oi-caret-right"></span></p>&nbsp;&nbsp;
-    <p>Account</p>
+    {{ Breadcrumbs::render('account') }}
   </div>
 
 
