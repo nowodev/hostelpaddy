@@ -14,7 +14,7 @@ class ListedHostelsController extends Controller
     {
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
-            ->Paginate(4);
+            ->Paginate(16);
 
         return view('frontend.hostels', compact('hostels'));
     }
