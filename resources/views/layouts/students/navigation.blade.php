@@ -55,11 +55,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('hostels') }}">
-              <i class="fa fa-question-circle"></i>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{ route('student.notification') }}">
               <i class="fa fa-bell"></i>
             </a>
@@ -81,17 +76,21 @@
           @endauth
         </div>
       @endif --}}
-      <div class="btn btn-outline-primary logout signup">
-        {{-- <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a> --}}
-        <form method="POST" action="{{ route('student.logout') }}">
-          @csrf
 
-          <x-dropdown-link :href="route('student.logout')"
-            onclick="event.preventDefault(); this.closest('form').submit();">
+      {{-- <div class="btn btn-outline-primary logout signup"> --}}
+      {{-- <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a> --}}
+      <form method="POST" action="{{ route('student.logout') }}">
+        @csrf
+
+        <x-dropdown-link :href="route('student.logout')"
+          onclick="event.preventDefault(); this.closest('form').submit();">
+          <div class="btn btn-outline-primary logout signup">
+
             {{ __('Logout') }}
-          </x-dropdown-link>
-        </form>
-      </div>
+          </div>
+        </x-dropdown-link>
+      </form>
+      {{-- </div> --}}
 
     </div>
   </nav>
