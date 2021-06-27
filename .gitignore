@@ -15,3 +15,4 @@ yarn-error.log
 *.xml
 *.png
 *.png
+public/main/css/.DS_Store

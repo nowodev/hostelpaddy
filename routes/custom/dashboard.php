@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::get('/hostels', [AdminController::class, 'index'])
+    Route::get('/', [AdminController::class, 'index'])
         ->name('dashboard');
 });
 
