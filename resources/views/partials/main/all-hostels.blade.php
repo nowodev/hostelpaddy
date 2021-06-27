@@ -9,7 +9,7 @@
     @foreach ($hostels as $hostel)
       <div class="col-6 col-md-4 col-lg-3 mb-3">
         <div class="card">
-          <img class="card-img-top img-fluid px-2 pt-2" src="{{ asset('main/img/hostel2.png') }}" alt="Card image">
+          <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->thumbnail }}" alt="Card image">
           <div class="card-img-overlay">
             <form action="{{ route('student.fave', [$hostel]) }}" method="POST" class="inline-flex float-right">
               @csrf
