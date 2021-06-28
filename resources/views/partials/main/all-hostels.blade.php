@@ -20,12 +20,9 @@
                     class="fa-2x fas fa-heart {{ auth('student')->user()->hasFavorited($hostel)
     ? 'text-danger'
     : 'text-white' }}"></i>
-                  @else
-                    <i class="fa-2x fas fa-heart text-white"></i>
-                  @endauth
-                  {{-- <i class="fa-2x fas fa-heart {{ auth('student')->user()->hasFavorited($hostel)
-    ? 'text-danger'
-    : 'text-white' }}"></i> --}}
+                @else
+                  <i class="fa-2x fas fa-heart text-white"></i>
+                @endauth
               </button>
             </form>
           </div>
