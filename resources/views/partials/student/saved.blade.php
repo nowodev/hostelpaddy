@@ -1,7 +1,8 @@
 {{-- Saved Hostel Details --}}
 
+@for ($q = 0; $q <= 1; $q++)
 <div class="row mb-3">
-  @foreach ($saved_hostels as $saved)
+  @for ($i = 0; $i <= 2; $i++)
     <div class="col">
       <div class="card">
         <div class="row no-gutters">
@@ -21,5 +22,6 @@
         </div>
       </div>
     </div>
-  @endforeach
+  @endfor
 </div>
+@endfor

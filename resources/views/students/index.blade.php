@@ -23,7 +23,7 @@
 
 {{-- @section('title', 'Student - Home') --}}
 @section('title')
-{{ auth('student')->user()->name }} -  Student
+  {{ auth('student')->user()->name }} - Student
 @endsection
 
 @section('content')
@@ -37,9 +37,9 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="pill" href="#my-hostels">My hostels</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" data-toggle="pill" href="#saved">Saved</a>
-        </li>
+        </li> --}}
       </ul>
     </section>
 
@@ -47,6 +47,14 @@
     <section class="tab-content">
       <div id="shared-hostels" class="container tab-pane active">
         @include('partials.student.search-bar')
+        <h1>Saved</h1>
+        @include('partials.student.saved')
+
+        <div class="my-5">
+          <hr>
+        </div>
+
+        <h1>Shared Hostels</h1>
         @include('partials.student.shared-hostels')
       </div>
 
@@ -55,10 +63,10 @@
         @include('partials.student.my-hostels')
       </div>
 
-      <div id="saved" class="container tab-pane fade">
+      {{-- <div id="saved" class="container tab-pane fade">
         @include('partials.student.search-bar')
         @include('partials.student.saved')
-      </div>
+      </div> --}}
     </section>
   </div>
 @endsection
