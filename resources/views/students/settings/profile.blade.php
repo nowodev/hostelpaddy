@@ -8,8 +8,8 @@
 @section('title', 'Student - Profile')
 
 @section('content')
-  <div class="second-nav d-none d-md-flex container pl-md-5">
+  <x-student.hamburger>
     {{ Breadcrumbs::render('profile') }}
-  </div>
+  </x-student.hamburger>
 
 @endsection
