@@ -39,9 +39,6 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
         Route::get('/notifications', [StudentController::class, 'notification'])
             ->name('notification');
 
-        Route::get('/', [StudentController::class, 'index'])
-            ->name('index');
-
         Route::put('/add-to-favorite/{id}', [StudentController::class, 'toggleFavorite'])
             ->name('fave');
 
