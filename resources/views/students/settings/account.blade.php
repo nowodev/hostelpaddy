@@ -8,9 +8,9 @@
 @section('title', 'Student - Account')
 
 @section('content')
-  <x-student.hamburger>
+  <x-student.breadcrumbs>
     {{ Breadcrumbs::render('account') }}
-  </x-student.hamburger>
+  </x-student.breadcrumbs>
 
   <div class="container Banner">
     <h1 class="display1">Account</h1>
