@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Homepage\ListedHostelsController;
+use App\Http\Controllers\Home\ListedHostelsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/about', function () {
