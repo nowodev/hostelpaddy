@@ -9,10 +9,10 @@
         </form>
       </div>
       <div class="col-sm-2 col-md-1">
-        <span class="btn btn-outline-primary">
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#searchFilter">
           <i class="fa fa-filter"></i>
           Filter
-        </span>
+        </button>
       </div>
       <div class="col-sm-2 col-md-1">
         <span class="dropdown">
@@ -31,3 +31,5 @@
     </div>
   </div>
 </section>
+
+@include('partials.main.filter')
