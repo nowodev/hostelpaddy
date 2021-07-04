@@ -1,162 +1,91 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-  <!-- Primary Navigation Menu -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
-      <div class="flex">
-        <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center">
-          <a href="{{ route('agent.index') }}">
-            <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-          </a>
-        </div>
+<section id="header" class="header">
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container d-flex justify-content-between">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="{{ asset('main/img/Hamburger menu.png') }}" class="img-fluid" alt="">
+      </button>
 
-        <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link>
-            {{ __('Hostel') }}
-          </x-nav-link>
-        </div>
-
-        <div class="hidden sm:flex sm:items-center sm:ml-6">
-          <x-dropdown align="right" width="48">
-            <x-slot name="trigger">
-              <button
-                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                <div>Dashboard</div>
-
-                <div class="ml-1">
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </button>
-            </x-slot>
-
-            <x-slot name="content">
-              <x-dropdown-link :href="route('hostels.index')">
-                {{ __('Manage Listing') }}
-              </x-dropdown-link>
-
-              <x-dropdown-link :href="route('home')">
-                {{ __('Help') }}
-              </x-dropdown-link>
-            </x-slot>
-          </x-dropdown>
-        </div>
-
-        <div class="hidden sm:-my-px sm:ml-6 sm:flex">
-            <x-nav-link :href="route('agent.edit')">
-                {{ __('Edit Profile') }}
-            </x-nav-link>
-        </div>
-
-        <div class="hidden sm:-my-px sm:ml-6 sm:flex">
-            <x-nav-link :href="route('agent.archive')">
-              {{ __('Archive') }}
-            </x-nav-link>
-        </div>
+      <div class="navbar-brand">
+        <a class="" href="/">
+          <img alt="HostelPaddy logo" src="{{ asset('main/home-img/logo.png') }}" />
+        </a>
       </div>
 
-      <!-- Settings Dropdown -->
-      <div class="hidden sm:flex sm:items-center sm:ml-6">
-        <x-dropdown align="right" width="48">
-          <x-slot name="trigger">
-            <button
-              class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-              <img src="{{ auth('agent')->user()->thumbnail }}" alt="Agent" class="h-10 w-10 rounded-full mr-3">
-
-              <div>{{ auth('agent')->user()->name }}</div>
-
-              <div class="ml-1">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd" />
-                </svg>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('student.index') }}">
+              <i class="fa fa-tags"></i>
+              Hostels
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('student.hostel-mate') }}">
+              <i class="fas fa-th-large"></i>
+              Manage Listing
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <i class="fas fa-user-cog"></i>
+                Settings
+              </a>
+              <div class="dropdown-menu p-3">
+                <a class="nav-link dropdown-item" href="{{ route('student.settings.profile') }}">Profile</a>
+                <a class="nav-link dropdown-item" href="{{ route('student.settings.account') }}">Account</a>
               </div>
-            </button>
-          </x-slot>
-
-          <x-slot name="content">
-            <!-- Authentication -->
-            <form method="POST" action="{{ route('agent.logout') }}">
-              @csrf
-
-              <x-dropdown-link :href="route('agent.logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                {{ __('Log out') }}
-              </x-dropdown-link>
-            </form>
-          </x-slot>
-        </x-dropdown>
+            </div>
+          </li>
+        </ul>
       </div>
 
-      <!-- Hamburger -->
-      <div class="-mr-2 flex items-center sm:hidden">
-        <button @click="open = ! open"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round"
-              stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-              stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('student.chat') }}">
+              <i class="fa fa-comment-dots"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('student.notification') }}">
+              <i class="fa fa-bell"></i>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
-  </div>
 
-  <!-- Responsive Navigation Menu -->
-  <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-    <div class="pt-2 pb-3 space-y-1">
-      <x-responsive-nav-link>
-        {{ __('Hostel') }}
-      </x-responsive-nav-link>
-
-      <x-responsive-nav-link :href="route('hostels.index')" :active="request()->routeIs('hostels.index')">
-        {{ __('Manage Listing') }}
-      </x-responsive-nav-link>
-
-      <x-responsive-nav-link>
-        {{ __('Help') }}
-      </x-responsive-nav-link>
-
-      <x-responsive-nav-link :href="route('agent.edit')" :active="request()->routeIs('agent.edit')">
-        {{ __('Edit Profile') }}
-      </x-responsive-nav-link>
-
-      <x-responsive-nav-link :href="route('agent.archive')" :active="request()->routeIs('agent.archive')">
-        {{ __('Archive') }}
-      </x-responsive-nav-link>
-    </div>
-
-
-    <!-- Responsive Settings Options -->
-    <div class="pt-4 pb-1 border-t border-gray-200">
-      <div class="flex items-center px-4">
-        <div class="flex-shrink-0">
-            <img src="{{ auth('agent')->user()->thumbnail }}" alt="Agent" class="h-10 w-10 rounded-full mr-3">
+      {{-- @if (Route::has('agent.register') || Route::has('student.register'))
+        <div class="mobile-signup">
+          @auth('agent')
+            <a class="btn btn-primary signup" href="{{ route('agent.index') }}">{{ auth('agent')->user()->name }}</a>
+          @else
+            @auth('student')
+              <a class="btn btn-primary signup"
+                href="{{ route('student.index') }}">{{ auth('student')->user()->name }}</a>
+            @else
+              <a class="btn btn-primary signup" href="{{ route('onboarding') }}">Sign Up</a>
+            @endauth
+          @endauth
         </div>
+      @endif --}}
 
-        <div class="ml-3">
-          <div class="font-medium text-base text-gray-800">{{ auth('agent')->user()->name }}</div>
-          <div class="font-medium text-sm text-gray-500">{{ auth('agent')->user()->email }}</div>
-        </div>
-      </div>
+      {{-- <div class="btn btn-outline-primary logout signup"> --}}
+      {{-- <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a> --}}
+      <form method="POST" action="{{ route('student.logout') }}">
+        @csrf
 
-      <div class="mt-3 space-y-1">
-        <!-- Authentication -->
-        <form method="POST" action="{{ route('agent.logout') }}">
-          @csrf
+        <x-dropdown-link :href="route('student.logout')"
+          onclick="event.preventDefault(); this.closest('form').submit();">
+          <div class="btn btn-outline-primary logout signup">
 
-          <x-responsive-nav-link :href="route('agent.logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-            {{ __('Log out') }}
-          </x-responsive-nav-link>
-        </form>
-      </div>
+            {{ __('Logout') }}
+          </div>
+        </x-dropdown-link>
+      </form>
+      {{-- </div> --}}
+
     </div>
-  </div>
-</nav>
+  </nav>
+</section>
