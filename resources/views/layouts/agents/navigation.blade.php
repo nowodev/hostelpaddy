@@ -15,13 +15,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav justify-content-center">
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('student.index') }}">
+            <a class="nav-link" href="{{ route('agent.index') }}">
               <i class="fa fa-tags"></i>
               Hostels
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('student.hostel-mate') }}">
+            <a class="nav-link" href="{{ route('agent.index') }}">
               <i class="fas fa-th-large"></i>
               Manage Listing
             </a>
@@ -33,8 +33,8 @@
                 Settings
               </a>
               <div class="dropdown-menu p-3">
-                <a class="nav-link dropdown-item" href="{{ route('student.settings.profile') }}">Profile</a>
-                <a class="nav-link dropdown-item" href="{{ route('student.settings.account') }}">Account</a>
+                <a class="nav-link dropdown-item" href="{{ route('agent.settings.profile') }}">Profile</a>
+                <a class="nav-link dropdown-item" href="{{ route('agent.settings.account') }}">Account</a>
               </div>
             </div>
           </li>
@@ -44,12 +44,12 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav justify-content-center">
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('student.chat') }}">
+            <a class="nav-link" href="{{ route('agent.chat') }}">
               <i class="fa fa-comment-dots"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('student.notification') }}">
+            <a class="nav-link" href="{{ route('agent.notification') }}">
               <i class="fa fa-bell"></i>
             </a>
           </li>
