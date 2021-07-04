@@ -61,6 +61,44 @@ h1{
 .nav-item a{
 	display: inline-flex;
 } */
+
+a:hover{
+	text-decoration: none;
+}
+.second-nav a{
+	color: black;
+}
+input[type=password]{
+	color: #C4C4C4;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	font-size: 31px;
+}
+#hide{
+	display: none;
+}
+.form-group input[type=text],
+.form-group input[type=email],
+.form-group input[type=password],
+.form-group input[type=tel]{
+	border: none;
+	padding: 0;
+	font-size: 16px;
+}
+.form-group{
+	width: 50%;
+	border: 2px solid deepskyblue !important;
+	border-radius: 5px;
+	padding: 5px;
+}
+.edit button, .edit button:focus{
+	border: none;
+	outline: none;
+	color: #5DA3D7;
+	background: transparent;
+}
+
 #search{
   padding: 17px;
   padding-left: 55px;
@@ -148,6 +186,10 @@ p{
 	color: #4F4F4F;
 }
 
+h2{
+	font-size: 26px;
+	font-weight: bolder;
+}
 
 
 

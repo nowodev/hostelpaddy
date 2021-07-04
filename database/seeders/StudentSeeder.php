@@ -6,7 +6,7 @@ use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class StudentDatabase extends Seeder
+class StudentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
