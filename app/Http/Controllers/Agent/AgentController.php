@@ -3,63 +3,41 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProfileRequest;
-use App\Models\Agent;
 use App\Models\Hostel;
+use Illuminate\Http\Request;
 
 class AgentController extends Controller
 {
     public function index()
     {
-        //  fetch hostels per agent
         $hostels = Hostel::where('agent_id', auth('agent')->id())
             ->get();
+
         return view('agents.index', compact('hostels'));
     }
 
-    public function edit()
+    public function settings_account()
     {
-        $agent = auth('agent')->user();
-
-        return view('agents.edit-profile', compact('agent'));
+        return view('agents.settings.account');
     }
 
-    public function update(ProfileRequest $request, Agent $agent)
+    public function settings_profile()
     {
-        $agent->update($request->validated());
-
-        return redirect()->route('agent.index')
-            ->with('success', 'Profile Updated Successfully');
+        return view('agents.settings.profile');
     }
 
-    public function archive()
+    public function hostel_mate()
     {
-        $hostels = Hostel::onlyTrashed()
-            ->agent()
-            ->orderBy('id', 'DESC')
-            ->paginate(10);
-
-        return view('agents.archive', compact('hostels'));
+        return view('agents.hostel_mate');
     }
 
-    public function restore($id)
+    public function chat()
     {
-        $hostel = Hostel::withTrashed()->findOrFail($id);
-        $hostel->restore();
-
-        return redirect()->route('agent.archive')
-            ->with('success', 'Hostel Restored Successfully');
+        return view('agents.chat');
     }
 
-    public function delete($id)
+    public function notification()
     {
-        $hostel = Hostel::withTrashed()->findOrFail($id);
-        $hostel->amenities()->detach($hostel->amenities);
-        $hostel->utilities()->detach($hostel->utilities);
-        $hostel->rules()->detach($hostel->rules);
-        $hostel->forceDelete();
-
-        return redirect()->route('agent.archive')
-            ->with('success', 'Hostel Deleted Successfully');
+        return view('agents.notification');
     }
 }

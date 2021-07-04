@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
-use App\Http\Controllers\Agent\HostelController;
+// use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Student\ShareHostelController;
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +23,7 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
         Route::get('/account', [StudentController::class, 'settings_account'])
             ->name('settings.account');
 
-            Route::get('/profile', [StudentController::class, 'settings_profile'])
+        Route::get('/profile', [StudentController::class, 'settings_profile'])
             ->name('settings.profile');
 
         Route::get('/hostel-mate', [StudentController::class, 'hostel_mate'])
@@ -33,7 +33,7 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('saved-hostels');
 
         Route::get('/chat', [StudentController::class, 'chat'])
-        ->name('chat');
+            ->name('chat');
 
         Route::get('/notifications', [StudentController::class, 'notification'])
             ->name('notification');
@@ -48,27 +48,49 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
     Route::resource('hostels', ShareHostelController::class);
 });
 
-// Agents Route
+// Old Agents Route
+// Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
+//     Route::name('agent.')->group(function () {
+
+//         Route::get('/', [AgentController::class, 'index'])
+//             ->name('index');
+
+//         Route::get('/edit-profile', [AgentController::class, 'edit'])
+//             ->name('edit');
+//         Route::put('/edit-profile/{agent}', [AgentController::class, 'update'])
+//             ->name('update');
+
+//         Route::get('/archive', [AgentController::class, 'archive'])
+//             ->name('archive');
+
+//         Route::put('/archive/restore/{id}', [AgentController::class, 'restore'])
+//             ->name('hostel.restore');
+
+//         Route::delete('/archive/delete/{id}', [AgentController::class, 'delete'])
+//             ->name('hostel.delete');
+//     });
+
+//     Route::resource('hostels', HostelController::class);
+// });
+
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
 
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
 
-        Route::get('/edit-profile', [AgentController::class, 'edit'])
-            ->name('edit');
-        Route::put('/edit-profile/{agent}', [AgentController::class, 'update'])
-            ->name('update');
+        Route::get('/account', [AgentController::class, 'settings_account'])
+        ->name('settings.account');
 
-        Route::get('/archive', [AgentController::class, 'archive'])
-            ->name('archive');
+        Route::get('/profile', [AgentController::class, 'settings_profile'])
+        ->name('settings.profile');
 
-        Route::put('/archive/restore/{id}', [AgentController::class, 'restore'])
-            ->name('hostel.restore');
+        Route::get('/chat', [AgentController::class, 'chat'])
+            ->name('chat');
 
-        Route::delete('/archive/delete/{id}', [AgentController::class, 'delete'])
-            ->name('hostel.delete');
+        Route::get('/notifications', [AgentController::class, 'notification'])
+        ->name('notification');
     });
 
-    Route::resource('hostels', HostelController::class);
+    // Route::resource('hostels', HostelController::class);
 });
