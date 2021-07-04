@@ -32,4 +32,4 @@
   </div>
 </section>
 
-@include('partials.main.filter')
+{{-- @include('partials.main.filter') --}}
