@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
-use App\Http\Controllers\Student\FavoriteHostelController;
 use App\Http\Controllers\Student\ShareHostelController;
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;

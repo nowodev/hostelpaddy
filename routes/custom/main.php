@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Homepage\ListedHostelsController;
+use App\Http\Controllers\Home\ListedHostelsController;
+use App\Http\Controllers\Home\PreferenceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/about', function () {
@@ -10,6 +11,9 @@ Route::get('/about', function () {
 Route::get('/hostels', [ListedHostelsController::class, 'index'])
     ->name('hostels');
 
+Route::post('/hostels', [PreferenceController::class])
+    ->name('filter.preference');
+    
 Route::get('/hostels/{availableHostel:slug}', [ListedHostelsController::class, 'show'])
     ->name('info');
 
