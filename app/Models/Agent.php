@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class Agent extends Authenticatable
 {
@@ -46,5 +47,12 @@ class Agent extends Authenticatable
 
     public function hostels() {
         return $this->hasMany(Hostel::class);
+    }
+
+    // Hash password when updating
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+        // $this->attributes['password'] = bcrypt($password);
     }
 }
