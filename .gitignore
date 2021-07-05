@@ -16,3 +16,4 @@ yarn-error.log
 *.png
 *.png
 public/main/css/.DS_Store
+*.iml
