@@ -1,4 +1,4 @@
-<div id="alertbox">
+{{-- <div id="alertbox">
     <div class="bg-green-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
         role="alert">
         <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -16,4 +16,9 @@
             </svg>
         </span>
     </div>
+</div> --}}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>{{ session('success') }}</strong>
 </div>

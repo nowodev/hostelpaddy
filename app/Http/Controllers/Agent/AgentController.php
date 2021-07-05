@@ -23,12 +23,9 @@ class AgentController extends Controller
 
     public function settings_profile()
     {
-        return view('agents.settings.profile');
-    }
+        $agent = auth('agent')->user();
 
-    public function hostel_mate()
-    {
-        return view('agents.hostel_mate');
+        return view('agents.settings.profile', compact('agent'));
     }
 
     public function chat()

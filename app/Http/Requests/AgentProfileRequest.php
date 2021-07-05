@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule as ValidationRule;
 
 
-class ProfileRequest extends FormRequest
+class AgentProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,14 +27,15 @@ class ProfileRequest extends FormRequest
     {
         $agentID = $this->route('agent.id');
         return [
-            'name' => 'required',
+            'name' => 'sometimes',
             'email' => [
-                'required',
+                'sometimes',
                 'unique:students,email',
                 'unique:users,email',
                 ValidationRule::unique('agents')->ignore($agentID),
             ],
-            'phone' => 'required',
+            'phone' => 'sometimes',
+            'password' => 'min:6|sometimes',
         ];
     }
 }

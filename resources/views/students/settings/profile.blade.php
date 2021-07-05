@@ -16,62 +16,79 @@
     <h1 class="display1">Profile</h1>
   </div>
 
+
   <div class="container p-1 p-md-5" id="notifications">
+    <x-main.errors />
+
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Full name</h6>
-        <p>Micheal Johnson</p>
+        <p>{{ $student->name }}</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#name" onclick="handleToggle(this)" id="edit">Edit</button>
       </div>
       <div class="col-12 collapse mt-2" id="name">
-        <form action="">
+        <form action="{{ route('student.update', [$student]) }}" method="POST" class="p-0">
+          @csrf
+          @method('PUT')
+
           <div class="form-group">
-            <small><label for="fullname" class="mb-0">Enter fullname:</label></small>
-            <input type="text" class="form-control mb-2 borer-0" name="fullname" id="fullname" autofocus required />
+            <small><label for="fullname" class="mb-0">Edit fullname:</label></small>
+            <input type="text" class="form-control mb-2 borer-0" name="name" id="fullname" autofocus required
+              value="{{ old('name', $student->name) }}" />
           </div>
-          <input type="submit" class="btn btn-primary btn-sm mb-0">
+          <input type="submit" class="btn btn-primary btn-sm mb-0" value="Submit">
         </form>
       </div>
     </div>
+
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Email</h6>
-        <a href="mailto:Micheal@gmail.com">Micheal@gmail.com</a>
+        <p>{{ $student->email }}</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#mail" onclick="handleToggle(this)" id="edit">Edit</button>
       </div>
       <div class="col-12 collapse mt-2" id="mail">
-        <form action="">
+        <form action="{{ route('student.update', [$student]) }}" method="POST" class="p-0">
+          @csrf
+          @method('PUT')
+
           <div class="form-group">
-            <small><label for="email" class="mb-0">Enter email:</label></small>
-            <input type="email" class="form-control mb-2 borer-0" name="email" id="email" autofocus required />
+            <small><label for="email" class="mb-0">Edit email:</label></small>
+            <input type="email" class="form-control mb-2 borer-0" name="email" id="email" autofocus required
+              value="{{ old('email', $student->email) }}" />
           </div>
-          <input type="submit" class="btn btn-primary btn-sm mb-0">
+          <input type="submit" class="btn btn-primary btn-sm mb-0" value="Submit">
         </form>
       </div>
     </div>
+
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Phone</h6>
-        <p>2348156776521</p>
+        <p>{{ $student->phone }}</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#phone" onclick="handleToggle(this)" id="edit">Edit</button>
       </div>
       <div class="col-12 collapse mt-2" id="phone">
-        <form action="">
+        <form action="{{ route('student.update', [$student]) }}" method="POST" class="p-0">
+          @csrf
+          @method('PUT')
+
           <div class="form-group">
-            <small><label for="Tel" class="mb-0">Enter phone number:(2348156776521)</label></small>
+            <small><label for="Tel" class="mb-0">Edit phone number:</label></small>
             <input type="tel" maxlength="13" minlength="10" class="form-control mb-2 borer-0" name="phone" id="Tel"
-              pattern="[1-4]{3}[0-9]{10}" autofocus required />
+              pattern="[1-4]{3}[0-9]{10}" autofocus required value="{{ old('phone', $student->phone) }}" />
           </div>
-          <input type="submit" class="btn btn-primary btn-sm mb-0">
+          <input type="submit" class="btn btn-primary btn-sm mb-0" value="Submit">
         </form>
       </div>
     </div>
+
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Password</h6>
@@ -81,30 +98,37 @@
         <button data-toggle="collapse" data-target="#password" onclick="handleToggle(this)" id="edit">Edit</button>
       </div>
       <div class="col-12 collapse mt-2" id="password">
-        <form action="">
+        <form action="{{ route('student.update', [$student]) }}" method="POST" class="p-0">
+          @csrf
+          @method('PUT')
           <div class="form-group">
-            <small><label for="pass" class="mb-0">Enter password:</label></small>
+            <small><label for="pass" class="mb-0">Change password:</label></small>
             <input type="password" class="form-control mb-2 borer-0" name="password" id="pass" autofocus required />
           </div>
-          <input type="submit" class="btn btn-primary btn-sm mb-0">
+          <input type="submit" class="btn btn-primary btn-sm mb-0" value="Submit">
         </form>
       </div>
     </div>
+
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">School location</h6>
-        <p>Abia state</p>
+        <p>{{ $student->state }} State</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#loc" onclick="handleToggle(this)" id="edit">Edit</button>
       </div>
       <div class="col-12 collapse mt-2" id="loc">
-        <form action="">
+        <form action="{{ route('student.update', [$student]) }}" method="POST" class="p-0">
+          @csrf
+          @method('PUT')
+
           <div class="form-group">
-            <small><label for="location" class="mb-0">Enter school location:</label></small>
-            <input type="text" class="form-control mb-2 borer-0" name="location" id="location" autofocus required />
+            <small><label for="location" class="mb-0">Change school location:</label></small>
+            <input type="text" class="form-control mb-2 borer-0" name="state" id="location" autofocus required
+              value="{{ old('state', $student->state) }}" />
           </div>
-          <input type="submit" class="btn btn-primary btn-sm mb-0">
+          <input type="submit" class="btn btn-primary btn-sm mb-0" value="Submit">
         </form>
       </div>
     </div>

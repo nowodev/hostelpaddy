@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
+use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
 // use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Student\ShareHostelController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,6 +45,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
         Route::delete('/remove-from-favorite/{id}', [StudentController::class, 'removeFavorite'])
             ->name('unfave');
+
+        Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
+            ->name('update');
     });
 
     Route::resource('hostels', ShareHostelController::class);
@@ -80,16 +85,19 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
             ->name('index');
 
         Route::get('/account', [AgentController::class, 'settings_account'])
-        ->name('settings.account');
+            ->name('settings.account');
 
         Route::get('/profile', [AgentController::class, 'settings_profile'])
-        ->name('settings.profile');
+            ->name('settings.profile');
 
         Route::get('/chat', [AgentController::class, 'chat'])
             ->name('chat');
 
         Route::get('/notifications', [AgentController::class, 'notification'])
-        ->name('notification');
+            ->name('notification');
+
+        Route::put('/edit-profile/{agent}', [AgentProfileController::class, 'update'])
+            ->name('update');
     });
 
     // Route::resource('hostels', HostelController::class);

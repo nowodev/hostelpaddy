@@ -17,11 +17,7 @@
       </div>
 
       @if ($errors->any())
-        <ul>
-          @foreach ($errors->all() as $errors)
-            <li class="text-danger">{{ $errors }}</li>
-          @endforeach
-        </ul>
+        <x-main.errors />
       @endif
 
       <div class="form-control login">
