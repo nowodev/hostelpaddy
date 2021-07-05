@@ -85,6 +85,15 @@
 <body>
   @include('layouts.agents.navigation')
 
+  {{-- Print out error message from controller --}}
+  @if (session('success'))
+    <x-main.alert-success />
+  @elseif (session('error'))
+    <x-main.alert-error />
+  @endif
+  {{-- Print out error message from controller --}}
+
+
   @yield('content')
 
 
