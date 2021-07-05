@@ -23,7 +23,7 @@
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Full name</h6>
-        <p>{{ auth('student')->user()->name }}</p>
+        <p>{{ $student->name }}</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#name" onclick="handleToggle(this)" id="edit">Edit</button>
@@ -46,7 +46,7 @@
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Email</h6>
-        <p>{{ auth('student')->user()->email }}</p>
+        <p>{{ $student->email }}</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#mail" onclick="handleToggle(this)" id="edit">Edit</button>
@@ -69,7 +69,7 @@
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Phone</h6>
-        <p>{{ auth('student')->user()->phone }}</p>
+        <p>{{ $student->phone }}</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#phone" onclick="handleToggle(this)" id="edit">Edit</button>
@@ -113,7 +113,7 @@
     <div class="row my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">School location</h6>
-        <p>{{ auth('student')->user()->state }} State</p>
+        <p>{{ $student->state }} State</p>
       </div>
       <div class="edit col-2 align-self-center">
         <button data-toggle="collapse" data-target="#loc" onclick="handleToggle(this)" id="edit">Edit</button>
