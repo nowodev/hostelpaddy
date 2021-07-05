@@ -5,6 +5,7 @@ use App\Http\Controllers\Agent\AgentController;
 // use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Student\ShareHostelController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Student\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,6 +44,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
         Route::delete('/remove-from-favorite/{id}', [StudentController::class, 'removeFavorite'])
             ->name('unfave');
+
+	      Route::put('/edit-profile/{student}', [ProfileController::class, 'update'])
+             ->name('update');
     });
 
     Route::resource('hostels', ShareHostelController::class);
