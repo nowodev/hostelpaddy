@@ -25,7 +25,9 @@ class StudentController extends Controller
 
     public function settings_profile()
     {
-        return view('students.settings.profile');
+    	$student = auth('student')->user();
+
+        return view('students.settings.profile', compact('student'));
     }
 
     public function hostel_mate()
