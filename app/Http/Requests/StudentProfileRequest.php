@@ -24,16 +24,16 @@ class StudentProfileRequest extends FormRequest
      */
     public function rules()
     {
-	        $studentID = $this->route('student.id');
-	    return [
-		    'name' => 'sometimes',
-		    'email' => [
-			    'sometimes',
-			    'unique:agents,email',
-			    'unique:users,email',
-			    ValidationRule::unique('students')->ignore($studentID),
-		    ],
-		    'phone' => 'sometimes',
+        $studentID = $this->route('student.id');
+        return [
+            'name' => 'sometimes',
+            'email' => [
+                'sometimes',
+                'unique:agents,email',
+                'unique:users,email',
+                ValidationRule::unique('students')->ignore($studentID),
+            ],
+            'phone' => 'sometimes',
             'password' => 'min:6|sometimes'
         ];
     }
