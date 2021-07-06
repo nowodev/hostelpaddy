@@ -99,4 +99,10 @@ class Hostel extends Model
     public function scopeUnavailable($query) {
         return $query->where('available', 0);
     }
+
+    // Capitalize hostel name
+    public function getHostelNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

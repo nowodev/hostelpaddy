@@ -21,7 +21,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('agent.index') }}">
+            <a class="nav-link" href="{{ route('agent.listings.index') }}">
               <i class="fas fa-th-large"></i>
               Manage Listing
             </a>

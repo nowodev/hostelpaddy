@@ -1,20 +1,3 @@
-{{-- <html>
-    <body>
-
-        <h1>Hello {{ auth('student')->user()->name }}</h1>
-        <a href="{{ route('search') }}">Search for your preferred hostel</a>
-        <form method="POST" action="{{ route('student.logout') }}">
-            @csrf
-            <a href="{{ route('student.logout') }}"
-                onclick="event.preventDefault();
-                this.closest('form').submit();">
-                {{ ('Logout') }}
-            </a>
-        </form>
-    </body>
-</html> --}}
-
-
 @extends('layouts.students.app')
 
 @section('styles')
