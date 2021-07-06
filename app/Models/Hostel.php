@@ -10,7 +10,9 @@ use Overtrue\LaravelFavorite\Traits\Favoriteable;
 
 class Hostel extends Model
 {
-    use HasFactory, SoftDeletes, Favoriteable;
+    use HasFactory;
+    use SoftDeletes;
+    use Favoriteable;
 
     protected $fillable = [
         'hostel_name', 'state', 'city',
@@ -54,8 +56,11 @@ class Hostel extends Model
     }
 
     // filter function for hostel search
-    public function scopeSearch($query, $q) {
-        if ($q == null) return $query;
+    public function scopeSearch($query, $q)
+    {
+        if ($q == null) {
+            return $query;
+        }
 
         return $query->where('hostel_name', 'LIKE', "%{$q}%")
             ->orWhere('state', 'LIKE', "%{$q}%")
@@ -66,7 +71,8 @@ class Hostel extends Model
     }
 
     // hostel description algorithm
-    public function getDescriptionAttribute() {
+    public function getDescriptionAttribute()
+    {
         $room = ($this->roomNum == 1) ? 'room' : 'rooms';
         $value = $this->roomNum . ' ' . $room . ', ' . $this->property;
 
@@ -74,7 +80,8 @@ class Hostel extends Model
     }
 
     // hostel availability
-    public function getAvailabilityAttribute() {
+    public function getAvailabilityAttribute()
+    {
         $value = $this->available == 1 ? 'Currently Available' : 'Not Available';
 
         return $value;
@@ -92,11 +99,13 @@ class Hostel extends Model
         return $query->where('agent_id', auth('agent')->id());
     }
 
-    public function scopeAvailable($query) {
+    public function scopeAvailable($query)
+    {
         return $query->where('available', 1);
     }
 
-    public function scopeUnavailable($query) {
+    public function scopeUnavailable($query)
+    {
         return $query->where('available', 0);
     }
 

@@ -10,7 +10,6 @@ use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use Illuminate\Support\Facades\Route;
 
-
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])
@@ -81,7 +80,6 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
-
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
 
@@ -102,5 +100,4 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
 
         Route::resource('listings', HostelController::class);
     });
-
 });
