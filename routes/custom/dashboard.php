@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
+use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
 // use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Student\ShareHostelController;
@@ -98,7 +99,8 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
 
         Route::put('/edit-profile/{agent}', [AgentProfileController::class, 'update'])
             ->name('update');
+
+        Route::resource('listings', HostelController::class);
     });
 
-    // Route::resource('hostels', HostelController::class);
 });
