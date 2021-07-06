@@ -22,7 +22,8 @@ class HostelFactory extends Factory
     public function definition()
     {
         return [
-            'agent_id' => $this->faker->numberBetween(1),
+            'agent_id' => '1',
+            // 'agent_id' => $this->faker->numberBetween(1),
             'hostel_name' => $this->faker->word,
             'state' => $this->faker->state,
             'city' => $this->faker->city,
@@ -32,7 +33,8 @@ class HostelFactory extends Factory
             'amount' => $this->faker->numerify('#####'),
             'period' => $this->faker->randomElement(['Yearly', 'Monthly', 'Quaterly']),
             'tenantType' => $this->faker->word,
-            'image_name' => $this->faker->imageUrl(),
+            'image' => $this->faker->imageUrl(),
+            'available' => '1',
         ];
     }
 }
