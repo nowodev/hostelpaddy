@@ -3,5 +3,5 @@
 @section('title', 'Student')
 
 @section('content')
-    @include('partials.student.saved-hostels')
+  @include('partials.student.saved-hostels')
 @endsection
