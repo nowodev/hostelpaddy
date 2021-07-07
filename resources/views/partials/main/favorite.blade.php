@@ -8,12 +8,11 @@
                 <button>
                   @auth('student')
                     @if (auth('student')->user()->hasFavorited($hostel))
-                      <i class="fa-2x fas fa-heart text-danger"></i>
+                      <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
                     @else
                       <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                     @endif
                   @else
-                    {{-- <i class="fa-2x fas fa-heart text-white"></i> --}}
                     <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                   @endauth
                 </button>
@@ -32,7 +31,6 @@
                       <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                     @endif
                   @else
-                    {{-- <i class="fa-2x fas fa-heart text-white"></i> --}}
                     <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                   @endauth
                 </button>

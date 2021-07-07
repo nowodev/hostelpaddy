@@ -14,7 +14,7 @@
               @csrf
               @method('DELETE')
               <button class="btn">
-                <i class="fa-2x fas fa-heart text-danger"></i>
+                <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
               </button>
             </form>
           </div>
