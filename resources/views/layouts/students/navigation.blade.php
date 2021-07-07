@@ -1,6 +1,6 @@
 <section id="header" class="header">
   <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container d-flex justify-content-between">
+    <div class="container-fluid d-flex justify-content-between">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <img src="{{ asset('main/img/Hamburger menu.png') }}" class="img-fluid" alt="">
