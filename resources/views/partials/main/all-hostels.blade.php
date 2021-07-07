@@ -16,12 +16,14 @@
               @method('PUT')
               <button>
                 @auth('student')
-                  <i
-                    class="fa-2x fas fa-heart {{ auth('student')->user()->hasFavorited($hostel)
-    ? 'text-danger'
-    : 'text-white' }}"></i>
+                  @if (auth('student')->user()->hasFavorited($hostel))
+                    <i class="fa-2x fas fa-heart text-danger"></i>
+                  @else
+                    <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
+                  @endif
                 @else
-                  <i class="fa-2x fas fa-heart text-white"></i>
+                  {{-- <i class="fa-2x fas fa-heart text-white"></i> --}}
+                  <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                 @endauth
               </button>
             </form>
