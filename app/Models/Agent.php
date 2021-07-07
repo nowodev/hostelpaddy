@@ -32,7 +32,7 @@ class Agent extends Authenticatable
         if ($this->image) {
             return asset('storage/agents/' . $this->image);
         }
-        return asset('storage/thumbnail.jpg');
+        return asset('storage/avatar.png');
     }
 
     // display date agent joined

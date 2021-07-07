@@ -27,7 +27,7 @@ class ListedHostelsController extends Controller
     public function show(Hostel $hostel)
     {
         $agent = Agent::find($hostel->agent_id);
-        $otherHostels = Hostel::where('id', '!=', $hostel->agent_id)->get();
+        $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
 
         return view('frontend.info', compact('hostel', 'agent', 'otherHostels'));
     }

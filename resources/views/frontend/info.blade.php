@@ -112,32 +112,35 @@
   </div>
 
   <!-- House Owner -->
-  <div class="container mt-5">
-    <h2 class="h5"><b>House owner/agent details</b></h2>
-    <div class="row">
-      <div class="col-4 col-md-2">
-        <img src="{{ $agent->thumbnail }}" alt="Agent" class="img-fluid rounded">
-      </div>
-      <div class="col-7 col-md-2 mt-1">
-        <p class="mb-2 name">{{ $agent->name }}</p>
-        <p class="mb-2">Joined {{ $agent->joindate }}</p>
-        <div class="d-flex align-content-center">
-          <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span
-            class="my-auto verify">&nbsp;Verified</span>
+  @auth('agent')
+  @else
+    <div class="container mt-5">
+      <h2 class="h5"><b>House owner/agent details</b></h2>
+      <div class="row">
+        <div class="col-4 col-md-2">
+          <img src="{{ $agent->thumbnail }}" alt="Agent" class="img-fluid rounded">
+        </div>
+        <div class="col-7 col-md-2 mt-1">
+          <p class="mb-2 name">{{ $agent->name }}</p>
+          <p class="mb-2">Joined {{ $agent->joindate }}</p>
+          <div class="d-flex align-content-center">
+            <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span
+              class="my-auto verify">&nbsp;Verified</span>
+          </div>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="col-12 col-md-3 my-2">
+          <button class="btn contact btn-md-lg btn-md-block ml-2 ml-md-3">Contact House owner/agent</button>
         </div>
       </div>
-      <div class="col-md-8"></div>
-      <div class="col-12 col-md-3 my-2">
-        <button class="btn contact btn-md-lg btn-md-block ml-2 ml-md-3">Contact House owner/agent</button>
-      </div>
     </div>
-  </div>
+  @endauth
 
   <div class="container my-2">
     <hr class="" />
   </div>
 
-  {{-- Similar Hostels  --}}
+  {{-- Similar Hostels --}}
   @include('partials.main.similar-hostels')
 
-  @endsection
+@endsection

@@ -12,8 +12,8 @@
               @foreach ($chunk as $others)
                 <div>
                   <div class="card mx-2 p-2 border-0">
-                      {{-- <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image"> --}}
-                        <img class="d-block w-100" src="{{ asset('main/img/hostel2.png') }}" alt="First slide">
+                    {{-- <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image"> --}}
+                    <img class="d-block w-100" src="{{ asset('main/img/hostel2.png') }}" alt="First slide">
                     <div class="position-absolute love" style="position: relative;">
                       <form action="{{ route('student.fave', [$others]) }}" method="POST"
                         class="inline-flex float-right">
@@ -22,12 +22,12 @@
                         <button>
                           @auth('student')
                             @if (auth('student')->user()->hasFavorited($others))
-                              <i class="fa-2x fas fa-heart text-danger"></i>
+                      <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
+
                             @else
                               <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                             @endif
                           @else
-                            {{-- <i class="fa-2x fas fa-heart text-white"></i> --}}
                             <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
                           @endauth
                         </button>
