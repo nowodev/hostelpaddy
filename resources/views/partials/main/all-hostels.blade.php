@@ -10,24 +10,8 @@
       <div class="col-6 col-md-4 col-lg-3 mb-3">
         <div class="card">
           <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->thumbnail }}" alt="Card image">
-          <div class="card-img-overlay">
-            <form action="{{ route('student.fave', [$hostel]) }}" method="POST" class="inline-flex float-right">
-              @csrf
-              @method('PUT')
-              <button>
-                @auth('student')
-                  @if (auth('student')->user()->hasFavorited($hostel))
-                    <i class="fa-2x fas fa-heart text-danger"></i>
-                  @else
-                    <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
-                  @endif
-                @else
-                  {{-- <i class="fa-2x fas fa-heart text-white"></i> --}}
-                  <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
-                @endauth
-              </button>
-            </form>
-          </div>
+
+          @include('partials.main.favorite')
 
           <div class="px-3 pb-3" style="position: relative;">
             <sub class="mb-1">{{ $hostel->city }}, {{ $hostel->state }}</sub>
