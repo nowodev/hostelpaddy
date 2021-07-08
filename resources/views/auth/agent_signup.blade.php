@@ -116,7 +116,7 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <div class="link-text text-left mt-4 text-center" id="linktextContainer"> <a href=""
+                  <div class="link-text text-left mt-4" id="linktextContainer"> <a href=""
                       id="skipPhotoUpload" class="link">Skip and
                       do this later</a>
                   </div>
