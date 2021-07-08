@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\Agent;
 use App\Models\City;
 use App\Models\Hostel;
 use App\Models\Property;
@@ -20,6 +21,14 @@ class AgentController extends Controller
         $property = Property::get();
 
         return view('agents.index', compact('hostels', 'location', 'property'));
+    }
+
+    public function show(Hostel $hostel)
+    {
+        $agent = Agent::find($hostel->agent_id);
+        $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
+
+        return view('agents.info', compact('hostel', 'agent', 'otherHostels'));
     }
 
     public function settings_account()

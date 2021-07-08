@@ -23,6 +23,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
         Route::get('/', [StudentController::class, 'index'])
             ->name('index');
 
+        Route::get('/hostels/{availableHostel:slug}', [StudentController::class, 'show'])
+            ->name('info');
+
         Route::get('/account', [StudentController::class, 'settings_account'])
             ->name('settings.account');
 
@@ -85,6 +88,9 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
 
+        Route::get('/hostels/{availableHostel:slug}', [AgentController::class, 'show'])
+            ->name('info');
+
         Route::get('/account', [AgentController::class, 'settings_account'])
             ->name('settings.account');
 
@@ -102,5 +108,4 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
 
         Route::resource('listings', HostelController::class);
     });
-
 });
