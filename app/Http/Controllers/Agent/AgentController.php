@@ -3,17 +3,23 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\Hostel;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class AgentController extends Controller
 {
     public function index()
     {
-        $hostels = Hostel::where('agent_id', auth('agent')->id())
-            ->get();
+        $hostels = Hostel::orderBy('id', 'DESC')
+            ->available()
+            ->Paginate(16);
 
-        return view('agents.index', compact('hostels'));
+        $location = City::get();
+        $property = Property::get();
+
+        return view('agents.index', compact('hostels', 'location', 'property'));
     }
 
     public function settings_account()

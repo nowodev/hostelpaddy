@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\Favorite;
 use App\Models\Hostel;
+use App\Models\Property;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -12,10 +14,14 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $saved_hostels = Favorite::student()
-            ->get();
+        $hostels = Hostel::orderBy('id', 'DESC')
+            ->available()
+            ->Paginate(16);
 
-        return view('students.index', compact('saved_hostels'));
+        $location = City::get();
+        $property = Property::get();
+
+        return view('students.index', compact('hostels', 'location', 'property'));
     }
 
     public function settings_account()
@@ -73,3 +79,11 @@ class StudentController extends Controller
         return back()->with('success', 'Hostel removed from favorites');
     }
 }
+
+    // public function show(Hostel $hostel)
+    // {
+    //     $agent = Agent::find($hostel->agent_id);
+    //     $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
+
+    //     return view('frontend.info', compact('hostel', 'agent', 'otherHostels'));
+    // }
