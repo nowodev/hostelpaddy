@@ -14,7 +14,8 @@
                   <div class="card mx-2 p-2 border-0">
                     {{-- <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image"> --}}
                     <img class="d-block w-100" src="{{ asset('main/img/hostel2.png') }}" alt="First slide">
-                    <div class="position-absolute love" style="position: relative;">
+
+                    {{-- <div class="position-absolute love" style="position: relative;">
                       <form action="{{ route('student.fave', [$others]) }}" method="POST"
                         class="inline-flex float-right">
                         @csrf
@@ -22,7 +23,7 @@
                         <button>
                           @auth('student')
                             @if (auth('student')->user()->hasFavorited($others))
-                      <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
+                              <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
 
                             @else
                               <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
@@ -32,7 +33,9 @@
                           @endauth
                         </button>
                       </form>
-                    </div>
+                    </div> --}}
+
+                    @include('partials.main.favorite')
 
                     <div class="px-3 pb-3" style="position: relative;">
                       <p class="card-text text-primary location mt-2">{{ $others->city }}, {{ $others->state }}
