@@ -40,8 +40,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
         });
 
-        Route::bind('availableHostel', function($slug) {
-            return Hostel::where('slug', $slug)
+        Route::bind('availableHostel', function($value) {
+            return Hostel::where('slug', $value)
                 ->where('available', 1)
                 ->firstOrFail();
         });
