@@ -22,12 +22,6 @@
         <input type="search" class="form-control" id="" name="search" placeholder="Search for keywords" results>
       </form>
     </div>
-    <div class="col-md-4">
-      <button class="btn btn-outline-primary mx-auto">
-        <i class="fa fa-plus-circle"></i>
-        Create preference alert
-      </button>
-    </div>
   </div>
 
 
