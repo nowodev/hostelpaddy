@@ -23,13 +23,15 @@
       </form>
     </div>
     <div class="col-md-4">
-      <button class="btn btn-outline-primary mx-auto">
+      <button class="btn btn-outline-primary mx-auto" data-toggle="modal" data-target="#preferenceAlert">
         <i class="fa fa-plus-circle"></i>
         Create preference alert
       </button>
     </div>
+    <x-main.errors />
   </div>
 
+  @include('partials.student.preference')
 
   <div class="container mt-5 pt-5">
     <div class="d-flex mr-md-5 pr-md-5">

@@ -8,6 +8,7 @@ use App\Models\City;
 use App\Models\Favorite;
 use App\Models\Hostel;
 use App\Models\Property;
+use App\Models\State;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,10 @@ class StudentController extends Controller
 
     public function settings_account()
     {
-        return view('students.settings.account');
+        $location = State::get();
+        $property = Property::get();
+
+        return view('students.settings.account', compact('location', 'property'));
     }
 
     public function settings_profile()
