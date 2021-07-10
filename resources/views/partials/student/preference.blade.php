@@ -14,7 +14,7 @@
         <!-- Modal body -->
         <div class="modal-body">
           Get alert for your preferred hostel. You can turn <br> this off in the <a
-            class="text-primary text-decoration-none" href="{{ route('student.notification') }}">notification
+            class="text-primary text-decoration-none" href="{{ route('student.settings.account') }}#notification-settings">notification
             settings</a>
 
           <div class="form-group mt-3">
