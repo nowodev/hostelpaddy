@@ -1,7 +1,7 @@
 <!-- Filter Modal -->
-<form action="{{ route('filter.preference') }}" method="POST">
+<form action="{{ route('student.notifications.preference') }}" method="POST">
   @csrf
-  <div class="modal fade" id="searchFilter">
+  <div class="modal fade" id="preferenceAlert">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 
@@ -51,9 +51,9 @@
             <label for="sel1">Rent Period:</label>
             <select class="form-control" id="rent_period" name="rent_period">
               <option value="">Select One</option>
-              <option value="yearly">Yearly</option>
-              <option value="quaterly">Quaterly</option>
-              <option value="monthly">Monthly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Quaterly">Quaterly</option>
+              <option value="Monthly">Monthly</option>
             </select>
           </div>
         </div>
