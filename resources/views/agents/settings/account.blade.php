@@ -39,18 +39,8 @@
   <div class="container p-1 p-md-5" id="notifications">
     <div class="row notification my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
-        <h6 class="my-2">Hostel mate notifications</h6>
-        <p>Get notified when a student requests for a hostel mate</p>
-      </div>
-      <div class="col-2 align-self-center">
-        <img src="{{ asset('main/toggler/offtogglers.png') }}" alt="" id="one" onclick='handleToggle(this)'
-          class="img-fluid my-auto mr-auto">
-      </div>
-    </div>
-    <div class="row notification my-2 my-md-2 py-1 py-md-3">
-      <div class="col-10">
-        <h6 class="my-2">Hostel preferenece alert</h6>
-        <p>Get notified for listings matching your set choice of hostel</p>
+        <h6 class="my-2">Hostel tour schedule</h6>
+        <p>Get notified when a student requests for a hostel tour</p>
       </div>
       <div class="col-2 align-self-center">
         <img src="{{ asset('main/toggler/offtogglers.png') }}" alt="" onclick='handleToggle(this)'
@@ -60,15 +50,6 @@
     <div class="row notification my-2 my-md-2 py-1 py-md-3">
       <div class="col-10">
         <h6 class="my-2">Product update</h6>
-      </div>
-      <div class="col-2 align-self-center">
-        <img src="{{ asset('main/toggler/offtogglers.png') }}" alt="" onclick='handleToggle(this)'
-          class="img-fluid my-auto mr-auto">
-      </div>
-    </div>
-    <div class="row notification my-2 my-md-2 py-1 py-md-3">
-      <div class="col-10">
-        <h6 class="my-2">New hostel listing</h6>
       </div>
       <div class="col-2 align-self-center">
         <img src="{{ asset('main/toggler/offtogglers.png') }}" alt="" onclick='handleToggle(this)'
