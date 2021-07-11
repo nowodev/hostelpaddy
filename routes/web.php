@@ -15,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-
-Route::get('/coming-soon', function () {
-    return view('frontend.coming_soon');
-});
+Route::view('/', 'index')->name('home');
+Route::view('/coming-soon', 'frontend.coming_soon');
+Route::view('/test', 'test');
 
 // Artisan routes
 Route::get('/linkstorage', function () {
@@ -49,10 +45,6 @@ require __DIR__ . '/custom/dashboard.php';
 require __DIR__ . '/custom/main.php';
 
 require __DIR__ . '/custom/auth.php';
-
-Route::get('/test', function () {
-    return view('test');
-});
 
 Route::fallback(function () {
     return view('partials.404');
