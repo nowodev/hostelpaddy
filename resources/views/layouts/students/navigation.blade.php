@@ -21,7 +21,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('student.hostel-mate') }}">
+            <a class="nav-link" href="{{ route('student.hostel-mate.index') }}">
               <i class="fas fa-user-friends"></i>
               Hostel mate
             </a>

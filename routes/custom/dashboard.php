@@ -45,9 +45,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('unfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
-    });
 
-    Route::resource('hostels', ShareHostelController::class);
+        Route::resource('hostel-mate', ShareHostelController::class);
+    });
 });
 
 // Old Agents Route
