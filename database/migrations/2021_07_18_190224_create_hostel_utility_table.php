@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAvailableToHostels extends Migration
+class CreateHostelUtilityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddAvailableToHostels extends Migration
      */
     public function up()
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->integer('available')->default('0');
+        Schema::create('hostel_utility', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('hostel_id')->constrained();
+            $table->foreignId('utility_id')->constrained();
         });
     }
 
@@ -25,8 +27,6 @@ class AddAvailableToHostels extends Migration
      */
     public function down()
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->dropColumn('available');
-        });
+        Schema::dropIfExists('hostel_utility');
     }
 }

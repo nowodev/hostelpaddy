@@ -16,13 +16,7 @@ class CreateAmenitiesTable extends Migration
         Schema::create('amenities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-        });
-
-        Schema::create('amenity_hostel', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('hostel_id')->constrained();
-            $table->foreignId('amenity_id')->constrained();
-        });
+        });    
     }
 
     /**
@@ -33,6 +27,5 @@ class CreateAmenitiesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('amenities');
-        Schema::dropIfExists('amenity_hostel');
     }
 }
