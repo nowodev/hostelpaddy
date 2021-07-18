@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Hostel;
+use App\Models\SharedHostel;
 use Illuminate\Http\Request;
 
-class ShareHostelController extends Controller
+class SharedHostelController extends Controller
 {
     public function index()
     {
@@ -23,22 +22,22 @@ class ShareHostelController extends Controller
         //
     }
 
-    public function show(Hostel $hostel)
+    public function show(SharedHostel $hostel)
     {
         //
     }
 
-    public function edit(Hostel $hostel)
+    public function edit(SharedHostel $hostel)
     {
         //
     }
 
-    public function update(Request $request, Hostel $hostel)
+    public function update(Request $request, SharedHostel $hostel)
     {
         //
     }
 
-    public function destroy(Hostel $hostel)
+    public function destroy(SharedHostel $hostel)
     {
         //
     }
