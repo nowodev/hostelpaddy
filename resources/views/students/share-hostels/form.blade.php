@@ -14,7 +14,7 @@
       {{-- First part of form --}}
       <section class="animated" id="personal-details">
         <h1>Personal details</h1>
-        <p>To list a shared hostel accomodation, we need you to provide some information on the hostel</p>
+        <p>To list a shared hostel accomodation, we need you to provide some information on the hostel.</p>
 
         <div class="form-group my-3">
           <label for="contact">Contact number</label>
@@ -60,8 +60,8 @@
 
       {{-- Second part of form --}}
       <section id="amenities" class="animated displayNone">
-        <h1>Amenities</h1>
-        <p>To list a shared hostel accomodation, we need you to provide some information on the hostel</p>
+        <h1 id="title1"></h1>
+        <p id="subtitle1"></p>
 
         <div class="form-group my-3">
           <h4 for="contact">Select your hostel features</h4>
@@ -134,24 +134,60 @@
             </div>
           </div>
 
-          <div class="btn" onclick="back()">Go back</div>
-          <div class="btn btn-primary float-right">Continue</div>
+          <div class="btn" onclick="backToDetails()">Go back</div>
+          <div id="continueToChoice" class="btn btn-primary float-right">Continue</div>
         </div>
       </section>
 
       {{-- Third part of form --}}
-      <section id="choice">
+      <section id="choice" class="animated displayNone">
+        <h1 id="title2"></h1>
+        <p id="subtitle2"></p>
 
+        <div class="form-group my-3">
+          <p>Specify the type of students you will prefer to share a hostel with; <br> gender, school
+            level and other personalities</p>
+
+          <input type="text" name="" id="" class="form-control" placeholder="Type here">
+        </div>
+
+        <div class="btn" onclick="backToAmenities()">Go back</div>
+        <div id="continueToPhotos" class="btn btn-primary float-right">Continue</div>
       </section>
 
       {{-- Fourth part of form --}}
-      <section id="photos">
+      <section id="photos" class="animated displayNone">
+        <h1 id="title3"></h1>
+        <p id="subtitle3"></p>
 
+        <div class="form-group my-3">
+          <h4>Upload photo</h4>
+          <p>Upload 3 to 5 clear images of the hostel for proper display. <br>jpeg & png format only.</p>
+
+          <input type="file" name="" id="">
+
+          <h4>Upload video</h4>
+          <p>Upload a clear video to show the hostel. Video must not be more than a minute long. <br>mp4 format only.
+          </p>
+
+          <input type="file" name="" id="">
+        </div>
+
+        <div class="btn" onclick="backToChoice()">Go back</div>
+        <div id="continueToPayment" class="btn btn-primary float-right">Continue</div>
       </section>
 
       {{-- Fifth part of form --}}
-      <section id="payment">
+      <section id="payment" class="animated displayNone">
+        <h1 id="title4"></h1>
+        <p id="subtitle4"></p>
 
+        <div class="form-group my-3">
+          <input type="text" name="" id="" class="form-control" placeholder="Type here">
+        </div>
+
+        <div class="btn" onclick="backToPhotos()">Go back</div>
+        <button type="submit" class="btn btn-primary float-right">Make Payment</button>
       </section>
 
     </div>
