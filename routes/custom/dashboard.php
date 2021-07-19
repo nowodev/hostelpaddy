@@ -6,7 +6,7 @@ use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
 use App\Http\Controllers\Student\PreferenceController;
 // use App\Http\Controllers\Agent\HostelController;
-use App\Http\Controllers\Student\ShareHostelController;
+use App\Http\Controllers\Student\SharedHostelController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use Illuminate\Support\Facades\Route;
@@ -45,9 +45,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('unfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
-    });
 
-    Route::resource('hostels', ShareHostelController::class);
+        Route::resource('hostel-mate', SharedHostelController::class);
+    });
 });
 
 // Old Agents Route

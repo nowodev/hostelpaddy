@@ -26,6 +26,11 @@ class Student extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function sharedHostels()
+    {
+        return $this->hasMany(SharedHostel::class);
+    }
+
     public function preferences()
     {
         return $this->hasMany(Preference::class);

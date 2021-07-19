@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSlugToHostels extends Migration
+class CreateAmenityHostelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddSlugToHostels extends Migration
      */
     public function up()
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->string('slug');
+        Schema::create('amenity_hostel', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('hostel_id')->constrained();
+            $table->foreignId('amenity_id')->constrained();
         });
     }
 
@@ -25,8 +27,6 @@ class AddSlugToHostels extends Migration
      */
     public function down()
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('amenity_hostel');
     }
 }

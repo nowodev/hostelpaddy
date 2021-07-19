@@ -17,6 +17,7 @@ class CreateHostelsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('agent_id')->index();
             $table->string('hostel_name');
+            $table->string('slug');
             $table->string('state');
             $table->string('city');
             $table->longText('address');
@@ -26,6 +27,9 @@ class CreateHostelsTable extends Migration
             $table->string('period');
             $table->text('tenantType');
             $table->string('image')->nullable();
+            $table->integer('available')->default('0');
+
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('agent_id')

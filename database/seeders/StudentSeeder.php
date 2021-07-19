@@ -23,5 +23,13 @@ class StudentSeeder extends Seeder
             'state' => 'Lagos'
         ]);
 
+        Student::create([
+            'name' => 'Sansa Stark',
+            'email' => 'sansa@gmail.com',
+            'phone' => '1234567',
+            'password' => Hash::make('password'),
+            'state' => 'Ogun'
+        ]);
+
     }
 }

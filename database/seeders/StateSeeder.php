@@ -14,7 +14,7 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        $states = ['Lagos', 'Osun', 'Oyo', 'Ogun'];
+        $states = ['Lagos', 'Osun', 'Oyo', 'Ogun', 'Delta', 'Rivers'];
 
         foreach($states as $state) {
             DB::table('states')->insert(['name' => $state]);

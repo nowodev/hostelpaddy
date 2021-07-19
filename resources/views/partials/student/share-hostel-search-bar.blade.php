@@ -9,10 +9,13 @@
         </form>
       </div>
       <div class="col-sm-4 col-md-2">
-        <span class="btn btn-outline-primary">
-            <i class="fa fa-plus-circle"></i>
-            Share a hostel
-        </span>
+          <a href="{{ route('student.hostel-mate.create') }}">
+
+              <span class="btn btn-outline-primary">
+                  <i class="fa fa-plus-circle"></i>
+                  Share a hostel
+                </span>
+            </a>
       </div>
     </div>
   </div>

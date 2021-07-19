@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSoftdeleteToHostels extends Migration
+class CreateSharedHostelUtilityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddSoftdeleteToHostels extends Migration
      */
     public function up()
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->softDeletes();
+        Schema::create('shared_hostel_utility', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('shared_hostel_id')->constrained();
+            $table->foreignId('utility_id')->constrained();
         });
     }
 
@@ -25,8 +27,6 @@ class AddSoftdeleteToHostels extends Migration
      */
     public function down()
     {
-        Schema::table('hostels', function (Blueprint $table) {
-            $table->dropColumn('deleted_at');
-        });
+        Schema::dropIfExists('shared_hostel_utility');
     }
 }
