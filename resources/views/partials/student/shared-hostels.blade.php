@@ -9,11 +9,14 @@
           <div class="card-img-overlay">
             <i class="fa-2x fab fa-gratipay mt-n2 text-white"></i>
           </div>
+
+          @include('partials.student.favorite')
+
           <div class="col">
             <span class="card-body fs-6">
               <p class="card-text">1 Room Duplex Hostel</p>
               <p>Host:
-                    {{ dd($hostel->students) }}
+{{--                    {{ dd($hostel->students) }}--}}
               </p>
               <p>
                 @foreach ($hostel->amenities as $utility)

@@ -71,24 +71,4 @@ class StudentController extends Controller
     {
         return view('students.notification');
     }
-
-    public function toggleFavorite($id)
-    {
-        $user = Student::studentId();
-        $hostel = Hostel::findOrFail($id);
-
-        $user->toggleFavorite($hostel);
-
-        return back()->with('success', 'Hostel added to favorites');
-    }
-
-    public function removeFavorite($id)
-    {
-        $user = Student::studentId();
-        $hostel = Hostel::findOrFail($id);
-
-        $user->unfavorite($hostel);
-
-        return back()->with('success', 'Hostel removed from favorites');
-    }
 }

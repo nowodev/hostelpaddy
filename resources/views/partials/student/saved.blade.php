@@ -1,14 +1,19 @@
 {{-- Saved Hostel Details --}}
 
-@for ($q = 0; $q <= 1; $q++)
 <div class="row mb-3">
-  @for ($i = 0; $i <= 2; $i++)
+  @foreach ($favoriteSharedHostels as $hostel)
     <div class="col">
       <div class="card">
         <div class="row no-gutters">
           <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
           <div class="card-img-overlay">
-            <i class="fa-2x fab fa-gratipay mt-n2 text-danger"></i>
+            <form action="{{ route('student.sharedUnfave', [$hostel]) }}" method="POST" class="inline-flex clearfix float-left">
+              @csrf
+              @method('DELETE')
+              <button class="btn">
+                <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
+              </button>
+            </form>
           </div>
           <div class="col">
             <span class="card-body fs-6">
@@ -22,6 +27,5 @@
         </div>
       </div>
     </div>
-  @endfor
+  @endforeach
 </div>
-@endfor

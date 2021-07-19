@@ -31,7 +31,7 @@
       <div id="shared-hostels" class="container tab-pane active">
         @include('partials.student.search-bar')
         <h1>Saved</h1>
-        {{-- @include('partials.student.saved') --}}
+         @include('partials.student.saved')
 
         <div class="my-5">
           <hr>
