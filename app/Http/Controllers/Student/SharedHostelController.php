@@ -16,10 +16,10 @@ class SharedHostelController extends Controller
     {
         $sharedHostel = SharedHostel::with('amenities', 'utilities', 'students')
             ->get();
-        
+
         $user = Student::studentId();
-	      $favoriteSharedHostels = $user->getFavoriteItems(SharedHostel::class)->get();
-	      
+        $favoriteSharedHostels = $user->getFavoriteItems(SharedHostel::class)->get();
+
         return view('students.hostel_mate', compact('sharedHostel', 'favoriteSharedHostels'));
     }
 
@@ -41,8 +41,8 @@ class SharedHostelController extends Controller
             // if ($request->hasFile('image')) {
             //     $this->_uploadImage($request, $hostel);
             // }
-            
-	          $sharedHostel->amenities()->sync($request->amenity);
+
+            $sharedHostel->amenities()->sync($request->amenity);
             $sharedHostel->utilities()->sync($request->utility);
 
             return redirect()->route('student.hostel-mate.index')

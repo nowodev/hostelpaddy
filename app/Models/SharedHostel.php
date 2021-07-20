@@ -9,9 +9,11 @@ use Overtrue\LaravelFavorite\Traits\Favoriteable;
 
 class SharedHostel extends Model
 {
-	use HasFactory, SoftDeletes, Favoriteable;
-	
-	protected $fillable = [
+    use HasFactory;
+    use SoftDeletes;
+    use Favoriteable;
+
+    protected $fillable = [
         'phone_number', 'level', 'institution',
         'gender', 'amenities', 'utilities',
         'choice', 'photos', 'video',

@@ -44,7 +44,7 @@ class StudentController extends Controller
 
     public function settings_profile()
     {
-    	$student = auth('student')->user();
+        $student = auth('student')->user();
 
         return view('students.settings.profile', compact('student'));
     }

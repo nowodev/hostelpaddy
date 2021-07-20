@@ -4,14 +4,13 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
-	use App\Http\Controllers\Student\FavoriteController;
-	use App\Http\Controllers\Student\PreferenceController;
+    use App\Http\Controllers\Student\FavoriteController;
+    use App\Http\Controllers\Student\PreferenceController;
 // use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Student\SharedHostelController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use Illuminate\Support\Facades\Route;
-
 
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
@@ -44,10 +43,10 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('fave');
         Route::delete('/remove-from-favorite/{id}', [FavoriteController::class, 'removeFavorite'])
             ->name('unfave');
-		    Route::put('hostel-mate/add-to-favorite/{id}', [FavoriteController::class, 'toggleSharedFavorite'])
-			    ->name('sharedFave');
-		    Route::delete('hostel-mate/remove-from-favorite/{id}', [FavoriteController::class, 'removeSharedFavorite'])
-			    ->name('sharedUnfave');
+        Route::put('hostel-mate/add-to-favorite/{id}', [FavoriteController::class, 'toggleSharedFavorite'])
+                ->name('sharedFave');
+        Route::delete('hostel-mate/remove-from-favorite/{id}', [FavoriteController::class, 'removeSharedFavorite'])
+                ->name('sharedUnfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
 
@@ -82,7 +81,6 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
-
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
         Route::get('/hostels/{availableHostel:slug}', [AgentController::class, 'show'])
