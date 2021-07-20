@@ -18,7 +18,7 @@
     </div>
 </div> --}}
 
-<div class="alert alert-success alert-dismissible fade show" role="alert">
+<div class="alert alert-success alert-dismissible fade show" role="alert" id="alert">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong>{{ session('success') }}</strong>
 </div>

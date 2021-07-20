@@ -5,28 +5,35 @@
 
   @include('partials.main.search-bar')
 
-  <div class="row">
-    @foreach ($hostels as $hostel)
-      <div class="col-6 col-md-4 col-lg-3 mb-3">
-        <div class="card">
-          <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->thumbnail }}" alt="Card image">
+  <div class="row container">
+    @if($hostels->isEmpty())
+      <div class="col">
+        <h5 class="font-weight-bold">There are no available hostels currently. Please check back later.</h5>
+      </div>
+    @else
 
-          @include('partials.main.favorite')
+      @foreach ($hostels as $hostel)
+        <div class="col-6 col-md-4 col-lg-3 mb-3">
+          <div class="card">
+            <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->thumbnail }}" alt="Card image">
 
-          <div class="px-3 pb-3" style="position: relative;">
-            <sub class="mb-1">{{ $hostel->city }}, {{ $hostel->state }}</sub>
-            <br>
-            <span class="card-title font-weight-bold">{{ $hostel->hostel_name }}</span>
-            <br>
-            <span class="card-text">{{ $hostel->description }}</span>
-            <br>
-            <span class="card-text font-weight-bold">N{{ $hostel->amount }}
+            @include('partials.main.favorite')
+
+            <div class="px-3 pb-3" style="position: relative;">
+              <sub class="mb-1">{{ $hostel->city }}, {{ $hostel->state }}</sub>
+              <br>
+              <span class="card-title font-weight-bold">{{ $hostel->hostel_name }}</span>
+              <br>
+              <span class="card-text">{{ $hostel->description }}</span>
+              <br>
+              <span class="card-text font-weight-bold">N{{ $hostel->amount }}
               <sub>{{ $hostel->period }}</sub></span>
-            <a href="{{ route('agent.info', [$hostel]) }}" class="stretched-link"></a>
+              <a href="{{ route('agent.info', [$hostel]) }}" class="stretched-link"></a>
+            </div>
           </div>
         </div>
-      </div>
-    @endforeach
+      @endforeach
+    @endif
   </div>
   {{ $hostels->links() }}
 
