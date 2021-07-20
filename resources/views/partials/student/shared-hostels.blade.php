@@ -8,7 +8,7 @@
   @else
 
     @foreach ($sharedHostel as $hostel)
-      <div class="col-4">
+      <div class="col-4 mb-3">
         <div class="card">
           <div class="row no-gutters">
             <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
