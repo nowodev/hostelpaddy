@@ -4,7 +4,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
-use App\Http\Controllers\Student\PreferenceController;
+	use App\Http\Controllers\Student\FavoriteController;
+	use App\Http\Controllers\Student\PreferenceController;
 // use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Student\SharedHostelController;
 use App\Http\Controllers\Student\StudentController;
@@ -39,10 +40,14 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('chat');
         Route::get('/notifications', [StudentController::class, 'notification'])
             ->name('notification');
-        Route::put('/add-to-favorite/{id}', [StudentController::class, 'toggleFavorite'])
+        Route::put('/add-to-favorite/{id}', [FavoriteController::class, 'toggleFavorite'])
             ->name('fave');
-        Route::delete('/remove-from-favorite/{id}', [StudentController::class, 'removeFavorite'])
+        Route::delete('/remove-from-favorite/{id}', [FavoriteController::class, 'removeFavorite'])
             ->name('unfave');
+		    Route::put('hostel-mate/add-to-favorite/{id}', [FavoriteController::class, 'toggleSharedFavorite'])
+			    ->name('sharedFave');
+		    Route::delete('hostel-mate/remove-from-favorite/{id}', [FavoriteController::class, 'removeSharedFavorite'])
+			    ->name('sharedUnfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
 

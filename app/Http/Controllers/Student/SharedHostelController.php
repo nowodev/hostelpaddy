@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SharedHostelRequest;
 use App\Models\Amenity;
 use App\Models\SharedHostel;
+use App\Models\Student;
 use App\Models\Utility;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class SharedHostelController extends Controller
     {
         $sharedHostel = SharedHostel::with('amenities', 'utilities', 'students')
             ->get();
-        return view('students.hostel_mate', compact('sharedHostel'));
+        
+        $user = Student::studentId();
+	      $favoriteSharedHostels = $user->getFavoriteItems(SharedHostel::class)->get();
+	      
+        return view('students.hostel_mate', compact('sharedHostel', 'favoriteSharedHostels'));
     }
 
     public function create()
@@ -36,8 +41,8 @@ class SharedHostelController extends Controller
             // if ($request->hasFile('image')) {
             //     $this->_uploadImage($request, $hostel);
             // }
-
-            $sharedHostel->amenities()->sync($request->amenity);
+            
+	          $sharedHostel->amenities()->sync($request->amenity);
             $sharedHostel->utilities()->sync($request->utility);
 
             return redirect()->route('student.hostel-mate.index')
