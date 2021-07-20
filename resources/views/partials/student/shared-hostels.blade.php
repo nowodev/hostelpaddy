@@ -1,18 +1,24 @@
 {{-- Hostel Details --}}
 
 <div class="row mb-3">
-  @foreach ($sharedHostel as $hostel)
-    <div class="col-4">
-      <div class="card">
-        <div class="row no-gutters">
-          <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
-          <div class="card-img-overlay">
-            <i class="fa-2x fab fa-gratipay mt-n2 text-white"></i>
-          </div>
+  @if($sharedHostel->isEmpty())
+    <div class="col">
+      <h5 class="font-weight-bold">There are no available shared hostels currently. Please check back later.</h5>
+    </div>
+  @else
 
-          @include('partials.student.favorite')
+    @foreach ($sharedHostel as $hostel)
+      <div class="col-4">
+        <div class="card">
+          <div class="row no-gutters">
+            <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
+            <div class="card-img-overlay">
+              <i class="fa-2x fab fa-gratipay mt-n2 text-white"></i>
+            </div>
 
-          <div class="col">
+            @include('partials.student.favorite')
+
+            <div class="col">
             <span class="card-body fs-6">
               <p class="card-text">1 Room Duplex Hostel</p>
               <p>Host:
@@ -26,9 +32,10 @@
               <p>{{ $hostel->state }} Surlere Lagos.</p>
               <p class="">#5,000/monthly</p>
             </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  @endforeach
+    @endforeach
+  @endif
 </div>

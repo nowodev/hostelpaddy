@@ -709,6 +709,19 @@ a:hover {
   font-weight: bold;
 }
 
+.inline-link {
+  font-size: 1.1em !important;
+  color: #000249;
+  font-weight: bold;
+}
+
+.inline-link:hover {
+  font-size: 1.1em !important;
+  color: #797a9d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .navbar-brand img {
   height: 50px;
 }
