@@ -138,6 +138,6 @@
   </div>
 
   {{-- Similar Hostels --}}
-  @include('partials.student.similar-hostels')
+  {{--  @include('partials.student.similar-hostels')--}}
 
 @endsection

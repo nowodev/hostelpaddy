@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agent;
+use App\Models\Amenity;
 use App\Models\City;
 use App\Models\Favorite;
 use App\Models\Hostel;
 use App\Models\Property;
+use App\Models\Rule;
 use App\Models\State;
 use App\Models\Student;
+use App\Models\Utility;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -19,11 +22,14 @@ class StudentController extends Controller
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
             ->Paginate(16);
-
+    
         $location = City::get();
-        $property = Property::get();
-
-        return view('students.index', compact('hostels', 'location', 'property'));
+        $properties = Property::get();
+        $utilities = Utility::get();
+        $rules = Rule::get();
+        $amenities = Amenity::get();
+    
+        return view('students.index', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 
     public function show(Hostel $hostel)
@@ -58,8 +64,13 @@ class StudentController extends Controller
     {
         $user = Student::studentId();
         $favoriteHostels = $user->getFavoriteItems(Hostel::class)->get();
-
-        return view('students.saved_hostel', compact('favoriteHostels'));
+        $location = City::get();
+        $properties = Property::get();
+        $utilities = Utility::get();
+        $rules = Rule::get();
+        $amenities = Amenity::get();
+    
+        return view('students.saved_hostel', compact('favoriteHostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 
     public function chat()
