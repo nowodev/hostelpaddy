@@ -5,7 +5,7 @@
       @method('PUT')
       <button>
         @auth('student')
-          @if (auth('student')->user()->hasFavorited($hostel))
+          @if (auth('student')->user()->isFavorited($hostel))
             <button class="btn mt-n4 ml-n4">
               <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
             </button>
@@ -29,7 +29,7 @@
       @method('PUT')
       <button>
         @auth('student')
-          @if (auth('student')->user()->hasFavorited($hostel))
+          @if (auth('student')->user()->isFavorited($hostel))
             <i class="fa-2x fas fa-heart text-danger"></i>
           @else
             <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">

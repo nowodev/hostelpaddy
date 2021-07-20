@@ -21,7 +21,7 @@ class SharedHostelController extends Controller
             ->get();
         
         $user = Student::studentId();
-        $favoriteSharedHostels = $user->getFavoriteItems(SharedHostel::class)->get();
+        $favoriteSharedHostels = $user->favorite(SharedHostel::class);
         $location = City::get();
         $properties = Property::get();
         $utilities = Utility::get();
