@@ -19,7 +19,7 @@ class SharedHostelController extends Controller
     {
         $sharedHostel = SharedHostel::with('amenities', 'utilities', 'students')
             ->get();
-        
+
         $user = Student::studentId();
         $favoriteSharedHostels = $user->getFavoriteItems(SharedHostel::class)->get();
         $location = City::get();
@@ -27,32 +27,32 @@ class SharedHostelController extends Controller
         $utilities = Utility::get();
         $rules = Rule::get();
         $amenities = Amenity::get();
-        
+
         return view('students.hostel_mate', compact('sharedHostel', 'favoriteSharedHostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
-    
+
     public function create()
     {
         $amenities = Amenity::get();
         $utilities = Utility::get();
-    
+
         return view('students.share-hostels.create', compact('amenities', 'utilities'));
     }
-    
+
     public function store(SharedHostelRequest $request)
     {
         // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rule) with data
         $auth = auth('student')->user();
-    
+
         if (auth('student')->check()) {
             $sharedHostel = $auth->sharedHostels()->create($request->validated());
             // if ($request->hasFile('image')) {
             //     $this->_uploadImage($request, $hostel);
             // }
-        
+
             $sharedHostel->amenities()->sync($request->amenity);
             $sharedHostel->utilities()->sync($request->utility);
-        
+
             return redirect()->route('student.hostel-mate.index')
                 ->with('success', 'Shared Hostel Added Successfully');
         } else {
@@ -60,22 +60,22 @@ class SharedHostelController extends Controller
                 ->with('error', 'A problem occurred');
         }
     }
-    
+
     public function show(SharedHostel $hostel)
     {
         //
     }
-    
+
     public function edit(SharedHostel $hostel)
     {
         //
     }
-    
+
     public function update(Request $request, SharedHostel $hostel)
     {
         //
     }
-    
+
     public function destroy(SharedHostel $hostel)
     {
         //

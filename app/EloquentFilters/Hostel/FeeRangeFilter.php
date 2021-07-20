@@ -17,6 +17,6 @@ class FeeRangeFilter extends Filter
      */
     public function apply(Builder $builder, $value): Builder
     {
-         return $builder->where('amount', '=', $value);
+        return $builder->where('amount', '=', $value);
     }
 }

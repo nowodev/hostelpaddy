@@ -17,6 +17,6 @@ class LocationFilter extends Filter
      */
     public function apply(Builder $builder, $value): Builder
     {
-         return $builder->where('city', '=', $value);
+        return $builder->where('city', '=', $value);
     }
 }

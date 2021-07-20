@@ -17,6 +17,6 @@ class RoomsFilter extends Filter
      */
     public function apply(Builder $builder, $value): Builder
     {
-         return $builder->where('roomNum', '=', $value);
+        return $builder->where('roomNum', '=', $value);
     }
 }

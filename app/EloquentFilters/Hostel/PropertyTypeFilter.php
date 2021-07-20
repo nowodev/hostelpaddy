@@ -17,6 +17,6 @@ class PropertyTypeFilter extends Filter
      */
     public function apply(Builder $builder, $value): Builder
     {
-         return $builder->where('property', '=', $value);
+        return $builder->where('property', '=', $value);
     }
 }

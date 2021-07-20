@@ -17,6 +17,6 @@ class RulesFilter extends Filter
      */
     public function apply(Builder $builder, $value): Builder
     {
-         return $builder->where('name', '=', $value);
+        return $builder->where('name', '=', $value);
     }
 }

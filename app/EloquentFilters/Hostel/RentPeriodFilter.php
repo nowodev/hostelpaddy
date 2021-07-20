@@ -17,6 +17,6 @@ class RentPeriodFilter extends Filter
      */
     public function apply(Builder $builder, $value): Builder
     {
-         return $builder->where('period', '=', $value);
+        return $builder->where('period', '=', $value);
     }
 }
