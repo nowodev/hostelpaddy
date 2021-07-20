@@ -19,9 +19,9 @@ class ListedHostelsController extends Controller
             ->Paginate(16);
 
         $location = City::get();
-        $property = Property::get();
+        $properties = Property::get();
 
-        return view('frontend.hostels', compact('hostels', 'location', 'property'));
+        return view('frontend.hostels', compact('hostels', 'location', 'properties'));
     }
 
     public function show(Hostel $hostel)

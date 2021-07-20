@@ -3,7 +3,7 @@
   <br>
   <h5>Find a hostel near you</h5>
 
-  @include('partials.student.search-bar')
+  @include('partials.main.search-bar')
 
   <div class="row">
     @foreach ($hostels as $hostel)
