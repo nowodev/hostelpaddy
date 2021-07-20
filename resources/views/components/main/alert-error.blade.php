@@ -18,7 +18,7 @@
     </div>
 </div> --}}
 
-<div class="alert alert-danger alert-dismissible fade show">
+<div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <strong>{{ session('error') }}</strong>
 </div>
