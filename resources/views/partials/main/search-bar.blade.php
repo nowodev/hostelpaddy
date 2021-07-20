@@ -48,7 +48,7 @@
                   <div id="property-type" class="mt-3">
                     <h4>Property Type</h4>
                     <div class="row">
-                      @foreach($properties->chunk(2) as $key => $others)
+                      @foreach($properties->chunk(3) as $key => $others)
                         <div class="col-4">
                           @foreach ($others as $property)
                             <div class="custom-control custom-checkbox mb-2">
@@ -67,7 +67,7 @@
                   <div id="rooms" class="mt-3">
                     <h4>Rooms</h4>
                     <div class="row">
-                      <div class="col-4">
+                      <div class="col-12">
                         <div class="custom-control custom-radio">
                           <input type="radio" class="custom-control-input" id="room_1" name="room">
                           <label class="custom-control-label" for="room_1">1 Room</label>
@@ -133,7 +133,7 @@
                   <div id="utilities" class="mt-3">
                     <h4>Utilities</h4>
                     <div class="row">
-                      @foreach($utilities->chunk(2) as $key => $others)
+                      @foreach($utilities->chunk(3) as $key => $others)
                         <div class="col-4">
                           @foreach ($others as $utility)
                             <div class="custom-control custom-checkbox mb-2">
@@ -152,7 +152,7 @@
                   <div id="hostel-rules" class="mt-3">
                     <h4>Hostel Rules</h4>
                     <div class="row">
-                      @foreach($rules->chunk(2) as $key => $others)
+                      @foreach($rules->chunk(3) as $key => $others)
                         <div class="col-4">
                           @foreach ($others as $rule)
                             <div class="custom-control custom-checkbox mb-2">
@@ -171,14 +171,14 @@
                   <div id="features" class="mt-3">
                     <h4>Features</h4>
                     <div class="row">
-                      @foreach($amenities->chunk(2) as $key => $others)
+                      @foreach($amenities->chunk(3) as $key => $others)
                         <div class="col-4">
                           @foreach ($others as $amenity)
                             <div class="custom-control custom-checkbox mb-2">
                               <input type="checkbox" class="custom-control-input" id="amenity_{{ $amenity->id }}"
                                      name="amenity[]">
                               <label class="custom-control-label"
-                                     for="amenity_{{ $property->id }}">{{ $amenity->name }}</label>
+                                     for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
                             </div>
                           @endforeach
                         </div>
@@ -190,8 +190,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer d-flex justify-content-between">
-                  <input type="button" class="btn" onclick="clear()" value="Clear">
-{{--                  <button type="button" class="btn" onclick="clear()">Clear all filters</button>--}}
+                  <button type="button" class="btn" onclick="reset();">Clear all filters</button>
                   <button type="button" class="btn btn-primary">Apply Filter</button>
                 </div>
 
