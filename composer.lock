@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d17e6765f3680ce218ecc4ad183502bc",
+    "content-hash": "9502ffa9c495ac9580f18bc23f296696",
     "packages": [
         {
             "name": "arielmejiadev/larapex-charts",
@@ -1657,6 +1657,73 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "mohammad-fouladgar/eloquent-builder",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohammad-fouladgar/eloquent-builder.git",
+                "reference": "7a29983fc0ee1b0568a4ec0a53c06556db476c47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohammad-fouladgar/eloquent-builder/zipball/7a29983fc0ee1b0568a4ec0a53c06556db476c47",
+                "reference": "7a29983fc0ee1b0568a4ec0a53c06556db476c47",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.0.4",
+                "mockery/mockery": "^1.0.0",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fouladgar\\EloquentBuilder\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "EloquentBuilder": "Fouladgar\\EloquentBuilder\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fouladgar\\EloquentBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Fouladgar",
+                    "email": "mohammadfouladgarphp@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "keywords": [
+                "eloquent",
+                "eloquent-builder",
+                "filter",
+                "laravel",
+                "lumen",
+                "search"
+            ],
+            "support": {
+                "issues": "https://github.com/mohammad-fouladgar/eloquent-builder/issues",
+                "source": "https://github.com/mohammad-fouladgar/eloquent-builder"
+            },
+            "time": "2021-02-20T08:23:17+00:00"
         },
         {
             "name": "monolog/monolog",
