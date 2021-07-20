@@ -29,7 +29,7 @@
     {{-- Tab Panes --}}
     <section class="tab-content">
       <div id="shared-hostels" class="container tab-pane active">
-        @include('partials.student.search-bar')
+        @include('partials.main.search-bar')
         <h1>Saved</h1>
         @include('partials.student.saved')
 

@@ -10,7 +10,7 @@
             <form action="{{ route('student.sharedUnfave', [$hostel]) }}" method="POST" class="inline-flex clearfix float-left">
               @csrf
               @method('DELETE')
-              <button class="btn">
+              <button class="btn mt-n3 ml-n3">
                 <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
               </button>
             </form>

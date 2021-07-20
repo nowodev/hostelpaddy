@@ -68,9 +68,6 @@
 
   <!-- Vendor scripts -->
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
-
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
@@ -94,12 +91,15 @@
   <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
 
   <script>
-    let copyRight = document.getElementById("copyright"),
-      date = new Date(),
-      copyrightYear = date.getFullYear();
-    copyRight.innerText = copyrightYear;
+      let copyRight = document.getElementById("copyright"),
+          date = new Date(),
+          copyrightYear = date.getFullYear();
+      copyRight.innerText = copyrightYear;
 
   </script>
+
+  @yield('scripts')
+
 </body>
 
 </html>

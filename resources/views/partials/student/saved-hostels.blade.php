@@ -2,7 +2,7 @@
   <p class="container footer-txt">All your saved hostels can be found here. Click or tap the icon to <br> remove from
     the list</p>
 
-  @include('partials.student.search-bar')
+  @include('partials.main.search-bar')
 
   <div class="row">
     {{-- @if ($favoriteHostels == '')
@@ -32,7 +32,7 @@
             <br>
             <span class="card-text font-weight-bold">N{{ $hostel->amount }}
               <sub>{{ $hostel->period }}</sub></span>
-            <a href="{{ route('info', [$hostel]) }}" class="stretched-link"></a>
+            <a href="{{ route('student.info', [$hostel]) }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
