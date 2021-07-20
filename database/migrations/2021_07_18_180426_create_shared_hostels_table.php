@@ -23,11 +23,12 @@ class CreateSharedHostelsTable extends Migration
             $table->string('choice');
             $table->string('photos')->nullable();
             $table->string('video')->nullable();
-
+            $table->integer('available')->default('0');
+    
             $table->softDeletes();
             $table->timestamps();
-
-
+    
+    
             $table->foreign('student_id')
                 ->references('id')
                 ->on('students')

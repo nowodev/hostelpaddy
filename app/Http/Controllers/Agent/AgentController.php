@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agent;
+use App\Models\Amenity;
 use App\Models\City;
 use App\Models\Hostel;
 use App\Models\Property;
+use App\Models\Rule;
+use App\Models\Utility;
 use Illuminate\Http\Request;
 
 class AgentController extends Controller
@@ -16,11 +19,14 @@ class AgentController extends Controller
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
             ->Paginate(16);
-
+        
         $location = City::get();
-        $property = Property::get();
-
-        return view('agents.index', compact('hostels', 'location', 'property'));
+        $properties = Property::get();
+        $utilities = Utility::get();
+        $rules = Rule::get();
+        $amenities = Amenity::get();
+        
+        return view('agents.index', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 
     public function show(Hostel $hostel)
