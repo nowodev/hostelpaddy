@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>
+<html class="no-js"> <![endif]-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -79,31 +83,31 @@
 
 
 <body>
-@include('layouts.main.navigation')
+  @include('layouts.main.navigation')
 
-{{-- Print out message from controller --}}
-<x:notify-messages/>
-{{-- Print out message from controller --}}
+  {{-- Print out message from controller --}}
+  <x:notify-messages/>
+  {{-- Print out message from controller --}}
 
-@yield('content')
+  @yield('content')
 
 
-@include('layouts.main.footer')
+  @include('layouts.main.footer')
 
-<!-- Vendor scripts -->
-@notifyJs
-<script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
-<script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
+  <!-- Vendor scripts -->
+  @notifyJs
+  <script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
 
-<script>
-    let copyRight = document.getElementById("copyright"),
-        date = new Date(),
-        copyrightYear = date.getFullYear();
-    copyRight.innerText = copyrightYear;
-</script>
+  <script>
+      let copyRight = document.getElementById("copyright"),
+          date = new Date(),
+          copyrightYear = date.getFullYear();
+      copyRight.innerText = copyrightYear;
+  </script>
 
-@yield('scripts')
+  @yield('scripts')
 
 </body>
 
