@@ -13,7 +13,7 @@ return [
     |
     */
     
-    'theme' => env('NOTIFY_THEME', 'light'),
+    'theme' => env('NOTIFY_THEME', 'dark'),
     
     /*
     |--------------------------------------------------------------------------
@@ -49,19 +49,48 @@ return [
     */
     
     'preset-messages' => [
-        // An example preset 'user updated' Connectify notification.
-//        'user-updated' => [
-//            'message' => 'The user has been updated successfully.',
-//            'type'    => 'success',
-//            'model'   => 'drake',
-//            'title'   => 'User Updated',
-//        ],
-//        'user-deleted' => [
-//            'message' => 'The user has been deleted successfully.',
-//            'type'    => 'error',
-//            'model'   => 'drake',
-//            'title'   => 'User Deleted',
-//        ],
+        'hostel-added' => [
+            'message' => 'Hostel added successfully.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'hostel-updated' => [
+            'message' => 'Hostel updated successfully.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'hostel-deleted' => [
+            'message' => 'Hostel added successfully.',
+            'type' => 'error',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'login' => [
+            'message' => 'Login successful.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'logout' => [
+            'message' => 'You\'re now logged out.',
+            'type' => 'error',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'favorites' => [
+            'message' => 'Added to Favorites.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'unfavored' => [
+            'message' => 'Removed from Favorites.',
+            'type' => 'error',
+            'model' => 'toast',
+            'title' => '',
+        ],
     ],
 
 ];
