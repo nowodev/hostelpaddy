@@ -64,12 +64,11 @@
   <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
 
   <!-- Site Verifications -->
-  <meta name="google-site-verification" content="" />
+  <meta name="google-site-verification" content=""/>
   <meta name="google-analytics" content="UA-XXXXXX-X">
 
-
-
   <!-- Vendor stylesheets -->
+  @notifyCss
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">
@@ -116,6 +115,7 @@
   <!-- /container -->
 
   <!-- Vendor scripts -->
+  @notifyJs
   <script src="{{ asset('main/vendor/jquery/jquery-3.1.1.min.js') }}"></script>
   <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
