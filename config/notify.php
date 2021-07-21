@@ -91,6 +91,12 @@ return [
             'model' => 'toast',
             'title' => '',
         ],
+        'general-error' => [
+            'message' => 'An error occurred',
+            'type' => 'error',
+            'model' => 'drake',
+            'title' => '',
+        ]
     ],
 
 ];
