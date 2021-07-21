@@ -53,11 +53,11 @@ class SharedHostelController extends Controller
             $sharedHostel->amenities()->sync($request->amenity);
             $sharedHostel->utilities()->sync($request->utility);
         
-            return redirect()->route('student.hostel-mate.index')
-                ->with('success', 'Shared Hostel Added Successfully');
+            notify()->preset('hostel-added');
+            return redirect()->route('student.hostel-mate.index');
         } else {
-            return redirect()->back()
-                ->with('error', 'A problem occurred');
+            notify()->preset('general-error');
+            return redirect()->back();
         }
     }
     
