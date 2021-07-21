@@ -16,14 +16,8 @@ class FavoriteController extends Controller
         $hostel = Hostel::findOrFail($id);
         $user->toggleFavorite($hostel);
 
-//        notify()->success('Welcome to Laravel Notify ⚡️', 'My custom title');
-//        connectify('success', 'Connection Found', 'Success Message Here');
-//        drakify('success');
-//        smilify('success', 'You are successfully reconnected');
-//        emotify('success', 'You are awesome, your data was successfully created');
-        notify()->preset('user-updated');
+        notify()->preset('favorites');
         return back();
-//		return back()->with('success', 'Hostel added to favorites');
     }
 	
 	public function removeFavorite($id)
@@ -31,34 +25,31 @@ class FavoriteController extends Controller
         $user = Student::studentId();
         $hostel = Hostel::findOrFail($id);
         $user->removeFavorite($hostel);
-
-//        notify()->success('Removed ⚡️');
-//        drakify('error');
-        notify()->preset('user-deleted');
         
-        
+        notify()->preset('unfavored');
         return back();
-//        return back()->with('success', 'Hostel removed from favorites');
     }
 	
 //	shared hostels favorite
 	
 	public function toggleSharedFavorite($id)
-	{
-		$user = Student::studentId();
-		$hostel = SharedHostel::findOrFail($id);
-		$user->toggleFavorite($hostel);
-		
-		return back()->with('success', 'Shared hostel added to favorites');
-	}
+    {
+        $user = Student::studentId();
+        $hostel = SharedHostel::findOrFail($id);
+        $user->toggleFavorite($hostel);
+        
+        notify()->preset('favorites');
+        return back();
+    }
     
     public function removeSharedFavorite($id)
     {
         $user = Student::studentId();
         $hostel = SharedHostel::findOrFail($id);
         $user->removeFavorite($hostel);
-        
-        return back()->with('success', 'Shared hostel removed from favorites');
+    
+        notify()->preset('unfavored');
+        return back();
     }
 
 }
