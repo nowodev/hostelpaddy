@@ -72,23 +72,31 @@
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
   <!-- Default Stylesheet -->
-  <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet"/>
   @yield('styles')
 </head>
 
 
 <body>
-  @include('layouts.main.navigation')
+@include('layouts.main.navigation')
 
-  @yield('content')
+{{-- Print out error message from controller --}}
+@if (session('success'))
+  <x-main.alert-success/>
+@elseif (session('error'))
+  <x-main.alert-error/>
+@endif
+{{-- Print out error message from controller --}}
+
+@yield('content')
 
 
-  @include('layouts.main.footer')
+@include('layouts.main.footer')
 
-  <!-- Vendor scripts -->
-  <script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
-  <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
+<!-- Vendor scripts -->
+<script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
 
   <script>
       let copyRight = document.getElementById("copyright"),

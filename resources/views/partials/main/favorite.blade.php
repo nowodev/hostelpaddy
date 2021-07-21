@@ -2,51 +2,41 @@
 @else
   @auth('student')
     <div class="card-img-overlay">
-      <form action="{{ route('student.fave', [$hostel]) }}" method="POST" class="inline-flex float-right">
-        @csrf
-        @method('PUT')
-        <button>
-          @auth('student')
-            @if (auth('student')->user()->isFavorited($hostel))
-              <button class="btn">
-                <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
-              </button>
-            @else
-              <button class="btn">
-                <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
-              </button>
-            @endif
-          @else
+      @if (auth('student')->user()->isFavorited($hostel))
+        <form action="{{ route('student.unfave', [$hostel]) }}" method="POST" class="inline-flex clearfix float-right">
+          @csrf
+          @method('DELETE')
+          <button>
+            <button class="btn">
+              <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
+            </button>
+          </button>
+        </form>
+      @else
+        <form action="{{ route('student.fave', [$hostel]) }}" method="POST" class="inline-flex clearfix float-right">
+          @csrf
+          @method('PUT')
+          <button>
             <button class="btn">
               <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
             </button>
-          @endauth
-        </button>
-      </form>
-    </div>
-  @else
-    <div class="card-img-overlay">
-      <form action="{{ route('student.fave', [$hostel]) }}" method="POST" class="inline-flex float-right">
-        @csrf
-        @method('PUT')
-        <button>
-          @auth('student')
-            @if (auth('student')->user()->isFavorited($hostel))
-              <button class="btn">
-                <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
-              </button>
-            @else
-              <button class="btn">
-                <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
-              </button>
-            @endif
-          @else
-            <button class="btn">
-              <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
-            </button>
-          @endauth
-        </button>
-      </form>
+          </button>
+        </form>
+      @endif
     </div>
   @endauth
+
+  @guest('student')
+    <div class="card-img-overlay">
+      <form action="{{ route('student.fave', [$hostel]) }}" method="POST" class="inline-flex clearfix float-right">
+        @csrf
+        @method('PUT')
+        <button>
+          <button class="btn">
+            <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">
+          </button>
+        </button>
+      </form>
+    </div>
+  @endguest
 @endauth
