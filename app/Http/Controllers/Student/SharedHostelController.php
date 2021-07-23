@@ -17,7 +17,7 @@ class SharedHostelController extends Controller
 {
     public function index()
     {
-        $sharedHostel = SharedHostel::with('amenities', 'utilities', 'students')
+        $sharedHostel = SharedHostel::with('amenities', 'utilities', 'student')
             ->get();
         
         $user = Student::studentId();
