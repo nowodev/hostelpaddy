@@ -10,32 +10,34 @@ use Illuminate\Support\Facades\Hash;
 
 class Student extends Authenticatable
 {
-    use HasFactory, Notifiable, Favoriteability;
-    
+    use HasFactory;
+    use Notifiable;
+    use Favoriteability;
+
     protected $guard = 'student';
-    
+
     protected $fillable = [
         'name', 'email', 'phone', 'state', 'password',
     ];
-    
+
     protected $hidden = [
         'password',
     ];
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public function sharedHostels()
     {
         return $this->hasMany(SharedHostel::class);
     }
-    
+
     public function preferences()
     {
         return $this->hasMany(Preference::class);
     }
-    
+
     // display image
     public function getThumbnailAttribute()
     {
@@ -44,13 +46,13 @@ class Student extends Authenticatable
         }
         return asset('storage/thumbnail.jpg');
     }
-    
+
     // fetch authenticated student id
     public function scopeStudentId($query)
     {
         return $query->find(auth('student')->id());
     }
-    
+
     // Hash password when updating
     public function setPasswordAttribute($password)
     {

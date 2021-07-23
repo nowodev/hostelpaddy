@@ -20,13 +20,13 @@ class StudentController extends Controller
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
             ->Paginate(16);
-    
+
         $location = City::get();
         $properties = Property::get();
         $utilities = Utility::get();
         $rules = Rule::get();
         $amenities = Amenity::get();
-    
+
         return view('students.index', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 
@@ -48,7 +48,7 @@ class StudentController extends Controller
 
     public function settings_profile()
     {
-    	$student = auth('student')->user();
+        $student = auth('student')->user();
 
         return view('students.settings.profile', compact('student'));
     }
@@ -67,7 +67,7 @@ class StudentController extends Controller
         $utilities = Utility::get();
         $rules = Rule::get();
         $amenities = Amenity::get();
-    
+
         return view('students.saved_hostel', compact('favoriteHostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 

@@ -13,7 +13,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-    
+
     public function store(Request $request)
     {
         // Validate Fields before Logging In
@@ -21,21 +21,21 @@ class AuthController extends Controller
             'email' => 'required|email|max:255',
             'password' => 'required',
         ]);
-    
+
         // Log in based on type of user
         $credentials = $request->only('email', 'password');
-    
+
         // if admin
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             notify()->preset('login');
             return redirect()->intended(RouteServiceProvider::ADMINHOME);
-        } else if (auth('student')->attempt($credentials)) {
+        } elseif (auth('student')->attempt($credentials)) {
             // if student
             $request->session()->regenerate();
             notify()->preset('login');
             return redirect()->intended(RouteServiceProvider::STUDENTHOME);
-        } else if (auth('agent')->attempt($credentials)) {
+        } elseif (auth('agent')->attempt($credentials)) {
             // if agent
             $request->session()->regenerate();
             notify()->preset('login');
@@ -46,21 +46,21 @@ class AuthController extends Controller
             ]);
         }
     }
-    
+
     public function destroy(Request $request)
     {
         // specific user logout
         if (Auth::logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-        } else if (auth('student')->logout()) {
+        } elseif (auth('student')->logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-        } else if (auth('agent')->logout()) {
+        } elseif (auth('agent')->logout()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
         }
-    
+
         return redirect(route('onboard.login'));
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    
+
     /*
     |--------------------------------------------------------------------------
     | Notify Theme
@@ -12,9 +12,9 @@ return [
     | specifying the dark mode. To change theme, update the global variable to `dark`
     |
     */
-    
+
     'theme' => env('NOTIFY_THEME', 'dark'),
-    
+
     /*
     |--------------------------------------------------------------------------
     | Demo URL
@@ -24,9 +24,9 @@ return [
     | here: http://localhost:8000/notify/demo, by default is true
     |
     */
-    
+
     'demo' => true,
-    
+
     /*
     |--------------------------------------------------------------------------
     | Notification timeout
@@ -35,9 +35,9 @@ return [
     | Defines the number of seconds during which the notification will be visible.
     |
     */
-    
+
     'timeout' => 5000,
-    
+
     /*
     |--------------------------------------------------------------------------
     | Preset Messages
@@ -47,7 +47,7 @@ return [
     | Available model: connect, drake, emotify, smiley, toast
     |
     */
-    
+
     'preset-messages' => [
         'hostel-added' => [
             'message' => 'Hostel added successfully.',

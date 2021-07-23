@@ -16,12 +16,12 @@ class CreateFavoritesTable extends Migration
         Schema::create('favorites', function (Blueprint $table) {
             $table->integer('user_id')->unsigned()->index();
             $table->morphs('favoriteable');
-            
+
             $table->primary(['user_id', 'favoriteable_id', 'favoriteable_type']);
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
