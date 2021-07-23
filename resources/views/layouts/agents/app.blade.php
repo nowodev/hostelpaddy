@@ -63,54 +63,51 @@
   <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
 
   <!-- Site Verifications -->
-  <meta name="google-site-verification" content="" />
+  <meta name="google-site-verification" content=""/>
   <meta name="google-analytics" content="UA-XXXXXX-X">
 
   <!-- Vendor scripts -->
+  @notifyCss
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
-
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
   <link type="text/css" rel="stylesheet"
-    href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
+        href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
   <!-- Default Stylesheet -->
-  <link type="text/css" href="{{ asset('main/css/student/styles.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/student/styles.css') }}" rel="stylesheet"/>
   @yield('styles')
 </head>
 
 
 <body>
-  @include('layouts.agents.navigation')
+@include('layouts.agents.navigation')
 
-  {{-- Print out error message from controller --}}
-  @if (session('success'))
-    <x-main.alert-success />
-  @elseif (session('error'))
-    <x-main.alert-error />
-  @endif
-  {{-- Print out error message from controller --}}
+{{-- Print out message from controller --}}
+<x:notify-messages/>
+{{-- Print out message from controller --}}
 
 
-  @yield('content')
+@yield('content')
 
 
-  @include('layouts.agents.footer')
+@include('layouts.agents.footer')
 
-  <!-- Vendor scripts -->
-  <script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
-  <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
+<!-- Vendor scripts -->
+@notifyJs
+<script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
+<script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
 
-  <script>
+<script>
     let copyRight = document.getElementById("copyright"),
-      date = new Date(),
-      copyrightYear = date.getFullYear();
+        date = new Date(),
+        copyrightYear = date.getFullYear();
     copyRight.innerText = copyrightYear;
-  </script>
+</script>
 
-  @yield('script')
+@yield('script')
 </body>
 
 </html>

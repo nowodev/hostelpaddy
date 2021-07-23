@@ -6,14 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Agent;
 use App\Models\Amenity;
 use App\Models\City;
-use App\Models\Favorite;
 use App\Models\Hostel;
 use App\Models\Property;
 use App\Models\Rule;
 use App\Models\State;
 use App\Models\Student;
 use App\Models\Utility;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -63,7 +61,7 @@ class StudentController extends Controller
     public function saved_hostel()
     {
         $user = Student::studentId();
-        $favoriteHostels = $user->getFavoriteItems(Hostel::class)->get();
+        $favoriteHostels = $user->favorite(Hostel::class);
         $location = City::get();
         $properties = Property::get();
         $utilities = Utility::get();

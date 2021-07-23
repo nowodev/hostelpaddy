@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>
+<html class="no-js"> <![endif]-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -63,16 +67,17 @@
   <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
 
   <!-- Site Verifications -->
-  <meta name="google-site-verification" content="" />
+  <meta name="google-site-verification" content=""/>
   <meta name="google-analytics" content="UA-XXXXXX-X">
 
   <!-- Vendor scripts -->
+  @notifyCss
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
   <!-- Default Stylesheet -->
-  <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet"/>
   @yield('styles')
 </head>
 
@@ -80,12 +85,17 @@
 <body>
   @include('layouts.main.navigation')
 
+  {{-- Print out message from controller --}}
+  <x:notify-messages/>
+  {{-- Print out message from controller --}}
+
   @yield('content')
 
 
   @include('layouts.main.footer')
 
   <!-- Vendor scripts -->
+  @notifyJs
   <script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
   <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
@@ -95,7 +105,6 @@
           date = new Date(),
           copyrightYear = date.getFullYear();
       copyRight.innerText = copyrightYear;
-
   </script>
 
   @yield('scripts')

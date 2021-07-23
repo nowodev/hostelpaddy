@@ -10,26 +10,30 @@
     @foreach ($sharedHostel as $hostel)
       <div class="col-4 mb-3">
         <div class="card">
-          <div class="row no-gutters">
+          <div class="row">
             <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
-            <div class="card-img-overlay">
-              <i class="fa-2x fab fa-gratipay mt-n2 text-white"></i>
-            </div>
 
             @include('partials.student.favorite')
 
             <div class="col">
             <span class="card-body fs-6">
               <p class="card-text">1 Room Duplex Hostel</p>
-              <p>Host:
-{{--                    {{ dd($hostel->students) }}--}}
+{{--              <p class="card-text">{{ $hostel->description }}</p>--}}
+
+              <p>Host: {{ $hostel->student->name }}
               </p>
-              <p>
-                @foreach ($hostel->amenities as $utility)
-                  {{ $utility->name }}
+
+              <dd class="text-sm">
+                @foreach ($hostel->amenities as $amenity)
+                  {{--                  @php($names2[] = $amenity->name)--}}
+                  <span class="badge badge-pill badge-info">
+                  {{ $amenity->name }}
+                  </span>
                 @endforeach
-              </p>
-              <p>{{ $hostel->state }} Surlere Lagos.</p>
+                {{--                {{ implode(', ', $names2 ?? []) }}--}}
+              </dd>
+              <p>Surlere Lagos.</p>
+{{--              <p>{{ $hostel->state }}</p>--}}
               <p class="">#5,000/monthly</p>
             </span>
             </div>

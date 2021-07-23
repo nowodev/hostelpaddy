@@ -17,11 +17,11 @@ class SharedHostelController extends Controller
 {
     public function index()
     {
-        $sharedHostel = SharedHostel::with('amenities', 'utilities', 'students')
+        $sharedHostel = SharedHostel::with('amenities', 'utilities', 'student')
             ->get();
         
         $user = Student::studentId();
-        $favoriteSharedHostels = $user->getFavoriteItems(SharedHostel::class)->get();
+        $favoriteSharedHostels = $user->favorite(SharedHostel::class);
         $location = City::get();
         $properties = Property::get();
         $utilities = Utility::get();
@@ -53,11 +53,11 @@ class SharedHostelController extends Controller
             $sharedHostel->amenities()->sync($request->amenity);
             $sharedHostel->utilities()->sync($request->utility);
         
-            return redirect()->route('student.hostel-mate.index')
-                ->with('success', 'Shared Hostel Added Successfully');
+            notify()->preset('hostel-added');
+            return redirect()->route('student.hostel-mate.index');
         } else {
-            return redirect()->back()
-                ->with('error', 'A problem occurred');
+            notify()->preset('general-error');
+            return redirect()->back();
         }
     }
     

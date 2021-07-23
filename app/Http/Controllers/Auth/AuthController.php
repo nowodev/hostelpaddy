@@ -13,7 +13,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-
+    
     public function store(Request $request)
     {
         // Validate Fields before Logging In
@@ -21,32 +21,32 @@ class AuthController extends Controller
             'email' => 'required|email|max:255',
             'password' => 'required',
         ]);
-
+    
         // Log in based on type of user
         $credentials = $request->only('email', 'password');
-
+    
         // if admin
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::ADMINHOME)
-                ->with('success', 'You\'re now logged in.');
+            notify()->preset('login');
+            return redirect()->intended(RouteServiceProvider::ADMINHOME);
         } else if (auth('student')->attempt($credentials)) {
             // if student
             $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::STUDENTHOME)
-                ->with('success', 'You\'re now logged in.' );
+            notify()->preset('login');
+            return redirect()->intended(RouteServiceProvider::STUDENTHOME);
         } else if (auth('agent')->attempt($credentials)) {
             // if agent
             $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::AGENTHOME)
-                ->with('success', 'You\'re now logged in.' );
+            notify()->preset('login');
+            return redirect()->intended(RouteServiceProvider::AGENTHOME);
         } else {
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records.',
             ]);
         }
     }
-
+    
     public function destroy(Request $request)
     {
         // specific user logout
@@ -60,7 +60,7 @@ class AuthController extends Controller
             $request->session()->invalidate();
             $request->session()->regenerateToken();
         }
-
+    
         return redirect(route('onboard.login'));
     }
 }
