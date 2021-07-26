@@ -23,6 +23,8 @@
       "mohammad-fouladgar/eloquent-builder": "^3.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
+        "barryvdh/laravel-ide-helper": "^2.10",
         "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "^1.9.1",
         "laravel/breeze": "^1.1",
