@@ -19,7 +19,7 @@ class Hostel extends Model
         'amenities', 'utilities', 'rules', 'available',
     ];
     
-    public function agents()
+    public function agent()
     {
         return $this->belongsTo(Agent::class);
     }

@@ -13,7 +13,7 @@ class Image extends Model
         'image',
     ];
 
-    public function hostels()
+    public function hostel()
     {
         return $this->belongsTo(Hostel::class);
     }
