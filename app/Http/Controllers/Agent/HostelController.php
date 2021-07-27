@@ -11,11 +11,11 @@ class HostelController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        $hostels = Hostel::Agent()->get();
+        $hostels = Hostel::agent()->get();
 
         return view('agents.listing', compact('hostels'));
     }
