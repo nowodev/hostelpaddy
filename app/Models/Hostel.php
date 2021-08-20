@@ -68,7 +68,7 @@ class Hostel extends Model
     // hostel description algorithm
     public function getDescriptionAttribute() {
         $room = ($this->roomNum == 1) ? 'room' : 'rooms';
-        $value = $this->roomNum . ' ' . $room . ', ' . $this->property;
+        $value = $this->roomNum . ' ' . $room . ' ' . $this->property . ' house accommodation';
         
         return $value;
     }

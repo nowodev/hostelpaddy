@@ -7,23 +7,26 @@
     <div class="carousel-inner d-md-block">
       @foreach ($otherHostels->chunk(3) as $key => $chunk)
         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-          <div class="d-block w-100" alt="First slide">
+          <div class="d-block w-100">
             <div class="d-flex justify-content-around">
               @foreach ($chunk as $others)
                 <div>
-                  <div class="card mx-2 p-2 border-0">
-                    {{-- <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image"> --}}
+                  <div class="card mx-2 p-2 border border-light b-roll">
+                    {{--                     <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image">--}}
                     <img class="d-block w-100" src="{{ asset('main/img/hostel2.png') }}" alt="First slide">
 
-                    @include('partials.main.similar-hostel-favorite')
+                    @auth('agent')
+                    @else
+                      @include('partials.main.similar-hostel-favorite')
+                    @endauth
 
-                    <div class="px-3 pb-3" style="position: relative;">
+                    <div class="p-0" style="position: relative;">
                       <p class="card-text text-primary location mt-2">{{ $others->city }}, {{ $others->state }}
                       </p>
                       <h5 class="card-title text-dark h6 my-0"><b>The {{ $others->hostel_name }} lodge</b></h5>
                       <p class="card-subtitle text-secondary mt-0">{{ $others->description }}</p>
                       <p class="card-title text-dark mt-2"><b><span
-                            class="h6 text-bold">&#8358;{{ $others->amount }}</span></b> p/a</p>
+                              class="h6 text-bold">&#8358;{{ $others->amount }}</span></b> p/a</p>
                       <a href="{{ route('info', [$others]) }}" class="stretched-link"></a>
                     </div>
                   </div>

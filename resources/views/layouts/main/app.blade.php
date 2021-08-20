@@ -75,6 +75,8 @@
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">
+  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
 
   <!-- Default Stylesheet -->
   <link type="text/css" href="{{ asset('main/css/styles.css') }}" rel="stylesheet"/>
@@ -93,6 +95,7 @@
 
 
   @include('layouts.main.footer')
+  @yield('belowFooter')
 
   <!-- Vendor scripts -->
   @notifyJs
