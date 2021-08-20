@@ -96,7 +96,13 @@ return [
             'type' => 'error',
             'model' => 'drake',
             'title' => '',
-        ]
+        ],
+        'preference' => [
+            'message' => 'Preference Added.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
     ],
 
 ];
