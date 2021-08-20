@@ -31,14 +31,6 @@ class StudentController extends Controller
         return view('students.index', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 
-    public function show(Hostel $hostel)
-    {
-        $agent = Agent::find($hostel->agent_id);
-        $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
-
-        return view('students.info', compact('hostel', 'agent', 'otherHostels'));
-    }
-
     public function settings_account()
     {
         $location = State::get();

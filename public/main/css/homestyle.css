@@ -113,6 +113,17 @@ p{
 	color: #000249;
 	background: transparent;
 }
+.click:hover{
+	cursor: pointer;
+	border-radius: 4px;
+	box-shadow: 0px 0px 10px -8px black;
+}
+.b-roll{
+	border-radius: 10px;
+}
+
+
+
 
 @media screen and (min-width: 376px){
 	.head{
@@ -142,6 +153,9 @@ p{
 	a{
 		color: black;
 		text-decoration: none;
+	}
+	#video{
+		text-decoration: underline !important;
 	}
 	.identifier2{
 	/*padding: 10px;*/

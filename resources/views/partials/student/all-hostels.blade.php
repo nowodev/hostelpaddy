@@ -22,7 +22,7 @@
             <br>
             <span class="card-text font-weight-bold">N{{ $hostel->amount }}
               <sub>{{ $hostel->period }}</sub></span>
-            <a href="{{ route('student.info', [$hostel]) }}" class="stretched-link"></a>
+            <a href="{{ route('info', [$hostel]) }}" class="stretched-link"></a>
           </div>
         </div>
       </div>

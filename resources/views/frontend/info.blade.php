@@ -1,13 +1,56 @@
 @extends('layouts.main.app')
 
 @section('styles')
-  <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('title', 'HostelPaddy - Hostel Info')
 
 @section('content')
-  <div class="container gallery">
+  <div class="container mt-5 gallery">
+    <div class="d-flex flex-wrap my-2">
+      @auth('agent')
+      @else
+        @auth('student')
+          <div class="mx-3 click">
+            @if (auth('student')->user()->isFavorited($hostel))
+              <form action="{{ route('student.unfave', [$hostel]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button>
+                  <img src="{{ asset('main/img/loved.png') }}" alt="Card image cap">
+                </button>
+              </form>
+            @else
+              <form action="{{ route('student.fave', [$hostel]) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <button>
+                  {{--                <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">--}}
+                  <img src="{{ asset('main/img/save.png') }}" alt="save" class="img-fluid"/>
+                </button>
+              </form>
+            @endif
+          </div>
+        @endauth
+
+        @guest('student')
+            <div class="mx-3 click">
+            <form action="{{ route('student.fave', [$hostel]) }}" method="POST">
+              @csrf
+              @method('PUT')
+              <button>
+                <img src="{{ asset('main/img/save.png') }}" alt="Card image cap">
+              </button>
+            </form>
+          </div>
+        @endguest
+      @endauth
+
+      <div class="mx-3 click">
+        <img src="{{ asset('main/img/share.png') }}" alt="share" class="img-fluid"/>
+      </div>
+    </div>
     <div class="card mx-2 p-2 border-0 border-bottom">
       <div class="card-image-top">
         <div id="carousel1" class="carousel slide position-relative d-md-none" data-ride="carousel">
@@ -47,23 +90,23 @@
         </div>
       </div>
       <div class="row pt-3">
-        <div class="col-10">
-          <p class="card-text text-primary text-bold">{{ $hostel->city }}, {{ $hostel->state }}</p>
+        <div class="col-12">
+          <span class="card-text text-dark text-bold mr-4">{{ $hostel->city }}, {{ $hostel->state }}</span>
+          <a href="#" class="text-decoration-underline">
+            <span class="card-text text-primary text-bold">Watch video</span>
+          </a>
           <h5 class="card-title text-dark h5 mt-2 head">The {{ $hostel->hostel_name }} lodge</h5>
           <p class="card-subtitle lead">{{ $hostel->description }}</p>
         </div>
-        <div class="col-2 pt-3">
-          <a href="#"><img src="{{ asset('main/img/Share button.png') }}" alt="" class="img-fluid share"></a>
-        </div>
         <div class="col-12 my-2">
-          <hr class="" />
+          <hr class=""/>
         </div>
         <div class="col-12">
           <div class="d-flex flex-wrap">
             @foreach ($hostel->amenities as $amenity)
-              <div class="px-2">
+              <ul class="px-2">
                 <li class="rooms">{{ $amenity->name }}</li>
-              </div>
+              </ul>
             @endforeach
           </div>
         </div>
@@ -88,9 +131,9 @@
     </ol>
   </div>
 
-  <!-- prefered tenants -->
+  <!-- preferred tenants -->
   <div class="container mt-5">
-    <h2 class="h5"><b>Prefered Tenants</b></h2>
+    <h2 class="h5"><b>Preferred Tenants</b></h2>
     <p class="">{{ $hostel->tenantType }}.</p>
   </div>
 
@@ -99,7 +142,7 @@
     <h2 class="h5 mb-3"><b>Utilities</b></h2>
     <ul class="">
       @foreach ($hostel->utilities as $utility)
-        <li class="mb-3 utility">{{ $utility->name }}</li>
+        <li class="mb-3 utility">&nbsp; {{ $utility->name }}</li>
       @endforeach
     </ul>
   </div>
@@ -108,7 +151,7 @@
   <div class="container mt-5">
     <h2 class="h5 mb-3"><b>Location</b></h2>
     <p class="mb-md-3">{{ $hostel->address }}.</p>
-    <img width="80%" src="{{ asset('main/img/location.png') }}" alt="location" />
+    <img width="80%" src="{{ asset('main/img/location.png') }}" alt="location"/>
   </div>
 
   <!-- House Owner -->
@@ -116,31 +159,53 @@
     <h2 class="h5"><b>House owner/agent details</b></h2>
     <div class="row">
       <div class="col-4 col-md-2">
+        <p class="mb-2 name text-dark"><b>{{ $agent->name }}</b></p>
         <img src="{{ $agent->thumbnail }}" alt="Agent" class="img-fluid rounded">
       </div>
-      <div class="col-7 col-md-2 mt-1">
-        <p class="mb-2 name">{{ $agent->name }}</p>
-        <p class="mb-2">Joined {{ $agent->joindate }}</p>
+
+      <div class="col-8 col-md-10 mt-1 mt-md-4 pt-md-2">
+        <div class="d-flex align-content-center mb-3">
+          <img src="{{ asset('main/img/call.png') }}" alt="" class="img-fluid"> <span class="my-auto verify">&nbsp;08168854521</span>
+        </div>
+        <div class="d-flex align-content-center mb-3">
+          <img src="{{ asset('main/img/time.png') }}" alt="" class="img-fluid"> <span
+              class="my-auto verify">&nbsp;Joined {{ $agent->joindate }}</span>
+        </div>
         <div class="d-flex align-content-center">
-          <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span
-            class="my-auto verify">&nbsp;Verified</span>
+          <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span class="my-auto verify">&nbsp;Verified</span>
         </div>
       </div>
-      <div class="col-md-8"></div>
+
       @auth('agent')
       @else
-        <div class="col-12 col-md-3 my-2">
-          <button class="btn contact btn-md-lg btn-md-block ml-2 ml-md-3">Contact House owner/agent</button>
+        <div class="col-12 my-2">
+          <button class="btn contact btn-md-lg btn-md-block ml-2 ml-md-0">Contact House owner/agent</button>
         </div>
       @endauth
     </div>
   </div>
 
   <div class="container my-2">
-    <hr class="" />
+    <hr class=""/>
   </div>
 
   {{-- Similar Hostels --}}
   @include('partials.main.similar-hostels')
 
 @endsection
+
+@section('belowFooter')
+  @auth('agent')
+  @else
+    <div class="container d-flex justify-content-between pt-4 px-5">
+      <div class="ml-md-5">
+        <span class="h4 text-bold">&#8358;{{ $hostel->amount }}</span>
+        <span class="p">yearly</span>
+      </div>
+      <div class="mr-md-5">
+        <button class="btn btn-md signup" type="button">Chat agent</button>
+      </div>
+    </div>
+  @endauth
+@endsection
+

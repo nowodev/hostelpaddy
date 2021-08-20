@@ -28,15 +28,7 @@ class AgentController extends Controller
         
         return view('agents.index', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
-
-    public function show(Hostel $hostel)
-    {
-        $agent = Agent::find($hostel->agent_id);
-        $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
-
-        return view('agents.info', compact('hostel', 'agent', 'otherHostels'));
-    }
-
+    
     public function settings_account()
     {
         return view('agents.settings.account');
