@@ -20,7 +20,8 @@ class PreferenceController extends Controller
                 'rent_period' => $request->rent_period,
             ],
         );
-        
+    
+        notify()->preset('preference');
         return back()->with('success', 'Hostel Preference Saved');
     }
 }
