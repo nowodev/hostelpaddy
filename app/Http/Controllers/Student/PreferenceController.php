@@ -10,7 +10,7 @@ class PreferenceController extends Controller
     public function store(PreferenceRequest $request)
     {
         $user = auth('student')->user();
-        
+
         $user->preferences()->updateOrCreate(
             ['student_id' => auth('student')->id()],
             [
@@ -20,7 +20,7 @@ class PreferenceController extends Controller
                 'rent_period' => $request->rent_period,
             ],
         );
-    
+
         notify()->preset('preference');
         return back()->with('success', 'Hostel Preference Saved');
     }
