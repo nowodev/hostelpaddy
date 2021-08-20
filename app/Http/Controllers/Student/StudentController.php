@@ -7,6 +7,7 @@ use App\Models\Agent;
 use App\Models\Amenity;
 use App\Models\City;
 use App\Models\Hostel;
+use App\Models\Preference;
 use App\Models\Property;
 use App\Models\Rule;
 use App\Models\State;
@@ -42,8 +43,9 @@ class StudentController extends Controller
     {
         $location = State::get();
         $property = Property::get();
+        $preferences = Preference::where('student_id', auth('student')->id())->first();
 
-        return view('students.settings.account', compact('location', 'property'));
+        return view('students.settings.account', compact('location', 'property', 'preferences'));
     }
 
     public function settings_profile()
