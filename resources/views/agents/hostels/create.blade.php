@@ -2,6 +2,10 @@
 
 @section('title', 'Agent - List Hostel')
 
+@section('styles')
+  <link type="text/css" href="{{ asset('main/css/form.css') }}" rel="stylesheet" />
+@endsection
+
 @section('content')
   <div class="container">
     <div class="mb-3">
@@ -29,5 +33,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ asset('main/js/student/form.js') }}"></script>
+  <script src="{{ asset('main/js/agent/form.js') }}"></script>
 @endsection
