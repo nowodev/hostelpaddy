@@ -75,7 +75,7 @@ function continueToAmenities() {
         bullet2.classList.add("text-info");
 
         title1.innerText = "Amenities";
-        subtitle1.innerText = "To list a shared hostel accomodation, we need you to provide some information on the hostel.";
+        subtitle1.innerText = "To list a shared hostel accommodation, we need you to provide some information on the hostel.";
 
         continueToChoice();
     });
@@ -92,7 +92,7 @@ function continueToChoice() {
         bullet3.classList.add("text-info");
 
         title2.innerText = "Choice of hostel mate";
-        subtitle2.innerText = "To list a shared hostel accomodation, we need you to provide some information on the hostel.";
+        subtitle2.innerText = "To list a shared hostel accommodation, we need you to provide some information on the hostel.";
 
         continueToPhotos();
     });
@@ -109,7 +109,7 @@ function continueToPhotos() {
         bullet4.classList.add("text-info");
 
         title3.innerText = "Photos & video";
-        subtitle3.innerText = "To list a shared hostel accomodation, we need you to provide some information on the hostel.";
+        subtitle3.innerText = "To list a shared hostel accommodation, we need you to provide some information on the hostel.";
 
         continueToPayment();
     });
@@ -126,6 +126,6 @@ function continueToPayment() {
         bullet5.classList.add("text-info");
 
         title4.innerText = "Payment";
-        subtitle4.innerText = "You are required to make payment to finish your hostel listing. lease note that we do not store your card details.";
+        subtitle4.innerText = "You are required to make payment to finish your hostel listing. Please note that we do not store your card details.";
     });
 }
