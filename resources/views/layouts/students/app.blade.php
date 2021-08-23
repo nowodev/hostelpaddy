@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -17,7 +20,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no,
             width=device-width, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="title" content="HostelPaddy - Home">
   <meta name="author" content="@Eunit">
   <meta name="description" content=" ">
@@ -75,6 +78,14 @@
   <link type="text/css" rel="stylesheet"
         href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
+  {{--  Filepond --}}
+  <link rel="stylesheet" href="{{ asset('css/filepond/filepond.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-preview.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-edit.css') }}">
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet" />
+
   <!-- Default Stylesheet -->
   <link type="text/css" href="{{ asset('main/css/student/styles.css') }}" rel="stylesheet"/>
   @yield('styles')
@@ -95,6 +106,31 @@
 
 <!-- Vendor scripts -->
 @notifyJs
+{{--Filepond --}}
+
+<script src="{{ asset('js/filepond/filepond-plugin-image-preview.js') }}'"></script>
+<script src="{{ asset('js/filepond/filepond-plugin-image-resize.js') }}'"></script>
+<script src="{{ asset('js/filepond/filepond-plugin-image-exif-orientation.js') }}">
+</script>
+<script src="{{ asset('js/filepond/filepond-plugin-file-validate-size.js') }}'">
+</script>
+<script src="{{ asset('js/filepond/filepond-plugin-file-validate-type.js') }}'">
+</script>
+<script src="{{ asset('js/filepond/filepond-plugin-image-crop.js') }}"></script>
+<script src="{{ asset('js/filepond/filepond-plugin-image-edit.js') }}"></script>
+<script src="{{ asset('js/filepond/filepond.js') }}"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
+</script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js">
+</script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js">
+</script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
 <script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
 <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
@@ -104,6 +140,33 @@
         date = new Date(),
         copyrightYear = date.getFullYear();
     copyRight.innerText = copyrightYear;
+</script>
+
+<script>
+    FilePond.registerPlugin(
+        FilePondPluginImagePreview,
+        FilePondPluginImageExifOrientation,
+        FilePondPluginFileValidateSize,
+        FilePondPluginFileValidateType,
+        FilePondPluginImageCrop,
+        FilePondPluginImageEdit,
+        FilePondPluginImageResize
+    );
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // Create the FilePond instance
+    const pond = FilePond.create(inputElement, {
+        allowMultiple: true,
+        allowReorder: true,
+        checkValidity: true,
+        itemInsertLocation: 'after',
+        dropOnPage: true,
+        dropValidations: true,
+    });
+
+    // Easy console access for testing purposes
+    window.pond = pond;
 </script>
 
 @yield('script')
