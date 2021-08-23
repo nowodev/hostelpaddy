@@ -82,7 +82,7 @@
         </div>
 
         <div class="form-group my-3">
-          <h4 for="contact">Select your hostel utilities</h4>
+          <h4>Select your hostel utilities</h4>
 
           <div class="row">
             @foreach ($utilities as $utility)
