@@ -5,8 +5,10 @@
   <div class="container">
     <div class="mb-3">
       <p>
-        Hostel mate <i class="fa fa-caret dropdown-toggle"></i> Shared hostel
-        <span class="float-right">x</span>
+        Hostel mate <i class="fa fa-chevron-right"></i> Shared hostel
+        <span class="float-right">
+          <a href="{{ route('student.hostel-mate.index') }}"><i class="fa-2x far fa-times-circle"></i></a>
+        </span>
       </p>
     </div>
 

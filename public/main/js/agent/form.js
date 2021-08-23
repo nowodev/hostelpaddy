@@ -1,8 +1,8 @@
 continueToAmenities();
 
-let firstPart = document.getElementById("personal-details"),
+let firstPart = document.getElementById("property-details"),
     secondPart = document.getElementById("amenities"),
-    thirdPart = document.getElementById("choice"),
+    thirdPart = document.getElementById("rules"),
     fourthPart = document.getElementById("photos"),
     fifthPart = document.getElementById("payment"),
 
@@ -43,7 +43,7 @@ function backToAmenities() {
     bullet3.classList.add("text-black-50");
 }
 
-function backToChoice() {
+function backToRules() {
     fourthPart.classList.add("displayNone");
 
     thirdPart.classList.remove("displayNone");
@@ -75,14 +75,14 @@ function continueToAmenities() {
         bullet2.classList.add("text-info");
 
         title1.innerText = "Amenities";
-        subtitle1.innerText = "To list a shared hostel accommodation, we need you to provide some information on the hostel.";
+        subtitle1.innerText = "In order to list your hostel, we need you to provide some information on the property.";
 
-        continueToChoice();
+        continueToRules();
     });
 }
 
-function continueToChoice() {
-    $("#continueToChoice").click(function () {
+function continueToRules() {
+    $("#continueToRules").click(function () {
         secondPart.classList.add("displayNone");
 
         thirdPart.classList.remove("displayNone");
@@ -91,8 +91,8 @@ function continueToChoice() {
         bullet3.classList.remove("text-black-50");
         bullet3.classList.add("text-info");
 
-        title2.innerText = "Choice of hostel mate";
-        subtitle2.innerText = "To list a shared hostel accommodation, we need you to provide some information on the hostel.";
+        title2.innerText = "Rules";
+        subtitle2.innerText = "In order to list your hostel, we need you to provide some information on the property.";
 
         continueToPhotos();
     });
@@ -109,7 +109,7 @@ function continueToPhotos() {
         bullet4.classList.add("text-info");
 
         title3.innerText = "Photos & video";
-        subtitle3.innerText = "To list a shared hostel accommodation, we need you to provide some information on the hostel.";
+        subtitle3.innerText = "In order to list your hostel, we need you to provide some information on the property.";
 
         continueToPayment();
     });
@@ -126,6 +126,6 @@ function continueToPayment() {
         bullet5.classList.add("text-info");
 
         title4.innerText = "Payment";
-        subtitle4.innerText = "You are required to make payment to finish your hostel listing. Please note that we do not store your card details.";
+        subtitle4.innerText = "Make payment to finish your hostel property listing. We do not store your card details.";
     });
 }
