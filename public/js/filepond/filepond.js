@@ -1,5 +1,5 @@
 /*!
- * FilePond 4.27.1
+ * FilePond 4.29.0
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit https://pqina.nl/filepond/ for details.
  */
@@ -10,8 +10,8 @@
     typeof exports === 'object' && typeof module !== 'undefined'
         ? factory(exports)
         : typeof define === 'function' && define.amd
-        ? define(['exports'], factory)
-        : ((global = global || self), factory((global.FilePond = {})));
+            ? define(['exports'], factory)
+            : ((global = global || self), factory((global.FilePond = {})));
 })(this, function(exports) {
     'use strict';
 
@@ -226,11 +226,11 @@
     var getChildCount =
         'children' in testElement
             ? function(el) {
-                  return el.children.length;
-              }
+                return el.children.length;
+            }
             : function(el) {
-                  return el.childNodes.length;
-              };
+                return el.childNodes.length;
+            };
 
     var getViewRect = function getViewRect(elementRect, childViews, offset, scale) {
         var left = offset[0] || elementRect.left;
@@ -977,8 +977,8 @@
                 filterFrameActionsForChild =
                     _ref$filterFrameActio === void 0
                         ? function(child, actions) {
-                              return actions;
-                          }
+                            return actions;
+                        }
                         : _ref$filterFrameActio,
                 _ref$didCreateView = _ref.didCreateView,
                 didCreateView = _ref$didCreateView === void 0 ? function() {} : _ref$didCreateView,
@@ -1509,8 +1509,8 @@
         return isNumber(value)
             ? value
             : isString(value)
-            ? toString(value).replace(/[a-z]+/gi, '')
-            : 0;
+                ? toString(value).replace(/[a-z]+/gi, '')
+                : 0;
     };
 
     var toInt = function toInt(value) {
@@ -1586,6 +1586,9 @@
         forin(methods, function(key) {
             api[key] = createAction(key, outline[key], methods[key], api.timeout, api.headers);
         });
+
+        // remove process if no url or process on outline
+        api.process = outline.process || isString(outline) || outline.url ? api.process : null;
 
         // special treatment for remove
         api.remove = outline.remove || null;
@@ -1749,10 +1752,10 @@
             // no valid conversions found
             if (convertedValue === null) {
                 throw 'Trying to assign value with incorrect type to "' +
-                    option +
-                    '", allowed type: "' +
-                    valueType +
-                    '"';
+                option +
+                '", allowed type: "' +
+                valueType +
+                '"';
             } else {
                 newValue = convertedValue;
             }
@@ -1883,9 +1886,9 @@
         } else {
             _typeof = function(obj) {
                 return obj &&
-                    typeof Symbol === 'function' &&
-                    obj.constructor === Symbol &&
-                    obj !== Symbol.prototype
+                typeof Symbol === 'function' &&
+                obj.constructor === Symbol &&
+                obj !== Symbol.prototype
                     ? 'symbol'
                     : typeof obj;
             };
@@ -2342,8 +2345,8 @@
         _getPrototypeOf = Object.setPrototypeOf
             ? Object.getPrototypeOf
             : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o);
-              };
+                return o.__proto__ || Object.getPrototypeOf(o);
+            };
         return _getPrototypeOf(o);
     }
 
@@ -2438,8 +2441,8 @@
         return obj && obj.__esModule
             ? obj
             : {
-                  default: obj,
-              };
+                default: obj,
+            };
     }
 
     function _interopRequireWildcard(obj) {
@@ -2765,9 +2768,9 @@
     function _initializerWarningHelper(descriptor, context) {
         throw new Error(
             'Decorating class property failed. Please ensure that ' +
-                'proposal-class-properties is enabled and set to use loose mode. ' +
-                'To use proposal-class-properties in spec mode with decorators, wait for ' +
-                'the next major version of decorators in stage 2.'
+            'proposal-class-properties is enabled and set to use loose mode. ' +
+            'To use proposal-class-properties in spec mode with decorators, wait for ' +
+            'the next major version of decorators in stage 2.'
         );
     }
 
@@ -3128,10 +3131,10 @@
                 if (kind !== 'method' && kind !== 'field') {
                     throw new TypeError(
                         'An element descriptor\'s .kind property must be either "method" or' +
-                            ' "field", but a decorator created an element descriptor with' +
-                            ' .kind "' +
-                            kind +
-                            '"'
+                        ' "field", but a decorator created an element descriptor with' +
+                        ' .kind "' +
+                        kind +
+                        '"'
                     );
                 }
 
@@ -3142,10 +3145,10 @@
                 if (placement !== 'static' && placement !== 'prototype' && placement !== 'own') {
                     throw new TypeError(
                         'An element descriptor\'s .placement property must be one of "static",' +
-                            ' "prototype" or "own", but a decorator created an element descriptor' +
-                            ' with .placement "' +
-                            placement +
-                            '"'
+                        ' "prototype" or "own", but a decorator created an element descriptor' +
+                        ' with .placement "' +
+                        placement +
+                        '"'
                     );
                 }
 
@@ -3211,9 +3214,9 @@
                 if (kind !== 'class') {
                     throw new TypeError(
                         'A class descriptor\'s .kind property must be "class", but a decorator' +
-                            ' created a class descriptor with .kind "' +
-                            kind +
-                            '"'
+                        ' created a class descriptor with .kind "' +
+                        kind +
+                        '"'
                     );
                 }
 
@@ -3335,9 +3338,9 @@
                         if (_hasDecorators(other)) {
                             throw new ReferenceError(
                                 "Decorators can't be placed on different accessors with for " +
-                                    'the same property (' +
-                                    element.key +
-                                    ').'
+                                'the same property (' +
+                                element.key +
+                                ').'
                             );
                         }
 
@@ -3756,6 +3759,9 @@
         allowReorder: [false, Type.BOOLEAN], // Allow reordering of files
         allowDirectoriesOnly: [false, Type.BOOLEAN], // Allow only selecting directories with browse (no support for filtering dnd at this point)
 
+        // Try store file if `server` not set
+        storeAsFile: [false, Type.BOOLEAN],
+
         // Revert mode
         forceRevert: [false, Type.BOOLEAN], // Set to 'force' to require the file to be reverted before removal
 
@@ -3946,17 +3952,36 @@
         READY: 4, // all files uploaded
     };
 
+    var res = null;
+    var canUpdateFileInput = function canUpdateFileInput() {
+        if (res === null) {
+            try {
+                var dataTransfer = new DataTransfer();
+                dataTransfer.items.add(new File(['hello world'], 'This_Works.txt'));
+                var el = document.createElement('input');
+                el.setAttribute('type', 'file');
+                el.files = dataTransfer.files;
+                res = el.files.length === 1;
+            } catch (err) {
+                res = false;
+            }
+        }
+        return res;
+    };
+
     var ITEM_ERROR = [
         ItemStatus.LOAD_ERROR,
         ItemStatus.PROCESSING_ERROR,
         ItemStatus.PROCESSING_REVERT_ERROR,
     ];
+
     var ITEM_BUSY = [
         ItemStatus.LOADING,
         ItemStatus.PROCESSING,
         ItemStatus.PROCESSING_QUEUED,
         ItemStatus.INIT,
     ];
+
     var ITEM_READY = [ItemStatus.PROCESSING_COMPLETE];
 
     var isItemInErrorState = function isItemInErrorState(item) {
@@ -3967,6 +3992,13 @@
     };
     var isItemInReadyState = function isItemInReadyState(item) {
         return ITEM_READY.includes(item.status);
+    };
+
+    var isAsync = function isAsync(state) {
+        return (
+            isObject(state.options.server) &&
+            (isObject(state.options.server.process) || isFunction(state.options.server.process))
+        );
     };
 
     var queries = function queries(state) {
@@ -4051,12 +4083,12 @@
                 return getActiveItems(state.items).length;
             },
 
+            SHOULD_UPDATE_FILE_INPUT: function SHOULD_UPDATE_FILE_INPUT() {
+                return state.options.storeAsFile && canUpdateFileInput() && !isAsync(state);
+            },
+
             IS_ASYNC: function IS_ASYNC() {
-                return (
-                    isObject(state.options.server) &&
-                    (isObject(state.options.server.process) ||
-                        isFunction(state.options.server.process))
-                );
+                return isAsync(state);
             },
         };
     };
@@ -4460,10 +4492,10 @@
                         'error',
                         typeof error === 'string'
                             ? {
-                                  type: 'error',
-                                  code: 0,
-                                  body: error,
-                              }
+                                type: 'error',
+                                code: 0,
+                                body: error,
+                            }
                             : error
                     );
                 },
@@ -4833,8 +4865,8 @@
                 typeof action.headers === 'function'
                     ? action.headers(file, metadata)
                     : Object.assign({}, action.headers, {
-                          'Upload-Length': file.size,
-                      });
+                        'Upload-Length': file.size,
+                    });
 
             var requestParams = Object.assign({}, action, {
                 headers: headers,
@@ -4971,11 +5003,11 @@
                 typeof chunkServer.headers === 'function'
                     ? chunkServer.headers(chunk)
                     : Object.assign({}, chunkServer.headers, {
-                          'Content-Type': 'application/offset+octet-stream',
-                          'Upload-Offset': chunk.offset,
-                          'Upload-Length': file.size,
-                          'Upload-Name': file.name,
-                      });
+                        'Content-Type': 'application/offset+octet-stream',
+                        'Upload-Offset': chunk.offset,
+                        'Upload-Length': file.size,
+                        'Upload-Name': file.name,
+                    });
 
             var request = (chunk.request = sendRequest(
                 ondata(chunk.data),
@@ -5183,10 +5215,10 @@
                 typeof action.headers === 'function'
                     ? action.headers(file, metadata) || {}
                     : Object.assign(
-                          {},
+                        {},
 
-                          action.headers
-                      );
+                        action.headers
+                    );
 
             var requestParams = Object.assign({}, action, {
                 headers: headers,
@@ -5453,11 +5485,11 @@
                     state.response = isObject(response)
                         ? response
                         : {
-                              type: 'load',
-                              code: 200,
-                              body: '' + response,
-                              headers: {},
-                          };
+                            type: 'load',
+                            code: 200,
+                            body: '' + response,
+                            headers: {},
+                        };
 
                     // update duration
                     state.duration = Date.now() - state.timestamp;
@@ -5490,10 +5522,10 @@
                         isObject(error)
                             ? error
                             : {
-                                  type: 'error',
-                                  code: 0,
-                                  body: '' + error,
-                              }
+                                type: 'error',
+                                code: 0,
+                                body: '' + error,
+                            }
                     );
                 },
 
@@ -5552,19 +5584,19 @@
 
         var getProgress = allowMinimumUploadDuration
             ? function() {
-                  return state.progress ? Math.min(state.progress, state.perceivedProgress) : null;
-              }
+                return state.progress ? Math.min(state.progress, state.perceivedProgress) : null;
+            }
             : function() {
-                  return state.progress || null;
-              };
+                return state.progress || null;
+            };
 
         var getDuration = allowMinimumUploadDuration
             ? function() {
-                  return Math.min(state.duration, state.perceivedDuration);
-              }
+                return Math.min(state.duration, state.perceivedDuration);
+            }
             : function() {
-                  return state.duration;
-              };
+                return state.duration;
+            };
 
         var api = Object.assign({}, on(), {
             process: process, // start processing file
@@ -6033,6 +6065,9 @@
                     get: function get() {
                         return origin;
                     },
+                    set: function set(value) {
+                        return (origin = value);
+                    },
                 },
                 serverId: {
                     get: function get() {
@@ -6396,6 +6431,15 @@
                         return;
                     }
 
+                    // if is local item we need to enable upload button so change can be propagated to server
+                    if (item.origin === FileOrigin.LOCAL) {
+                        dispatch('DID_LOAD_ITEM', {
+                            id: item.id,
+                            error: null,
+                            serverFileReference: item.source,
+                        });
+                    }
+
                     // for async scenarios
                     var upload = function upload() {
                         // we push this forward a bit so the interface is updated correctly
@@ -6597,8 +6641,8 @@
                     options.type === 'local'
                         ? FileOrigin.LOCAL
                         : options.type === 'limbo'
-                        ? FileOrigin.LIMBO
-                        : FileOrigin.INPUT;
+                            ? FileOrigin.LIMBO
+                            : FileOrigin.INPUT;
 
                 // create a new blank item
                 var item = createItem(
@@ -6784,8 +6828,13 @@
                                 handleAdd
                             );
                         })
-                        .catch(function() {
-                            handleAdd(false);
+                        .catch(function(e) {
+                            if (!e || !e.error || !e.status) return handleAdd(false);
+                            dispatch('DID_THROW_ITEM_INVALID', {
+                                id: id,
+                                error: e.error,
+                                status: e.status,
+                            });
                         });
                 });
 
@@ -6861,15 +6910,15 @@
                     createFileLoader(
                         origin === FileOrigin.INPUT
                             ? // input, if is remote, see if should use custom fetch, else use default fetchBlob
-                              isString(source) && isExternalURL(source)
+                            isString(source) && isExternalURL(source)
                                 ? fetch
                                     ? createFetchFunction(url, fetch)
                                     : fetchBlob // remote url
                                 : fetchBlob // try to fetch url
                             : // limbo or local
                             origin === FileOrigin.LIMBO
-                            ? createFetchFunction(url, restore) // limbo
-                            : createFetchFunction(url, load) // local
+                                ? createFetchFunction(url, restore) // limbo
+                                : createFetchFunction(url, load) // local
                     ),
 
                     // called when the file is loaded so it can be piped through the filters
@@ -6952,7 +7001,7 @@
 
                     dispatch('DID_DEFINE_VALUE', {
                         id: item.id,
-                        value: source,
+                        value: item.serverId || source,
                     });
 
                     return;
@@ -7099,6 +7148,20 @@
                     success(createItemAPI(item));
                     processNext();
 
+                    // if origin is local, and we're instant uploading, trigger remove of original
+                    // as revert will remove file from list
+                    var server = state.options.server;
+                    var instantUpload = state.options.instantUpload;
+                    if (
+                        instantUpload &&
+                        item.origin === FileOrigin.LOCAL &&
+                        isFunction(server.remove)
+                    ) {
+                        var noop = function noop() {};
+                        item.origin = FileOrigin.LIMBO;
+                        state.options.server.remove(item.source, noop, noop);
+                    }
+
                     // All items processed? No errors?
                     var allItemsProcessed =
                         query('GET_ITEMS_BY_STATUS', ItemStatus.PROCESSING_COMPLETE).length ===
@@ -7188,7 +7251,8 @@
                     success(createItemAPI(item));
                 };
 
-                // if this is a local file and the server.remove function has been configured, send source there so dev can remove file from server
+                // if this is a local file and the `server.remove` function has been configured,
+                // send source there so dev can remove file from server
                 var server = state.options.server;
                 if (
                     item.origin === FileOrigin.LOCAL &&
@@ -7580,6 +7644,7 @@
             props = _ref3.props;
         // if size is available don't fallback to unknown size message
         if (isInt(root.query('GET_ITEM_SIZE', props.id))) {
+            updateFile({ root: root, props: props });
             return;
         }
 
@@ -7651,9 +7716,9 @@
             action.progress === null
                 ? root.query('GET_LABEL_FILE_PROCESSING')
                 : root.query('GET_LABEL_FILE_PROCESSING') +
-                  ' ' +
-                  toPercentage(action.progress) +
-                  '%';
+                ' ' +
+                toPercentage(action.progress) +
+                '%';
 
         text(root.ref.main, title);
         text(root.ref.sub, root.query('GET_LABEL_TAP_TO_CANCEL'));
@@ -7936,6 +8001,11 @@
     var create$4 = function create(_ref2) {
         var root = _ref2.root,
             props = _ref2.props;
+        // copy Buttons object
+        var LocalButtons = Object.keys(Buttons).reduce(function(prev, curr) {
+            prev[curr] = Object.assign({}, Buttons[curr]);
+            return prev;
+        }, {});
         var id = props.id;
 
         // allow reverting upload
@@ -7986,8 +8056,8 @@
 
         // update icon and label for revert button when instant uploading
         if (instantUpload && allowRevert) {
-            Buttons['RevertItemProcessing'].label = 'GET_LABEL_BUTTON_REMOVE_ITEM';
-            Buttons['RevertItemProcessing'].icon = 'GET_ICON_REMOVE';
+            LocalButtons['RevertItemProcessing'].label = 'GET_LABEL_BUTTON_REMOVE_ITEM';
+            LocalButtons['RevertItemProcessing'].icon = 'GET_ICON_REMOVE';
         }
 
         // remove last button (revert) if not allowed
@@ -8014,19 +8084,20 @@
 
         // move remove button to right
         if (alignRemoveItemButton && allowRevert) {
-            Buttons['RevertItemProcessing'].align = 'BUTTON_REMOVE_ITEM_POSITION';
+            LocalButtons['RevertItemProcessing'].align = 'BUTTON_REMOVE_ITEM_POSITION';
             var _map = StyleMap['DID_COMPLETE_ITEM_PROCESSING'];
             _map.info.translateX = calculateFileInfoOffset;
             _map.status.translateY = calculateFileVerticalCenterOffset;
             _map.processingCompleteIndicator = { opacity: 1, scaleX: 1, scaleY: 1 };
         }
 
+        // show/hide RemoveItem button
         if (!allowRemove) {
-            Buttons['RemoveItem'].disabled = true;
+            LocalButtons['RemoveItem'].disabled = true;
         }
 
         // create the button views
-        forin(Buttons, function(key, definition) {
+        forin(LocalButtons, function(key, definition) {
             // create button
             var buttonView = root.createChildView(fileActionButton, {
                 label: root.query(definition.label),
@@ -9632,6 +9703,30 @@
         write: write$7,
     });
 
+    var setInputFiles = function setInputFiles(element, files) {
+        try {
+            // Create a DataTransfer instance and add a newly created file
+            var dataTransfer = new DataTransfer();
+            files.forEach(function(file) {
+                if (file instanceof File) {
+                    dataTransfer.items.add(file);
+                } else {
+                    dataTransfer.items.add(
+                        new File([file], file.name, {
+                            type: file.type,
+                        })
+                    );
+                }
+            });
+
+            // Assign the DataTransfer files list to the file input
+            element.files = dataTransfer.files;
+        } catch (err) {
+            return false;
+        }
+        return true;
+    };
+
     var create$c = function create(_ref) {
         var root = _ref.root;
         return (root.ref.fields = {});
@@ -9656,8 +9751,11 @@
     var didAddItem = function didAddItem(_ref3) {
         var root = _ref3.root,
             action = _ref3.action;
+        var fileItem = root.query('GET_ITEM', action.id);
+        var isLocalFile = fileItem.origin === FileOrigin.LOCAL;
+        var shouldUseFileInput = !isLocalFile && root.query('SHOULD_UPDATE_FILE_INPUT');
         var dataContainer = createElement$1('input');
-        dataContainer.type = 'hidden';
+        dataContainer.type = shouldUseFileInput ? 'file' : 'hidden';
         dataContainer.name = root.query('GET_NAME');
         dataContainer.disabled = root.query('GET_DISABLED');
         root.ref.fields[action.id] = dataContainer;
@@ -9668,32 +9766,55 @@
         var root = _ref4.root,
             action = _ref4.action;
         var field = getField(root, action.id);
-        if (!field || action.serverFileReference === null) return;
-        field.value = action.serverFileReference;
+        if (!field) return;
+
+        // store server ref in hidden input
+        if (action.serverFileReference !== null) field.value = action.serverFileReference;
+
+        // store file item in file input
+        if (!root.query('SHOULD_UPDATE_FILE_INPUT')) return;
+
+        var fileItem = root.query('GET_ITEM', action.id);
+        setInputFiles(field, [fileItem.file]);
     };
 
-    var didSetDisabled = function didSetDisabled(_ref5) {
-        var root = _ref5.root;
+    var didPrepareOutput = function didPrepareOutput(_ref5) {
+        var root = _ref5.root,
+            action = _ref5.action;
+        // this timeout pushes the handler after 'load'
+        if (!root.query('SHOULD_UPDATE_FILE_INPUT')) return;
+        setTimeout(function() {
+            var field = getField(root, action.id);
+            if (!field) return;
+            setInputFiles(field, [action.file]);
+        }, 0);
+    };
+
+    var didSetDisabled = function didSetDisabled(_ref6) {
+        var root = _ref6.root;
         root.element.disabled = root.query('GET_DISABLED');
     };
 
-    var didRemoveItem = function didRemoveItem(_ref6) {
-        var root = _ref6.root,
-            action = _ref6.action;
+    var didRemoveItem = function didRemoveItem(_ref7) {
+        var root = _ref7.root,
+            action = _ref7.action;
         var field = getField(root, action.id);
         if (!field) return;
         if (field.parentNode) field.parentNode.removeChild(field);
         delete root.ref.fields[action.id];
     };
 
-    var didDefineValue = function didDefineValue(_ref7) {
-        var root = _ref7.root,
-            action = _ref7.action;
+    // only runs for server files (so doesn't deal with file input)
+    var didDefineValue = function didDefineValue(_ref8) {
+        var root = _ref8.root,
+            action = _ref8.action;
         var field = getField(root, action.id);
         if (!field) return;
         if (action.value === null) {
+            // clear field value
             field.removeAttribute('value');
         } else {
+            // set field value
             field.value = action.value;
         }
         syncFieldPositionsWithItems(root);
@@ -9705,6 +9826,7 @@
         DID_LOAD_ITEM: didLoadItem$1,
         DID_REMOVE_ITEM: didRemoveItem,
         DID_DEFINE_VALUE: didDefineValue,
+        DID_PREPARE_OUTPUT: didPrepareOutput,
         DID_REORDER_ITEMS: didReorderItems,
         DID_SORT_ITEMS: didReorderItems,
     });
@@ -10229,8 +10351,8 @@
             filterItems =
                 _options$filterItems === void 0
                     ? function(items) {
-                          return items;
-                      }
+                        return items;
+                    }
                     : _options$filterItems;
 
         // create a dnd client
@@ -10409,14 +10531,14 @@
         assist(
             root,
             label +
-                ' ' +
-                filename +
-                ', ' +
-                total +
-                ' ' +
-                (total === 1
-                    ? root.query('GET_LABEL_FILE_COUNT_SINGULAR')
-                    : root.query('GET_LABEL_FILE_COUNT_PLURAL'))
+            ' ' +
+            filename +
+            ', ' +
+            total +
+            ' ' +
+            (total === 1
+                ? root.query('GET_LABEL_FILE_COUNT_SINGULAR')
+                : root.query('GET_LABEL_FILE_COUNT_PLURAL'))
         );
 
         // clear group after set amount of time so the status is not read twice
@@ -10913,13 +11035,13 @@
         var item = root.ref.list.childViews[0].childViews[0];
         return item
             ? {
-                  top: item.rect.element.marginTop,
-                  bottom: item.rect.element.marginBottom,
-              }
+                top: item.rect.element.marginTop,
+                bottom: item.rect.element.marginBottom,
+            }
             : {
-                  top: 0,
-                  bottom: 0,
-              };
+                top: 0,
+                bottom: 0,
+            };
     };
 
     var calculateListHeight = function calculateListHeight(root) {
@@ -11057,14 +11179,14 @@
                     var dropValidation = root.query('GET_DROP_VALIDATION');
                     return dropValidation
                         ? items.every(function(item) {
-                              return (
-                                  applyFilters('ALLOW_HOPPER_ITEM', item, {
-                                      query: root.query,
-                                  }).every(function(result) {
-                                      return result === true;
-                                  }) && beforeDropFile(item)
-                              );
-                          })
+                            return (
+                                applyFilters('ALLOW_HOPPER_ITEM', item, {
+                                    query: root.query,
+                                }).every(function(result) {
+                                    return result === true;
+                                }) && beforeDropFile(item)
+                            );
+                        })
                         : true;
                 },
                 {
