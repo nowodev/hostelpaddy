@@ -1,18 +1,27 @@
 <?php
 
 use App\Http\Controllers\Home\ListedHostelsController;
-use App\Http\Controllers\Home\PreferenceController;
+use App\Http\Controllers\Home\SortController;
 use Illuminate\Support\Facades\Route;
 
 // Dynamic  Page Routes
 Route::get('/hostels', [ListedHostelsController::class, 'index'])
     ->name('hostels');
 
-Route::post('/hostels', [PreferenceController::class])
-    ->name('filter.preference');
-
 Route::get('/hostels/{availableHostel:slug}', [ListedHostelsController::class, 'show'])
     ->name('info');
+
+Route::get('search(sortByPriceLowestToHighest)', [SortController::class, 'sortByPriceLowToHigh'])
+    ->name('low.to.high');
+
+Route::get('search(sortByPriceHighestToLowest)', [SortController::class, 'sortByPriceHighToLow'])
+    ->name('high.to.low');
+
+Route::get('search(sortByRecentlyUpdated)', [SortController::class, 'sortByRecentlyUpdated'])
+    ->name('recently.updated');
+
+Route::get('search(sortByRecentlyAdded)', [SortController::class, 'sortByRecentlyAdded'])
+    ->name('recently.added');
 
 // Static Page Routes
 Route::view('/about', 'frontend.about')->name('about');

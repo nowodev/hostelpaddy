@@ -209,10 +209,10 @@
             Sort
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Low to High price</a>
-            <a class="dropdown-item" href="#">High to Low price</a>
-            <a class="dropdown-item" href="#">Recently updated</a>
-            <a class="dropdown-item" href="#">Recently added</a>
+            <a class="dropdown-item" href="{{ route('low.to.high') }}">Low to High price</a>
+            <a class="dropdown-item" href="{{ route('high.to.low') }}">High to Low price</a>
+            <a class="dropdown-item" href="{{ route('recently.updated') }}">Recently updated</a>
+            <a class="dropdown-item" href="{{ route('recently.added') }}">Recently added</a>
           </div>
         </span>
       </div>
