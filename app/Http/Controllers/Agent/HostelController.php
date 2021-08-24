@@ -15,9 +15,14 @@ use App\Models\Utility;
 
 class HostelController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Hostel::class, 'hostel');
+    }
+    
     public function index()
     {
-        $hostels = Hostel::agent()->get();
+        $hostels = Hostel::agent()->where('available', 1)->get();
         
         return view('agents.listing', compact('hostels'));
     }
@@ -32,7 +37,10 @@ class HostelController extends Controller
         $rules = Rule::get();
         $periods = Period::get();
         
-        return view('agents.hostels.create', compact('hostel', 'cities', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods'));
+        return view(
+            'agents.hostels.create',
+            compact('hostel', 'cities', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods')
+        );
     }
     
     public function store(HostelRequest $request)
@@ -47,9 +55,9 @@ class HostelController extends Controller
             $hostel->amenities()->sync($request->amenities);
             $hostel->utilities()->sync($request->utilities);
             $hostel->rules()->sync($request->rules);
-    
+            
             notify()->preset('hostel-added');
-            return redirect()->route('agent.listings.index');
+            return redirect()->route('agent.hostels.index');
         }
         
         return redirect()->back()
@@ -61,9 +69,20 @@ class HostelController extends Controller
         //
     }
     
-    public function edit($id)
+    public function edit(Hostel $hostel)
     {
-        //
+        $amenities = Amenity::get();
+        $utilities = Utility::get();
+        $rules = Rule::get();
+        $properties = Property::get();
+        $states = State::get();
+        $cities = City::get();
+        $periods = Period::get();
+        
+        return view(
+            'agents.hostels.edit',
+            compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities', 'periods')
+        );
     }
     
     public function update(HostelRequest $request, $id)
@@ -71,8 +90,41 @@ class HostelController extends Controller
         //
     }
     
-    public function destroy($id)
+    public function destroy(Hostel $hostel)
     {
-        //
+        $hostel->delete();
+        notify()->preset('hostel-deleted');
+        return redirect()->route('agent.hostels.index');
     }
+    
+//    public function archive()
+//    {
+//        $hostels = Hostel::onlyTrashed()
+//            ->agent()
+//            ->orderBy('id', 'DESC')
+//            ->paginate(10);
+//
+//        return view('agents.archive', compact('hostels'));
+//    }
+//
+//    public function restore($id)
+//    {
+//        $hostel = Hostel::withTrashed()->findOrFail($id);
+//        $hostel->restore();
+//
+//        return redirect()->route('agent.archive')
+//            ->with('success', 'Hostel Restored Successfully');
+//    }
+//
+//    public function delete($id)
+//    {
+//        $hostel = Hostel::withTrashed()->findOrFail($id);
+//        $hostel->amenities()->detach($hostel->amenities);
+//        $hostel->utilities()->detach($hostel->utilities);
+//        $hostel->rules()->detach($hostel->rules);
+//        $hostel->forceDelete();
+//
+//        return redirect()->route('agent.archive')
+//            ->with('success', 'Hostel Deleted Successfully');
+//    }
 }
