@@ -5,7 +5,7 @@
         <li class="nav-link"><span class="text-info" id="bullet1">o</span> Property details</li>
         <li class="nav-link"><span class="text-black-50" id="bullet2">o</span> Amenities</li>
         <li class="nav-link"><span class="text-black-50" id="bullet3">o</span> Rules</li>
-        <li class="nav-link"><span class="text-black-50" id="bullet4">o</span> Photos & video</li>
+        <li class="nav-link"><span class="text-black-50" id="bullet4">o</span> Photos</li>
         @if($edit ?? '')
         @else
           <li class="nav-link"><span class="text-black-50" id="bullet5">o</span> Payment</li>
@@ -231,12 +231,14 @@
           <input type="file" class="filepond" name="image[]" multiple data-allow-reorder="true"
                  data-max-file-size="3MB" data-max-files="3">
 
-          <h4>Upload video</h4>
-          <p>Upload a clear video to show the hostel. Video must not be more than a minute long. <br>mp4 format only.
-          </p>
 
-          <input type="file" class="filepond" name="video[]" multiple data-allow-reorder="true"
-                 data-max-file-size="3MB" data-max-files="3">
+          {{--          Video should probably be a later feature--}}
+          {{--          <h4>Upload video</h4>--}}
+          {{--          <p>Upload a clear video to show the hostel. Video must not be more than a minute long. <br>mp4 format only.--}}
+          {{--          </p>--}}
+
+          {{--          <input type="file" class="filepond" name="video[]" multiple data-allow-reorder="true"--}}
+          {{--                 data-max-file-size="3MB" data-max-files="3">--}}
         </div>
 
         <div class="btn" onclick="backToRules()">Go back</div>

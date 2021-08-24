@@ -3,21 +3,24 @@
 @section('styles')
   <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet"/>
   <style type="text/css">
-      li{
+      .click li {
           list-style: none;
           /*background: #e2e2e2;*/
           margin-left: 5px;
           text-align: center;
-          border-radius:5px;
+          border-radius: 5px;
       }
-      li span{
+
+      .click li span {
           font-size: 20px;
       }
-      ul li{
+
+      .click ul li {
           display: inline-block;
           padding: 10px 10px 5px;
       }
-      #social-links{
+
+      #social-links {
           float: left;
       }
   </style>
@@ -54,7 +57,7 @@
         @endauth
 
         @guest('student')
-            <div class="mx-3 click">
+          <div class="mx-3 click">
             <form action="{{ route('student.fave', [$hostel]) }}" method="POST">
               @csrf
               @method('PUT')
@@ -113,15 +116,18 @@
         <div class="col-12">
           <span class="card-text text-dark text-bold mr-4">
               @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
-                {{ $city->name }},
-              @endforeach
-              @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
-                {{ $state->name }}
-              @endforeach
+              {{ $city->name }},
+            @endforeach
+            @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
+              {{ $state->name }}
+            @endforeach
           </span>
-          <a href="#" class="text-decoration-underline">
-            <span class="card-text text-primary text-bold">Watch video</span>
-          </a>
+
+          {{--          Video should probably be a later feature--}}
+          {{--          <a href="#" class="text-decoration-underline">--}}
+          {{--            <span class="card-text text-primary text-bold">Watch video</span>--}}
+          {{--          </a>--}}
+
           <h5 class="card-title text-dark h5 mt-2 head">The {{ $hostel->hostel_name }} lodge</h5>
           <p class="card-subtitle lead">{{ $hostel->description }}</p>
         </div>
