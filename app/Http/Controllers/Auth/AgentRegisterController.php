@@ -31,7 +31,8 @@ class AgentRegisterController extends Controller
 
         
         $image = $request->file('image');
-        $filename = 'HP_A_' . time() . '.' . $image->getClientOriginalExtension();
+        $name = $request->name;
+        $filename = 'HP_A_' . $name . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(225, 100)
             ->save(storage_path('app/public/agents/' . $filename));
             // ->save(public_path('storage/agents/' . $filename));

@@ -1,153 +1,181 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>@yield('title', 'Hostel Paddy')</title>
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no,
+            width=device-width, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="title" content="HostelPaddy - Home">
+  <meta name="author" content="@Eunit">
+  <meta name="description" content=" ">
+  <meta name="keywords" content=" ">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta name="theme-color" content="#0f4392">
+  <link rel="manifest" href="{{ asset('main/manifest.json') }}">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#0f4392">
+  <link rel="apple-touch-icon" href="{{ asset('main/img/logo.png') }}">
+  <meta name="msapplication-TileColor" content="#0f4392">
+  <meta name="msapplication-TileImage" content="{{ asset('main/img/logo.png') }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hostelpaddy">
+  <meta name="twitter:creator" content="@eunit99">
+  <meta name="twitter:title" content=" ">
+  <meta name="twitter:description" content=" ">
+  <meta name="twitter:image" content="{{ asset('main/img/logo.png') }}">
+  <meta name="apple-mobile-web-app-title" content="Add to Home">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link href="https://unpkg.com/tailwindcss@next/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Open Graph data -->
+  <meta property="og:title" content="HostelPaddy - Home">
+  <meta property="og:url" content="https://hostelpaddy.com">
+  <meta property="og:description" content=" ">
+  <meta property="og:site_name" content=" ">
+  <meta property="og:image" content="{{ asset('main/img/logo.png') }}">
+  <meta name="og:locale" content="en_UK">
+  <meta name="fb:admins" content="">
+  <meta name="og:type" content="website">
+  <meta property="article:publisher" content="https://facebook.com/hostelpaddy1">
+  <meta property="og:image:secure_url" content="{{ asset('main/img/logo.png') }}">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
 
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" href="{{ asset('main/img/logo.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('main/img/logo.png') }}">
+  <link rel="mask-icon" href="{{ asset('main/img/logo.png') }}" color="#0f4392">
+  <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
+
+  <!-- Site Verifications -->
+  <meta name="google-site-verification" content=""/>
+  <meta name="google-analytics" content="UA-XXXXXX-X">
+
+  <!-- Vendor scripts -->
+  @notifyCss
+  {{--  Filepond --}}
+  <link rel="stylesheet" href="{{ asset('css/filepond/filepond.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-preview.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-edit.css') }}">
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
-  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">
+  {{--  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">--}}
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
-  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/linearicons/css/linearicons.min.css') }}" />
-  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/fontawesome/css/fontawesome.min.css') }}" />
-  <link type="text/css" rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}" />
+  <link type="text/css" rel="stylesheet"
+        href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
 
-  <link rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <!--Replace with your tailwind.css once created-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"
-    integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
-    <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-
-  <script src="{{ asset('main/js/agent/dropzone.min.js') }}"></script>
-
-
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  <!-- Default Stylesheet -->
+  <link type="text/css" href="{{ asset('main/css/student/styles.css') }}" rel="stylesheet"/>
+  @yield('styles')
 </head>
 
-<body class="font-sans antialiased">
-  <div class="min-h-screen bg-gray-100">
-    
-    <form id="my-awesome-dropzone" action="/upload" class="dropzone">  
-        <!-- HTML heavily inspired by http://blueimp.github.io/jQuery-File-Upload/ -->
-<div class="table table-striped" class="files" id="previews">
 
-    <div id="template" class="file-row">
-      <!-- This is used as the file preview template -->
-      <div>
-          <span class="preview"><img data-dz-thumbnail /></span>
-      </div>
-      <div>
-          <p class="name" data-dz-name></p>
-          <strong class="error text-danger" data-dz-errormessage></strong>
-      </div>
-      <div>
-          <p class="size" data-dz-size></p>
-          <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
-          </div>
-      </div>
-      <div>
-        <button class="btn btn-primary start">
-            <i class="glyphicon glyphicon-upload"></i>
-            <span>Start</span>
-        </button>
-        <button data-dz-remove class="btn btn-warning cancel">
-            <i class="glyphicon glyphicon-ban-circle"></i>
-            <span>Cancel</span>
-        </button>
-        <button data-dz-remove class="btn btn-danger delete">
-          <i class="glyphicon glyphicon-trash"></i>
-          <span>Delete</span>
-        </button>
-      </div>
-    </div>
-  
-  </div>
-    
-    </form>
-    <button type="submit" id="submit-all" class="btn btn-primary btn-xs">Upload the file</button>
-    
-  </div>
+<body>
+<div class="min-h-screen bg-gray-100">
+
+  @include('layouts.agents.navigation')
+
+  <input type="file" class="filepond" name="image[]" multiple data-allow-reorder="true"
+         data-max-file-size="3MB" data-max-files="3">
+
+  {{-- Print out message from controller --}}
+  <x:notify-messages/>
+  {{-- Print out message from controller --}}
 
 
-  {{-- <script src="{{ asset('main/js/agent/dropzone-amd-module.js') }}"></script> --}}
+  @yield('content')
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+
+  @include('layouts.agents.footer')
+
+<!-- Vendor scripts -->
+  @notifyJs
+  {{--Filepond --}}
+
+  <script src="{{ asset('js/filepond/filepond-plugin-image-preview.js') }}'"></script>
+  <script src="{{ asset('js/filepond/filepond-plugin-image-resize.js') }}'"></script>
+  <script src="{{ asset('js/filepond/filepond-plugin-image-exif-orientation.js') }}">
   </script>
-  <!-- Vendor scripts -->
-  <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="{{ asset('main/js/script.js') }}"></script>
+  <script src="{{ asset('js/filepond/filepond-plugin-file-validate-size.js') }}'">
+  </script>
+  <script src="{{ asset('js/filepond/filepond-plugin-file-validate-type.js') }}'">
+  </script>
+  <script src="{{ asset('js/filepond/filepond-plugin-image-crop.js') }}"></script>
+  <script src="{{ asset('js/filepond/filepond-plugin-image-edit.js') }}"></script>
+  <script src="{{ asset('js/filepond/filepond.js') }}"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
+  </script>
+  <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js">
+  </script>
+  <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js">
+  </script>
+  <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
+  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+  <script src="{{ asset('main/vendor/jquery/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
 
   <script>
-      // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-var previewNode = document.querySelector("#template");
-previewNode.id = "";
-var previewTemplate = previewNode.parentNode.innerHTML;
-previewNode.parentNode.removeChild(previewNode);
-
-var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-  url: "/target-url", // Set the url
-  thumbnailWidth: 80,
-  thumbnailHeight: 80,
-  parallelUploads: 20,
-  previewTemplate: previewTemplate,
-  autoQueue: false, // Make sure the files aren't queued until manually added
-  previewsContainer: "#previews", // Define the container to display the previews
-  clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-});
-
-myDropzone.on("addedfile", function(file) {
-  // Hookup the start button
-  file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file); };
-});
-
-// Update the total progress bar
-myDropzone.on("totaluploadprogress", function(progress) {
-  document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
-});
-
-myDropzone.on("sending", function(file) {
-  // Show the total progress bar when upload starts
-  document.querySelector("#total-progress").style.opacity = "1";
-  // And disable the start button
-  file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
-});
-
-// Hide the total progress bar when nothing's uploading anymore
-myDropzone.on("queuecomplete", function(progress) {
-  document.querySelector("#total-progress").style.opacity = "0";
-});
-
-// Setup the buttons for all transfers
-// The "add files" button doesn't need to be setup because the config
-// `clickable` has already been specified.
-document.querySelector("#actions .start").onclick = function() {
-  myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
-};
-document.querySelector("#actions .cancel").onclick = function() {
-  myDropzone.removeAllFiles(true);
-};
+      let copyRight = document.getElementById("copyright"),
+          date = new Date(),
+          copyrightYear = date.getFullYear();
+      copyRight.innerText = copyrightYear;
   </script>
+
+  <script>
+      FilePond.registerPlugin(
+          FilePondPluginImagePreview,
+          FilePondPluginImageExifOrientation,
+          FilePondPluginFileValidateSize,
+          FilePondPluginFileValidateType,
+          FilePondPluginImageCrop,
+          FilePondPluginImageEdit,
+          FilePondPluginImageResize
+      );
+      // Get a reference to the file input element
+      const inputElement = document.querySelector('input[type="file"]');
+
+      // Create the FilePond instance
+      const pond = FilePond.create(inputElement, {
+          allowMultiple: true,
+          allowReorder: true,
+          checkValidity: true,
+          itemInsertLocation: 'after',
+          dropOnPage: true,
+          dropValidations: true,
+      });
+
+      // Easy console access for testing purposes
+      window.pond = pond;
+  </script>
+
+@yield('script')
 </body>
 
 </html>
