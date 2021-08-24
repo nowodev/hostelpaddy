@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -17,7 +20,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no,
             width=device-width, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="title" content="HostelPaddy - Home">
   <meta name="author" content="@Eunit">
   <meta name="description" content=" ">
@@ -72,13 +75,13 @@
   <link rel="stylesheet" href="{{ asset('css/filepond/filepond.css') }}">
   <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-preview.css') }}">
   <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-edit.css') }}">
-  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet"/>
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
-  <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet" />
+  <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet"/>
 
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
-{{--  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">--}}
+  {{--  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">--}}
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
   <link type="text/css" rel="stylesheet"
         href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
@@ -140,31 +143,38 @@
     copyRight.innerText = copyrightYear;
 </script>
 
+{{--<script>--}}
+{{--    FilePond.registerPlugin(--}}
+{{--        FilePondPluginImagePreview,--}}
+{{--        FilePondPluginImageExifOrientation,--}}
+{{--        FilePondPluginFileValidateSize,--}}
+{{--        FilePondPluginFileValidateType,--}}
+{{--        FilePondPluginImageCrop,--}}
+{{--        FilePondPluginImageEdit,--}}
+{{--        FilePondPluginImageResize--}}
+{{--    );--}}
+{{--    // Get a reference to the file input element--}}
+{{--    const inputElement = document.querySelector('input[type="file"]');--}}
+{{--    // Create the FilePond instance--}}
+{{--    const pond = FilePond.create(inputElement, {--}}
+{{--        allowMultiple: true,--}}
+{{--        allowReorder: true,--}}
+{{--        checkValidity: true,--}}
+{{--        itemInsertLocation: 'after',--}}
+{{--        dropOnPage: true,--}}
+{{--        dropValidations: true,--}}
+{{--    });--}}
+
+{{--    // Easy console access for testing purposes--}}
+{{--    window.pond = pond;--}}
+{{--</script>--}}
+
 <script>
-    FilePond.registerPlugin(
-        FilePondPluginImagePreview,
-        FilePondPluginImageExifOrientation,
-        FilePondPluginFileValidateSize,
-        FilePondPluginFileValidateType,
-        FilePondPluginImageCrop,
-        FilePondPluginImageEdit,
-        FilePondPluginImageResize
-    );
-    // Get a reference to the file input element
-    const inputElement = document.querySelector('input[type="file"]');
+    // const inputElement = document.querySelector('input[type="file"]');
+    // const pond = FilePond.create(inputElement);
 
-    // Create the FilePond instance
-    const pond = FilePond.create(inputElement, {
-        allowMultiple: true,
-        allowReorder: true,
-        checkValidity: true,
-        itemInsertLocation: 'after',
-        dropOnPage: true,
-        dropValidations: true,
-    });
-
-    // Easy console access for testing purposes
-    window.pond = pond;
+    // FilePond.create(document.querySelector('input[name="image"]'));
+    // FilePond.create(document.querySelector('input[name="gallery[]"]'));
 </script>
 
 @yield('script')
