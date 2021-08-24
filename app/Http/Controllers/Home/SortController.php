@@ -25,7 +25,7 @@ class SortController extends Controller
         $rules = Rule::get();
         $amenities = Amenity::get();
         
-        return view('frontend.search', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
+        return view('frontend.hostels', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
     
     public function sortByPriceLowToHigh(Request $request)
@@ -40,7 +40,7 @@ class SortController extends Controller
         $rules = Rule::get();
         $amenities = Amenity::get();
         
-        return view('frontend.search', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
+        return view('frontend.hostels', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
     
     public function sortByRecentlyUpdated(Request $request)
@@ -55,7 +55,7 @@ class SortController extends Controller
         $rules = Rule::get();
         $amenities = Amenity::get();
         
-        return view('frontend.search', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
+        return view('frontend.hostels', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
     
     public function sortByRecentlyAdded(Request $request)
@@ -70,6 +70,6 @@ class SortController extends Controller
         $rules = Rule::get();
         $amenities = Amenity::get();
         
-        return view('frontend.search', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
+        return view('frontend.hostels', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
 }
