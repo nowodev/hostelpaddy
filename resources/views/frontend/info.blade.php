@@ -2,6 +2,25 @@
 
 @section('styles')
   <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet"/>
+  <style type="text/css">
+      li{
+          list-style: none;
+          /*background: #e2e2e2;*/
+          margin-left: 5px;
+          text-align: center;
+          border-radius:5px;
+      }
+      li span{
+          font-size: 20px;
+      }
+      ul li{
+          display: inline-block;
+          padding: 10px 10px 5px;
+      }
+      #social-links{
+          float: left;
+      }
+  </style>
 @endsection
 
 @section('title', 'HostelPaddy - Hostel Info')
@@ -48,7 +67,8 @@
       @endauth
 
       <div class="mx-3 click">
-        <img src="{{ asset('main/img/share.png') }}" alt="share" class="img-fluid"/>
+        <img src="{{ asset('main/img/share.png') }}" alt="share" class="img-fluid clear-fix float-left"/>
+        {!! $shareComponent !!}
       </div>
     </div>
     <div class="card mx-2 p-2 border-0 border-bottom">

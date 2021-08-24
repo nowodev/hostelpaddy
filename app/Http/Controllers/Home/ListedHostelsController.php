@@ -12,6 +12,7 @@ use App\Models\Property;
 use App\Models\Rule;
 use App\Models\Utility;
 use Illuminate\Http\Request;
+use Jorenvh\Share\Share;
 
 class ListedHostelsController extends Controller
 {
@@ -34,7 +35,13 @@ class ListedHostelsController extends Controller
     {
         $agent = Agent::find($hostel->agent_id);
         $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
+        $shareComponent = \Share::currentPage()
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp();
         
-        return view('frontend.info', compact('hostel', 'agent', 'otherHostels'));
+        return view('frontend.info', compact('hostel', 'agent', 'otherHostels', 'shareComponent'));
     }
 }

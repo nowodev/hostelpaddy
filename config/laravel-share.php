@@ -14,6 +14,7 @@ return [
     */
 
     'services' => [
+        'facebook' => [
             'uri' => 'https://www.facebook.com/sharer/sharer.php?u=',
         ],
         'twitter' => [
