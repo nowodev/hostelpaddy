@@ -99,6 +99,6 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
         Route::put('/edit-profile/{agent}', [AgentProfileController::class, 'update'])
             ->name('update');
     
-        Route::resource('listings', HostelController::class);
+        Route::resource('hostels', HostelController::class);
     });
 });
