@@ -50,4 +50,35 @@ class AgentController extends Controller
     {
         return view('agents.notification');
     }
+    
+//    public function archive()
+//    {
+//        $hostels = Hostel::onlyTrashed()
+//            ->agent()
+//            ->orderBy('id', 'DESC')
+//            ->paginate(10);
+//
+//        return view('agents.archive', compact('hostels'));
+//    }
+//
+//    public function restore($id)
+//    {
+//        $hostel = Hostel::withTrashed()->findOrFail($id);
+//        $hostel->restore();
+//
+//        return redirect()->route('agent.archive')
+//            ->with('success', 'Hostel Restored Successfully');
+//    }
+//
+//    public function delete($id)
+//    {
+//        $hostel = Hostel::withTrashed()->findOrFail($id);
+//        $hostel->amenities()->detach($hostel->amenities);
+//        $hostel->utilities()->detach($hostel->utilities);
+//        $hostel->rules()->detach($hostel->rules);
+//        $hostel->forceDelete();
+//
+//        return redirect()->route('agent.archive')
+//            ->with('success', 'Hostel Deleted Successfully');
+//    }
 }

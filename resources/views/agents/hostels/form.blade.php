@@ -6,7 +6,9 @@
         <li class="nav-link"><span class="text-black-50" id="bullet2">o</span> Amenities</li>
         <li class="nav-link"><span class="text-black-50" id="bullet3">o</span> Rules</li>
         <li class="nav-link"><span class="text-black-50" id="bullet4">o</span> Photos & video</li>
-        <li class="nav-link"><span class="text-black-50" id="bullet5">o</span> Payment</li>
+        @if(!$edit)
+          <li class="nav-link"><span class="text-black-50" id="bullet5">o</span> Payment</li>
+        @endif
       </ul>
     </nav>
 
@@ -241,7 +243,12 @@
         </div>
 
         <div class="btn" onclick="backToRules()">Go back</div>
-        <div id="continueToPayment" class="btn btn-primary float-right">Continue</div>
+
+        @if ($edit)
+          <button type="submit" class="btn btn-primary float-right">Update Hostel</button>
+        @else
+
+          <div id="continueToPayment" class="btn btn-primary float-right">Continue</div>
       </section>
 
       {{-- Fifth part of form --}}
@@ -256,6 +263,8 @@
         <div class="btn" onclick="backToPhotos()">Go back</div>
         <button type="submit" class="btn btn-primary float-right">Make Payment</button>
       </section>
+
+      @endif
 
 
     </div>

@@ -85,9 +85,20 @@ class HostelController extends Controller
         );
     }
     
-    public function update(HostelRequest $request, $id)
+    public function update(HostelRequest $request, Hostel $hostel)
     {
-        //
+        $hostel->update($request->validated());
+//        if ($request->hasFile('image')) {
+//            $this->_uploadImage($request, $hostel);
+//        }
+        
+        $hostel->amenities()->sync($request->amenities);
+        $hostel->utilities()->sync($request->utilities);
+        $hostel->rules()->sync($request->rules);
+    
+    
+        notify()->preset('hostel-updated');
+        return redirect()->route('agent.hostels.index');
     }
     
     public function destroy(Hostel $hostel)
@@ -96,35 +107,4 @@ class HostelController extends Controller
         notify()->preset('hostel-deleted');
         return redirect()->route('agent.hostels.index');
     }
-    
-//    public function archive()
-//    {
-//        $hostels = Hostel::onlyTrashed()
-//            ->agent()
-//            ->orderBy('id', 'DESC')
-//            ->paginate(10);
-//
-//        return view('agents.archive', compact('hostels'));
-//    }
-//
-//    public function restore($id)
-//    {
-//        $hostel = Hostel::withTrashed()->findOrFail($id);
-//        $hostel->restore();
-//
-//        return redirect()->route('agent.archive')
-//            ->with('success', 'Hostel Restored Successfully');
-//    }
-//
-//    public function delete($id)
-//    {
-//        $hostel = Hostel::withTrashed()->findOrFail($id);
-//        $hostel->amenities()->detach($hostel->amenities);
-//        $hostel->utilities()->detach($hostel->utilities);
-//        $hostel->rules()->detach($hostel->rules);
-//        $hostel->forceDelete();
-//
-//        return redirect()->route('agent.archive')
-//            ->with('success', 'Hostel Deleted Successfully');
-//    }
 }
