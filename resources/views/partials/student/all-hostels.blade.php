@@ -33,6 +33,9 @@
       </div>
     @endforelse
   </div>
-  {{ $hostels->links() }}
+
+  <div class="d-flex justify-content-center mt-3">
+    {{ $hostels->links() }}
+  </div>
 
 </div>
