@@ -225,12 +225,16 @@
         <p id="subtitle3"></p>
 
         <div class="form-group my-3">
-          <h4>Upload photo</h4>
-          <p>Upload 3 to 5 clear images of the hostel for proper display. <br>jpeg & png format only.</p>
+          <h4>Upload Cover Photo</h4>
+          <p>Upload 1 clear image of the hostel for proper display. <br>jpeg & png format only.</p>
 
-          <input type="file" class="filepond" name="image[]" multiple data-allow-reorder="true"
+          <input type="file" class="filepond" name="coverImage" data-max-file-size="3MB">
+
+          <h4>Upload Other Photos</h4>
+          <p>Upload 3 to 4 clear images of the hostel for proper display. <br>jpeg & png format only.</p>
+
+          <input type="file" class="filepond" name="images[]" multiple data-allow-reorder="true"
                  data-max-file-size="3MB" data-max-files="3">
-
 
           {{--          Video should probably be a later feature--}}
           {{--          <h4>Upload video</h4>--}}

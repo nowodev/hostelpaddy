@@ -13,6 +13,8 @@ use App\Models\Rule;
 use App\Models\State;
 use App\Models\Utility;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class HostelController extends Controller
 {
@@ -30,14 +32,13 @@ class HostelController extends Controller
     
     public function create(Hostel $hostel)
     {
-//        $cities = City::get();
         $states = State::get();
         $properties = Property::get();
         $amenities = Amenity::get();
         $utilities = Utility::get();
         $rules = Rule::get();
         $periods = Period::get();
-
+        
         return view(
             'agents.hostels.create',
             compact('hostel', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods')
@@ -55,9 +56,13 @@ class HostelController extends Controller
         // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rule) with data
         if (auth('agent')->check()) {
             $hostel = auth('agent')->user()->hostels()->create($request->validated());
-//            if ($request->hasFile('image')) {
-//                $this->_uploadImage($request, $hostel);
-//            }
+            if ($request->hasFile('coverImage')) {
+                $this->_uploadCoverImage($request, $hostel);
+            }
+            
+            if ($request->hasFile('images')) {
+                $this->_uploadImages($request, $hostel);
+            }
             
             $hostel->amenities()->sync($request->amenities);
             $hostel->utilities()->sync($request->utilities);
@@ -95,23 +100,62 @@ class HostelController extends Controller
     public function update(HostelRequest $request, Hostel $hostel)
     {
         $hostel->update($request->validated());
-//        if ($request->hasFile('image')) {
-//            $this->_uploadImage($request, $hostel);
-//        }
+        if ($request->hasFile('coverImage')) {
+            $this->_uploadCoverImage($request, $hostel);
+        }
+        
+        if ($request->hasFile('images')) {
+            $this->_uploadImages($request, $hostel);
+        }
         
         $hostel->amenities()->sync($request->amenities);
         $hostel->utilities()->sync($request->utilities);
         $hostel->rules()->sync($request->rules);
-    
-    
+        
         notify()->preset('hostel-updated');
         return redirect()->route('agent.hostels.index');
     }
+
+//    public function destroy(Hostel $hostel)
+//    {
+//        $hostel->delete();
+//        notify()->preset('hostel-deleted');
+//        return redirect()->route('agent.hostels.index');
+//    }
     
     public function destroy(Hostel $hostel)
     {
-        $hostel->delete();
+        $hostel->amenities()->detach($hostel->amenities);
+        $hostel->utilities()->detach($hostel->utilities);
+        $hostel->rules()->detach($hostel->rules);
+        $hostel->forceDelete();
         notify()->preset('hostel-deleted');
         return redirect()->route('agent.hostels.index');
+    }
+    
+    private function _uploadCoverImage($request, $hostel)
+    {
+        $image = $request->file('coverImage');
+        $name = $request->hostel_name;
+        $filename = 'HP_H_' . $name . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->save(storage_path('app/public/hostels/' . $filename));
+        
+        $hostel->coverImage = $filename;
+        $hostel->save();
+    }
+    
+    private function _uploadImages($request, $hostel)
+    {
+        $images = $request->file('images');
+        $name = $request->hostel_name;
+        foreach ($images as $image) {
+            $filename = 'HP_H_' . $name . Str::random(3) . '.' . $image->getClientOriginalExtension();
+            // Image::make($image)->resize(225, 100)
+            // Do not resize the image
+            Image::make($image)->save(storage_path('app/public/hostels/' . $filename));
+//            $hostel->image = $filename;
+            $hostel->images()->create(['image' => $filename]);
+            $hostel->save();
+        }
     }
 }
