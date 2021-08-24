@@ -3,9 +3,15 @@
   <div class="container">
     <div class="row pt-5">
       <div class="col-8">
-        <form action="#">
-          <input class="form-control" type="text" placeholder="  Search location apartment..."/>
-          {{-- <i class="fa fa-search" aria-hidden="true"></i> --}}
+        <form action="{{ route('search') }}">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="q" value="{{ $q ?? '' }}" placeholder="Search apartment">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </form>
       </div>
       <div class="col-2">

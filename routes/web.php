@@ -36,9 +36,6 @@ Route::get('/optimize', function () {
     return "Cache is cleared";
 })->name('clear.cache');
 
-// Search route
-Route::get('/search', [SearchController::class, 'index'])
-    ->name('search');
 
 require __DIR__ . '/custom/dashboard.php';
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Home\ListedHostelsController;
+use App\Http\Controllers\Home\SearchController;
 use App\Http\Controllers\Home\SortController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,10 @@ Route::get('/hostels', [ListedHostelsController::class, 'index'])
 
 Route::get('/hostels/{availableHostel:slug}', [ListedHostelsController::class, 'show'])
     ->name('info');
+
+// Search, Sort, Filter Routes
+Route::get('/search', [SearchController::class, 'index'])
+    ->name('search');
 
 Route::get('search(sortByPriceLowestToHighest)', [SortController::class, 'sortByPriceLowToHigh'])
     ->name('low.to.high');
