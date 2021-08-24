@@ -3,9 +3,15 @@
   <div class="container">
     <div class="row pt-5">
       <div class="col-8">
-        <form action="#">
-          <input class="form-control" type="text" placeholder="  Search location apartment..."/>
-          {{-- <i class="fa fa-search" aria-hidden="true"></i> --}}
+        <form action="{{ route('search') }}">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="q" value="{{ $q ?? '' }}" placeholder="Search apartment">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </form>
       </div>
       <div class="col-2">
@@ -209,10 +215,10 @@
             Sort
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Low to High price</a>
-            <a class="dropdown-item" href="#">High to Low price</a>
-            <a class="dropdown-item" href="#">Recently updated</a>
-            <a class="dropdown-item" href="#">Recently added</a>
+            <a class="dropdown-item" href="{{ route('low.to.high') }}">Low to High price</a>
+            <a class="dropdown-item" href="{{ route('high.to.low') }}">High to Low price</a>
+            <a class="dropdown-item" href="{{ route('recently.updated') }}">Recently updated</a>
+            <a class="dropdown-item" href="{{ route('recently.added') }}">Recently added</a>
           </div>
         </span>
       </div>
