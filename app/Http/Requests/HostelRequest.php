@@ -16,7 +16,7 @@ class HostelRequest extends FormRequest
     {
         return true;
     }
-
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -42,17 +42,17 @@ class HostelRequest extends FormRequest
             // 'rules' => 'required',
             'tenantType' => 'required',
             'available' => 'sometimes',
-            'image' => 'required',
-            // 'image' => 'sometimes|mimes:jpeg,png,jpg|max:2048',
+            'coverImage' => 'required|image|mimes:jpeg,png,jpg|max:3072',
+            'images.*' => 'sometimes|image|mimes:jpeg,png,jpg|max:3072',
         ];
     }
-
+    
     public function messages()
     {
         return [
             'hostel_name.required' => 'The Hostel name is required.',
-            'hostel_name.unique'   => 'The Hostel name exists, choose a new name.',
-
+            'hostel_name.unique' => 'The Hostel name exists, choose a new name.',
+            
             'address.required' => 'The Hostel address is required.',
             'state.required' => 'The State is required.',
             'city.required' => 'The City is required.',
@@ -61,7 +61,7 @@ class HostelRequest extends FormRequest
             'amount.required' => 'The Amount is required.',
             'period.required' => 'The Rent Period is required.',
             'tenantType.required' => 'The Tenant Type is required.',
-
+            
             'amenities.required' => 'The Amenities are required.',
             'utilities.required' => 'The Utilities are required.',
             'rules.required' => 'The Rules are required.',
