@@ -6,7 +6,8 @@
         <li class="nav-link"><span class="text-black-50" id="bullet2">o</span> Amenities</li>
         <li class="nav-link"><span class="text-black-50" id="bullet3">o</span> Rules</li>
         <li class="nav-link"><span class="text-black-50" id="bullet4">o</span> Photos & video</li>
-        @if(!$edit)
+        @if($edit ?? '')
+        @else
           <li class="nav-link"><span class="text-black-50" id="bullet5">o</span> Payment</li>
         @endif
       </ul>
@@ -30,29 +31,25 @@
 
         <div class="row">
           <div class="col-6">
-            <label for="state">State</label>
+            <label for="state-dd">State</label>
             <div class="form-label-group">
-              <select name="state" id="state" class="custom-select" autofocus>
-                <option value=""></option>
+              <select name="state" id="state-dd" class="custom-select" autofocus>
+                <option value="">Select State</option>
                 @foreach($states as $state)
                   <option
-                      value="{{ $state->name }}" {{ $state->name === old('state', $hostel->state) ? 'selected' : '' }}>{{ $state->name }}</option>
+                      value="{{ $state->id }}" {{ $state->id === old('state', $hostel->state) ? 'selected' : '' }}>{{ $state->name }}</option>
                 @endforeach
               </select>
             </div>
           </div>
 
           <div class="col-6">
-            <label for="city">City</label>
+            <label for="city-dd">City</label>
             <div class="form-label-group">
-              <select name="city" id="city" class="custom-select" autofocus>
-                <option value=""></option>
-                @foreach($cities as $city)
-                  <option
-                      value="{{ $city->name }}" {{ $city->name === old('city', $hostel->city) ? 'selected' : '' }}>{{ $city->name }}</option>
-                @endforeach
-              </select>
+              <select name="city" id="city-dd" class="custom-select" autofocus></select>
             </div>
+
+
             {{--            <div class="form-label-group">--}}
             {{--              <input type="text" list="cities" id="city" value="" class="form-control" placeholder="City" autofocus>--}}
             {{--              <datalist id="cities">--}}
@@ -244,7 +241,7 @@
 
         <div class="btn" onclick="backToRules()">Go back</div>
 
-        @if ($edit)
+        @if ($edit ?? '')
           <button type="submit" class="btn btn-primary float-right">Update Hostel</button>
         @else
 

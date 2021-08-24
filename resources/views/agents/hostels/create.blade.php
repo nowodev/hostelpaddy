@@ -3,7 +3,7 @@
 @section('title', 'Agent - Create Hostel')
 
 @section('styles')
-  <link type="text/css" href="{{ asset('main/css/form.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('main/css/form.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('content')
@@ -12,20 +12,15 @@
       <p>
         Manage Listing <i class="fa fa-chevron-right"></i> Create hostel
         <span class="float-right">
-          <a href="{{ route('agent.listings.index') }}"><i class="fa-2x far fa-times-circle"></i></a>
+          <a href="{{ route('agent.hostels.index') }}"><i class="fa-2x far fa-times-circle"></i></a>
         </span>
       </p>
     </div>
 
-    <form action="{{ route('agent.listings.store') }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('agent.hostels.store') }}" enctype="multipart/form-data" method="POST">
       @csrf
 
       @include('agents.hostels.form')
-
-
-{{--       <button type="submit" class="btn btn-primary">--}}
-{{--        Add Hostel--}}
-{{--      </button>--}}
 
     </form>
 
@@ -34,4 +29,30 @@
 
 @section('script')
   <script src="{{ asset('main/js/agent/form.js') }}"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('#state-dd').on('change', function() {
+              let idState = this.value;
+              $("#city-dd").html('');
+              $.ajax({
+                  url: "{{ route('cities') }}",
+                  type: "POST",
+                  data: {
+                      state_id: idState,
+                      _token: '{{ csrf_token() }}'
+                  },
+                  dataType: 'json',
+                  success: function(res) {
+                      $('#city-dd').html('<option value="">Select City</option>');
+                      $.each(res.cities, function(key, value) {
+                          $("#city-dd").append('<option value="' + value
+                              .id + '">' + value.name + '</option>');
+                      });
+                  }
+              });
+          });
+      });
+  </script>
+
 @endsection

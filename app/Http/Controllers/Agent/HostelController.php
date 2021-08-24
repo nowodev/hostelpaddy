@@ -12,6 +12,7 @@ use App\Models\Property;
 use App\Models\Rule;
 use App\Models\State;
 use App\Models\Utility;
+use Illuminate\Http\Request;
 
 class HostelController extends Controller
 {
@@ -29,18 +30,24 @@ class HostelController extends Controller
     
     public function create(Hostel $hostel)
     {
-        $cities = City::get();
+//        $cities = City::get();
         $states = State::get();
         $properties = Property::get();
         $amenities = Amenity::get();
         $utilities = Utility::get();
         $rules = Rule::get();
         $periods = Period::get();
-        
+
         return view(
             'agents.hostels.create',
-            compact('hostel', 'cities', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods')
+            compact('hostel', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods')
         );
+    }
+    
+    public function fetchCity(Request $request)
+    {
+        $data['cities'] = City::where("state_id", $request->state_id)->get(["name", "id"]);
+        return response()->json($data);
     }
     
     public function store(HostelRequest $request)
@@ -66,7 +73,7 @@ class HostelController extends Controller
     
     public function show($id)
     {
-        //
+    
     }
     
     public function edit(Hostel $hostel)
