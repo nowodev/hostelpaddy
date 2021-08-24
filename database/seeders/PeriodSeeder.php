@@ -15,8 +15,8 @@ class PeriodSeeder extends Seeder
     public function run()
     {
         $periods = ['Monthly', 'Quarterly', 'Yearly'];
-    
-        foreach($periods as $period) {
+
+        foreach ($periods as $period) {
             DB::table('periods')->insert(['name' => $period]);
         }
     }

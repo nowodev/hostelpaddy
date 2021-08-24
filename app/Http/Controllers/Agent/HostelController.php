@@ -19,14 +19,14 @@ class HostelController extends Controller
     {
         $this->authorizeResource(Hostel::class, 'hostel');
     }
-    
+
     public function index()
     {
         $hostels = Hostel::agent()->where('available', 1)->get();
-        
+
         return view('agents.listing', compact('hostels'));
     }
-    
+
     public function create(Hostel $hostel)
     {
         $cities = City::get();
@@ -36,13 +36,13 @@ class HostelController extends Controller
         $utilities = Utility::get();
         $rules = Rule::get();
         $periods = Period::get();
-        
+
         return view(
             'agents.hostels.create',
             compact('hostel', 'cities', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods')
         );
     }
-    
+
     public function store(HostelRequest $request)
     {
         // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rule) with data
@@ -51,24 +51,24 @@ class HostelController extends Controller
 //            if ($request->hasFile('image')) {
 //                $this->_uploadImage($request, $hostel);
 //            }
-            
+
             $hostel->amenities()->sync($request->amenities);
             $hostel->utilities()->sync($request->utilities);
             $hostel->rules()->sync($request->rules);
-            
+
             notify()->preset('hostel-added');
             return redirect()->route('agent.hostels.index');
         }
-        
+
         return redirect()->back()
             ->with('error', 'A problem occurred');
     }
-    
+
     public function show($id)
     {
         //
     }
-    
+
     public function edit(Hostel $hostel)
     {
         $amenities = Amenity::get();
@@ -78,29 +78,29 @@ class HostelController extends Controller
         $states = State::get();
         $cities = City::get();
         $periods = Period::get();
-        
+
         return view(
             'agents.hostels.edit',
             compact('hostel', 'amenities', 'utilities', 'rules', 'properties', 'states', 'cities', 'periods')
         );
     }
-    
+
     public function update(HostelRequest $request, Hostel $hostel)
     {
         $hostel->update($request->validated());
 //        if ($request->hasFile('image')) {
 //            $this->_uploadImage($request, $hostel);
 //        }
-        
+
         $hostel->amenities()->sync($request->amenities);
         $hostel->utilities()->sync($request->utilities);
         $hostel->rules()->sync($request->rules);
-    
-    
+
+
         notify()->preset('hostel-updated');
         return redirect()->route('agent.hostels.index');
     }
-    
+
     public function destroy(Hostel $hostel)
     {
         $hostel->delete();

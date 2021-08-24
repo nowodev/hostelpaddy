@@ -19,16 +19,16 @@ class AgentController extends Controller
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
             ->Paginate(16);
-        
+
         $location = City::get();
         $properties = Property::get();
         $utilities = Utility::get();
         $rules = Rule::get();
         $amenities = Amenity::get();
-        
+
         return view('agents.index', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
-    
+
     public function settings_account()
     {
         return view('agents.settings.account');
@@ -50,7 +50,7 @@ class AgentController extends Controller
     {
         return view('agents.notification');
     }
-    
+
 //    public function archive()
 //    {
 //        $hostels = Hostel::onlyTrashed()
