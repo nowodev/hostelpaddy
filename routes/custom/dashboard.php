@@ -4,13 +4,12 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
+use App\Http\Controllers\Home\CitiesController;
 use App\Http\Controllers\Student\FavoriteController;
 use App\Http\Controllers\Student\PreferenceController;
-
-// use App\Http\Controllers\Agent\HostelController;
+use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use App\Http\Controllers\Student\SharedHostelController;
 use App\Http\Controllers\Student\StudentController;
-use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,8 +24,6 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
     Route::name('student.')->group(function () {
         Route::get('/', [StudentController::class, 'index'])
             ->name('index');
-        Route::get('/hostels/{availableHostel:slug}', [StudentController::class, 'show'])
-            ->name('info');
         Route::get('/account', [StudentController::class, 'settings_account'])
             ->name('settings.account');
         Route::post('/account/preference', [PreferenceController::class, 'store'])
@@ -51,7 +48,7 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('sharedUnfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
-    
+        
         Route::resource('hostel-mate', SharedHostelController::class);
     });
 });
@@ -83,11 +80,9 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
-    
+        
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
-        Route::get('/hostels/{availableHostel:slug}', [AgentController::class, 'show'])
-            ->name('info');
         Route::get('/account', [AgentController::class, 'settings_account'])
             ->name('settings.account');
         Route::get('/profile', [AgentController::class, 'settings_profile'])
@@ -98,7 +93,11 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
             ->name('notification');
         Route::put('/edit-profile/{agent}', [AgentProfileController::class, 'update'])
             ->name('update');
-    
+        
         Route::resource('hostels', HostelController::class);
     });
 });
+
+
+Route::post('cities', [CitiesController::class, 'fetchCity'])
+    ->name('cities');
