@@ -27,7 +27,7 @@ class CreateHostelsTable extends Migration
             $table->string('period');
             $table->text('tenantType');
             $table->string('image')->nullable();
-            $table->integer('available')->default('0');
+            $table->integer('available')->default('1');
 
             $table->softDeletes();
             $table->timestamps();

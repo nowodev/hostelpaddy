@@ -62,7 +62,7 @@ return [
             'title' => '',
         ],
         'hostel-deleted' => [
-            'message' => 'Hostel added successfully.',
+            'message' => 'Hostel deleted successfully.',
             'type' => 'error',
             'model' => 'toast',
             'title' => '',
