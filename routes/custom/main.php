@@ -13,7 +13,7 @@ Route::get('/hostels/{availableHostel:slug}', [ListedHostelsController::class, '
     ->name('info');
 
 // Search, Sort, Filter Routes
-Route::get('/search', [SearchController::class, 'index'])
+Route::get('search/listedHostels', [SearchController::class, 'index'])
     ->name('search');
 
 Route::get('search(sortByPriceLowestToHighest)', [SortController::class, 'sortByPriceLowToHigh'])
@@ -27,6 +27,9 @@ Route::get('search(sortByRecentlyUpdated)', [SortController::class, 'sortByRecen
 
 Route::get('search(sortByRecentlyAdded)', [SortController::class, 'sortByRecentlyAdded'])
     ->name('recently.added');
+
+Route::get('search/listedAgentHostels', [SearchController::class, 'searchHostelListingAgent'])
+    ->name('agent.hostel.search');
 
 // Static Page Routes
 Route::view('/about', 'frontend.about')->name('about');

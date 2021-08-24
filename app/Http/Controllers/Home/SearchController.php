@@ -32,6 +32,22 @@ class SearchController extends Controller
         $rules = Rule::get();
         $amenities = Amenity::get();
         
-        return view('frontend.search', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities', 'q'));
+        return view('frontend.hostels', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities', 'q'));
+    }
+    
+    public function searchHostelListingAgent(Request $request)
+    {
+        $q = null;
+    
+        if ($request->has('q')) {
+            $q = $request->query(('q'));
+        }
+        
+        $hostels = Hostel::agent()
+            ->where('hostel_name', 'LIKE', "%{$q}%")
+            ->where('available', 1)
+            ->get();
+        
+        return view('agents.listing', compact('hostels', 'q'));
     }
 }

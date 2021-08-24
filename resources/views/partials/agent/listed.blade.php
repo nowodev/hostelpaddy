@@ -2,7 +2,7 @@
 
 
 <div class="row mb-3">
-  @foreach ($hostels as $hostel)
+  @forelse ($hostels as $hostel)
     <div class="col-12 col-md-4 col-lg-4 mb-3">
       <div class="card">
         <div class="row no-gutters">
@@ -35,5 +35,10 @@
         </div>
       </div>
     </div>
-  @endforeach
+  @empty
+
+    <div class="col">
+      <h5 class="font-weight-bold">There are no available hostels currently. Please check back later.</h5>
+    </div>
+  @endforelse
 </div>
