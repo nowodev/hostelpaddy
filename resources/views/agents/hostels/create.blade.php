@@ -1,6 +1,6 @@
 @extends('layouts.agents.app')
 
-@section('title', 'Agent - List Hostel')
+@section('title', 'Agent - Create Hostel')
 
 @section('styles')
   <link type="text/css" href="{{ asset('main/css/form.css') }}" rel="stylesheet" />
@@ -10,7 +10,7 @@
   <div class="container">
     <div class="mb-3">
       <p>
-        Manage Listing <i class="fa fa-chevron-right"></i> Listed hostel
+        Manage Listing <i class="fa fa-chevron-right"></i> Create hostel
         <span class="float-right">
           <a href="{{ route('agent.listings.index') }}"><i class="fa-2x far fa-times-circle"></i></a>
         </span>
