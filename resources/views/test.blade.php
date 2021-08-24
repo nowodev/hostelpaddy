@@ -100,6 +100,9 @@
   <input type="file" class="filepond" name="image[]" multiple data-allow-reorder="true"
          data-max-file-size="3MB" data-max-files="3">
 
+
+  <input type="file" class="filepond" name="avatar" data-max-file-size="3MB">
+
   {{-- Print out message from controller --}}
   <x:notify-messages/>
   {{-- Print out message from controller --}}
@@ -149,30 +152,34 @@
   </script>
 
   <script>
-      FilePond.registerPlugin(
-          FilePondPluginImagePreview,
-          FilePondPluginImageExifOrientation,
-          FilePondPluginFileValidateSize,
-          FilePondPluginFileValidateType,
-          FilePondPluginImageCrop,
-          FilePondPluginImageEdit,
-          FilePondPluginImageResize
-      );
-      // Get a reference to the file input element
-      const inputElement = document.querySelector('input[type="file"]');
+      // FilePond.registerPlugin(
+      //     FilePondPluginImagePreview,
+      //     FilePondPluginImageExifOrientation,
+      //     FilePondPluginFileValidateSize,
+      //     FilePondPluginFileValidateType,
+      //     FilePondPluginImageCrop,
+      //     FilePondPluginImageEdit,
+      //     FilePondPluginImageResize
+      // );
+      // // Get a reference to the file input element
+      // const inputElement = document.querySelector('input[type="file"]');
+      //
+      // // Create the FilePond instance
+      // const pond = FilePond.create(inputElement, {
+      //     allowMultiple: true,
+      //     allowReorder: true,
+      //     checkValidity: true,
+      //     itemInsertLocation: 'after',
+      //     dropOnPage: true,
+      //     dropValidations: true,
+      // });
 
       // Create the FilePond instance
-      const pond = FilePond.create(inputElement, {
-          allowMultiple: true,
-          allowReorder: true,
-          checkValidity: true,
-          itemInsertLocation: 'after',
-          dropOnPage: true,
-          dropValidations: true,
-      });
+      FilePond.create(document.querySelector('input[name="avatar"]'));
+      FilePond.create(document.querySelector('input[name="image[]"]'));
 
       // Easy console access for testing purposes
-      window.pond = pond;
+      // window.pond = pond;
   </script>
 
 @yield('script')
