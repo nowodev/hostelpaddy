@@ -14,7 +14,14 @@
           @include('partials.main.favorite')
 
           <div class="px-3 pb-3" style="position: relative;">
-            <sub class="mb-1">{{ $hostel->city }}, {{ $hostel->state }}</sub>
+            <sub class="mb-1">
+              @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
+                {{ $city->name }},
+              @endforeach
+              @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
+                {{ $state->name }}
+              @endforeach
+            </sub>
             <br>
             <span class="card-title font-weight-bold">{{ $hostel->hostel_name }}</span>
             <br>

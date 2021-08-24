@@ -99,7 +99,7 @@
 
   <!-- Vendor scripts -->
   @notifyJs
-  <script src="{{ asset('main/vendor/jquery/jquery-3.5.1.slim.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/jquery/jquery-3.4.1.min.js') }}"></script>
   <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
   <script src="{{ asset('js/share.js') }}"></script>

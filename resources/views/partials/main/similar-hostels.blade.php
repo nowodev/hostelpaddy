@@ -21,7 +21,13 @@
                     @endauth
 
                     <div class="p-0" style="position: relative;">
-                      <p class="card-text text-primary location mt-2">{{ $others->city }}, {{ $others->state }}
+                      <p class="card-text text-primary location mt-2">
+                          @foreach (\App\Models\City::where('id', $others->city)->get() as $city)
+                            {{ $city->name }},
+                          @endforeach
+                          @foreach (\App\Models\State::where('id', $others->state)->get() as $state)
+                            {{ $state->name }}
+                          @endforeach
                       </p>
                       <h5 class="card-title text-dark h6 my-0"><b>The {{ $others->hostel_name }} lodge</b></h5>
                       <p class="card-subtitle text-secondary mt-0">{{ $others->description }}</p>

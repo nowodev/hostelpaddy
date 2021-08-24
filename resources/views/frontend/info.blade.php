@@ -111,7 +111,14 @@
       </div>
       <div class="row pt-3">
         <div class="col-12">
-          <span class="card-text text-dark text-bold mr-4">{{ $hostel->city }}, {{ $hostel->state }}</span>
+          <span class="card-text text-dark text-bold mr-4">
+              @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
+                {{ $city->name }},
+              @endforeach
+              @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
+                {{ $state->name }}
+              @endforeach
+          </span>
           <a href="#" class="text-decoration-underline">
             <span class="card-text text-primary text-bold">Watch video</span>
           </a>
