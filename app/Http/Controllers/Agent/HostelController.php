@@ -7,6 +7,7 @@ use App\Http\Requests\HostelRequest;
 use App\Models\Amenity;
 use App\Models\City;
 use App\Models\Hostel;
+use App\Models\Image as ModelsImage;
 use App\Models\Period;
 use App\Models\Property;
 use App\Models\Rule;
@@ -124,6 +125,12 @@ class HostelController extends Controller
 
     public function destroy(Hostel $hostel)
     {
+        $deleteMultipleImages = ModelsImage::where('hostel_id', $hostel->id)->get();
+        foreach ($deleteMultipleImages as $deleteMultipleImage) {
+            unlink(storage_path('app/public/hostels/' . $deleteMultipleImage->image));
+        }
+
+        unlink(storage_path('app/public/hostels/' . $hostel->coverImage));
         $hostel->amenities()->detach($hostel->amenities);
         $hostel->utilities()->detach($hostel->utilities);
         $hostel->rules()->detach($hostel->rules);
