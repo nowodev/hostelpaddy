@@ -18,9 +18,7 @@ class ListedHostelsController extends Controller
 {
     public function index()
     {
-        $hostels = Hostel::orderBy('id', 'DESC')
-            ->available()
-            ->Paginate(16);
+        $hostels = Hostel::available()->Paginate(16);
 
         $location = City::get();
         $properties = Property::get();
