@@ -111,8 +111,8 @@
 
           <div class="container">
             <div class="row">
-              <div class="col-12 dropzone" action="" id="myDropzone">
-                <input id="image" type="file" class="" name="image" required aria-required="true">
+              <div class="col-12 dropzone">
+                <input id="image" type="file" class="customFileUpload" name="image" required aria-required="true">
               </div>
               <div class="row">
                 <div class="col-12">

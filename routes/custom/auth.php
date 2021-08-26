@@ -10,15 +10,15 @@ Route::get('/register/student', [StudentRegisterController::class, 'create'])
     ->middleware('guest')
     ->name('student.register');
 
-Route::post('/student/register', [StudentRegisterController::class, 'store'])
+Route::post('/register/student', [StudentRegisterController::class, 'store'])
     ->middleware('guest');
 
 // AGENT REGISTERATION CONTROLLER
-Route::get('/register/agent/', [AgentRegisterController::class, 'create'])
+Route::get('/register/agent', [AgentRegisterController::class, 'create'])
     ->middleware('guest')
     ->name('agent.register');
 
-Route::post('/register/agent/', [AgentRegisterController::class, 'store'])
+Route::post('/register/agent', [AgentRegisterController::class, 'store'])
     ->middleware('guest');
 
 // GENERAL LOGIN CONTROLLER

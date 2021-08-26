@@ -76,7 +76,8 @@
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/linearicons/css/linearicons.min.css') }}" />
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/fontawesome/css/fontawesome.min.css') }}" />
   <link type="text/css" rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}" />
-
+  <link rel="stylesheet" href="{{ asset('main/fileuploader/font/font-fileuploader.css') }}">
+  <link rel="stylesheet" href="{{ asset('main/fileuploader/jquery.fileuploader.min.css') }}">
 
   <!-- Vendor scripts -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -120,7 +121,21 @@
   <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
   <script src="{{ asset('main/js/script.js') }}"></script>
+  <script src="{{ asset('main/fileuploader/jquery.fileuploader.min.js') }}"></script>
   @yield('script')
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('input.customFileUpload').fileuploader({
+            // Options will go here
+            limit: 1,
+            maxSize: 3,
+            fileMaxSize: 3,
+            extensions: ['jpg', 'png', 'jpeg'],
+            theme: 'thumbnails',
+        });
+    });
+</script>
 </body>
 
 </html>
