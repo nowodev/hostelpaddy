@@ -64,7 +64,7 @@
   <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
 
   <!-- Site Verifications -->
-  <meta name="google-site-verification" content=""/>
+  <meta name="google-site-verification" content="" />
   <meta name="google-analytics" content="UA-XXXXXX-X">
 
   <!-- Vendor stylesheets -->
@@ -126,16 +126,16 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-        $('input.customFileUpload').fileuploader({
-            // Options will go here
-            limit: 1,
-            maxSize: 3,
-            fileMaxSize: 3,
-            extensions: ['jpg', 'png', 'jpeg'],
-            theme: 'thumbnails',
-        });
+      $('input.customFileUpload').fileuploader({
+        // Options will go here
+        limit: 1,
+        maxSize: 3,
+        fileMaxSize: 3,
+        extensions: ['jpg', 'png', 'jpeg'],
+        theme: 'thumbnails',
+      });
     });
-</script>
+  </script>
 </body>
 
 </html>

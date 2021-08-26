@@ -20,7 +20,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no,
             width=device-width, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="title" content="HostelPaddy - Home">
   <meta name="author" content="@Eunit">
   <meta name="description" content=" ">
@@ -66,118 +66,77 @@
   <link rel="shortcut icon" href="{{ asset('main/img/logo.png') }}" type="image/x-icon">
 
   <!-- Site Verifications -->
-  <meta name="google-site-verification" content=""/>
+  <meta name="google-site-verification" content="" />
   <meta name="google-analytics" content="UA-XXXXXX-X">
 
   <!-- Vendor scripts -->
   @notifyCss
-  {{--  Filepond --}}
-  <link rel="stylesheet" href="{{ asset('css/filepond/filepond.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-preview.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/filepond/filepond-plugin-image-edit.css') }}">
-  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet"/>
-  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
-  <link href="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css" rel="stylesheet"/>
-
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
-  {{--  <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}">--}}
+  {{-- <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}"> --}}
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/normalize/css/normalize.min.css') }}">
   <link type="text/css" rel="stylesheet"
-        href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
+    href="{{ asset('main/vendor/open-iconic-master/font/css/open-iconic-bootstrap.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('main/css/agent/dropzone.min.css') }}" />
 
+  <link rel="stylesheet" href="{{ asset('main/fileuploader/font/font-fileuploader.css') }}">
+  <link rel="stylesheet" href="{{ asset('main/fileuploader/jquery.fileuploader.min.css') }}">
   <!-- Default Stylesheet -->
-  <link type="text/css" href="{{ asset('main/css/student/styles.css') }}" rel="stylesheet"/>
+  <link type="text/css" href="{{ asset('main/css/student/styles.css') }}" rel="stylesheet" />
   @yield('styles')
 </head>
 
 
 <body>
-@include('layouts.agents.navigation')
+  @include('layouts.agents.navigation')
 
-{{-- Print out message from controller --}}
-<x:notify-messages/>
-{{-- Print out message from controller --}}
-
-
-@yield('content')
+  {{-- Print out message from controller --}}
+  <x:notify-messages />
+  {{-- Print out message from controller --}}
 
 
-@include('layouts.agents.footer')
+  @yield('content')
 
-<!-- Vendor scripts -->
-@notifyJs
-{{--Filepond --}}
 
-<script src="{{ asset('js/filepond/filepond-plugin-image-preview.js') }}'"></script>
-<script src="{{ asset('js/filepond/filepond-plugin-image-resize.js') }}'"></script>
-<script src="{{ asset('js/filepond/filepond-plugin-image-exif-orientation.js') }}">
-</script>
-<script src="{{ asset('js/filepond/filepond-plugin-file-validate-size.js') }}'">
-</script>
-<script src="{{ asset('js/filepond/filepond-plugin-file-validate-type.js') }}'">
-</script>
-<script src="{{ asset('js/filepond/filepond-plugin-image-crop.js') }}"></script>
-<script src="{{ asset('js/filepond/filepond-plugin-image-edit.js') }}"></script>
-<script src="{{ asset('js/filepond/filepond.js') }}"></script>
-<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
-</script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js">
-</script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js">
-</script>
-<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
-<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+  @include('layouts.agents.footer')
 
-<script src="{{ asset('main/vendor/jquery/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
+  <!-- Vendor scripts -->
+  @notifyJs
+  <script src="{{ asset('main/vendor/jquery/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
+  <script src="{{ asset('main/fileuploader/jquery.fileuploader.min.js') }}"></script>
 
-<script>
+  <script>
     let copyRight = document.getElementById("copyright"),
-        date = new Date(),
-        copyrightYear = date.getFullYear();
+      date = new Date(),
+      copyrightYear = date.getFullYear();
     copyRight.innerText = copyrightYear;
-</script>
+  </script>
 
-{{--<script>--}}
-{{--    FilePond.registerPlugin(--}}
-{{--        FilePondPluginImagePreview,--}}
-{{--        FilePondPluginImageExifOrientation,--}}
-{{--        FilePondPluginFileValidateSize,--}}
-{{--        FilePondPluginFileValidateType,--}}
-{{--        FilePondPluginImageCrop,--}}
-{{--        FilePondPluginImageEdit,--}}
-{{--        FilePondPluginImageResize--}}
-{{--    );--}}
-{{--    // Get a reference to the file input element--}}
-{{--    const inputElement = document.querySelector('input[type="file"]');--}}
-{{--    // Create the FilePond instance--}}
-{{--    const pond = FilePond.create(inputElement, {--}}
-{{--        allowMultiple: true,--}}
-{{--        allowReorder: true,--}}
-{{--        checkValidity: true,--}}
-{{--        itemInsertLocation: 'after',--}}
-{{--        dropOnPage: true,--}}
-{{--        dropValidations: true,--}}
-{{--    });--}}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('input.coverImage').fileuploader({
+        // Options will go here
+        limit: 1,
+        maxSize: 3,
+        fileMaxSize: 5,
+        extensions: ['jpg', 'png', 'jpeg'],
+        theme: 'thumbnails',
+      });
 
-{{--    // Easy console access for testing purposes--}}
-{{--    window.pond = pond;--}}
-{{--</script>--}}
+      $('input.multipleImages').fileuploader({
+        // Options will go here
+        limit: 4,
+        maxSize: 3,
+        fileMaxSize: 14,
+        extensions: ['jpg', 'png', 'jpeg'],
+        theme: 'thumbnails',
+      });
+    });
+  </script>
 
-<script>
-    // const inputElement = document.querySelector('input[type="file"]');
-    // const pond = FilePond.create(inputElement);
-
-    // FilePond.create(document.querySelector('input[name="image"]'));
-    // FilePond.create(document.querySelector('input[name="gallery[]"]'));
-</script>
-
-@yield('script')
+  @yield('script')
 </body>
 
 </html>
