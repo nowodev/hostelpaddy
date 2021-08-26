@@ -6,7 +6,7 @@
     <div class="col-12 col-md-4 col-lg-4 mb-3">
       <div class="card">
         <div class="row no-gutters">
-          <img class="card-pill-img card-img-top img-fluid" src="{{ asset('main/img/hostel.png') }}" alt="">
+          <img class="card-pill-img card-img-top img-fluid" src="{{ $hostel->main_image }}" alt="">
           <div class="col">
             <span class="card-body fs-6">
               <p class="card-text">{{ $hostel->hostel_name }}</p>

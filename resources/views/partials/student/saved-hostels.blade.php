@@ -8,7 +8,7 @@
     @forelse ($favoriteHostels as $hostel)
       <div class="col-6 col-md-4 col-lg-3 mb-3">
         <div class="card">
-          <img class="card-img-top img-fluid px-2 pt-2" src="{{ asset('main/img/hostel2.png') }}" alt="Card image">
+          <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->main_image }}" alt="Card image">
           <div class="card-img-overlay">
             <form action="{{ route('student.unfave', [$hostel]) }}" method="POST" class="inline-flex float-right">
               @csrf
@@ -20,7 +20,14 @@
           </div>
 
           <div class="px-3 pb-3" style="position: relative;">
-            <sub class="mb-1">{{ $hostel->city }}, {{ $hostel->state }}</sub>
+            <sub class="mb-1">
+              @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
+                {{ $city->name }},
+              @endforeach
+              @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
+                {{ $state->name }}
+              @endforeach
+            </sub>
             <br>
             <span class="card-title font-weight-bold">{{ $hostel->hostel_name }}</span>
             <br>

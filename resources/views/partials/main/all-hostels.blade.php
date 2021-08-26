@@ -9,7 +9,8 @@
     @forelse ($hostels as $hostel)
       <div class="col-6 col-md-4 col-lg-3 mb-3">
         <div class="card">
-          <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->thumbnail }}" alt="Card image">
+
+          <img class="card-img-top img-fluid px-2 pt-2" src="{{ $hostel->main_image }}" alt="Card image">
 
           @include('partials.main.favorite')
 

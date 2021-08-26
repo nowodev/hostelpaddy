@@ -21,18 +21,19 @@ class ListedHostelsController extends Controller
         $hostels = Hostel::orderBy('id', 'DESC')
             ->available()
             ->Paginate(16);
-        
+
         $location = City::get();
         $properties = Property::get();
         $utilities = Utility::get();
         $rules = Rule::get();
         $amenities = Amenity::get();
-        
+
         return view('frontend.hostels', compact('hostels', 'location', 'properties', 'utilities', 'rules', 'amenities'));
     }
-    
+
     public function show(Hostel $hostel)
     {
+        $hostel->with('images');
         $agent = Agent::find($hostel->agent_id);
         $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
         $shareComponent = \Share::currentPage()
@@ -41,7 +42,7 @@ class ListedHostelsController extends Controller
             ->linkedin()
             ->telegram()
             ->whatsapp();
-        
+
         return view('frontend.info', compact('hostel', 'agent', 'otherHostels', 'shareComponent'));
     }
 }

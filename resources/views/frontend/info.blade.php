@@ -1,28 +1,29 @@
 @extends('layouts.main.app')
 
 @section('styles')
-  <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet"/>
+  <link type="text/css" href="{{ asset('main/css/homestyle.css') }}" rel="stylesheet" />
   <style type="text/css">
-      .click li {
-          list-style: none;
-          /*background: #e2e2e2;*/
-          margin-left: 5px;
-          text-align: center;
-          border-radius: 5px;
-      }
+    .click li {
+      list-style: none;
+      /*background: #e2e2e2;*/
+      margin-left: 5px;
+      text-align: center;
+      border-radius: 5px;
+    }
 
-      .click li span {
-          font-size: 20px;
-      }
+    .click li span {
+      font-size: 20px;
+    }
 
-      .click ul li {
-          display: inline-block;
-          padding: 10px 10px 5px;
-      }
+    .click ul li {
+      display: inline-block;
+      padding: 10px 10px 5px;
+    }
 
-      #social-links {
-          float: left;
-      }
+    #social-links {
+      float: left;
+    }
+
   </style>
 @endsection
 
@@ -48,8 +49,8 @@
                 @csrf
                 @method('PUT')
                 <button>
-                  {{--                <img src="{{ asset('main/img/love.png') }}" alt="Card image cap">--}}
-                  <img src="{{ asset('main/img/save.png') }}" alt="save" class="img-fluid"/>
+                  {{-- <img src="{{ asset('main/img/love.png') }}" alt="Card image cap"> --}}
+                  <img src="{{ asset('main/img/save.png') }}" alt="save" class="img-fluid" />
                 </button>
               </form>
             @endif
@@ -70,7 +71,7 @@
       @endauth
 
       <div class="mx-3 click">
-        <img src="{{ asset('main/img/share.png') }}" alt="share" class="img-fluid clear-fix float-left"/>
+        <img src="{{ asset('main/img/share.png') }}" alt="share" class="img-fluid clear-fix float-left" />
         {!! $shareComponent !!}
       </div>
     </div>
@@ -79,25 +80,28 @@
         <div id="carousel1" class="carousel slide position-relative d-md-none" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="{{ asset('main/img/hostel.png') }}" alt="First slide">
+              <img class="d-block w-100" src="{{ $hostel->main_image }}" alt="First slide">
             </div>
+
+            @foreach ($hostel->images as $image)
             <div class="carousel-item">
-              <img class="d-block w-100" src="{{ asset('main/img/hostel.png') }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="{{ asset('main/img/hostel.png') }}" alt="Third slide">
-            </div>
-          </div>
-          <div class="position-absolute identifier">
-            <h3 class="h3">1/5</h3>
+                  <img class="d-block w-100 rounded" src="{{ asset("storage/hostels/$image->image") }}" alt="Hostel Images">
+              </div>
+            @endforeach
           </div>
         </div>
         <div class="d-none d-md-flex">
           <div class="one" width="">
-            <img class="main w-100 img-fluid rounded" src="{{ $hostel->thumbnail }}" alt="First slide">
+            <img class="main w-100 img-fluid rounded" src="{{ $hostel->main_image }}" alt="First slide">
           </div>
           <div class="two mx-auto">
-            <div class="side">
+            @foreach ($hostel->images as $image)
+              <div class="side">
+                <img class="rounded" src="{{ asset("storage/hostels/$image->image") }}" alt="Hostel Images">
+              </div>
+            @endforeach
+
+            {{-- <div class="side">
               <img class="" src="{{ asset('main/img/Rectangle 157.png') }}" alt="First slide">
             </div>
             <div class="side">
@@ -108,14 +112,14 @@
             </div>
             <div class="">
               <img class="" src="{{ asset('main/img/Rectangle 161.png') }}" alt="First slide">
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
       <div class="row pt-3">
         <div class="col-12">
           <span class="card-text text-dark text-bold mr-4">
-              @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
+            @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
               {{ $city->name }},
             @endforeach
             @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
@@ -123,16 +127,16 @@
             @endforeach
           </span>
 
-          {{--          Video should probably be a later feature--}}
-          {{--          <a href="#" class="text-decoration-underline">--}}
-          {{--            <span class="card-text text-primary text-bold">Watch video</span>--}}
-          {{--          </a>--}}
+          {{-- Video should probably be a later feature --}}
+          {{-- <a href="#" class="text-decoration-underline"> --}}
+          {{-- <span class="card-text text-primary text-bold">Watch video</span> --}}
+          {{-- </a> --}}
 
           <h5 class="card-title text-dark h5 mt-2 head">The {{ $hostel->hostel_name }} lodge</h5>
           <p class="card-subtitle lead">{{ $hostel->description }}</p>
         </div>
         <div class="col-12 my-2">
-          <hr class=""/>
+          <hr class="" />
         </div>
         <div class="col-12">
           <div class="d-flex flex-wrap">
@@ -184,7 +188,7 @@
   <div class="container mt-5">
     <h2 class="h5 mb-3"><b>Location</b></h2>
     <p class="mb-md-3">{{ $hostel->address }}.</p>
-    <img width="80%" src="{{ asset('main/img/location.png') }}" alt="location"/>
+    <img width="80%" src="{{ asset('main/img/location.png') }}" alt="location" />
   </div>
 
   <!-- House Owner -->
@@ -198,14 +202,16 @@
 
       <div class="col-8 col-md-10 mt-1 mt-md-4 pt-md-2">
         <div class="d-flex align-content-center mb-3">
-          <img src="{{ asset('main/img/call.png') }}" alt="" class="img-fluid"> <span class="my-auto verify">&nbsp;08168854521</span>
+          <img src="{{ asset('main/img/call.png') }}" alt="" class="img-fluid"> <span
+            class="my-auto verify">&nbsp;08168854521</span>
         </div>
         <div class="d-flex align-content-center mb-3">
           <img src="{{ asset('main/img/time.png') }}" alt="" class="img-fluid"> <span
-              class="my-auto verify">&nbsp;Joined {{ $agent->joindate }}</span>
+            class="my-auto verify">&nbsp;Joined {{ $agent->joindate }}</span>
         </div>
         <div class="d-flex align-content-center">
-          <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span class="my-auto verify">&nbsp;Verified</span>
+          <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span
+            class="my-auto verify">&nbsp;Verified</span>
         </div>
       </div>
 
@@ -219,7 +225,7 @@
   </div>
 
   <div class="container my-2">
-    <hr class=""/>
+    <hr class="" />
   </div>
 
   {{-- Similar Hostels --}}
@@ -241,4 +247,3 @@
     </div>
   @endauth
 @endsection
-
