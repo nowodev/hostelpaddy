@@ -1,5 +1,5 @@
 @extends('layouts.onboarding.app')
-@section('title', 'HostelPaddy - Onboarding')
+@section('title', 'HostelPaddy - Sign Up')
 
 @section('content')
   @include('layouts.onboarding.navigation')

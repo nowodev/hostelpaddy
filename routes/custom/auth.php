@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\AgentRegisterController;
 use Illuminate\Support\Facades\Route;
 
 // STUDENT REGISTERATION CONTROLLER
-Route::get('/student/register', [StudentRegisterController::class, 'create'])
+Route::get('/register/student', [StudentRegisterController::class, 'create'])
     ->middleware('guest')
     ->name('student.register');
 
@@ -14,11 +14,11 @@ Route::post('/student/register', [StudentRegisterController::class, 'store'])
     ->middleware('guest');
 
 // AGENT REGISTERATION CONTROLLER
-Route::get('/agent/register', [AgentRegisterController::class, 'create'])
+Route::get('/register/agent/', [AgentRegisterController::class, 'create'])
     ->middleware('guest')
     ->name('agent.register');
 
-Route::post('/agent/register', [AgentRegisterController::class, 'store'])
+Route::post('/register/agent/', [AgentRegisterController::class, 'store'])
     ->middleware('guest');
 
 // GENERAL LOGIN CONTROLLER
