@@ -21,6 +21,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
         Route::get('hostels', [AdminController::class, 'hostels'])->name('hostels');
+        Route::get('hostels/available}', [AdminController::class, 'changeHostelStatus'])->name('hostels.availablity');
         Route::get('users/agents', [AdminController::class, 'agents'])->name('users.agents');
         Route::get('users/students', [AdminController::class, 'students'])->name('users.students');
         Route::resources([

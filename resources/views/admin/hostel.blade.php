@@ -37,6 +37,10 @@
               </td>
               <td class="px-4 py-3">{{ $hostel->address }}</td>
               <td class="px-4 py-3">
+                <div class="form-check form-switch">
+                  <input data-id="{{ $hostel->id }}" class="form-check-input" type="checkbox"
+                    {{ $hostel->available ? 'checked' : '' }}>
+                </div>
                 @if ($hostel->available == 0)
                   <livewire:pending message="Unavailable" />
                 @elseif ($hostel->available == 1)
@@ -62,4 +66,28 @@
       {{ $hostels->withQueryString()->links() }}
     </div>
   </section>
+@endsection
+
+@section('script')
+  <script>
+    $(function() {
+      $('.form-check-input').change(function() {
+        var available = $(this).prop('checked') == true ? 1 : 0;
+        var id = $(this).data('id');
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: "{{ route('admin.hostels.availablity') }}",
+          data: {
+            'available': available,
+            'id': id
+          },
+          success: function(data) {
+            location.reload();
+            console.log(data.success)
+          }
+        });
+      })
+    })
+  </script>
 @endsection
