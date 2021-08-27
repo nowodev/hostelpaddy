@@ -50,7 +50,7 @@
     </div>
   </section>
 
-  {{-- add amenity modal --}}
+  {{-- add utiloty modal --}}
   <div class="modal fade" id="featureModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="featureModal"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -61,10 +61,10 @@
         </div>
         <div class="modal-body">
           <form action="{{ route('admin.amenities.store') }}" method="POST">
-            {{-- @csrf --}}
+            @csrf
             <div class="mb-3">
-              <label for="featureName" class="col-form-label">Name:</label>
-              <input type="text" class="form-control" id="amenityName" name="name">
+              <label for="utilityName" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="utilityName" name="name">
             </div>
         </div>
         <div class="modal-footer">
@@ -75,25 +75,4 @@
       </div>
     </div>
   </div>
-@endsection
-
-@section('script')
-  <script>
-    var featureModal = document.getElementById('featureModal')
-    featureModal.addEventListener('show.bs.modal', function(event) {
-      // Button that triggered the modal
-      var button = event.relatedTarget
-      // Extract info from data-bs-* attributes
-      var recipient = button.getAttribute('data-bs-whatever')
-      // If necessary, you could initiate an AJAX request here
-      // and then do the updating in a callback.
-      //
-      // Update the modal's content.
-      var modalTitle = featureModal.querySelector('.modal-title')
-      var modalBodyInput = featureModal.querySelector('.modal-body input')
-
-      modalTitle.textContent = 'Add ' + recipient
-      modalBodyInput.value = recipient
-    })
-  </script>
 @endsection

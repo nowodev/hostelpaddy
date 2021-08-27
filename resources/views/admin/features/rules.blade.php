@@ -8,7 +8,7 @@
         </div>
         <div class="align-self-center">
           <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#featureModal"
-            data-bs-whatever="Rules">Add Rule</button>
+            data-bs-whatever="Rule">Add Rule</button>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
         </div>
         <div class="modal-body">
           <form action="{{ route('admin.rules.store') }}" method="POST">
-            {{-- @csrf --}}
+            @csrf
             <div class="mb-3">
               <label for="ruleName" class="col-form-label">Name:</label>
               <input type="text" class="form-control" id="ruleName" name="name">

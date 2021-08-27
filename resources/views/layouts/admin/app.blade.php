@@ -32,7 +32,7 @@
 
   @yield('script')
 
-  {{-- <script>
+  <script>
     var featureModal = document.getElementById('featureModal')
     featureModal.addEventListener('show.bs.modal', function(event) {
       // Button that triggered the modal
@@ -49,7 +49,7 @@
       modalTitle.textContent = 'Add ' + recipient
       modalBodyInput.value = recipient
     })
-  </script> --}}
+  </script>
 </body>
 
 </html>
