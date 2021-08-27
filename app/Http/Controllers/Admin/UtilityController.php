@@ -10,17 +10,22 @@ class UtilityController extends Controller
 {
     public function index()
     {
-        $utilities = Utility::Paginate(5, ['*'], 'utilities');
+        $utilities = Utility::Paginate(10, ['*'], 'utilities');
 
         return view('admin.features.utility', compact('utilities'));
     }
 
     public function store(Request $request)
     {
-        $credentials = $request->validate(['name' => 'required|string']);
-        Utility::create($credentials);
+        if ($request) {
+            $credentials = $request->validate(['name' => 'required|string|unique:utilities']);
+            Utility::create($credentials);
 
-        notify()->preset('feature-added');
+            notify()->preset('feature-added');
+            return redirect()->back();
+        }
+
+        notify()->preset('general-error');
         return redirect()->back();
     }
 

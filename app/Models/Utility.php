@@ -9,6 +9,9 @@ class Utility extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+    public $timestamps = false;
+
     public function hostels()
     {
         return $this->belongsToMany(Hostel::class);

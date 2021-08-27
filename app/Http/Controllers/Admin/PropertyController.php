@@ -10,17 +10,22 @@ class PropertyController extends Controller
 {
     public function index()
     {
-        $properties = Property::Paginate(5, ['*'], 'properties');
+        $properties = Property::Paginate(10, ['*'], 'properties');
 
         return view('admin.features.property', compact('properties'));
     }
 
     public function store(Request $request)
     {
-        $credentials = $request->validate(['name' => 'required|string']);
-        Property::create($credentials);
+        if ($request) {
+            $credentials = $request->validate(['name' => 'required|string|unique:properties']);
+            Property::create($credentials);
 
-        notify()->preset('feature-added');
+            notify()->preset('feature-added');
+            return redirect()->back();
+        }
+
+        notify()->preset('general-error');
         return redirect()->back();
     }
 

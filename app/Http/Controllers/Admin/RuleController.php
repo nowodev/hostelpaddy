@@ -10,17 +10,22 @@ class RuleController extends Controller
 {
     public function index()
     {
-        $rules = Rule::Paginate(5, ['*'], 'rules');
+        $rules = Rule::Paginate(10, ['*'], 'rules');
 
         return view('admin.features.rules', compact('rules'));
     }
 
     public function store(Request $request)
     {
-        $credentials = $request->validate(['name' => 'required|string']);
-        Rule::create($credentials);
+        if ($request) {
+            $credentials = $request->validate(['name' => 'required|string|unique:rules']);
+            Rule::create($credentials);
 
-        notify()->preset('feature-added');
+            notify()->preset('feature-added');
+            return redirect()->back();
+        }
+
+        notify()->preset('general-error');
         return redirect()->back();
     }
 

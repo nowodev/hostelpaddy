@@ -10,17 +10,22 @@ class AmenityController extends Controller
 {
     public function index()
     {
-        $amenities = Amenity::Paginate(5, ['*'], 'amenities');
+        $amenities = Amenity::Paginate(10, ['*'], 'amenities');
 
         return view('admin.features.amenity', compact('amenities'));
     }
 
     public function store(Request $request)
     {
-        $credentials = $request->validate(['name' => 'required|string']);
-        Amenity::create($credentials);
+        if ($request) {
+            $credentials = $request->validate(['name' => 'required|string|unique:amenities']);
+            Amenity::create($credentials);
 
-        notify()->preset('feature-added');
+            notify()->preset('feature-added');
+            return redirect()->back();
+        }
+
+        notify()->preset('general-error');
         return redirect()->back();
     }
 
