@@ -16,7 +16,6 @@ use App\Http\Controllers\Student\SharedHostelController;
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
 
-
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
@@ -94,7 +93,6 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
-
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
         Route::get('/account', [AgentController::class, 'settings_account'])
