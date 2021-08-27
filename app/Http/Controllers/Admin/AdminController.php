@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\Utility;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -89,6 +90,16 @@ class AdminController extends Controller
         $hostels = Hostel::Paginate(5, ['*'], 'hostels');
 
         return view('admin.hostel', compact('hostels'));
+    }
+
+    public function changeHostelStatus(Request $request)
+    {
+        $hostel = Hostel::find($request->id);
+        $hostel->available = $request->available;
+        $hostel->update();
+
+        notify()->preset('available');
+        return redirect()->back();
     }
 
     public function agents()

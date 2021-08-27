@@ -26,7 +26,7 @@ class HostelController extends Controller
 
     public function index()
     {
-        $hostels = Hostel::agent()->where('available', 1)->get();
+        $hostels = Hostel::agent()->get();
 
         return view('agents.listing', compact('hostels'));
     }
@@ -44,12 +44,6 @@ class HostelController extends Controller
             'agents.hostels.create',
             compact('hostel', 'states', 'properties', 'amenities', 'utilities', 'rules', 'periods')
         );
-    }
-
-    public function fetchCity(Request $request)
-    {
-        $data['cities'] = City::where("state_id", $request->state_id)->get(["name", "id"]);
-        return response()->json($data);
     }
 
     public function store(HostelRequest $request)

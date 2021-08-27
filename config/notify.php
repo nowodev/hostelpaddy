@@ -121,6 +121,12 @@ return [
             'model' => 'toast',
             'title' => '',
         ],
+        'available' => [
+            'message' => 'Hostel availabilty updated successfully.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
     ],
 
 ];
