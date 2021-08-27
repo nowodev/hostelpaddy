@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\OldAdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
@@ -15,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])
-        ->name('dashboard');
+    Route::get('old', [OldAdminController::class, 'index'])
+        ->name('old.dashboard');
+
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 });
 
 // Students Route
@@ -48,7 +51,7 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('sharedUnfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
-        
+
         Route::resource('hostel-mate', SharedHostelController::class);
     });
 });
@@ -80,7 +83,7 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
 
 Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
     Route::name('agent.')->group(function () {
-        
+
         Route::get('/', [AgentController::class, 'index'])
             ->name('index');
         Route::get('/account', [AgentController::class, 'settings_account'])
@@ -93,7 +96,7 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
             ->name('notification');
         Route::put('/edit-profile/{agent}', [AgentProfileController::class, 'update'])
             ->name('update');
-        
+
         Route::resource('hostels', HostelController::class);
     });
 });
