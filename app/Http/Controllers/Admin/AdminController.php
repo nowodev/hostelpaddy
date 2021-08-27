@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agent;
+use App\Models\Amenity;
 use App\Models\Hostel;
+use App\Models\Property;
+use App\Models\Rule;
 use App\Models\Student;
+use App\Models\Utility;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
 
@@ -20,7 +24,6 @@ class AdminController extends Controller
         $available = Hostel::available()->get();
         $unavailable = Hostel::unavailable()->get();
         $total = $agents->total() + $students->total();
-
 
         $agentTime = Agent::get()
             ->groupBy(function ($date) {
@@ -62,9 +65,9 @@ class AdminController extends Controller
         }
 
         // charts
-        $chart = (new LarapexChart)->lineChart()
+        $chart = (new LarapexChart())->lineChart()
             ->setTitle('STATS')
-            ->setSubtitle('Stats of date when people joined or hostels were added')
+            ->setSubtitle('Stats of date when people joined and when hostels were added')
             ->addData('Agents', [$agentArr[1], $agentArr[2], $agentArr[3], $agentArr[4], $agentArr[5], $agentArr[6], $agentArr[7], $agentArr[8], $agentArr[9], $agentArr[10], $agentArr[11], $agentArr[12]])
 
             ->addData('Students', [$studentArr[1], $studentArr[2], $studentArr[3], $studentArr[4], $studentArr[5], $studentArr[6], $studentArr[7], $studentArr[8], $studentArr[9], $studentArr[10], $studentArr[11], $studentArr[12]])
@@ -73,11 +76,32 @@ class AdminController extends Controller
             ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'])
             ->setGrid(false, '#3F51B5', 0.1)
             // ->setDataLabels()
-            ->setMarkers(['#E040FB'],7);
+            ->setMarkers(['#E040FB'], 7);
 
         return view(
-            'admin.dashboard',
+            'admin.index',
             compact('agents', 'students', 'hostels', 'total', 'available', 'unavailable', 'chart')
         );
+    }
+
+    public function hostels()
+    {
+        $hostels = Hostel::Paginate(5, ['*'], 'hostels');
+
+        return view('admin.hostel', compact('hostels'));
+    }
+
+    public function agents()
+    {
+        $agents = Agent::Paginate(5, ['*'], 'agents');
+
+        return view('admin.users.agent', compact('agents'));
+    }
+
+    public function students()
+    {
+        $students = Student::Paginate(5, ['*'], 'students');
+
+        return view('admin.users.student', compact('students'));
     }
 }
