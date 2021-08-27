@@ -2,6 +2,7 @@
 
 @section('content')
   <section class="mt-5">
+    <h1>Agents</h1>
     <div class="table-responsive">
       <table class="table table-sm table-striped table-hover">
         <thead>
@@ -15,19 +16,19 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($students as $key => $student)
+          @foreach ($agents as $key => $agent)
             <tr>
-              <td class="px-4 py-3">{{ $students->firstItem() + $key }}</td>
-              <td class="px-4 py-3">{{ $student->name }}</td>
-              <td class="px-4 py-3">{{ $student->phone }}</td>
+              <td class="px-4 py-3">{{ $agents->firstItem() + $key }}</td>
+              <td class="px-4 py-3">{{ $agent->name }}</td>
+              <td class="px-4 py-3">{{ $agent->phone }}</td>
               <td class="px-4 py-3">
-                @if ($student->available == 0)
+                @if ($agent->available == 0)
                   <livewire:pending message="Pending" />
-                @elseif ($student->available == 1)
+                @elseif ($agent->available == 1)
                   <livewire:verified message="Available" />
                 @endif
               </td>
-              <td class="px-4 py-3">{{ $student->created_at }}</td>
+              <td class="px-4 py-3">{{ $agent->created_at }}</td>
               <td class="px-4 py-3">
                 <button class="btn btn-sm">
                   <i class="fa fa-pen"></i>
@@ -43,7 +44,7 @@
         </tbody>
       </table>
 
-      {{ $students->withQueryString()->links() }}
+      {{ $agents->withQueryString()->links() }}
     </div>
   </section>
 @endsection

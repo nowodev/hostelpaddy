@@ -2,32 +2,21 @@
 
 @section('content')
   <section class="mt-5">
+    <h1>Rules</h1>
     <div class="table-responsive">
       <table class="table table-sm table-striped table-hover">
         <thead>
           <tr>
             <th class="px-4 py-3">S/N</th>
             <th class="px-4 py-3">NAME</th>
-            <th class="px-4 py-3">PHONE NUMBER</th>
-            <th class="px-4 py-3">STATUS</th>
-            <th class="px-4 py-3">DATE ADDED</th>
             <th class="px-4 py-3">ACTIONS</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($agents as $key => $agent)
+          @foreach ($rules as $key => $rule)
             <tr>
-              <td class="px-4 py-3">{{ $agents->firstItem() + $key }}</td>
-              <td class="px-4 py-3">{{ $agent->name }}</td>
-              <td class="px-4 py-3">{{ $agent->phone }}</td>
-              <td class="px-4 py-3">
-                @if ($agent->available == 0)
-                  <livewire:pending message="Pending" />
-                @elseif ($agent->available == 1)
-                  <livewire:verified message="Available" />
-                @endif
-              </td>
-              <td class="px-4 py-3">{{ $agent->created_at }}</td>
+              <td class="px-4 py-3">{{ $rules->firstItem() + $key }}</td>
+              <td class="px-4 py-3">{{ $rule->name }}</td>
               <td class="px-4 py-3">
                 <button class="btn btn-sm">
                   <i class="fa fa-pen"></i>
@@ -43,7 +32,7 @@
         </tbody>
       </table>
 
-      {{ $agents->withQueryString()->links() }}
+      {{ $rules->withQueryString()->links() }}
     </div>
   </section>
 @endsection

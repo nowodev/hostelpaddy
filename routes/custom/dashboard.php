@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\OldAdminController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Agent\HostelController;
 use App\Http\Controllers\Agent\ProfileController as AgentProfileController;
@@ -17,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
-        Route::get('old', [OldAdminController::class, 'index'])
-            ->name('old.dashboard');
-
         Route::get('/', [AdminController::class, 'index']);
         Route::get('hostels', [AdminController::class, 'hostels'])->name('hostels');
         Route::get('users/agents', [AdminController::class, 'agents'])->name('users.agents');

@@ -2,6 +2,7 @@
 
 @section('content')
   <section class="mt-5">
+    <h1>Hostels</h1>
     <div class="table-responsive">
       <table class="table table-sm table-striped table-hover">
         <thead>

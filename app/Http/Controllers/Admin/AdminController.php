@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agent;
+use App\Models\Amenity;
 use App\Models\Hostel;
+use App\Models\Property;
+use App\Models\Rule;
 use App\Models\Student;
+use App\Models\Utility;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -92,13 +96,41 @@ class AdminController extends Controller
     {
         $agents = Agent::Paginate(5, ['*'], 'agents');
 
-        return view('admin.agent', compact('agents'));
+        return view('admin.users.agent', compact('agents'));
     }
 
     public function students()
     {
         $students = Student::Paginate(5, ['*'], 'students');
 
-        return view('admin.student', compact('students'));
+        return view('admin.users.student', compact('students'));
+    }
+
+    public function amenities()
+    {
+        $amenities = Amenity::Paginate(5, ['*'], 'amenities');
+
+        return view('admin.features.amenity', compact('amenities'));
+    }
+
+    public function utilities()
+    {
+        $utilities = Utility::Paginate(5, ['*'], 'utilities');
+
+        return view('admin.features.utility', compact('utilities'));
+    }
+
+    public function rules()
+    {
+        $rules = Rule::Paginate(5, ['*'], 'rules');
+
+        return view('admin.features.rules', compact('rules'));
+    }
+
+    public function properties()
+    {
+        $properties = Property::Paginate(5, ['*'], 'properties');
+
+        return view('admin.features.property', compact('properties'));
     }
 }
