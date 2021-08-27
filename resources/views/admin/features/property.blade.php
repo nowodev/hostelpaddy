@@ -3,16 +3,17 @@
 @section('content')
   <section class="mt-5">
     <div class="d-flex justify-content-between">
-        <div>
-          <h1>Properties</h1>
-        </div>
-        <div class="align-self-center">
-          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#featureModal"
-            data-bs-whatever="Property">Add Property</button>
-        </div>
+      <div>
+        <h1>Properties</h1>
       </div>
+      <div class="align-self-center">
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#featureModal">Add
+          Property</button>
+      </div>
+    </div>
 
     <div class="table-responsive">
+      <x-main.errors />
       <table class="table table-sm table-striped table-hover">
         <thead>
           <tr>
@@ -56,7 +57,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="featureModalTitle">Add Feature</h5>
+          <h5 class="modal-title" id="featureModalTitle">Add Property</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
