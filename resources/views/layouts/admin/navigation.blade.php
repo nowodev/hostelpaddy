@@ -45,10 +45,10 @@
                 Features
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="features">
-                <li><a class="dropdown-item" href="{{ route('admin.features.amenities') }}">Amenities</a></li>
-                <li><a class="dropdown-item" href="{{ route('admin.features.utilities') }}">Utilities</a></li>
-                <li><a class="dropdown-item" href="{{ route('admin.features.rules') }}">Rules</a></li>
-                <li><a class="dropdown-item" href="{{ route('admin.features.properties') }}">Properties</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.amenities.index') }}">Amenities</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.utilities.index') }}">Utilities</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.rules.index') }}">Rules</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.properties.index') }}">Properties</a></li>
               </ul>
             </li>
           </ul>
