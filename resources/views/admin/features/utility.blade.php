@@ -2,7 +2,16 @@
 
 @section('content')
   <section class="mt-5">
-    <h1>Utilities</h1>
+    <div class="d-flex justify-content-between">
+      <div>
+        <h1>Utilities</h1>
+      </div>
+      <div class="align-self-center">
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#featureModal"
+          data-bs-whatever="Utility">Add Utility</button>
+      </div>
+    </div>
+
     <div class="table-responsive">
       <table class="table table-sm table-striped table-hover">
         <thead>
@@ -17,14 +26,19 @@
             <tr>
               <td class="px-4 py-3">{{ $utilities->firstItem() + $key }}</td>
               <td class="px-4 py-3">{{ $utility->name }}</td>
-              <td class="px-4 py-3">
-                <button class="btn btn-sm">
+              <td class="px-4 py-3 d-flex justify-items-center">
+                <button class="btn btn-sm btn-secondary">
                   <i class="fa fa-pen"></i>
                 </button>
 
-                <button class="btn btn-sm">
-                  <i class="fa fa-trash"></i>
-                </button>
+                {{-- <a class="dropdown-item" href="{{ route('agent.hostels.edit', [$hostel]) }}">Edit</a> --}}
+                <form action="{{ route('admin.utilities.destroy', [$utility]) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Are you sure?')">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </form>
               </td>
             </tr>
           @endforeach
@@ -35,4 +49,51 @@
       {{ $utilities->withQueryString()->links() }}
     </div>
   </section>
+
+  {{-- add amenity modal --}}
+  <div class="modal fade" id="featureModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="featureModal"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="featureModalTitle">Add Feature</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{{ route('admin.amenities.store') }}" method="POST">
+            {{-- @csrf --}}
+            <div class="mb-3">
+              <label for="featureName" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="amenityName" name="name">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+@endsection
+
+@section('script')
+  <script>
+    var featureModal = document.getElementById('featureModal')
+    featureModal.addEventListener('show.bs.modal', function(event) {
+      // Button that triggered the modal
+      var button = event.relatedTarget
+      // Extract info from data-bs-* attributes
+      var recipient = button.getAttribute('data-bs-whatever')
+      // If necessary, you could initiate an AJAX request here
+      // and then do the updating in a callback.
+      //
+      // Update the modal's content.
+      var modalTitle = featureModal.querySelector('.modal-title')
+      var modalBodyInput = featureModal.querySelector('.modal-body input')
+
+      modalTitle.textContent = 'Add ' + recipient
+      modalBodyInput.value = recipient
+    })
+  </script>
 @endsection
