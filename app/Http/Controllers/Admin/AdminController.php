@@ -87,4 +87,18 @@ class AdminController extends Controller
 
         return view('admin.hostel', compact('hostels'));
     }
+
+    public function agents()
+    {
+        $agents = Agent::Paginate(5, ['*'], 'agents');
+
+        return view('admin.agent', compact('agents'));
+    }
+
+    public function students()
+    {
+        $students = Student::Paginate(5, ['*'], 'students');
+
+        return view('admin.student', compact('students'));
+    }
 }

@@ -57,6 +57,8 @@
 
         </tbody>
       </table>
+
+      {{ $hostels->withQueryString()->links() }}
     </div>
   </section>
 @endsection
