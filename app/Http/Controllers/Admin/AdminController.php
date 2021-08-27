@@ -104,18 +104,4 @@ class AdminController extends Controller
 
         return view('admin.users.student', compact('students'));
     }
-
-    public function rules()
-    {
-        $rules = Rule::Paginate(5, ['*'], 'rules');
-
-        return view('admin.features.rules', compact('rules'));
-    }
-
-    public function properties()
-    {
-        $properties = Property::Paginate(5, ['*'], 'properties');
-
-        return view('admin.features.property', compact('properties'));
-    }
 }
