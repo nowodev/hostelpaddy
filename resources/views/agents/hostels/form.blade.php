@@ -214,7 +214,7 @@
             level and other personalities</p>
 
           <div class="form-label-group">
-            <input type="text" id="choice" name="tenantType" class="form-control" placeholder="Preference" required
+            <input type="text" id="choice" name="tenantType" class="form-control" placeholder="Preference"
               value="{{ old('tenantType', $hostel->tenantType) }}">
             <label for="choice">Preference</label>
           </div>
