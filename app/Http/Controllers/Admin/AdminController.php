@@ -80,4 +80,11 @@ class AdminController extends Controller
             compact('agents', 'students', 'hostels', 'total', 'available', 'unavailable', 'chart')
         );
     }
+
+    public function hostels()
+    {
+        $hostels = Hostel::Paginate(5, ['*'], 'hostels');
+
+        return view('admin.hostel', compact('hostels'));
+    }
 }

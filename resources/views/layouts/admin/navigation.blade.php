@@ -8,10 +8,10 @@
       <a class="navbar-brand" href="#">Admin</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('admin.') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Hostels</a>
+          <a class="nav-link" href="{{ route('admin.hostels') }}">Hostels</a>
         </li>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
@@ -26,8 +26,8 @@
                 Users
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="users">
-                <li><a class="dropdown-item" href="#">Agents</a></li>
-                <li><a class="dropdown-item" href="#">Students</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.users.agents') }}">Agents</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.users.students') }}">Students</a></li>
               </ul>
             </li>
           </ul>
@@ -45,10 +45,10 @@
                 Features
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="features">
-                <li><a class="dropdown-item" href="#">Amenities</a></li>
-                <li><a class="dropdown-item" href="#">Utilities</a></li>
-                <li><a class="dropdown-item" href="#">Rules</a></li>
-                <li><a class="dropdown-item" href="#">Properties</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.features.amenities') }}">Amenities</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.features.utilities') }}">Utilities</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.features.rules') }}">Rules</a></li>
+                <li><a class="dropdown-item" href="{{ route('admin.features.properties') }}">Properties</a></li>
               </ul>
             </li>
           </ul>

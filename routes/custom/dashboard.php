@@ -16,10 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 // Admin Route
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::get('old', [OldAdminController::class, 'index'])
-        ->name('old.dashboard');
+    Route::name('admin.')->group(function () {
+        Route::get('old', [OldAdminController::class, 'index'])
+            ->name('old.dashboard');
 
-    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+        Route::get('/', [AdminController::class, 'index']);
+        Route::get('hostels', [AdminController::class, 'hostels'])->name('hostels');
+        Route::get('users/agents', [AdminController::class, 'agents'])->name('users.agents');
+        Route::get('users/students', [AdminController::class, 'students'])->name('users.students');
+        Route::get('features/amenities', [AdminController::class, 'amenities'])->name('features.amenities');
+        Route::get('features/utilities', [AdminController::class, 'utilities'])->name('features.utilities');
+        Route::get('features/rules', [AdminController::class, 'rules'])->name('features.rules');
+        Route::get('features/properties', [AdminController::class, 'properties'])->name('features.properties');
+    });
 });
 
 // Students Route
