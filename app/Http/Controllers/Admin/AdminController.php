@@ -66,7 +66,7 @@ class AdminController extends Controller
         }
 
         // charts
-        $chart = (new LarapexChart)->lineChart()
+        $chart = (new LarapexChart())->lineChart()
             ->setTitle('STATS')
             ->setSubtitle('Stats of date when people joined and when hostels were added')
             ->addData('Agents', [$agentArr[1], $agentArr[2], $agentArr[3], $agentArr[4], $agentArr[5], $agentArr[6], $agentArr[7], $agentArr[8], $agentArr[9], $agentArr[10], $agentArr[11], $agentArr[12]])
