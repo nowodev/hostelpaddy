@@ -12,7 +12,6 @@ use App\Models\Student;
 use App\Models\Utility;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -104,13 +103,6 @@ class AdminController extends Controller
         $students = Student::Paginate(5, ['*'], 'students');
 
         return view('admin.users.student', compact('students'));
-    }
-
-    public function amenities()
-    {
-        $amenities = Amenity::Paginate(5, ['*'], 'amenities');
-
-        return view('admin.features.amenity', compact('amenities'));
     }
 
     public function utilities()
