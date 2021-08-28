@@ -84,8 +84,9 @@
             </div>
 
             @foreach ($hostel->images as $image)
-            <div class="carousel-item">
-                  <img class="d-block w-100 rounded" src="{{ asset("storage/hostels/$image->image") }}" alt="Hostel Images">
+              <div class="carousel-item">
+                <img class="d-block w-100 rounded" src="{{ asset("storage/hostels/$image->image") }}"
+                  alt="Hostel Images">
               </div>
             @endforeach
           </div>
@@ -210,8 +211,13 @@
             class="my-auto verify">&nbsp;Joined {{ $agent->joindate }}</span>
         </div>
         <div class="d-flex align-content-center">
-          <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span
-            class="my-auto verify">&nbsp;Verified</span>
+          @if ($agent->verified === 1)
+            <img src="{{ asset('main/img/verified.png') }}" alt="" class="img-fluid"> <span
+              class="my-auto verify">&nbsp;Verified</span>
+          @else
+            <img src="{{ asset('main/img/wrong.png') }}" alt="" class="img-fluid"> <span
+              class="my-auto verify">&nbsp;Not Verified</span>
+          @endif
         </div>
       </div>
 

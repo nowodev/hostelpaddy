@@ -21,6 +21,7 @@ class CreateAgentsTable extends Migration
             $table->string('phone');
             $table->string('password');
             $table->string('image');
+            $table->boolean('verified');
             $table->timestamps();
         });
     }
