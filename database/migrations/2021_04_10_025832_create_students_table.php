@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('phone');
             $table->string('state');
             $table->string('password');
+            $table->boolean('verified');
             $table->timestamps();
         });
     }
