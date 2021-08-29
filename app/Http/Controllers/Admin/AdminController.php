@@ -85,13 +85,6 @@ class AdminController extends Controller
         );
     }
 
-    public function agents()
-    {
-        $agents = Agent::Paginate(5, ['*'], 'agents');
-
-        return view('admin.users.agent', compact('agents'));
-    }
-
     public function students()
     {
         $students = Student::Paginate(5, ['*'], 'students');

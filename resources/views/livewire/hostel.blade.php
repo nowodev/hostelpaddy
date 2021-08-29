@@ -36,29 +36,24 @@
             </td>
             <td class="px-4 py-3">{{ $hostel->address }}</td>
             <td class="px-4 py-3">
-              @if ($hostel->available == 0)
-                <x-admin.pending message="Unavailable" />
-              @elseif ($hostel->available == 1)
-                <x-admin.verified message="Available" />
-              @endif
+              <button wire:click="makeAvailable({{ $hostel->id }})">
+                @if ($hostel->available == 0)
+                  <x-admin.pending message="Unavailable" />
+                @elseif ($hostel->available == 1)
+                  <x-admin.verified message="Available" />
+                @endif
+              </button>
             </td>
             <td class="px-4 py-3">{{ $hostel->created_at }}</td>
             <td class="px-4 py-3">
-              <div class="inline-flex">
-                <div class="mr-2 form-check form-switch">
-                    <input wire:click="makeAvailable({{ $hostel->id }})" class="form-check-input" type="checkbox"
-                    {{ $hostel->available ? 'checked' : '' }}>
-                </div>
-
-                <button class="btn btn-sm">
-                  <x-trash />
-                </button>
-              </div>
+              <button class="btn btn-sm">
+                <x-trash />
+              </button>
             </td>
           </tr>
         @endforeach
       </tbody>
     </table>
-    {{ $hostels->withQueryString()->links() }}
+    {{ $hostels->links() }}
   </div>
 </section>

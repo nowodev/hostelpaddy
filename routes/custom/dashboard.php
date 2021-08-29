@@ -14,6 +14,7 @@ use App\Http\Controllers\Student\PreferenceController;
 use App\Http\Controllers\Student\ProfileController as StudentProfileController;
 use App\Http\Controllers\Student\SharedHostelController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Livewire\Agents;
 use App\Http\Livewire\Hostel;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index']);
         Route::get('hostels', Hostel::class)->name('hostels');
-        Route::get('hostels/available}', [AdminController::class, 'changeHostelStatus'])->name('hostels.availablity');
-        Route::get('users/agents', [AdminController::class, 'agents'])->name('users.agents');
+        Route::get('users/agents', Agents::class)->name('users.agents');
         Route::get('users/students', [AdminController::class, 'students'])->name('users.students');
         Route::resources([
             'features/amenities' => AmenityController::class,
