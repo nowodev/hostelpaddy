@@ -11,6 +11,7 @@
 
   <!-- Styles -->
   @notifyCss
+  @livewireStyles
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-5.1.0-dist/css/bootstrap.min.css') }}">
 </head>
 
@@ -26,6 +27,7 @@
   </div>
 
   @notifyJs
+  @livewireScripts
   <script src="{{ asset('main/vendor/jquery/jquery-3.4.1.min.js') }}"></script>
   <script src="{{ asset('main/vendor/bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>

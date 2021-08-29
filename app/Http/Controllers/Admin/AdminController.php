@@ -85,23 +85,6 @@ class AdminController extends Controller
         );
     }
 
-    public function hostels()
-    {
-        $hostels = Hostel::Paginate(5, ['*'], 'hostels');
-
-        return view('admin.hostel', compact('hostels'));
-    }
-
-    public function changeHostelStatus(Request $request)
-    {
-        $hostel = Hostel::find($request->id);
-        $hostel->available = $request->available;
-        $hostel->update();
-
-        notify()->preset('available');
-        return redirect()->back();
-    }
-
     public function agents()
     {
         $agents = Agent::Paginate(5, ['*'], 'agents');
