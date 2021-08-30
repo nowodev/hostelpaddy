@@ -29,15 +29,15 @@
               <td class="px-4 py-3">{{ $property->name }}</td>
               <td class="px-4 py-3 d-flex justify-items-center">
                 <button class="btn btn-sm btn-secondary">
-                  <i class="fa fa-pen"></i>
+                  <x-pencil />
                 </button>
 
                 {{-- <a class="dropdown-item" href="{{ route('agent.hostels.edit', [$hostel]) }}">Edit</a> --}}
                 <form action="{{ route('admin.properties.destroy', [$property]) }}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Are you sure?')">
-                    <i class="fa fa-trash"></i>
+                  <button type="submit" class="ml-4 btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                    <x-trash />
                   </button>
                 </form>
               </td>

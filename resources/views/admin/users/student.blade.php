@@ -22,20 +22,21 @@
               <td class="px-4 py-3">{{ $student->name }}</td>
               <td class="px-4 py-3">{{ $student->phone }}</td>
               <td class="px-4 py-3">
-                @if ($student->available == 0)
-                  <livewire:pending message="Pending" />
-                @elseif ($student->available == 1)
-                  <livewire:verified message="Available" />
+                @if ($student->verified == 0)
+                  <x-admin.pending message="Pending" />
+                @elseif ($student->verified == 1)
+                  <x-admin.verified message="Verified" />
                 @endif
               </td>
               <td class="px-4 py-3">{{ $student->created_at }}</td>
               <td class="px-4 py-3">
                 <button class="btn btn-sm">
                   <i class="fa fa-pen"></i>
+                  <x-pencil />
                 </button>
 
                 <button class="btn btn-sm">
-                  <i class="fa fa-trash"></i>
+                  <x-trash />
                 </button>
               </td>
             </tr>
