@@ -73,10 +73,10 @@
 
       {{-- <div class="btn btn-outline-primary logout signup"> --}}
       {{-- <a class="btn btn-outline-primary logout signup" href="{{ route('onboarding') }}">Logout</a> --}}
-      <form method="POST" action="{{ route('student.logout') }}">
+      <form method="POST" action="{{ route('agent.logout') }}">
         @csrf
 
-        <x-dropdown-link :href="route('student.logout')"
+        <x-dropdown-link :href="route('agent.logout')"
           onclick="event.preventDefault(); this.closest('form').submit();">
           <div class="btn btn-outline-primary logout signup">
 
