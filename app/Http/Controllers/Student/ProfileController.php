@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentProfileRequest;
 use App\Models\Student;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -13,7 +13,17 @@ class ProfileController extends Controller
     {
         $student->update($request->validated());
 
-        return redirect()->route('student.settings.profile')
-            ->with('success', 'Profile Updated Successfully');
+        notify()->preset('profile-updated');
+        return redirect()->route('student.settings.profile');
+    }
+
+    public function updatePassword(StudentProfileRequest $request, Student $student)
+    {
+        $student->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        notify()->preset('password-updated');
+        return redirect()->route('student.settings.profile');
     }
 }

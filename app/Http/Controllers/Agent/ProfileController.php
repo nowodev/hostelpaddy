@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Agent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AgentProfileRequest;
 use App\Models\Agent;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -13,7 +13,17 @@ class ProfileController extends Controller
     {
         $agent->update($request->validated());
 
-        return redirect()->route('agent.settings.profile')
-            ->with('success', 'Profile Updated Successfully');
+        notify()->preset('profile-updated');
+        return redirect()->route('agent.settings.profile');
+    }
+
+    public function updatePassword(AgentProfileRequest $request, Agent $agent)
+    {
+        $agent->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        notify()->preset('password-updated');
+        return redirect()->route('agent.settings.profile');
     }
 }

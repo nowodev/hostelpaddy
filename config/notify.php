@@ -127,6 +127,18 @@ return [
             'model' => 'toast',
             'title' => '',
         ],
+        'profile-updated' => [
+            'message' => 'Profile updated successfully.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
+        'password-updated' => [
+            'message' => 'Password updated successfully.',
+            'type' => 'success',
+            'model' => 'toast',
+            'title' => '',
+        ],
     ],
 
 ];

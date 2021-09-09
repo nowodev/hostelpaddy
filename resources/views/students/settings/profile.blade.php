@@ -98,7 +98,7 @@
         <button data-toggle="collapse" data-target="#password" onclick="handleToggle(this)" id="edit">Edit</button>
       </div>
       <div class="col-12 collapse mt-2" id="password">
-        <form action="{{ route('student.update', [$student]) }}" method="POST" class="p-0">
+        <form action="{{ route('student.update.password', [$student]) }}" method="POST" class="p-0">
           @csrf
           @method('PUT')
           <div class="form-group">

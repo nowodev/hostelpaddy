@@ -63,6 +63,8 @@ Route::middleware(['auth:student'])->prefix('student')->group(function () {
             ->name('sharedUnfave');
         Route::put('/edit-profile/{student}', [StudentProfileController::class, 'update'])
             ->name('update');
+        Route::put('/edit-password/{student}', [StudentProfileController::class, 'updatePassword'])
+            ->name('update.password');
 
         Route::resource('hostel-mate', SharedHostelController::class);
     });
@@ -107,6 +109,8 @@ Route::middleware(['auth:agent'])->prefix('agent')->group(function () {
             ->name('notification');
         Route::put('/edit-profile/{agent}', [AgentProfileController::class, 'update'])
             ->name('update');
+        Route::put('/edit-password/{agent}', [AgentProfileController::class, 'updatePassword'])
+            ->name('update.password');
 
         Route::resource('hostels', HostelController::class);
     });
