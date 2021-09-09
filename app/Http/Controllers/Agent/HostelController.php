@@ -13,7 +13,6 @@ use App\Models\Property;
 use App\Models\Rule;
 use App\Models\State;
 use App\Models\Utility;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -50,10 +49,19 @@ class HostelController extends Controller
     {
         // ? Add hostel to table, and populate other tables(hostel_utility, amenity_hostel, hostel_rule) with data
         if (auth('agent')->check()) {
-            $hostel = auth('agent')->user()->hostels()->create($request->validated());
-            if ($request->hasFile('coverImage')) {
-                $this->_uploadCoverImage($request, $hostel);
-            }
+//          $hostel = auth('agent')->user()->hostels()->create($request->validated());
+            $hostel = auth('agent')->user()->hostels()->create([
+              'hostel_name' => $request->hostel_name,
+              'address' => $request->address,
+              'state' => $request->state,
+              'city' => $request->city,
+              'property' => $request->property,
+              'roomNum' => $request->roomNum,
+              'amount' => $request->amount,
+              'period' => $request->period,
+              'tenantType' => $request->tenantType,
+              'coverImage' => $this->_uploadCoverImage($request),
+            ]);
 
             if ($request->hasFile('images')) {
                 $this->_uploadImages($request, $hostel);
@@ -133,15 +141,14 @@ class HostelController extends Controller
         return redirect()->route('agent.hostels.index');
     }
 
-    private function _uploadCoverImage($request, $hostel)
+    private function _uploadCoverImage($request)
     {
         $image = $request->file('coverImage');
         $name = $request->hostel_name;
         $filename = 'HP_H_' . $name . '.' . $image->getClientOriginalExtension();
         Image::make($image)->save(storage_path('app/public/hostels/' . $filename));
 
-        $hostel->coverImage = $filename;
-        $hostel->save();
+        return $filename;
     }
 
     private function _uploadImages($request, $hostel)
