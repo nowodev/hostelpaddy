@@ -14,7 +14,7 @@
     </nav>
 
     <div class="col-sm-9 col-8">
-      <x-main.errors />
+      <x-main.errors/>
 
       {{-- First part of form --}}
       <section class="animated" id="property-details">
@@ -25,7 +25,7 @@
 
         <div class="form-label-group">
           <input type="text" id="hostel_name" name="hostel_name" class="form-control" placeholder="Hostel Name"
-            autofocus value="{{ old('hostel_name', $hostel->hostel_name) }}">
+                 autofocus value="{{ old('hostel_name', $hostel->hostel_name) }}">
           <label for="hostel_name">Hostel Name</label>
         </div>
 
@@ -65,7 +65,7 @@
 
         <div class="form-label-group">
           <input type="text" id="address" name="address" class="form-control" placeholder="Full Address" autofocus
-            value="{{ old('address', $hostel->address) }}">
+                 value="{{ old('address', $hostel->address) }}">
           <label for="address">Full Address</label>
         </div>
 
@@ -77,10 +77,10 @@
               <div class="col-6">
                 <div class="custom-control custom-radio mb-3">
                   <input type="radio" class="custom-control-input" id="property_{{ $property->id }}" name="property"
-                    value="{{ $property->name }}"
+                         value="{{ $property->name }}"
                     {{ $property->name === old('property', $hostel->property) ? 'checked' : '' }}>
                   <label class="custom-control-label"
-                    for="property_{{ $property->id }}">{{ $property->name }}</label>
+                         for="property_{{ $property->id }}">{{ $property->name }}</label>
                 </div>
               </div>
             @endforeach
@@ -93,14 +93,14 @@
           <div class="col-md-4">
             <div class="form-label-group">
               <input type="number" id="amount" name="amount" class="form-control" placeholder="Enter Amount" autofocus
-                value="{{ old('amount', $hostel->amount) }}">
+                     value="{{ old('amount', $hostel->amount) }}">
               <label for=" amount">Enter Amount</label>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-label-group">
               <input type="number" list="encodings" id="roomNum" name="roomNum" class="form-control"
-                placeholder="Number of Rooms" autofocus value="{{ old('roomNum', $hostel->roomNum) }}">
+                     placeholder="Number of Rooms" autofocus value="{{ old('roomNum', $hostel->roomNum) }}">
               <datalist id="encodings">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -153,10 +153,10 @@
               <div class="col-6">
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="amenity_{{ $amenity->id }}"
-                    name="amenities[]" value="{{ $amenity->id }}"
+                         name="amenities[]" value="{{ $amenity->id }}"
                     {{ in_array($amenity->id, old('amenities', $hostel->amenities->pluck('id')->toArray())) ? 'checked' : '' }}>
                   <label class="custom-control-label"
-                    for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
+                         for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
                 </div>
               </div>
             @endforeach
@@ -171,10 +171,10 @@
               <div class="col-6">
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="utility_{{ $utility->id }}"
-                    name="utilities[]" value="{{ $utility->id }}"
+                         name="utilities[]" value="{{ $utility->id }}"
                     {{ in_array($utility->id, old('utilities', $hostel->utilities->pluck('id')->toArray())) ? 'checked' : '' }}>
                   <label class=" custom-control-label"
-                    for="utility_{{ $utility->id }}">{{ $utility->name }}</label>
+                         for="utility_{{ $utility->id }}">{{ $utility->name }}</label>
                 </div>
               </div>
             @endforeach
@@ -198,7 +198,7 @@
               <div class="col-6">
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="rule_{{ $rule->id }}" name="rules[]"
-                    value="{{ $rule->id }}"
+                         value="{{ $rule->id }}"
                     {{ in_array($rule->id, old('rules', $hostel->rules->pluck('id')->toArray())) ? 'checked' : '' }}>
                   <label class=" custom-control-label" for="rule_{{ $rule->id }}">{{ $rule->name }}</label>
                 </div>
@@ -215,7 +215,7 @@
 
           <div class="form-label-group">
             <input type="text" id="choice" name="tenantType" class="form-control" placeholder="Preference"
-              value="{{ old('tenantType', $hostel->tenantType) }}">
+                   value="{{ old('tenantType', $hostel->tenantType) }}">
             <label for="choice">Preference</label>
           </div>
         </div>
@@ -235,13 +235,20 @@
 
           <div class="dropzone mb-2">
             <input type="file" class="coverImage" name="coverImage">
+            @if ($hostel->coverImage)
+              <livewire:delete-image :id="$hostel->id"/>
+            @endif
           </div>
+
 
           <h4>Upload Other Photos</h4>
           <p>Upload 3 to 4 clear images of the hostel for proper display. <br>jpg, jpeg & png format only.</p>
 
           <div class="dropzone mb-2">
             <input type="file" class="multipleImages" name="images[]" multiple>
+            @if ($hostel->images())
+              <livewire:delete-multiple-images :id="$hostel->id"/>
+            @endif
           </div>
 
           {{-- Video should probably be a later feature --}}
