@@ -50,7 +50,7 @@ class Hostel extends Model
         if ($this->coverImage) {
             return asset('storage/hostels/' . $this->coverImage);
         }
-        return asset('storage/thumbnail.jpg');
+        return asset('storage/thumbnail.png');
     }
 
     // filter function for hostel search
