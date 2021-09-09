@@ -36,7 +36,7 @@
                 <form action="{{ route('admin.properties.destroy', [$property]) }}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="ml-4 btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                  <button type="submit" class="ml-4 btn btn-sm btn-danger" onclick="return confirm('Are you sure?') || event.stopImmediatePropagation()">
                     <x-trash />
                   </button>
                 </form>
