@@ -24,7 +24,7 @@
 
     {{-- Tab Panes --}}
     <section class="tab-content">
-      <div id="listed" class="container tab-pane active">
+      <div id="listed" class="container tab-pane fade active">
         @include('partials.agent.search-bar')
         @include('partials.agent.listed')
       </div>
