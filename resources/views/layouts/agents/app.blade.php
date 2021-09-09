@@ -71,6 +71,8 @@
 
   <!-- Vendor scripts -->
   @notifyCss
+  @livewireStyles
+
   <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap-4.6.0-dist/css/bootstrap.min.css') }}">
   <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/animate/css/animate.min.css') }}">
   {{-- <link type="text/css" rel="stylesheet" href="{{ asset('main/vendor/reset/css/reset.min.css') }}"> --}}
@@ -102,6 +104,7 @@
 
   <!-- Vendor scripts -->
   @notifyJs
+  @livewireScripts
   <script src="{{ asset('main/vendor/jquery/jquery-3.4.1.min.js') }}"></script>
   <script src="{{ asset('main/vendor/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('main/vendor/fontawesome/d7644e187f.js') }}"></script>
