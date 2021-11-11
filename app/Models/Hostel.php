@@ -13,7 +13,7 @@ class Hostel extends Model
     use HasFactory, SoftDeletes, Favoriteable;
 
     protected $fillable = [
-        'hostel_name', 'state', 'city',
+        'hostel_name', 'state_id', 'city_id',
         'address', 'property', 'roomNum',
         'amount', 'period', 'tenantType', 'coverImage',
         'amenities', 'utilities', 'rules', 'available',

@@ -18,8 +18,8 @@ class CreateHostelsTable extends Migration
             $table->unsignedBigInteger('agent_id')->index();
             $table->string('hostel_name');
             $table->string('slug');
-            $table->integer('state');
-            $table->integer('city');
+            $table->unsignedBigInteger('state_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
             $table->longText('address');
             $table->string('property');
             $table->string('roomNum');

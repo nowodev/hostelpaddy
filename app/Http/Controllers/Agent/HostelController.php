@@ -52,8 +52,8 @@ class HostelController extends Controller
             $hostel = auth('agent')->user()->hostels()->create([
                 'hostel_name' => $request->hostel_name,
                 'address' => $request->address,
-                'state' => $request->state,
-                'city' => $request->city,
+                'state_id' => $request->state_id,
+                'city_id' => $request->city_id,
                 'property' => $request->property,
                 'roomNum' => $request->roomNum,
                 'amount' => $request->amount,
@@ -103,8 +103,8 @@ class HostelController extends Controller
         $hostel->update([
             'hostel_name' => $request->hostel_name,
             'address' => $request->address,
-            'state' => $request->state,
-            'city' => $request->city,
+            'state_id' => $request->state_id,
+            'city_id' => $request->city_id,
             'property' => $request->property,
             'roomNum' => $request->roomNum,
             'amount' => $request->amount,

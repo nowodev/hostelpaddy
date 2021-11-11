@@ -33,7 +33,7 @@
           <div class="col-6">
             <label for="state-dd">State</label>
             <div class="form-label-group">
-              <select name="state" id="state-dd" class="custom-select" autofocus>
+              <select name="state_id" id="state-dd" class="custom-select" autofocus>
                 <option value="">Select State</option>
                 @foreach ($states as $state)
                   <option value="{{ $state->id }}"
@@ -46,7 +46,7 @@
           <div class="col-6">
             <label for="city-dd">City</label>
             <div class="form-label-group">
-              <select name="city" id="city-dd" class="custom-select" autofocus></select>
+              <select name="city_id" id="city-dd" class="custom-select" autofocus></select>
             </div>
 
 
