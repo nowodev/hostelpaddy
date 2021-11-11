@@ -120,12 +120,7 @@
       <div class="row pt-3">
         <div class="col-12">
           <span class="card-text text-dark text-bold mr-4">
-            @foreach (\App\Models\City::where('id', $hostel->city)->get() as $city)
-              {{ $city->name }},
-            @endforeach
-            @foreach (\App\Models\State::where('id', $hostel->state)->get() as $state)
-              {{ $state->name }}
-            @endforeach
+            {{ $hostel->city->name }}, {{ $hostel->state->name }}
           </span>
 
           {{-- Video should probably be a later feature --}}
@@ -155,7 +150,8 @@
   <!-- house rules -->
   <div class="container mt-5">
     <h2 class="h5"><b>House Rules</b></h2>
-    <p class="mb-3">These are the set of things that the House owner doesn't tolerate in the house except otherwise
+    <p class="mb-3">These are the set of things that the House owner doesn't tolerate in the house except
+      otherwise
     </p>
     <ol>
       @foreach ($hostel->rules as $rule)

@@ -12,10 +12,11 @@
               @foreach ($chunk as $others)
                 <div>
                   <div class="card mx-2 p-2 border border-light b-roll">
-                    {{--                     <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image">--}}
+                    {{-- <img class="card-img-top img-fluid px-2 pt-2" src="{{ $others->thumbnail }}" alt="Card image"> --}}
                     {{-- <img class="d-block w-100" src="{{ asset('main/img/hostel2.png') }}" alt="First slide"> --}}
 
-                    <img class="d-block w-100 rounded" style="height: 200px; width: 250px" src="{{ $others->main_image }}" alt="Card image">
+                    <img class="d-block w-100 rounded" style="height: 200px; width: 250px"
+                      src="{{ $others->main_image }}" alt="Card image">
 
                     @auth('agent')
                     @else
@@ -24,12 +25,7 @@
 
                     <div class="p-0" style="position: relative;">
                       <p class="card-text text-primary location mt-2">
-                        @foreach (\App\Models\City::where('id', $others->city)->get() as $city)
-                          {{ $city->name }},
-                        @endforeach
-                        @foreach (\App\Models\State::where('id', $others->state)->get() as $state)
-                          {{ $state->name }}
-                        @endforeach
+                        {{ $others->city->name }}, {{ $others->state->name }}
                       </p>
                       <h5 class="card-title text-dark h6 my-0"><b>The {{ $others->hostel_name }} lodge</b></h5>
                       <p class="card-subtitle text-secondary mt-0">{{ $others->description }}</p>

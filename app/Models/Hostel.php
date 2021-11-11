@@ -44,6 +44,16 @@ class Hostel extends Model
         return $this->hasMany(Image::class);
     }
 
+    public function state()
+    {
+        return $this->belongsTo(State::class)->withDefault(['name' => 'Undisclosed']);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class)->withDefault(['name' => 'Undisclosed']);
+    }
+
     // display image
     public function getMainImageAttribute()
     {

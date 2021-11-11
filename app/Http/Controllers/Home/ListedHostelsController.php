@@ -31,9 +31,9 @@ class ListedHostelsController extends Controller
 
     public function show(Hostel $hostel)
     {
-        $hostel->with('images');
+        $hostel->with('images', 'state', 'city');
         $agent = Agent::find($hostel->agent_id);
-        $otherHostels = Hostel::where('id', '!=', $hostel->id)->get();
+        $otherHostels = Hostel::where('id', '!=', $hostel->id)->with('state', 'city')->get();
         $shareComponent = \Share::currentPage()
             ->facebook()
             ->twitter()
