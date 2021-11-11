@@ -13,7 +13,7 @@ class SharedHostelFactory extends Factory
      * @var string
      */
     protected $model = SharedHostel::class;
-    
+
     /**
      * Define the model's default state.
      *

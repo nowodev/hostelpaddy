@@ -21,6 +21,7 @@ class AgentSeeder extends Seeder
             'phone' => '1234567',
             'password' => Hash::make('password'),
             'image' => 'default.jpg',
+            'verified' => 0,
         ]);
     }
 }

@@ -15,9 +15,13 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call([
+            AdminSeeder::class,
+            AgentSeeder::class,
+            StudentSeeder::class,
             AmenitySeeder::class,
             CitySeeder::class,
             HostelSeeder::class,
+            PeriodSeeder::class,
             PropertySeeder::class,
             RuleSeeder::class,
             SharedHostelSeeder::class,

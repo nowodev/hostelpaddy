@@ -20,7 +20,8 @@ class StudentSeeder extends Seeder
             'email' => 'till@gmail.com',
             'phone' => '1234567',
             'password' => Hash::make('password'),
-            'state' => 'Lagos'
+            'state' => 'Lagos',
+            'verified' => 0,
         ]);
 
         Student::create([
@@ -28,7 +29,8 @@ class StudentSeeder extends Seeder
             'email' => 'sansa@gmail.com',
             'phone' => '1234567',
             'password' => Hash::make('password'),
-            'state' => 'Ogun'
+            'state' => 'Ogun',
+            'verified' => 0,
         ]);
 
     }
